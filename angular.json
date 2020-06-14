@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "alugo-app"
+    }
+  },
+  "defaultProject": "alugo-app",
+  "cli": {
+    "analytics": false
+  }
 }
