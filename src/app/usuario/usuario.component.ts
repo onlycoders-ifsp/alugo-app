@@ -14,15 +14,15 @@ export class UsuarioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const u : Usuario = new Usuario();
-    u.nome = 'Teste Angular';
-    u.email = 'email.doangular@angular.com';
-    u.login = 'angular';
-    u.senha = 'angular';
+    // const u : Usuario = new Usuario();
+    // u.nome = 'Teste Angular';
+    // u.email = 'email.doangular@angular.com';
+    // u.login = 'angular';
+    // u.senha = 'angular';
 
-    this.service.salvar(u).subscribe(resposta => {
-      console.log(resposta);
-    })
+    // this.service.salvar(u).subscribe(resposta => {
+    //   console.log(resposta);
+    // })
   }
 
 }
