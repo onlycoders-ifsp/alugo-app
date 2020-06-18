@@ -15,7 +15,7 @@ export class UsuarioService {
     private http: HttpClient 
     ) { }
 
-    salvar(Usuario: Usuario) : Observable<Usuario> {
-      return this.http.post<Usuario>(this.url, Usuario);
-    }
+    // salvar(Usuario: Usuario) : Observable<Usuario> {
+    //   return this.http.post<Usuario>(this.url, Usuario);
+    // }
 }
