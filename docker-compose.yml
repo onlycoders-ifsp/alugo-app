@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  alugo-app:
+    image: alugo-app
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000
