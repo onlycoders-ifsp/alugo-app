@@ -26,7 +26,10 @@ export class UsuarioFormComponent implements OnInit {
 
   ngOnInit(): void {
     let dados = this.activatedRoute.params
+    //@ts-ignore
     if(dados && dados.value && dados.value.codigo){
+      console.log(dados);
+      // @ts-ignore
       this.codigo = dados.value.codigo;
       this.service
       .getClienteById(this.codigo)
