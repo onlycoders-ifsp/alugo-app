@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 
-html, body { height: 100%;}
-body { margin: 0; font-family: 'Montserrat', sans-serif; }
+html { height: 100%;}
+body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
 
 
 .primaryAlugo{
@@ -41,66 +41,89 @@ body { margin: 0; font-family: 'Montserrat', sans-serif; }
 }
 
 
-    
-.user_card {
-    height: 400px;
-    width: 350px;
-    margin-top: auto;
-    margin-bottom: auto;
-    background: #FFF;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
-    border-color: #FFF;
-
-}
-.brand_logo_container {
-    position: absolute;
-    height: 170px;
-    width: 170px;
-    top: -75px;
-    border-radius: 50%;
-    background: #324a81;
-    padding: 10px;
+.sidebar {
+    position: fixed;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    top:-10px;
+    background: #f3935e;
+    transition: all .5s ease;
+  }
+  .sidebar header {
+    font-size: 22px;
+    color: white;
+    line-height: 72px;
     text-align: center;
-}
-.brand_logo {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-}
-.form_container {
-    margin-top: 100px;
-}
-.login_btn {
+    background: #edab8e;
+    user-select: none;
+  }
+  .sidebar ul a{
+    display: block;
+    height: 100%;
     width: 100%;
-    background: #324a81 !important;
-    color: white !important;
-}
-.login_btn:focus {
-    box-shadow: none !important;
-    outline: 0px !important;
-}
-.login_container {
-    padding: 0 2rem;
-}
-.input-group-text {
-    background: #324a81 !important;
-    color: white !important;
-    border: 0 !important;
-    border-radius: 0.25rem 0 0 0.25rem !important;
-}
-.input_user,
-.input_pass:focus {
-    box-shadow: none !important;
-    outline: 0px !important;
-}
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #324a81 !important;
-}
+    line-height: 65px;
+    font-size: 20px;
+    color: white;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #edab8e;
+    border-top: 1px solid rgba(255,255,255,.1);
+    transition: .4s;
+  }
+  ul li:hover a{
+    padding-left: 50px;
+  }
+  .sidebar ul a i{
+    margin-right: 16px;
+  }
+  #check{
+    display: none;
+  }
+  label #btn,label #cancel{
+    position: absolute;
+    background: #f3935e;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  label #btn{
+    left: 5px;
+    top: 5px;
+    font-size: 35px;
+    color: white;
+    padding: 6px 12px;
+    transition: all .5s;
+  }
+  label #cancel{
+    z-index: 1111;
+    left: -195px;
+    top: 5px;
+    font-size: 30px;
+    color: #324a81;
+    padding: 4px 9px;
+    transition: all .5s ease;
+  }
+  #check:checked ~ .sidebar{
+    left: 0;
+  }
+  #check:checked ~ label #btn{
+    left: 250px;
+    opacity: 0;
+    pointer-events: none;
+  }
+  #check:checked ~ label #cancel{
+    left: 195px;
+  }
+  #check:checked ~ section{
+    margin-left: 250px;
+  }
+  section{
+      padding:0px;
+      margin-top: -20px;
+    /* background: url('assets/imagens/bg.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh; */
+    transition: all .5s;
+  }
+  

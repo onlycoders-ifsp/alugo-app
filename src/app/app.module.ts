@@ -16,6 +16,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatDialogModule} from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
 import { UsuarioModule } from './usuario/usuario.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { UsuarioModule } from './usuario/usuario.module';
     MatIconModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    UsuarioModule
+    UsuarioModule,
+    RouterModule
   ],
   providers: [
     UsuarioService

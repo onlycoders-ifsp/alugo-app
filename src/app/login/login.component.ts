@@ -23,7 +23,7 @@ export class LoginComponent {
     // }else{
     //   this.loginError = true;
     // }
-    this.router.navigate(['/usuarios-lista']);
+    this.router.navigate(['/usuarios/lista']);
   }
 
 }

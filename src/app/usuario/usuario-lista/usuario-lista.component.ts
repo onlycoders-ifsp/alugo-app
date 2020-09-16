@@ -25,7 +25,7 @@ export class UsuarioListaComponent implements OnInit {
   }
 
   novoUsuario(){
-    this.router.navigate(['/usuarios-cad']);
+    this.router.navigate(['/usuarios/cad']);
   }
 
   logout(){

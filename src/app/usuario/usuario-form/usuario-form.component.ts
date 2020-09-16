@@ -37,7 +37,7 @@ export class UsuarioFormComponent implements OnInit {
   }
 
   listaUsuarios(){
-    this.router.navigate(['/usuarios-lista']);
+    this.router.navigate(['/usuarios/lista']);
   }
 
   logout(){
