@@ -25,15 +25,15 @@ export class UsuarioFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // let dados = this.activatedRoute.params
-    // if(dados && dados.value && dados.value.codigo){
-    //   this.codigo = dados.value.codigo;
-    //   this.service
-    //   .getClienteById(this.codigo)
-    //   .subscribe( 
-    //     response => this.user = response,
-    //     errorResponse => this.user = new Usuario());
-    // }
+    let dados = this.activatedRoute.params
+    if(dados && dados.value && dados.value.codigo){
+      this.codigo = dados.value.codigo;
+      this.service
+      .getClienteById(this.codigo)
+      .subscribe( 
+        response => this.user = response,
+        errorResponse => this.user = new Usuario());
+    }
   }
 
   listaUsuarios(){
@@ -52,7 +52,12 @@ export class UsuarioFormComponent implements OnInit {
   salvaUsuario(){
     this.success = false;
     this.error = false;
-    if(this.codigo){
+
+    this.user.ativo = true;
+    this.user.login = this.user.email;
+
+
+    if(this.user.id){
       this.service.editaUsuario(this.user).subscribe(response =>{
         this.success = true;
         this.error = false;
@@ -71,7 +76,9 @@ export class UsuarioFormComponent implements OnInit {
           this.success = false;
           this.error = true;
         });
+        
     }
+    this.router.navigate(['/usuarios/lista']);
     
   }
 

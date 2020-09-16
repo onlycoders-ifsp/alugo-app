@@ -5,7 +5,6 @@ export class Usuario {
     email: string;
     login: string;
     senha: string;
-
     cep: string;
     logradouro: string;
     numero: string;

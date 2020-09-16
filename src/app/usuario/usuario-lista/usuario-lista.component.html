@@ -1,64 +1,78 @@
 <mat-toolbar class="backSecondaryAlugo">
-    <span class="separador"></span>
-    <!-- <button (click)="novoUsuario()" mat-raised-button class="mr-2 backPrimaryAlugo text-right"><i class="fa fa-plus"></i> Novo</button> -->
-    
-    <button (click)="logout()" mat-raised-button class="mr-2 backPrimaryAlugo"><mat-icon aria-hidden="false" aria-label="Example user verified icon">login</mat-icon></button>
-  </mat-toolbar>
-  
-  
-  <div class="row mt-2">
-  
-    <div class="col-1">
+  <span class="separador"></span>
+  <!-- <button (click)="novoUsuario()" mat-raised-button class="mr-2 backPrimaryAlugo text-right"><i class="fa fa-plus"></i> Novo</button> -->
+
+  <button (click)="logout()" mat-raised-button class="mr-2 backPrimaryAlugo">
+    <mat-icon aria-hidden="false" aria-label="Example user verified icon">login</mat-icon>
+  </button>
+</mat-toolbar>
+
+
+<div class="row mt-2">
+
+  <div class="col-1">
+  </div>
+
+  <div class="col-10">
+    <div *ngIf="success" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>{{usuarioSelecionado.nome}}</strong> deletado com sucesso!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-  
-    <div class="col-10">
-      <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col"></th>
-        <th scope="col">Nome</th>
-        <th scope="col">CPF</th>
-        <th scope="col">Email</th>
-        <th scope="col">Data Nascimento</th>
-        <th scope="col">Editar</th>
-        <th scope="col">Excluir</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of Usuarios">
-        <td><img src="../../../assets/imagens/avatar.svg" width="64" height="64"></td>
-        <td>{{user.nome}}</td>
-        <td>{{user.cpf}}</td>
-        <td>{{user.email}}</td>
-        <td>{{user.data_nascimento}}</td>
-        <td><button routerLink="/usuarios-cad/{{ user.codigo }}" type="button" class="btn"><i class="fa fa-user-edit fa-2x text-success"></i></button></td>
-        <td><button (click)="confirmDelete(user)" data-toggle="modal" data-target="#modalExemplo" type="button" class="btn"><i class="fa fa-trash fa-2x text-danger"></i></button></td>
-      </tr>
-    </tbody>
-  </table>
-    </div>
-    <div class="col-1">
-    </div>
-  
-    <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel" >Deleção de Usuários</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body" *ngIf="usuarioSelecionado">
-            Deletar Usuário {{ usuarioSelecionado.nome }} ?
-          </div>
-          <div class="modal-footer">
-            <button type="button" data-dismiss="modal" (click)="deleteUsuario(usuarioSelecionado)" class="btn btn-danger">Deletar</button>
-          </div>
+    <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div> -->
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Nome</th>
+          <th scope="col">CPF</th>
+          <th scope="col">Email</th>
+          <th scope="col">Data Nascimento</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of Usuarios">
+          <td><img src="../../../assets/imagens/avatar.svg" width="64" height="64"></td>
+          <td>{{user.nome}}</td>
+          <td>{{user.cpf}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.data_nascimento}}</td>
+          <td><button routerLink="/usuarios/cad/{{ user.codigo }}" type="button" class="btn"><i
+                class="fa fa-user-edit fa-2x text-success"></i></button></td>
+          <td><button (click)="confirmDelete(user)" data-toggle="modal" data-target="#modalExemplo" type="button"
+              class="btn"><i class="fa fa-trash fa-2x text-danger"></i></button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-1">
+  </div>
+
+  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Deleção de Usuários</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" *ngIf="usuarioSelecionado">
+          Deletar Usuário {{ usuarioSelecionado.nome }} ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" data-dismiss="modal" (click)="deleteUsuario(usuarioSelecionado)"
+            class="btn btn-danger">Deletar</button>
         </div>
       </div>
     </div>
-  
-  
-  
-  
+  </div>
