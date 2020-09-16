@@ -12,7 +12,7 @@ import { UsuarioService } from 'src/app/usuario.service';
 export class UsuarioFormComponent implements OnInit {
 
   user: Usuario;
-  codigo: string;
+  id: number;
   success: boolean;
   error: boolean;
 
@@ -26,16 +26,18 @@ export class UsuarioFormComponent implements OnInit {
 
   ngOnInit(): void {
     let dados = this.activatedRoute.params
+    console.log(dados);
     //@ts-ignore
     if(dados && dados.value && dados.value.codigo){
       console.log(dados);
       // @ts-ignore
-      this.codigo = dados.value.codigo;
+      this.id = dados.value.codigo;
       this.service
-      .getClienteById(this.codigo)
+      .getUsuarioById(this.id)
       .subscribe( 
         response => this.user = response,
         errorResponse => this.user = new Usuario());
+        console.log(this.user);
     }
   }
 

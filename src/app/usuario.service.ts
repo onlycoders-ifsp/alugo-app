@@ -30,7 +30,7 @@ url: string = environment.apiBaseUrl + '/usuarios';
       return this.http.get<Usuario[]>(this.url);
     }
 
-    getClienteById(codigo: string) : Observable<Usuario> {
-      return this.http.get<any>(this.url + `/${codigo}`);
+    getUsuarioById(id: number) : Observable<Usuario> {
+      return this.http.get<any>(this.url + `/${id}`);
     }
 }
