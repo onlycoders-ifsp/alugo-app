@@ -11,20 +11,15 @@ import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-
-import { UsuarioComponent } from './usuario/usuario.component';
-
-
 import { UsuarioService} from './usuario.service'
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatDialogModule} from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
+import { UsuarioModule } from './usuario/usuario.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsuarioComponent,
     LoginComponent
   ],
   imports: [
@@ -39,7 +34,8 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
-    BrowserAnimationsModule    
+    BrowserAnimationsModule,
+    UsuarioModule
   ],
   providers: [
     UsuarioService
