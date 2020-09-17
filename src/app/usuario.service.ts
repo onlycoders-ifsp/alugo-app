@@ -12,7 +12,6 @@ export class UsuarioService {
 
 url: string = environment.apiBaseUrl + '/usuarios';
 
-
   constructor( private http: HttpClient ) { }
 
     salvar(Usuario: Usuario) : Observable<Usuario> {
