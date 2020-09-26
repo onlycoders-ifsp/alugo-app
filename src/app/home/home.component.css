@@ -15,7 +15,7 @@ ul{
 .logo{
 	position: absolute;
 	left: 90px;
-	top: 50px;
+	top: 0px;
 }
 .logo a{
 	font-weight: bold;
