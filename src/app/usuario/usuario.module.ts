@@ -17,14 +17,14 @@ import { UsuarioListaComponent } from './usuario-lista/usuario-lista.component';
 import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
 import { MatTableModule } from '@angular/material/table'
 import { UsuarioRoutingModule } from './usuario-routing.module';
-import { LayoutComponent } from '../layout/layout.component';
+import { AdminLayoutComponent } from '../admin-layout/admin-layout.component';
 
 
 @NgModule({
   declarations: [
     UsuarioListaComponent,
     UsuarioFormComponent,
-    LayoutComponent
+    AdminLayoutComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +47,7 @@ import { LayoutComponent } from '../layout/layout.component';
     CommonModule,
     UsuarioListaComponent,
     UsuarioFormComponent,
-    LayoutComponent
+    AdminLayoutComponent
   ]
 })
 export class UsuarioModule { }

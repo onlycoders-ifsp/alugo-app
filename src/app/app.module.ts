@@ -17,11 +17,15 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
 import { UsuarioModule } from './usuario/usuario.module';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { ClienteLayoutComponent } from './cliente-layout/cliente-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    ClienteLayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,7 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     BrowserAnimationsModule,
     UsuarioModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [
     UsuarioService
