@@ -18,14 +18,13 @@ import { LoginComponent } from './login/login.component';
 import { UsuarioModule } from './usuario/usuario.module';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { ClienteLayoutComponent } from './cliente-layout/cliente-layout.component';
+import { ClienteModule } from './cliente/cliente.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
-    ClienteLayoutComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +40,7 @@ import { ClienteLayoutComponent } from './cliente-layout/cliente-layout.componen
     HttpClientModule,
     BrowserAnimationsModule,
     UsuarioModule,
+    ClienteModule,
     RouterModule,
   ],
   providers: [

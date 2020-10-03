@@ -1,0 +1,120 @@
+<div class="page-title-overlap bg-accent pt-4">
+    <div class="container d-flex flex-wrap flex-sm-nowrap justify-content-center justify-content-sm-between align-items-center pt-2">
+      <div class="media media-ie-fix align-items-center pb-3">
+        <div class="img-thumbnail rounded-circle position-relative" style="width: 6.375rem;"><img class="rounded-circle" src="img/marketplace/account/avatar.png" alt="Createx Studio"></div>
+        <div class="media-body pl-3">
+          <h3 class="text-light font-size-lg mb-0">Createx Studio</h3><span class="d-block text-light font-size-ms opacity-60 py-1">Member since November 2017</span>
+        </div>
+      </div>
+      <div class="d-flex">
+        <div class="text-sm-right mr-5">
+          <div class="text-light font-size-base">Total sales</div>
+          <h3 class="text-light">426</h3>
+        </div>
+        <div class="text-sm-right">
+          <div class="text-light font-size-base">Seller rating</div>
+          <div class="star-rating"><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i class="sr-star czi-star"></i>
+          </div>
+          <div class="text-light opacity-60 font-size-xs">Based on 98 reviews</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mb-5 pb-3">
+    <div class="bg-light box-shadow-lg rounded-lg overflow-hidden">
+      <div class="row">
+        <!-- Sidebar-->
+        <aside class="col-lg-4">
+          <!-- Account menu toggler (hidden on screens larger 992px)-->
+          <div class="d-block d-lg-none p-4"><a class="btn btn-outline-accent d-block" href="#account-menu" data-toggle="collapse"><i class="czi-menu mr-2"></i>Account menu</a></div>
+          <!-- Actual menu-->
+          <div class="cz-sidebar-static h-100 p-0">
+            <div class="secondary-nav collapse border-right" id="account-menu">
+              <div class="bg-secondary p-4">
+                <h3 class="font-size-sm mb-0 text-muted">Account</h3>
+              </div>
+              <ul class="list-unstyled mb-0">
+                <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="dashboard-settings.html"><i class="czi-settings opacity-60 mr-2"></i>Settings</a></li>
+                <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="dashboard-purchases.html"><i class="czi-basket opacity-60 mr-2"></i>Purchases</a></li>
+                <li class="mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="dashboard-favorites.html"><i class="czi-heart opacity-60 mr-2"></i>Favorites<span class="font-size-sm text-muted ml-auto">4</span></a></li>
+              </ul>
+              <div class="bg-secondary p-4">
+                <h3 class="font-size-sm mb-0 text-muted">Seller Dashboard</h3>
+              </div>
+              <ul class="list-unstyled mb-0">
+                <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="dashboard-sales.html"><i class="czi-dollar opacity-60 mr-2"></i>Sales<span class="font-size-sm text-muted ml-auto">$1,375.00</span></a></li>
+                <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="dashboard-products.html"><i class="czi-package opacity-60 mr-2"></i>Products<span class="font-size-sm text-muted ml-auto">5</span></a></li>
+                <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3 active" href="dashboard-add-new-product.html"><i class="czi-cloud-upload opacity-60 mr-2"></i>Add New Product</a></li>
+                <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="dashboard-payouts.html"><i class="czi-currency-exchange opacity-60 mr-2"></i>Payouts</a></li>
+                <li class="mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="account-signin.html"><i class="czi-sign-out opacity-60 mr-2"></i>Sign out</a></li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+        <!-- Content-->
+        <section class="col-lg-8 pt-lg-4 pb-4 mb-3">
+          <div class="pt-2 px-4 pl-lg-0 pr-xl-5">
+            <!-- Title-->
+            <div class="d-sm-flex flex-wrap justify-content-between align-items-center pb-2">
+              <h2 class="h3 py-2 mr-2 text-center text-sm-left">Add New Product</h2>
+              <div class="py-2">
+                <select class="custom-select mr-2" id="unp-category">
+                  <option>Select category</option>
+                  <option>Photos</option>
+                  <option>Graphics</option>
+                  <option>UI Design</option>
+                  <option>Web Themes</option>
+                  <option>Fonts</option>
+                  <option>Add-Ons</option>
+                </select>
+              </div>
+            </div>
+            <form>
+              <div class="form-group pb-2">
+                <label class="font-weight-medium" for="unp-product-name">Product name</label>
+                <input class="form-control" type="text" id="unp-product-name"><small class="form-text text-muted">Maximum 100 characters. No HTML or emoji allowed.</small>
+              </div>
+              <div class="cz-file-drop-area form-group">
+                <div class="cz-file-drop-icon czi-cloud-upload"></div><span class="cz-file-drop-message">Drag and drop here to upload product screenshot</span>
+                <input class="cz-file-drop-input" type="file">
+                <button class="cz-file-drop-btn btn btn-primary btn-sm mb-2" type="button">Or select file</button><small class="form-text text-muted">1000 x 800px ideal size for hi-res displays</small>
+              </div>
+              <div class="form-group py-2">
+                <label class="font-weight-medium" for="unp-product-description">Product description</label>
+                <textarea class="form-control" rows="6" id="unp-product-description"></textarea>
+                <div class="bg-secondary p-3 font-size-ms rounded-bottom"><span class="d-inline-block font-weight-medium mr-2 my-1">Markdown supported:</span><em class="d-inline-block border-right pr-2 mr-2 my-1">*Italic*</em><strong class="d-inline-block border-right pr-2 mr-2 my-1">**Bold**</strong><span class="d-inline-block border-right pr-2 mr-2 my-1">- List item</span><span class="d-inline-block border-right pr-2 mr-2 my-1">##Heading##</span><span class="d-inline-block">--- Horizontal rule</span></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 form-group">
+                  <label class="font-weight-medium" for="unp-standard-price">Standard license price</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text"><i class="czi-dollar"></i></span></div>
+                    <input class="form-control" type="text" id="unp-standard-price">
+                  </div><small class="form-text text-muted">Average marketplace price for this category is $15.</small>
+                </div>
+                <div class="col-sm-6 form-group">
+                  <label class="font-weight-medium" for="unp-extended-price">Extended license price</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend"><span class="input-group-text"><i class="czi-dollar"></i></span></div>
+                    <input class="form-control" type="text" id="unp-extended-price">
+                  </div><small class="form-text text-muted">Typically 10x of the Standard license price.</small>
+                </div>
+              </div>
+              <div class="form-group py-2">
+                <label class="font-weight-medium" for="unp-product-tags">Product tags</label>
+                <textarea class="form-control" rows="4" id="unp-product-tags"></textarea><small class="form-text text-muted">Up to 10 keywords that describe your item. Tags should all be in lowercase and separated by commas.</small>
+              </div>
+              <div class="form-group pb-2">
+                <label class="font-weight-medium" for="unp-product-files">Product files for sale</label>
+                <div class="custom-file">
+                  <input class="custom-file-input" type="file" id="unp-product-files">
+                  <label class="custom-file-label" for="unp-product-files">Upload .zip</label>
+                </div><small class="form-text text-muted">Maximum file size is 1GB</small>
+              </div>
+              <button class="btn btn-primary btn-block" type="submit"><i class="czi-cloud-upload font-size-lg mr-2"></i>Upload Product</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
