@@ -26,7 +26,7 @@
         </div>
         <ul class="list-unstyled mb-0">
           <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3"
-              href="account-profile.html"><i class="fa fa-user opacity-60 mr-2"></i>Perfil</a></li>
+            routerLink="/cliente/perfil"><i class="fa fa-user opacity-60 mr-2"></i>Perfil</a></li>
 
         </ul>
         <div class="bg-secondary px-4 py-3">
@@ -34,10 +34,10 @@
         </div>
         <ul class="list-unstyled mb-0">
           <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3"
-              href="account-orders.html"><i class="fa fa-user-check opacity-60 mr-2"></i>Locador<span
+              href="#"><i class="fa fa-user-check opacity-60 mr-2"></i>Locador<span
                 class="font-size-sm text-muted ml-auto">1</span></a></li>
           <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3"
-              href="account-orders.html"><i class="fa fa-user-check opacity-60 mr-2"></i>Locatário<span
+              href="#"><i class="fa fa-user-check opacity-60 mr-2"></i>Locatário<span
                 class="font-size-sm text-muted ml-auto">5</span></a></li>
         </ul>
         <div class="bg-secondary px-4 py-3">
@@ -45,10 +45,10 @@
         </div>
         <ul class="list-unstyled mb-0">
           <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3 active"
-              href="account-orders.html"><i class="fa fa-product-hunt opacity-60 mr-2"></i>Ativos<span
+            routerLink="/cliente/listaProdutos"><i class="fa fa-product-hunt opacity-60 mr-2"></i>Ativos<span
                 class="font-size-sm text-muted ml-auto">5</span></a></li>
           <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3"
-              href="account-orders.html"><i class="fa fa-product-hunt opacity-60 mr-2"></i>Inativos<span
+            routerLink="/cliente/listaProdutos"><i class="fa fa-product-hunt opacity-60 mr-2"></i>Inativos<span
                 class="font-size-sm text-muted ml-auto">1</span></a></li>
         </ul>
         <div class="bg-secondary px-4 py-3">
@@ -56,7 +56,7 @@
         </div>
         <ul class="list-unstyled mb-0">
           <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3"
-              href="account-orders.html"><i class="fa fa-money-bill-alt opacity-60 mr-2"></i>Vencimentos<span
+              href="#"><i class="fa fa-money-bill-alt opacity-60 mr-2"></i>Vencimentos<span
                 class="font-size-sm text-muted ml-auto">1</span></a></li>
           <li class="mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="account-payment.html"><i
                 class="fa fa-credit-card opacity-60 mr-2"></i>Informações de Pagamento</a></li>
@@ -93,7 +93,7 @@
               <div class="d-inline-block text-muted font-size-ms border-left ml-2 pl-2">Ganhos: <span class="font-weight-medium">R$ 50.<small>00</small></span></div>
               <div class="d-flex justify-content-center justify-content-sm-start pt-3">
                 <button class="btn bg-faded-accent btn-icon mr-2" type="button" data-toggle="tooltip" title="Inativar"><i class="fa fa-lock text-accent"></i></button>
-                <button class="btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip" title="Editar"><i class="fa fa-edit text-info"></i></button>
+                <button class="btn bg-faded-info btn-icon mr-2" (click)="verMeuProduto()" type="button" data-toggle="tooltip" title="Editar"><i class="fa fa-edit text-info"></i></button>
                 <button class="btn bg-faded-danger btn-icon" type="button" data-toggle="tooltip" title="Delete"><i class="fa fa-trash text-danger"></i></button>
               </div>
             </div>
@@ -107,7 +107,7 @@
               <div class="d-inline-block text-muted font-size-ms border-left ml-2 pl-2">Earnings: <span class="font-weight-medium">$2,570.<small>40</small></span></div>
               <div class="d-flex justify-content-center justify-content-sm-start pt-3">
                 <button class="btn bg-faded-accent btn-icon mr-2" type="button" data-toggle="tooltip" title="Inativar"><i class="fa fa-lock text-accent"></i></button>
-                <button class="btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip" title="Editar"><i class="fa fa-edit text-info"></i></button>
+                <button class="btn bg-faded-info btn-icon mr-2" (click)="verMeuProduto()" type="button" data-toggle="tooltip" title="Editar"><i class="fa fa-edit text-info"></i></button>
                 <button class="btn bg-faded-danger btn-icon" type="button" data-toggle="tooltip" title="Delete"><i class="fa fa-trash text-danger"></i></button>
               </div>
             </div>
@@ -121,7 +121,7 @@
               <div class="d-inline-block text-muted font-size-ms border-left ml-2 pl-2">Earnings: <span class="font-weight-medium">$1,144.<small>50</small></span></div>
               <div class="d-flex justify-content-center justify-content-sm-start pt-3">
                 <button class="btn bg-faded-accent btn-icon mr-2" type="button" data-toggle="tooltip" title="Inativar"><i class="fa fa-lock text-accent"></i></button>
-                <button class="btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip" title="Editar"><i class="fa fa-edit text-info"></i></button>
+                <button class="btn bg-faded-info btn-icon mr-2" (click)="verMeuProduto()" type="button" data-toggle="tooltip" title="Editar"><i class="fa fa-edit text-info"></i></button>
                 <button class="btn bg-faded-danger btn-icon" type="button" data-toggle="tooltip" title="Delete"><i class="fa fa-trash text-danger"></i></button>
               </div>
             </div>
@@ -135,7 +135,7 @@
               <div class="d-inline-block text-muted font-size-ms border-left ml-2 pl-2">Earnings: <span class="font-weight-medium">$1,883.<small>70</small></span></div>
               <div class="d-flex justify-content-center justify-content-sm-start pt-3">
                 <button class="btn bg-faded-accent btn-icon mr-2" type="button" data-toggle="tooltip" title="Inativar"><i class="fa fa-lock text-accent"></i></button>
-                <button class="btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip" title="Editar"><i class="fa fa-edit text-info"></i></button>
+                <button class="btn bg-faded-info btn-icon mr-2" (click)="verMeuProduto()" type="button" data-toggle="tooltip" title="Editar"><i class="fa fa-edit text-info"></i></button>
                 <button class="btn bg-faded-danger btn-icon" type="button" data-toggle="tooltip" title="Delete"><i class="fa fa-trash text-danger"></i></button>
               </div>
             </div>
@@ -149,7 +149,7 @@
               <div class="d-inline-block text-muted font-size-ms border-left ml-2 pl-2">Earnings: <span class="font-weight-medium">$249.<small>90</small></span></div>
               <div class="d-flex justify-content-center justify-content-sm-start pt-3">
                 <button class="btn bg-faded-accent btn-icon mr-2" type="button" data-toggle="tooltip" title="Inativar"><i class="fa fa-lock text-accent"></i></button>
-                <button class="btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip" title="Editar"><i class="fa fa-edit text-info"></i></button>
+                <button class="btn bg-faded-info btn-icon mr-2" (click)="verMeuProduto()" type="button" data-toggle="tooltip" title="Editar"><i class="fa fa-edit text-info"></i></button>
                 <button class="btn bg-faded-danger btn-icon" type="button" data-toggle="tooltip" title="Delete"><i class="fa fa-trash text-danger"></i></button>
               </div>
             </div>

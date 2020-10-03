@@ -1,4 +1,4 @@
-
+@import url("https://fonts.googleapis.com/css?family=Rubik:300, 400, 500, 700&amp;display=swap");
 root {
     --blue:  #12225b;
     --indigo:  #6610f2;
@@ -10080,7 +10080,7 @@ html[dir='rtl'] .itemside .info {
     padding-left: initial;
 }
 /*# sourceMappingURL=ui.css.map */
-@import url("https://fonts.googleapis.com/css?family=Rubik:300, 400, 500, 700&amp;display=swap");
+
   root {
     --blue:  #007bff;
     --indigo:  #6610f2;

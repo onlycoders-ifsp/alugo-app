@@ -1,331 +1,356 @@
 <!-- Sign in / sign up modal-->
 <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <ul class="nav nav-tabs card-header-tabs" role="tablist">
-            <li class="nav-item"><a class="nav-link active" href="#signin-tab" data-toggle="tab" role="tab" aria-selected="true"><i class="fa fa-lock mr-2 mt-n1"></i>Entrar</a></li>
-            <li class="nav-item"><a class="nav-link" href="#signup-tab" data-toggle="tab" role="tab" aria-selected="false"><i class="fa fa-user mr-2 mt-n1"></i>Registrar-se</a></li>
-          </ul>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        </div>
-        <div class="modal-body tab-content py-4">
-          <form class="needs-validation tab-pane fade show active" autocomplete="off" novalidate id="signin-tab">
-            <div class="form-group">
-              <label for="si-email">Email</label>
-              <input class="form-control" type="email" id="si-email" placeholder="joaodasneves@examplo.com" required>
-              <div class="invalid-feedback">Digite um email válido.</div>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <ul class="nav nav-tabs card-header-tabs" role="tablist">
+          <li class="nav-item"><a class="nav-link active" href="#signin-tab" data-toggle="tab" role="tab"
+              aria-selected="true"><i class="fa fa-lock mr-2 mt-n1"></i>Entrar</a></li>
+          <li class="nav-item"><a class="nav-link" href="#signup-tab" data-toggle="tab" role="tab"
+              aria-selected="false"><i class="fa fa-user mr-2 mt-n1"></i>Registrar-se</a></li>
+        </ul>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body tab-content py-4">
+        <form class="needs-validation tab-pane fade show active" autocomplete="off" novalidate id="signin-tab">
+          <div class="form-group">
+            <label for="si-email">Email</label>
+            <input class="form-control" type="email" id="si-email" placeholder="joaodasneves@examplo.com" required>
+            <div class="invalid-feedback">Digite um email válido.</div>
+          </div>
+          <div class="form-group">
+            <label for="si-password">Senha</label>
+            <div class="password-toggle">
+              <input class="form-control" type="password" id="si-password" required>
+              <label class="password-toggle-btn">
+                <input class="custom-control-input" type="checkbox"><i
+                  class="fa fa-eye password-toggle-indicator"></i><span class="sr-only">Mostrar Senha</span>
+              </label>
             </div>
-            <div class="form-group">
-              <label for="si-password">Senha</label>
-              <div class="password-toggle">
-                <input class="form-control" type="password" id="si-password" required>
-                <label class="password-toggle-btn">
-                  <input class="custom-control-input" type="checkbox"><i class="fa fa-eye password-toggle-indicator"></i><span class="sr-only">Mostrar Senha</span>
-                </label>
-              </div>
+          </div>
+          <div class="form-group d-flex flex-wrap justify-content-between">
+            <div class="custom-control custom-checkbox mb-2">
+              <input class="custom-control-input" type="checkbox" id="si-remember">
+            </div><a class="font-size-sm" href="#">Esqueceu a senha?</a>
+          </div>
+          <button class="btn btn-primary btn-block btn-shadow" type="submit">Sign in</button>
+        </form>
+        <form class="needs-validation tab-pane fade" autocomplete="off" novalidate id="signup-tab">
+          <div class="form-group">
+            <label for="su-name">Nome Completo</label>
+            <input class="form-control" type="text" id="su-name" placeholder="John Doe" required>
+            <div class="invalid-feedback">Preencha seu nome</div>
+          </div>
+          <div class="form-group">
+            <label for="su-email">Email</label>
+            <input class="form-control" type="email" id="su-email" placeholder="joaodasneves@examplo.com" required>
+            <div class="invalid-feedback">Fornça um email válido.</div>
+          </div>
+          <div class="form-group">
+            <label for="su-password">Senha</label>
+            <div class="password-toggle">
+              <input class="form-control" type="password" id="su-password" required>
+              <label class="password-toggle-btn">
+                <input class="custom-control-input" type="checkbox"><i
+                  class="fa fa-eye password-toggle-indicator"></i><span class="sr-only">Mostrar Senha</span>
+              </label>
             </div>
-            <div class="form-group d-flex flex-wrap justify-content-between">
-              <div class="custom-control custom-checkbox mb-2">
-                <input class="custom-control-input" type="checkbox" id="si-remember">
-              </div><a class="font-size-sm" href="#">Esqueceu a senha?</a>
+          </div>
+          <div class="form-group">
+            <label for="su-password-confirm">Confirmar Senha</label>
+            <div class="password-toggle">
+              <input class="form-control" type="password" id="su-password-confirm" required>
+              <label class="password-toggle-btn">
+                <input class="custom-control-input" type="checkbox"><i
+                  class="czi-eye password-toggle-indicator"></i><span class="sr-only">Mostrar Senha</span>
+              </label>
             </div>
-            <button class="btn btn-primary btn-block btn-shadow" type="submit">Sign in</button>
-          </form>
-          <form class="needs-validation tab-pane fade" autocomplete="off" novalidate id="signup-tab">
-            <div class="form-group">
-              <label for="su-name">Nome Completo</label>
-              <input class="form-control" type="text" id="su-name" placeholder="John Doe" required>
-              <div class="invalid-feedback">Preencha seu nome</div>
-            </div>
-            <div class="form-group">
-              <label for="su-email">Email</label>
-              <input class="form-control" type="email" id="su-email" placeholder="joaodasneves@examplo.com" required>
-              <div class="invalid-feedback">Fornça um email válido.</div>
-            </div>
-            <div class="form-group">
-              <label for="su-password">Senha</label>
-              <div class="password-toggle">
-                <input class="form-control" type="password" id="su-password" required>
-                <label class="password-toggle-btn">
-                  <input class="custom-control-input" type="checkbox"><i class="fa fa-eye password-toggle-indicator"></i><span class="sr-only">Mostrar Senha</span>
-                </label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="su-password-confirm">Confirmar Senha</label>
-              <div class="password-toggle">
-                <input class="form-control" type="password" id="su-password-confirm" required>
-                <label class="password-toggle-btn">
-                  <input class="custom-control-input" type="checkbox"><i class="czi-eye password-toggle-indicator"></i><span class="sr-only">Mostrar Senha</span>
-                </label>
-              </div>
-            </div>
-            <button class="btn btn-primary btn-block btn-shadow" type="submit">Cadastrar</button>
-          </form>
-        </div>
+          </div>
+          <button class="btn btn-primary btn-block btn-shadow" type="submit">Cadastrar</button>
+        </form>
       </div>
     </div>
   </div>
-  <!-- Navbar-->
-  <!-- Quick View Modal-->
-  <div class="modal-quick-view modal fade" id="quick-view" tabindex="-1">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title product-title"><a href="#" data-toggle="tooltip" data-placement="right" title="Ir para a página do produto">Parafusadeira<i class="fa fa-arrow-right font-size-lg ml-2"></i></a></h4>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <!-- Product gallery-->
-            <div class="col-lg-7 pr-lg-0">
-              <div class="cz-product-gallery">
-                <div class="cz-preview order-sm-2">
-                  <div class="cz-preview-item active" id="first"><img class="cz-image-zoom" src="../../assets/imagens/shop/single/gallery/01.jpg" data-zoom="../../assets/imagens/shop/single/gallery/01.jpg" alt="Product image">
-                    <div class="cz-image-zoom-pane"></div>
-                  </div>
-                  <div class="cz-preview-item" id="second"><img class="cz-image-zoom" src="../../assets/imagens/shop/single/gallery/02.jpg" data-zoom="../../assets/imagens/shop/single/gallery/02.jpg" alt="Product image">
-                    <div class="cz-image-zoom-pane"></div>
-                  </div>
-                  <div class="cz-preview-item" id="third"><img class="cz-image-zoom" src="../../assets/imagens/shop/single/gallery/03.jpg" data-zoom="../../assets/imagens/shop/single/gallery/03.jpg" alt="Product image">
-                    <div class="cz-image-zoom-pane"></div>
-                  </div>
-                  <div class="cz-preview-item" id="fourth"><img class="cz-image-zoom" src="../../assets/imagens/shop/single/gallery/04.jpg" data-zoom="../../assets/imagens/shop/single/gallery/04.jpg" alt="Product image">
-                    <div class="cz-image-zoom-pane"></div>
-                  </div>
+</div>
+<!-- Navbar-->
+<!-- Quick View Modal-->
+<div class="modal-quick-view modal fade" id="quick-view" tabindex="-1">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title product-title"><a href="#" data-toggle="tooltip" data-placement="right"
+            title="Ir para a página do produto">Parafusadeira<i class="fa fa-arrow-right font-size-lg ml-2"></i></a>
+        </h4>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <!-- Product gallery-->
+          <div class="col-lg-7 pr-lg-0">
+            <div class="cz-product-gallery">
+              <div class="cz-preview order-sm-2">
+                <div class="cz-preview-item active" id="first"><img class="cz-image-zoom"
+                    src="../../assets/imagens/shop/single/gallery/01.jpg"
+                    data-zoom="../../assets/imagens/shop/single/gallery/01.jpg" alt="Product image">
+                  <div class="cz-image-zoom-pane"></div>
                 </div>
-                <div class="cz-thumblist order-sm-1"><a class="cz-thumblist-item active" href="#first"><img src="../../assets/imagens/shop/single/gallery/th01.jpg" alt="Product thumb"></a><a class="cz-thumblist-item" href="#second"><img src="../../assets/imagens/shop/single/gallery/th02.jpg" alt="Product thumb"></a><a class="cz-thumblist-item" href="#third"><img src="../../assets/imagens/shop/single/gallery/th03.jpg" alt="Product thumb"></a><a class="cz-thumblist-item" href="#fourth"><img src="../../assets/imagens/shop/single/gallery/th04.jpg" alt="Product thumb"></a></div>
+                <div class="cz-preview-item" id="second"><img class="cz-image-zoom"
+                    src="../../assets/imagens/shop/single/gallery/02.jpg"
+                    data-zoom="../../assets/imagens/shop/single/gallery/02.jpg" alt="Product image">
+                  <div class="cz-image-zoom-pane"></div>
+                </div>
+                <div class="cz-preview-item" id="third"><img class="cz-image-zoom"
+                    src="../../assets/imagens/shop/single/gallery/03.jpg"
+                    data-zoom="../../assets/imagens/shop/single/gallery/03.jpg" alt="Product image">
+                  <div class="cz-image-zoom-pane"></div>
+                </div>
+                <div class="cz-preview-item" id="fourth"><img class="cz-image-zoom"
+                    src="../../assets/imagens/shop/single/gallery/04.jpg"
+                    data-zoom="../../assets/imagens/shop/single/gallery/04.jpg" alt="Product image">
+                  <div class="cz-image-zoom-pane"></div>
+                </div>
               </div>
+              <div class="cz-thumblist order-sm-1"><a class="cz-thumblist-item active" href="#first"><img
+                    src="../../assets/imagens/shop/single/gallery/th01.jpg" alt="Product thumb"></a><a
+                  class="cz-thumblist-item" href="#second"><img src="../../assets/imagens/shop/single/gallery/th02.jpg"
+                    alt="Product thumb"></a><a class="cz-thumblist-item" href="#third"><img
+                    src="../../assets/imagens/shop/single/gallery/th03.jpg" alt="Product thumb"></a><a
+                  class="cz-thumblist-item" href="#fourth"><img src="../../assets/imagens/shop/single/gallery/th04.jpg"
+                    alt="Product thumb"></a></div>
             </div>
-            <!-- Product details-->
-            <div class="col-lg-5 pt-4 pt-lg-0 cz-image-zoom-pane">
-              <div class="product-details ml-auto pb-3">
-                <div class="d-flex justify-content-between align-items-center mb-2"><a href="shop-single-v1.html#reviews">
-                    <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="fa fa-star"></i>
-                    </div><span class="d-inline-block font-size-sm text-body align-middle mt-1 ml-1">14 avaliações</span></a>
-                  <button class="btn-wishlist" type="button" data-toggle="tooltip" title="Add to wishlist"><i class="fa fa-heart"></i></button>
-                </div>
-                <div class="mb-3"><span class="h3 font-weight-normal text-accent mr-1">R$ 18.<small>00</small></span>
-                  <del class="text-muted font-size-lg mr-3">R$ 24<small>00</small></del><span class="badge badge-danger badge-shadow align-middle mt-n2">Baixou</span>
-                </div>
-                <div class="font-size-sm mb-4"><span class="text-heading font-weight-medium mr-1">Estado:</span><span class="text-muted">Bom</span></div>
-                <div class="position-relative mr-n4 mb-3">
-                  <div class="product-badge product-available mt-n1"><i class="fa fa-check"></i>Produto Disponível</div>
-                </div>
-                <form class="mb-grid-gutter">
-                  <div class="form-group">
-                    <label class="font-weight-medium pb-1" for="product-size">Ação:</label>
-                    
-                  </div>
-                  <div class="form-group d-flex align-items-center">
-                    
-                    <button class="btn btn-primary btn-shadow btn-block" type="submit"><i class="fa fa-shopping-cart font-size-lg mr-2"></i>ALUGAR</button>
-                  </div>
-                </form>
-                <h5 class="h6 mb-3 pb-2 border-bottom"><i class="fa fa-bullhorn text-muted font-size-lg align-middle mt-n1 mr-2"></i>Informações do Produto</h5>
-                
-                <h6 class="font-size-sm mb-2">Descrição</h6>
-                <ul class="font-size-sm pl-4">
-                  <li>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                    when an unknown printer took a galley of type and scrambled it to make a type 
-                    specimen book. It has survived not only five centuries, but also the leap into 
-                    electronic typesetting, remaining essentially unchanged. It was popularised in 
-                    the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                    and more recently with desktop publishing software like Aldus PageMaker including 
-                    versions of Lorem Ipsum.
-                  </li>
-                </ul>
-                <h6 class="font-size-sm mb-2">Número de identificação</h6>
-                <ul class="font-size-sm pl-4 mb-0">
-                  <li>183260098</li>
-                </ul>
+          </div>
+          <!-- Product details-->
+          <div class="col-lg-5 pt-4 pt-lg-0 cz-image-zoom-pane">
+            <div class="product-details ml-auto pb-3">
+              <div class="d-flex justify-content-between align-items-center mb-2"><a href="shop-single-v1.html#reviews">
+                  <div class="star-rating"><i class="sr-star fa fa-star active"></i><i
+                      class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i
+                      class="sr-star fa fa-star active"></i><i class="fa fa-star"></i>
+                  </div><span class="d-inline-block font-size-sm text-body align-middle mt-1 ml-1">14 avaliações</span>
+                </a>
+                <button class="btn-wishlist" type="button" data-toggle="tooltip" title="Add to wishlist"><i
+                    class="fa fa-heart"></i></button>
               </div>
+              <div class="mb-3"><span class="h3 font-weight-normal text-accent mr-1">R$ 18.<small>00</small></span>
+                <del class="text-muted font-size-lg mr-3">R$ 24<small>00</small></del><span
+                  class="badge badge-danger badge-shadow align-middle mt-n2">Baixou</span>
+              </div>
+              <div class="font-size-sm mb-4"><span class="text-heading font-weight-medium mr-1">Estado:</span><span
+                  class="text-muted">Bom</span></div>
+              <div class="position-relative mr-n4 mb-3">
+                <div class="product-badge product-available mt-n1"><i class="fa fa-check"></i>Produto Disponível</div>
+              </div>
+              <form class="mb-grid-gutter">
+                <div class="form-group">
+                  <label class="font-weight-medium pb-1" for="product-size">Ação:</label>
+
+                </div>
+                <div class="form-group d-flex align-items-center">
+
+                  <button class="btn btn-primary btn-shadow btn-block" type="submit"><i
+                      class="fa fa-shopping-cart font-size-lg mr-2"></i>ALUGAR</button>
+                </div>
+              </form>
+              <h5 class="h6 mb-3 pb-2 border-bottom"><i
+                  class="fa fa-bullhorn text-muted font-size-lg align-middle mt-n1 mr-2"></i>Informações do Produto</h5>
+
+              <h6 class="font-size-sm mb-2">Descrição</h6>
+              <ul class="font-size-sm pl-4">
+                <li>
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                  when an unknown printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but also the leap into
+                  electronic typesetting, remaining essentially unchanged. It was popularised in
+                  the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                  and more recently with desktop publishing software like Aldus PageMaker including
+                  versions of Lorem Ipsum.
+                </li>
+              </ul>
+              <h6 class="font-size-sm mb-2">Número de identificação</h6>
+              <ul class="font-size-sm pl-4 mb-0">
+                <li>183260098</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
-  <header class="box-shadow-sm">
-    <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
-    <div class="navbar-sticky bg-light">
-        <div class="navbar navbar-expand-lg navbar-light">
-            <div class="container">
-                <a class="navbar-brand d-none d-sm-block mr-3 flex-shrink-0" href="index-2.html" style="min-width: 7rem;">
-                    <img width="142" src="../../assets/imagens/alugoIcon.PNG" alt="Cartzilla" />
-                </a>
-                <a class="navbar-brand d-sm-none mr-2" href="index-2.html" style="min-width: 4.625rem;">
-                    <img width="74" src="../../assets/imagens/alugoIcon.PNG" alt="Cartzilla" />
-                </a>
-                <div class="input-group-overlay d-none d-lg-flex mx-4">
-                    <input class="form-control appended-form-control" type="text" placeholder="Procurar produtos">
-                    <div class="input-group-append-overlay">
-                        <span class="input-group-text">
-                            <i class="fa fa-search"></i>
-                        </span>
-                    </div>
-                </div>
-                <div class="navbar-toolbar d-flex flex-shrink-0 align-items-center">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <a class="navbar-tool navbar-stuck-toggler" href="#">
-                        <span class="navbar-tool-tooltip">Expandir Menu</span>
-                        <div class="navbar-tool-icon-box">
-                            <i class="navbar-tool-icon fa fa-menu"></i>
-                        </div>
-                    </a>
-                    <a class="navbar-tool ml-1 ml-lg-0 mr-n1 mr-lg-2" href="#signin-modal" data-toggle="modal">
-                        <div class="navbar-tool-icon-box">
-                            <i class="navbar-tool-icon fa fa-user"></i>
-                        </div>
-                        <div class="navbar-tool-text ml-n3">
-                            <small>Olá, Dilan</small>Minha Conta
-                        </div>
-                    </a>
+</div>
 
-                </div>
-            </div>
+<header class="box-shadow-sm">
+  <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
+  <div class="navbar-sticky bg-light" >
+    <div class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand d-none d-sm-block mr-3 flex-shrink-0" href="#" style="min-width: 7rem;">
+          <img width="100" src="../../assets/imagens/alugoIcon.PNG" alt="aluGO" />
+        </a>
+        <a class="navbar-brand d-sm-none mr-2" href="index-2.html" style="min-width: 4.625rem;">
+          <img width="60" src="../../assets/imagens/alugoIcon.PNG" alt="aluGO" />
+        </a>
+        <div class="input-group-overlay d-none d-lg-flex mx-4">
+          <input class="form-control appended-form-control" type="text" placeholder="Procurar produtos">
+          <div class="input-group-append-overlay">
+            <span class="input-group-text">
+              <i class="fa fa-search"></i>
+            </span>
+          </div>
         </div>
-        <div class="navbar navbar-expand-lg navbar-light navbar-stuck-menu mt-n2 pt-0 pb-2">
-            <div class="container">
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <!-- Search-->
-                    <div class="input-group-overlay d-lg-none my-3">
-                        <div class="input-group-prepend-overlay"><span class="input-group-text"><i
-                                    class="fa fa-search"></i></span></div>
-                        <input class="form-control prepended-form-control" type="text"
-                            placeholder="Procurar produtos">
-                    </div>
-                    <!-- Departments menu-->
-                    <ul class="navbar-nav mega-nav pr-lg-2 mr-lg-2">
-                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle pl-0" href="#"
-                                data-toggle="dropdown"><i class="fa fa-border-all mr-2"></i>Categorias</a>
-                            <div class="dropdown-menu px-2 pl-0 pb-4">
-                                <div class="d-flex flex-wrap flex-md-nowrap">
-                                    <div class="mega-dropdown-column pt-4 px-3">
-                                        <div class="widget widget-links"><a
-                                                class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
-                                                    src="../../assets/imagens/shop/departments/01.jpg" alt="Shoes" /></a>
-                                            <h6 class="font-size-base mb-2">Cozinha</h6>
-                                            <ul class="widget-list">
-                                                <li class="widget-list-item"><a class="widget-list-link"
-                                                        href="#">Eletrodomésticos</a></li>
-                                                <li class="widget-list-item"><a class="widget-list-link" href="#">Men's
-                                                        Recipientes</a></li>
-                                                <li class="widget-list-item"><a class="widget-list-link" href="#">Kid's
-                                                        Industrial</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="mega-dropdown-column pt-4 px-3">
-                                        <div class="widget widget-links"><a
-                                                class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
-                                                    src="../../assets/imagens/shop/departments/02.jpg" alt="Shoes" /></a>
-                                            <h6 class="font-size-base mb-2">Objetos Profissionais</h6>
-                                            <ul class="widget-list">
-                                                <li class="widget-list-item"><a class="widget-list-link"
-                                                        href="#">Câmeras</a></li>
-                                                <li class="widget-list-item"><a class="widget-list-link" href="#">Men's
-                                                        Filmadoras</a></li>
-                                                <li class="widget-list-item"><a class="widget-list-link" href="#">Kid's
-                                                        Microfones</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="mega-dropdown-column pt-4 px-3">
-                                        <div class="widget widget-links"><a
-                                                class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
-                                                    src="../../assets/imagens/shop/departments/03.jpg" alt="Shoes" /></a>
-                                            <h6 class="font-size-base mb-2">Jardim</h6>
-                                            <ul class="widget-list">
-                                                <li class="widget-list-item"><a class="widget-list-link"
-                                                        href="#">Aparelhos de cortar grama</a></li>
-                                                <li class="widget-list-item"><a class="widget-list-link"
-                                                        href="#">Ferramentas de Jardinagem</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex flex-wrap flex-md-nowrap">
-                                    <div class="mega-dropdown-column pt-4 px-3">
-                                        <div class="widget widget-links"><a
-                                                class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
-                                                    src="../../assets/imagens/shop/departments/04.jpg" alt="Shoes" /></a>
-                                            <h6 class="font-size-base mb-2">Automóvel</h6>
-                                            <ul class="widget-list">
-                                                <li class="widget-list-item"><a class="widget-list-link" href="#">lavagem alta pressão</a></li>
-                                                <li class="widget-list-item"><a class="widget-list-link" href="#">Aspirador</a></li>
-                                                <li class="widget-list-item"><a class="widget-list-link" href="#">Polimento</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="mega-dropdown-column pt-4 px-3">
-                                        <div class="widget widget-links"><a
-                                                class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
-                                                    src="../../assets/imagens/shop/departments/05.jpg" alt="Shoes" /></a>
-                                            <h6 class="font-size-base mb-2">Acessórios</h6>
-                                            <ul class="widget-list">
-                                                <li class="widget-list-item"><a class="widget-list-link"
-                                                        href="#">Fones</a></li>
-                                                <li class="widget-list-item"><a class="widget-list-link"
-                                                        href="#">Monitores</a></li>
-                                                <li class="widget-list-item"><a class="widget-list-link"
-                                                        href="#">Mochilas</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="mega-dropdown-column pt-4 px-3">
-                                        <div class="widget widget-links"><a
-                                                class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
-                                                    src="../../assets/imagens/shop/departments/06.jpg" alt="Shoes" /></a>
-                                            <h6 class="font-size-base mb-2">Stúdio</h6>
-                                            <ul class="widget-list">
-                                                <li class="widget-list-item"><a class="widget-list-link" href="#">Kid's
-                                                        Luzes Profissionais</a></li>
-                                                <li class="widget-list-item"><a class="widget-list-link" href="#">Video
-                                                        Aparelhos sonoros</a></li>
-                                                <li class="widget-list-item"><a class="widget-list-link"
-                                                        href="#">Mixagem</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+        <div class="navbar-toolbar d-flex flex-shrink-0 align-items-center">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-tool navbar-stuck-toggler" href="#">
+            <span class="navbar-tool-tooltip">Expandir Menu</span>
+            <div class="navbar-tool-icon-box">
+              <i class="navbar-tool-icon fa fa-menu"></i>
             </div>
+          </a>
+          <a class="navbar-tool ml-1 ml-lg-0 mr-n1 mr-lg-2" href="#signin-modal" data-toggle="modal">
+            <div class="navbar-tool-icon-box">
+              <i class="navbar-tool-icon fa fa-user"></i>
+            </div>
+            <div class="navbar-tool-text ml-n3">
+              <small>Olá, Dilan</small>Minha Conta
+            </div>
+          </a>
+
         </div>
+      </div>
     </div>
+    <div class="navbar navbar-expand-lg navbar-light navbar-stuck-menu mt-n2 pt-0 pb-2">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <!-- Search-->
+          <div class="input-group-overlay d-lg-none my-3">
+            <div class="input-group-prepend-overlay"><span class="input-group-text"><i class="fa fa-search"></i></span>
+            </div>
+            <input class="form-control prepended-form-control" type="text" placeholder="Procurar produtos">
+          </div>
+          <!-- Departments menu-->
+          <ul class="navbar-nav mega-nav pr-lg-2 mr-lg-2">
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle pl-0" href="#" data-toggle="dropdown"><i
+                  class="fa fa-border-all mr-2"></i>Categorias</a>
+              <div class="dropdown-menu px-2 pl-0 pb-4">
+                <div class="d-flex flex-wrap flex-md-nowrap">
+                  <div class="mega-dropdown-column pt-4 px-3">
+                    <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
+                          src="../../assets/imagens/shop/departments/01.jpg" alt="Shoes" /></a>
+                      <h6 class="font-size-base mb-2">Cozinha</h6>
+                      <ul class="widget-list">
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">Eletrodomésticos</a></li>
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">Recipientes</a></li>
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">Industrial</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="mega-dropdown-column pt-4 px-3">
+                    <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
+                          src="../../assets/imagens/shop/departments/02.jpg" alt="Shoes" /></a>
+                      <h6 class="font-size-base mb-2">Objetos Profissionais</h6>
+                      <ul class="widget-list">
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">Câmeras</a></li>
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">
+                            Filmadoras</a></li>
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">
+                            Microfones</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="mega-dropdown-column pt-4 px-3">
+                    <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
+                          src="../../assets/imagens/shop/departments/03.jpg" alt="Shoes" /></a>
+                      <h6 class="font-size-base mb-2">Jardim</h6>
+                      <ul class="widget-list">
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">Aparelhos de cortar grama</a>
+                        </li>
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">Ferramentas de Jardinagem</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-wrap flex-md-nowrap">
+                  <div class="mega-dropdown-column pt-4 px-3">
+                    <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
+                          src="../../assets/imagens/shop/departments/04.jpg" alt="Shoes" /></a>
+                      <h6 class="font-size-base mb-2">Automóvel</h6>
+                      <ul class="widget-list">
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">lavagem alta pressão</a></li>
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">Aspirador</a></li>
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">Polimento</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="mega-dropdown-column pt-4 px-3">
+                    <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
+                          src="../../assets/imagens/shop/departments/05.jpg" alt="Shoes" /></a>
+                      <h6 class="font-size-base mb-2">Acessórios</h6>
+                      <ul class="widget-list">
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">Fones</a></li>
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">Monitores</a></li>
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">Mochilas</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="mega-dropdown-column pt-4 px-3">
+                    <div class="widget widget-links"><a class="d-block overflow-hidden rounded-lg mb-3" href="#"><img
+                          src="../../assets/imagens/shop/departments/06.jpg" alt="Shoes" /></a>
+                      <h6 class="font-size-base mb-2">Stúdio</h6>
+                      <ul class="widget-list">
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">Luzes Profissionais</a></li>
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">Aparelhos sonoros</a></li>
+                        <li class="widget-list-item"><a class="widget-list-link" href="#">Mixagem</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
 
 
 <router-outlet></router-outlet>
 
 <footer class="bg-dark pt-5">
-    <div class="pt-5 bg-darker">
-        <div class="container">
-            <hr class="hr-light pb-4 mb-3">
-            <div class="row pb-2">
-                <div class="col-md-6 text-center text-md-left mb-4">
-                    <div class="text-nowrap mb-4"><a class="d-inline-block align-middle mt-n1 mr-3" href="#"><img
-                                class="d-block" width="117" src="../../assets/imagens/alugoIcon.PNG" alt="Cartzilla" /></a>
-                        
-                    </div>
-                    <div class="widget widget-links widget-light">
-                        <ul class="widget-list d-flex flex-wrap justify-content-center justify-content-md-start">
-                            <li class="widget-list-item mr-4"><a class="widget-list-link" href="#">Suporte</a></li>
-                            <li class="widget-list-item mr-4"><a class="widget-list-link" href="#">Privacidade</a></li>
-                            <li class="widget-list-item mr-4"><a class="widget-list-link" href="#">Termos de Uso</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+  <div class="pt-5 bg-darker">
+    <div class="container">
+      <hr class="hr-light pb-4 mb-3">
+      <div class="row pb-2">
+        <div class="col-md-6 text-center text-md-left mb-4">
+          <div class="text-nowrap mb-4"><a class="d-inline-block align-middle mt-n1 mr-3" href="#"><img class="d-block"
+                width="117" src="../../assets/imagens/alugoIcon.PNG" alt="aluGO" /></a>
+
+          </div>
+          <div class="widget widget-links widget-light">
+            <ul class="widget-list d-flex flex-wrap justify-content-center justify-content-md-start">
+              <li class="widget-list-item mr-4"><a class="widget-list-link" href="#">Suporte</a></li>
+              <li class="widget-list-item mr-4"><a class="widget-list-link" href="#">Privacidade</a></li>
+              <li class="widget-list-item mr-4"><a class="widget-list-link" href="#">Termos de Uso</a></li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </footer>
+
+<div class="cz-handheld-toolbar">
+  <div class="d-table table-fixed w-100">
+    <a class="d-table-cell cz-handheld-toolbar-item" href="account-wishlist.html">
+      <span class="cz-handheld-toolbar-icon"><i class="fa fa-user"></i></span>
+      <span class="cz-handheld-toolbar-label">Perfil</span></a>
+    <a class="d-table-cell cz-handheld-toolbar-item" href="#navbarCollapse" data-toggle="collapse"
+      onclick="window.scrollTo(0, 0)"><span class="cz-handheld-toolbar-icon"><i class="fa fa-bars"></i></span><span
+        class="cz-handheld-toolbar-label">Menu</span></a>
+  </div>
+</div>
