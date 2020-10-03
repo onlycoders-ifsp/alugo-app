@@ -1754,7 +1754,7 @@ textarea.form-control {
     padding-right: calc(.75em + 2.9375rem);
     background: url("data:image/svg+xml, %3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23373f50' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 1rem center/8px 10px, url("data:image/svg+xml;utf8;base64, PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4Ij4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNNDM3LjAxOSw3NC45OEMzODguNjY3LDI2LjYyOSwzMjQuMzgsMCwyNTYsMEMxODcuNjE5LDAsMTIzLjMzMSwyNi42MjksNzQuOTgsNzQuOThDMjYuNjI4LDEyMy4zMzIsMCwxODcuNjIsMCwyNTYgICAgczI2LjYyOCwxMzIuNjY3LDc0Ljk4LDE4MS4wMTlDMTIzLjMzMiw0ODUuMzcxLDE4Ny42MTksNTEyLDI1Niw1MTJjNjguMzgsMCwxMzIuNjY3LTI2LjYyOSwxODEuMDE5LTc0Ljk4MSAgICBDNDg1LjM3MSwzODguNjY3LDUxMiwzMjQuMzgsNTEyLDI1NlM0ODUuMzcxLDEyMy4zMzMsNDM3LjAxOSw3NC45OHogTTI1Niw0ODJDMTMxLjM4Myw0ODIsMzAsMzgwLjYxNywzMCwyNTZTMTMxLjM4MywzMCwyNTYsMzAgICAgczIyNiwxMDEuMzgzLDIyNiwyMjZTMzgwLjYxNyw0ODIsMjU2LDQ4MnoiIGZpbGw9IiMzM2NiODEiLz4KCTwvZz4KPC9nPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0zNzguMzA1LDE3My44NTljLTUuODU3LTUuODU2LTE1LjM1NS01Ljg1Ni0yMS4yMTIsMC4wMDFMMjI0LjYzNCwzMDYuMzE5bC02OS43MjctNjkuNzI3ICAgIGMtNS44NTctNS44NTctMTUuMzU1LTUuODU3LTIxLjIxMywwYy01Ljg1OCw1Ljg1Ny01Ljg1OCwxNS4zNTUsMCwyMS4yMTNsODAuMzMzLDgwLjMzM2MyLjkyOSwyLjkyOSw2Ljc2OCw0LjM5MywxMC42MDYsNC4zOTMgICAgYzMuODM4LDAsNy42NzgtMS40NjUsMTAuNjA2LTQuMzkzbDE0My4wNjYtMTQzLjA2NkMzODQuMTYzLDE4OS4yMTUsMzg0LjE2MywxNzkuNzE3LDM3OC4zMDUsMTczLjg1OXoiIGZpbGw9IiMzM2NiODEiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K") #fff no-repeat center right 2rem/calc(.75em + .625rem) calc(.75em + .625rem);
 }
-.was-validated .custom-select: valid:focus, .custom-select.is-valid:focus {
+.was-validated .custom-select:valid:focus, .custom-select.is-valid:focus {
     border-color: #42d697;
     box-shadow: 0 0 0 0 rgba(66, 214, 151, 0.25);
 }
@@ -1832,7 +1832,7 @@ textarea.form-control {
     padding-right: calc(.75em + 2.9375rem);
     background: url("data:image/svg+xml, %3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23373f50' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 1rem center/8px 10px, url("data:image/svg+xml;utf8;base64, PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ3NS4yIDQ3NS4yIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0NzUuMiA0NzUuMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik00MDUuNiw2OS42QzM2MC43LDI0LjcsMzAxLjEsMCwyMzcuNiwwcy0xMjMuMSwyNC43LTE2OCw2OS42UzAsMTc0LjEsMCwyMzcuNnMyNC43LDEyMy4xLDY5LjYsMTY4czEwNC41LDY5LjYsMTY4LDY5LjYgICAgczEyMy4xLTI0LjcsMTY4LTY5LjZzNjkuNi0xMDQuNSw2OS42LTE2OFM0NTAuNSwxMTQuNSw0MDUuNiw2OS42eiBNMzg2LjUsMzg2LjVjLTM5LjgsMzkuOC05Mi43LDYxLjctMTQ4LjksNjEuNyAgICBzLTEwOS4xLTIxLjktMTQ4LjktNjEuN2MtODIuMS04Mi4xLTgyLjEtMjE1LjcsMC0yOTcuOEMxMjguNSw0OC45LDE4MS40LDI3LDIzNy42LDI3czEwOS4xLDIxLjksMTQ4LjksNjEuNyAgICBDNDY4LjYsMTcwLjgsNDY4LjYsMzA0LjQsMzg2LjUsMzg2LjV6IiBmaWxsPSIjZjQ0MzM2Ii8+CgkJPHBhdGggZD0iTTM0Mi4zLDEzMi45Yy01LjMtNS4zLTEzLjgtNS4zLTE5LjEsMGwtODUuNiw4NS42TDE1MiwxMzIuOWMtNS4zLTUuMy0xMy44LTUuMy0xOS4xLDBjLTUuMyw1LjMtNS4zLDEzLjgsMCwxOS4xICAgIGw4NS42LDg1LjZsLTg1LjYsODUuNmMtNS4zLDUuMy01LjMsMTMuOCwwLDE5LjFjMi42LDIuNiw2LjEsNCw5LjUsNHM2LjktMS4zLDkuNS00bDg1LjYtODUuNmw4NS42LDg1LjZjMi42LDIuNiw2LjEsNCw5LjUsNCAgICBjMy41LDAsNi45LTEuMyw5LjUtNGM1LjMtNS4zLDUuMy0xMy44LDAtMTkuMWwtODUuNC04NS42bDg1LjYtODUuNkMzNDcuNiwxNDYuNywzNDcuNiwxMzguMiwzNDIuMywxMzIuOXoiIGZpbGw9IiNmNDQzMzYiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K") #fff no-repeat center right 2rem/calc(.75em + .625rem) calc(.75em + .625rem);
 }
-.was-validated .custom-select: invalid:focus, .custom-select.is-invalid:focus {
+.was-validated .custom-select:invalid:focus, .custom-select.is-invalid:focus {
     border-color: #f34770;
     box-shadow: 0 0 0 0 rgba(243, 71, 112, 0.25);
 }
@@ -3058,7 +3058,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-    .custom-switch .custom-control-label: :after {
+    .custom-switch .custom-control-label::after {
     transition: none;
 }
 }.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
@@ -3223,7 +3223,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     appearance: none;
 }
 @media (prefers-reduced-motion: reduce) {
-    .custom-range: :-webkit-slider-thumb {
+    .custom-range::-webkit-slider-thumb {
     -webkit-transition: none;
     transition: none;
 }
@@ -3253,7 +3253,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     appearance: none;
 }
 @media (prefers-reduced-motion: reduce) {
-    .custom-range: :-moz-range-thumb {
+    .custom-range::-moz-range-thumb {
     -moz-transition: none;
     transition: none;
 }
@@ -3285,7 +3285,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     appearance: none;
 }
 @media (prefers-reduced-motion: reduce) {
-    .custom-range: :-ms-thumb {
+    .custom-range::-ms-thumb {
     -ms-transition: none;
     transition: none;
 }
@@ -3330,7 +3330,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-    .custom-control-label: :before, .custom-file-label, .custom-select {
+    .custom-control-label::before, .custom-file-label, .custom-select {
     transition: none;
 }
 }.nav {
@@ -8533,11 +8533,6 @@ dd {
 .figure-caption {
     padding: 0 .5rem;
 }
-@font-face {
-    font-family: 'cartzilla-icons';
-    font-weight: normal;
-    font-style: normal;
-}
 [class^="czi-"], [class*=" czi-"] {
     display: inline-block;
     font-family: 'cartzilla-icons' !important;
@@ -12430,7 +12425,7 @@ html:not([dir=rtl]) .cz-range-slider-ui.noUi-horizontal .noUi-handle {
     padding-bottom: 0;
 }
 }@media (min-width: 992px) {
-    .product-card: hover:not(.card-static) {
+    .product-card:hover:not(.card-static) {
     border-color: #fff !important;
     box-shadow: 0 0.3rem 1.525rem -0.375rem rgba(0, 0, 0, 0.1);
     z-index: 10;
@@ -12465,7 +12460,7 @@ html:not([dir=rtl]) .cz-range-slider-ui.noUi-horizontal .noUi-handle {
     box-shadow: none !important;
 }
 }@media (min-width: 992px) {
-    .product-list: hover+hr {
+    .product-list:hover+hr {
     opacity: 0;
 }
 }.product-card-alt {
@@ -12521,7 +12516,7 @@ html:not([dir=rtl]) .cz-range-slider-ui.noUi-horizontal .noUi-handle {
     opacity: 0;
 }
 @media (min-width: 992px) {
-    .product-card-alt .product-thumb: hover .product-thumb-overlay, .product-card-alt .product-thumb:hover .btn-wishlist, .product-card-alt .product-thumb:hover .product-card-actions {
+    .product-card-alt .product-thumb:hover .product-thumb-overlay, .product-card-alt .product-thumb:hover .btn-wishlist, .product-card-alt .product-thumb:hover .product-card-actions {
     visibility: visible;
     opacity: 1;
 }
