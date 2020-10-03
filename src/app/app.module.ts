@@ -19,12 +19,18 @@ import { UsuarioModule } from './usuario/usuario.module';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ClienteModule } from './cliente/cliente.module';
+import { TodosProdutosComponent } from './todos-produtos/todos-produtos.component';
+import { PaginaNaoExisteComponent } from './pagina-nao-existe/pagina-nao-existe.component';
+import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    TodosProdutosComponent,
+    PaginaNaoExisteComponent,
+    DetalheProdutoComponent
   ],
   imports: [
     BrowserModule,

@@ -4765,7 +4765,6 @@ a.close.disabled {
     height: 100%;
     overflow: hidden;
     outline: 0;
-    overflow: scroll;
 }
 .modal-dialog {
     position: relative;

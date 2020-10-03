@@ -6,7 +6,7 @@ import { AdminLayoutComponent } from '../admin-layout/admin-layout.component';
 
 
 const routes: Routes = [
-  {path: 'usuarios', component: AdminLayoutComponent, children: [
+  {path: 'admin', component: AdminLayoutComponent, children: [
     { path: 'lista', component: UsuarioListaComponent },
     { path: 'cad', component: UsuarioFormComponent },
     { path: 'cad/:codigo', component: UsuarioFormComponent }
