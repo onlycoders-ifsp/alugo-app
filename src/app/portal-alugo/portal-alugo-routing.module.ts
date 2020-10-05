@@ -14,8 +14,7 @@ const routes: Routes = [
             { path: 'list-all', component: TodosProdutosComponent },
             { path: 'detalhe-produto', component: DetalheProdutoComponent }
         ]
-    },
-    { path: '**', component: PaginaNaoExisteComponent }
+    }
 ];
 
 @NgModule({

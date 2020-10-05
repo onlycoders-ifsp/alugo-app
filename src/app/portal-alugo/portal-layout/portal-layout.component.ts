@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 import { eCurrentUsuario } from 'src/app/entidades/eCurrentUsuario';
 
 @Component({
@@ -20,12 +21,13 @@ export class PortalLayoutComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    if(!this.currentUser.id){
+    if(!this.currentUser.isLogado){
       this.currentUser.isLogado = false;
     }
   }
 
   logaUsuario(){
+    
     this.currentUser.isLogado = true;
     this.currentUser.cep = '09551-000'
     this.currentUser.cpf = '123.456.789-0'
@@ -37,7 +39,7 @@ export class PortalLayoutComponent implements OnInit {
     this.currentUser.nome = 'Dilósvky'
     this.currentUser.numero = '321'
     // this.currentUser.perfil = enumPerfil.Cliente;
-    this.router.navigate[''];
+     this.router.navigate(['/cliente/perfil/dados']);
     // console.log(this.currentUser.perfil);
   }
 

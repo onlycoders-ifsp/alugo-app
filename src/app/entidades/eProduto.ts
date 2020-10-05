@@ -1,5 +1,5 @@
 export class eProduto {
-    id: number;
+    idProduto: string;
     nome: string;
     qtdeAlugueis: number;
     ganhos: number;
@@ -9,6 +9,6 @@ export class eProduto {
     valorBaseMensal: number;
     valorProduto: number;
     dataCompra: Date;
+    fotoCapa: string;
     ativo: boolean
-
 }

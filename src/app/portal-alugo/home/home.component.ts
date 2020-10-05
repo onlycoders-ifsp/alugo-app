@@ -4,6 +4,7 @@ import * as $ from 'jquery';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { PortalService } from 'src/app/Services/PortalService';
 import { TranslateService } from '@ngx-translate/core';
+import { eResponseProdutos } from 'src/app/entidades/eResponseProdutos';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class HomeComponent implements OnInit {
 
   langs = ['pt-br', 'en-us'];
-  produtos: eProduto[] = [];
+  produtos: eResponseProdutos[] = [];
+  currentProduto: eProduto;
 
   constructor(
     private router : Router,
@@ -22,6 +24,7 @@ export class HomeComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.currentProduto = new eProduto();
     this.portalService.getProdutos().subscribe(resposta => {
       this.produtos = resposta;
       console.log(this.produtos)},
@@ -36,6 +39,13 @@ export class HomeComponent implements OnInit {
       this.translateService.setDefaultLang('pt-br');
     }
     
+  }
+
+  exibeDetalhesModal(itemSelecionado : eResponseProdutos){
+    console.log(itemSelecionado);
+    console.log("retorno acima")
+    this.currentProduto = itemSelecionado.produto;
+    console.log(this.currentProduto)
   }
 
   public useLanguage(lang: string): void {

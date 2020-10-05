@@ -24,6 +24,8 @@ import { AdminModule } from './admin/admin.module';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { PortalService } from './Services/PortalService';
+import { AdminService } from './Services/AdminService';
 
 export function TranslationLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -58,7 +60,9 @@ export function TranslationLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
-    UsuarioService
+    UsuarioService,
+    PortalService,
+    AdminService
   ],
   bootstrap: [AppComponent]
 })
