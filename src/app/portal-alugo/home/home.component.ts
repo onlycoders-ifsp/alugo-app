@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { PortalService } from 'src/app/Services/PortalService';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +12,13 @@ import { PortalService } from 'src/app/Services/PortalService';
 })
 export class HomeComponent implements OnInit {
 
+  langs = ['pt-br', 'en-us'];
   produtos: eProduto[] = [];
 
   constructor(
     private router : Router,
     private portalService: PortalService,
+    private translateService: TranslateService
     ) { }
 
   ngOnInit(): void {
@@ -25,7 +28,18 @@ export class HomeComponent implements OnInit {
       errorResponse => {
         console.log(errorResponse)
       });
+
+    let browserlang = this.translateService.getBrowserLang();
+    if (this.langs.indexOf(browserlang) > -1) {
+      this.translateService.setDefaultLang(browserlang);
+    } else {
+      this.translateService.setDefaultLang('pt-br');
+    }
     
+  }
+
+  public useLanguage(lang: string): void {
+    this.translateService.setDefaultLang(lang);
   }
 
 
