@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Usuario } from './usuario/Usuario'
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment'
-import { getLocaleDateFormat } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'

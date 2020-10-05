@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://camada-adm.herokuapp.com'
+  apiBaseUrl: 'https://backend-alugo.herokuapp.com'
 };
 
 /*

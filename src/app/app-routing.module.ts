@@ -1,19 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ClienteLayoutComponent } from './cliente-layout/cliente-layout.component';
-import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { TodosProdutosComponent } from './todos-produtos/todos-produtos.component';
+import { DetalheProdutoComponent } from './portal-alugo/detalhe-produto/detalhe-produto.component';
+import { HomeComponent } from './portal-alugo/home/home.component';
+import { PortalLayoutComponent } from './portal-alugo/portal-layout/portal-layout.component';
+import { TodosProdutosComponent } from './portal-alugo/todos-produtos/todos-produtos.component';
 
 
 const routes: Routes = [
-  { path: '', component: ClienteLayoutComponent, children: [
-    {path: '', component: HomeComponent},
-    {path: 'list-all', component: TodosProdutosComponent},
-    {path: 'detalhe-produto', component: DetalheProdutoComponent}
-  ] },
-  { path: 'login', component: LoginComponent }
+    { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({

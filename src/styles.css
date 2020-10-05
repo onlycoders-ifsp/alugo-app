@@ -40,3 +40,15 @@ body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
     width: 100%;
 }
 
+/* input color class */
+.input.mat-input-element {
+    color: #484a4c;
+  }
+  
+  .mat-form-field.mat-focused .mat-form-field-label {
+    color: #f3935e !important;
+  }
+  
+  .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+    background-color: #f3935e !important;
+  }

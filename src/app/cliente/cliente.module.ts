@@ -15,10 +15,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table'
-import { ClienteLayoutComponent } from '../cliente-layout/cliente-layout.component';
 import { ClienteRoutingModule } from './cliente-routing.module';
 import { ClienteProdutoComponent } from './cliente-produto/cliente-produto.component';
 import { ListaProdutosComponent } from './lista-produtos/lista-produtos.component';
+import { ClienteCredenciaisComponent } from './cliente-credenciais/cliente-credenciais.component';
+import { ClienteLayoutComponent } from './cliente-layout/cliente-layout.component';
 
 
 
@@ -27,7 +28,8 @@ import { ListaProdutosComponent } from './lista-produtos/lista-produtos.componen
     ClienteLayoutComponent,
     ClientePerfilComponent,
     ClienteProdutoComponent,
-    ListaProdutosComponent
+    ListaProdutosComponent,
+    ClienteCredenciaisComponent
   ],
   imports: [
     CommonModule,

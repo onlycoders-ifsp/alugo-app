@@ -1,177 +1,100 @@
-<div class="page-title-overlap bg-dark pt-4">
-  <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
-    <div class="order-lg-1 pr-lg-4 text-center text-lg-left">
-      <h1 class="h3 text-light mb-0">Suas Informações</h1>
+<!-- Profile form-->
+<form>
+  <div class="bg-secondary rounded-lg p-4 mb-4">
+    <div class="media align-items-center"><img src="../../../assets/imagens/shop/account/dilan.jpg" width="90" alt="Dilan Lima">
+      <div class="media-body pl-3">
+        <button class="btn btn-light btn-shadow btn-sm mb-2" type="button"><i class="fa fa-exchange-alt mr-2"></i>Mudar Foto</button>
+        <div class="p mb-0 font-size-ms text-muted">Upload JPG, GIF ou PNG image. 300 x 300 necessário</div>
+      </div>
     </div>
   </div>
-</div>
-<div class="container pb-5 mb-2 mb-md-3">
-    <div class="row">
-      <!-- Sidebar-->
-      <aside class="col-lg-4 pt-4 pt-lg-0">
-        <div class="cz-sidebar-static rounded-lg box-shadow-lg px-0 pb-0 mb-5 mb-lg-0">
-          <div class="px-4 mb-4">
-            <div class="media align-items-center">
-              <div class="img-thumbnail rounded-circle position-relative" style="width: 6.375rem;"><span class="badge badge-warning" data-toggle="tooltip" title="Reward points">10</span><img class="rounded-circle" src="../../../assets/imagens/shop/account/dilan.jpg" alt="Dilan Lima"></div>
-              <div class="media-body pl-3">
-                <h3 class="font-size-base mb-0">Dilan Lima</h3><span class="text-accent font-size-sm">dilan.lima@exemplo.com</span>
-              </div>
-            </div>
-          </div>
-          <div class="bg-secondary px-4 py-3">
-            <h3 class="font-size-sm mb-0 text-muted">Informações de conta</h3>
-          </div>
-          <ul class="list-unstyled mb-0">
-            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3 active" routerLink="/cliente/perfil"><i class="fa fa-user opacity-60 mr-2"></i>Perfil</a></li>
+  <div class="row">
 
-          </ul>
-          <div class="bg-secondary px-4 py-3">
-            <h3 class="font-size-sm mb-0 text-muted">Transações</h3>
-          </div>
-          <ul class="list-unstyled mb-0">
-            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="#"><i class="fa fa-user-check opacity-60 mr-2"></i>Locador<span class="font-size-sm text-muted ml-auto">1</span></a></li>
-            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="#"><i class="fa fa-user-check opacity-60 mr-2"></i>Locatário<span class="font-size-sm text-muted ml-auto">5</span></a></li>
-          </ul>
-          <div class="bg-secondary px-4 py-3">
-            <h3 class="font-size-sm mb-0 text-muted">Seus Produtos</h3>
-          </div>
-          <ul class="list-unstyled mb-0">
-            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" routerLink="/cliente/listaProdutos"><i class="fa fa-product-hunt opacity-60 mr-2"></i>Ativos<span class="font-size-sm text-muted ml-auto">2</span></a></li>
-            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" routerLink="/cliente/listaProdutos"><i class="fa fa-product-hunt opacity-60 mr-2"></i>Inativos<span class="font-size-sm text-muted ml-auto">1</span></a></li>
-          </ul>
-          <div class="bg-secondary px-4 py-3">
-            <h3 class="font-size-sm mb-0 text-muted">Pagamentos</h3>
-          </div>
-          <ul class="list-unstyled mb-0">
-            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="#"><i class="fa fa-money-bill-alt opacity-60 mr-2"></i>Vencimentos<span class="font-size-sm text-muted ml-auto">1</span></a></li>
-            <li class="mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="#"><i class="fa fa-credit-card opacity-60 mr-2"></i>Informações de Pagamento</a></li>
-          </ul>
-          
-        </div>
-      </aside>
-      <!-- Content  -->
-      <section class="col-lg-8">
-        <!-- Toolbar-->
-        <div class="d-none d-lg-flex justify-content-between align-items-center pt-lg-3 pb-4 pb-lg-5 mb-lg-3">
-          <h6 class="font-size-base text-light mb-0">Atualize seus detalhes abaixo</h6><a class="btn btn-primary btn-sm" href="#"><i class="fa fa-sign-out mr-2"></i>Sair</a>
-        </div>
-        <!-- Profile form-->
-        <form>
-          <div class="bg-secondary rounded-lg p-4 mb-4">
-            <div class="media align-items-center"><img src="../../../assets/imagens/shop/account/dilan.jpg" width="90" alt="Dilan Lima">
-              <div class="media-body pl-3">
-                <button class="btn btn-light btn-shadow btn-sm mb-2" type="button"><i class="fa fa-exchange-alt mr-2"></i>Mudar Foto</button>
-                <div class="p mb-0 font-size-ms text-muted">Upload JPG, GIF ou PNG image. 300 x 300 necessário</div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="account-fn">Nome</label>
-                <input class="form-control" type="text" id="account-fn" value="Dilan Lima">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="account-ln">CPF</label>
-                <input class="form-control" type="text" id="account-ln">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="account-email">Email</label>
-                <input class="form-control" type="email" id="account-email">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="account-ln">Numero</label>
-                <input class="form-control" type="text" id="account-ln" >
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="account-email">Login</label>
-                <input class="form-control" type="text" id="login">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="account-pass">Senha antiga</label>
-                <div class="password-toggle">
-                  <input class="form-control" type="password" id="account-pass">
-                  <label class="password-toggle-btn">
-                    <input class="custom-control-input" type="checkbox"><i class="czi-eye password-toggle-indicator"></i><span class="sr-only">Show password</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="account-confirm-pass">Nova Senha</label>
-                <div class="password-toggle">
-                  <input class="form-control" type="password" id="account-confirm-pass">
-                  <label class="password-toggle-btn">
-                    <input class="custom-control-input" type="checkbox"><i class="czi-eye password-toggle-indicator"></i><span class="sr-only">Show password</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="account-confirm-pass">Confirme nova senha</label>
-                <div class="password-toggle">
-                  <input class="form-control" type="password" id="account-confirm-pass">
-                  <label class="password-toggle-btn">
-                    <input class="custom-control-input" type="checkbox"><i class="czi-eye password-toggle-indicator"></i><span class="sr-only">Show password</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="account-phone">Phone Number</label>
-                <input class="form-control" type="text" id="account-phone"  required>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="account-fn">CEP</label>
-                <input class="form-control" type="text" id="account-fn">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="account-ln">Logradouro</label>
-                <input class="form-control" type="text" id="account-ln">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="account-ln">Numero</label>
-                <input class="form-control" type="text" id="account-ln" >
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="account-fn">Complemento</label>
-                <input class="form-control" type="text" id="account-fn" >
-              </div>
-            </div>
-            
-            <div class="col-12">
-              <hr class="mt-2 mb-3">
-              <div class="d-flex flex-wrap justify-content-between align-items-center">
-                <button class="btn btn-primary mt-3 mt-sm-0" type="button">Atualizar Perfil</button>
-              </div>
-            </div>
-            
-          </div>
-        </form>
-      </section>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <mat-form-field  class="full-width">
+          <mat-label>Nome</mat-label>
+          <input name="nome" matInput placeholder="João das Neves">
+          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <mat-form-field  class="full-width">
+          <mat-label>CPF</mat-label>
+          <input name="cpf" matInput placeholder="123.456.789-01">
+          <mat-hint align="start"><strong>Sem pontos ou traços</strong> </mat-hint>
+        <mat-hint align="end">max 11</mat-hint>
+          <mat-icon class="text-primary" matSuffix >lock</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <mat-form-field  class="full-width">
+          <mat-label>Email</mat-label>
+          <input  name="email" matInput placeholder="Ex: pessoa@pessoa.com">
+          <mat-hint align="start"><strong>este será seu login</strong> </mat-hint>
+          <mat-icon class="text-primary"  matSuffix>person_pin</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <mat-form-field  class="full-width">
+          <mat-label>Telefone</mat-label>
+          <input name="telefone" matInput placeholder="(11) 98838-9393)">
+          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <mat-form-field  class="full-width">
+          <mat-label>CEP</mat-label>
+          <input  name="cep" matInput placeholder="08664-967">
+          <mat-hint align="start"><strong>Sem pontos ou traços</strong> </mat-hint>
+          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <mat-form-field  class="full-width">
+          <mat-label>Endereço</mat-label>
+          <input  name="endereco" matInput placeholder="Rua capitão joão">
+          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <mat-form-field  class="full-width">
+          <mat-label>Número</mat-label>
+          <input  name="numero" matInput placeholder="321">
+          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <mat-form-field  class="full-width">
+          <mat-label>Complemento</mat-label>
+          <input  name="complemento" matInput placeholder="apt 91">
+          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    
+    <div class="col-12">
+      <hr class="mt-2 mb-3">
+      <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <button class="btn btn-primary mt-3 mt-sm-0" type="button">Atualizar Perfil</button>
+      </div>
     </div>
   </div>
+</form>
+

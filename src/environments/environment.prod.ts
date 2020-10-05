@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://camada-adm.herokuapp.com'
+  apiBaseUrl: 'https://backend-alugo.herokuapp.com'
 };

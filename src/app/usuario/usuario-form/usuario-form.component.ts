@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router'
 import { Usuario } from '../Usuario';
 import { UsuarioService } from 'src/app/usuario.service';
 
+
 @Component({
   selector: 'app-usuario-form',
   templateUrl: './usuario-form.component.html',

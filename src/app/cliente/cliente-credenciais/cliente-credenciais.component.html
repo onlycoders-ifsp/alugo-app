@@ -1,0 +1,53 @@
+<!-- Profile form-->
+<form>
+  <div class="row">
+      <div class="col-sm-6">
+          <div class="form-group">
+              <mat-form-field  class="full-width">
+                  <mat-label>Login</mat-label>
+                  <input name="login" matInput placeholder="João das Neves">
+                  <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+              </mat-form-field>
+          </div>
+      </div>
+      <div class="col-sm-6">
+          <div class="form-group">
+              <mat-form-field  class="full-width">
+                  <mat-label>Senha Antiga</mat-label>
+                  <input name="senha" matInput type="password">
+                  <mat-hint align="start"><strong>Uma letra maiúscula e um número</strong> </mat-hint>
+                  <mat-hint align="end">max 8</mat-hint>
+                  <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+              </mat-form-field>
+          </div>
+      </div>
+      <div class="col-sm-6">
+          <div class="form-group">
+              <mat-form-field  class="full-width">
+                  <mat-label>Nova Senha</mat-label>
+                  <input name="senha" matInput placeholder="*****">
+                  <mat-hint align="start"><strong>Uma letra maiúscula e um número</strong> </mat-hint>
+                  <mat-hint align="end">max 8</mat-hint>
+                  <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+              </mat-form-field>
+          </div>
+      </div>
+      <div class="col-sm-6">
+          <div class="form-group">
+              <mat-form-field  class="full-width">
+                  <mat-label>Confirme nova senha</mat-label>
+                  <input name="senha" matInput type="password">
+                  <mat-hint align="start"><strong>Uma letra maiúscula e um número</strong> </mat-hint>
+                  <mat-hint align="end">max 8</mat-hint>
+                  <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+              </mat-form-field>
+          </div>
+      </div>
+      <div class="col-12">
+          <hr class="mt-2 mb-3">
+          <div class="d-flex flex-wrap justify-content-between align-items-center">
+              <button class="btn btn-primary mt-3 mt-sm-0" type="button">Atualizar Senha</button>
+          </div>
+      </div>
+  </div>
+</form>

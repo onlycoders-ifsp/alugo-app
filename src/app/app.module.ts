@@ -17,20 +17,14 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
 import { UsuarioModule } from './usuario/usuario.module';
 import { RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 import { ClienteModule } from './cliente/cliente.module';
-import { TodosProdutosComponent } from './todos-produtos/todos-produtos.component';
-import { PaginaNaoExisteComponent } from './pagina-nao-existe/pagina-nao-existe.component';
-import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
+import { PortalAlugoModule } from './portal-alugo/portal-alugo.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    HomeComponent,
-    TodosProdutosComponent,
-    PaginaNaoExisteComponent,
-    DetalheProdutoComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +41,8 @@ import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.compo
     BrowserAnimationsModule,
     UsuarioModule,
     ClienteModule,
+    PortalAlugoModule,
+    AdminModule,
     RouterModule,
   ],
   providers: [
