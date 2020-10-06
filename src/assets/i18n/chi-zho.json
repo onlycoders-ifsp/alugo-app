@@ -21,8 +21,8 @@
     
         },
         "login" : {
-            "textoLogin" : "Entrar",
-            "registrar" : "Registre-se",
+            "textoLogin" : "Flango",
+            "registrar" : "Catupily",
             "entreEconomize" : "Mudou!",
             "usuario" : "Usuário",
             "exUsuario" : "Ex: pessoa@pessoa.com",

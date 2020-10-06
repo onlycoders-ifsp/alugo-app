@@ -11039,21 +11039,25 @@ a:hover{
 	  height: calc(20rem - 43px) !important;
 	}
   }
+
+  .imgLogin{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.imgLogin img{
+	width: 500px;
+}
+.wave{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	z-index: -1;
+}
   
   .bg-login-image {
 	background: url("../../assets/imagens/alugoGO.png");
-	background-position: center;
-	background-size: cover;
-  }
-  
-  .bg-register-image {
-	background: url("https://source.unsplash.com/Mv9hjnEUHR4/600x800");
-	background-position: center;
-	background-size: cover;
-  }
-  
-  .bg-password-image {
-	background: url("https://source.unsplash.com/oWTW-jNGl9I/600x800");
 	background-position: center;
 	background-size: cover;
   }

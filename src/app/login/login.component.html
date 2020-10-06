@@ -29,22 +29,22 @@
         </div>
     </div> -->
 
-
+<img class="wave" src="/assets/imagens/wave.png">
 <div class="container">
     
     <!-- Outer Row -->
     <div class="row justify-content-center">
-        <div class="col-xl-8 col-lg-12 col-md-9">
+        <div class="col-xl-5 col-lg-12 col-md-9">
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs" role="tablist">
                         <li class="nav-item"><a class="nav-link active" href="#corpoLogin" data-toggle="tab" role="tab"
                                 aria-selected="true"><i class="fa fa-lock mr-2 mt-n1"></i>
-                                Login
+                                {{ 'portal-alugo.login.textoLogin' | translate }}
                             </a></li>
                         <li class="nav-item"><a class="nav-link" href="#corpoRegistro" data-toggle="tab" role="tab"
                                 aria-selected="false"><i class="fa fa-user mr-2 mt-n1"></i>
-                                Registrar-se</a></li>
+                                {{ 'portal-alugo.login.registrar' | translate }}</a></li>
                     </ul>
                     
                     
@@ -52,12 +52,12 @@
                     
                 </div>
                 <div class="card-body tab-content p-0">
-                    <div class="text-center mt-2">
+                    <div class="text-center mt-1">
                         <mat-form-field>
                             <mat-label><img class="text-right" src="../../../assets/imagens/flags/{{currentBandeira}}" width="28px">
                             </mat-label>
                             <mat-select [(value)]="currentIdioma">
-                                <mat-option (click)="setNewIdioma()" *ngFor="let idioma of idiomas" [value]="idioma.name">
+                                <mat-option (click)="clickMudaIdioma()" *ngFor="let idioma of idiomas" [value]="idioma.name">
                                     <img class="text-right" src="../../../assets/imagens/flags/{{idioma.bandeira}}" width="32px">
                                     {{idioma.displayNome}}
                                 </mat-option>
@@ -65,7 +65,6 @@
                         </mat-form-field>
                     </div>
                     
-                    <!-- Nested Row within Card Body -->
                     <div class="row fade tab-pane fade show active" id="corpoLogin">
                         <div class="col-lg-12">
                             <div class="p-5">
@@ -76,29 +75,24 @@
                                 <form class="user">
                                     <div class="input-group mb-3">
                                         <mat-form-field class="full-width">
-                                            <mat-label>Usuário</mat-label>
-                                            <input matInput placeholder="Ex: pessoa@pessoa.com">
+                                            <mat-label>{{ 'portal-alugo.login.usuario' | translate }}</mat-label>
+                                            <input matInput placeholder="{{ 'portal-alugo.login.exUsuario' | translate }}">
                                             <mat-icon matSuffix>person_pin</mat-icon>
                                         </mat-form-field>
                                     </div>
                                     <div class="input-group mb-2">
                                         <mat-form-field class="full-width">
-                                            <mat-label>Senha</mat-label>
+                                            <mat-label>{{ 'portal-alugo.login.senha' | translate }}</mat-label>
                                             <input matInput placeholder="*****">
                                             <mat-icon matSuffix>lock</mat-icon>
                                         </mat-form-field>
                                     </div>
-                                    <a href="#">Esqueceu a senha?</a>
-                                    <input (click)="login()" class="btn btn-google btn-user btn-block" value="Login">
+                                    <input (click)="login()" class="btn btn-google btn-user btn-block" value="{{ 'portal-alugo.login.textoLogin' | translate }}">
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="nav-link" href="#corpoRegistro" data-toggle="tab" role="tab"
-                                    aria-selected="false">Registrar</a>
-                                </div>
-                                <div class="text-center">
-                                    <a class="nav-link" href="#esqueciSenha" data-toggle="tab" role="tab"
-                                    aria-selected="false">Esqueceu sua senha?</a>
+                                    <a href="#esqueciSenha" data-toggle="tab" role="tab"
+                                    aria-selected="false">{{ 'portal-alugo.login.esqueceuSenha' | translate }}</a>
                                 </div>
                             </div>
                         </div>
@@ -110,21 +104,21 @@
                             <div class="p-5">
                                 <div class="text-center">
                                     <img src="../../assets/imagens/alugoIcon.PNG" width="150">
-                                    <h1 class="h4 text-gray-900">Crie sua conta!</h1>
+                                    <h1 class="h4 text-gray-900">{{ 'portal-alugo.login.crieConta' | translate }}</h1>
                                 </div>
                                 <form class="user">
 
                                     <div class="input-group mb-3">
                                         <mat-form-field class="full-width">
-                                            <mat-label>Email</mat-label>
-                                            <input matInput placeholder="Ex: pessoa@pessoa.com">
+                                            <mat-label>{{ 'portal-alugo.login.email' | translate }}</mat-label>
+                                            <input matInput placeholder="{{ 'portal-alugo.login.exUsuario' | translate }}">
                                             <mat-icon matSuffix>person_pin</mat-icon>
                                         </mat-form-field>
                                     </div>
                                     <div class="input-group mb-3">
                                         <mat-form-field  class="full-width">
-                                            <mat-label>Nome</mat-label>
-                                            <input matInput placeholder="Ex: pessoa@pessoa.com">
+                                            <mat-label>{{ 'portal-alugo.login.nome' | translate }}</mat-label>
+                                            <input matInput>
                                             <mat-icon matSuffix>person_pin</mat-icon>
                                         </mat-form-field>
                                     </div>
@@ -132,7 +126,7 @@
                                         <div class="col-md-6 mb-3">
                                             <div class="input-group mb-2">
                                                 <mat-form-field class="full-width">
-                                                    <mat-label>Senha</mat-label>
+                                                    <mat-label>{{ 'portal-alugo.login.senha' | translate }}</mat-label>
                                                     <input matInput placeholder="*****">
                                                     <mat-icon matSuffix>lock</mat-icon>
                                                 </mat-form-field>
@@ -141,7 +135,7 @@
                                         <div class="col-md-6 mb-3">
                                             <div class="input-group mb-2">
                                                 <mat-form-field  class="full-width">
-                                                    <mat-label>Confirme senha</mat-label>
+                                                    <mat-label>{{ 'portal-alugo.login.confirmaSenha' | translate }}</mat-label>
                                                     <input matInput placeholder="*****">
                                                     <mat-icon matSuffix>lock</mat-icon>
                                                 </mat-form-field>
@@ -149,16 +143,12 @@
                                         </div>
                                     </div>
                                     <input (click)="login()" class="btn btn-success btn-user btn-block"
-                                        value="Registrar">
+                                        value="{{ 'portal-alugo.login.registrar' | translate }}">
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="nav-link" href="#esqueciSenha" data-toggle="tab" role="tab"
-                                    aria-selected="false">Esqueceu sua senha?</a>
-                                </div>
-                                <div class="text-center">
                                     <a class="nav-link" href="#corpoLogin" data-toggle="tab" role="tab"
-                                    aria-selected="false">Fazer Login</a>
+                                    aria-selected="false">{{ 'portal-alugo.login.temConta' | translate }}</a>
                                 </div>
                             </div>
                         </div>

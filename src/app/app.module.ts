@@ -26,6 +26,8 @@ import { AdminService } from './Services/AdminService';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { LoaderComponent } from './loader/loader.component';
+import { LoaderModule } from './loader/loader.module';
 
 
 @NgModule({
@@ -51,6 +53,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     AdminModule,
     RouterModule,
     MatSelectModule,
+    LoaderModule,
     HttpClientModule,
         TranslateModule.forRoot({
             loader: {

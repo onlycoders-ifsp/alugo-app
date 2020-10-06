@@ -45,6 +45,7 @@
             "textoLogin" : "Entrar",
             "registrar" : "Registre-se",
             "entreEconomize" : "Entre e Economize!",
+            "nome" : "Nome",
             "usuario" : "Usuário",
             "exUsuario" : "Ex: pessoa@pessoa.com",
             "senha" : "Senha",
@@ -52,6 +53,7 @@
             "esqueceuSenha" : "Esqueceu a Senha?",
             "crieConta" : "Crie sua Conta!",
             "email" : "Email",
+            "temConta" : "Já possui uma conta? Entre",
             "txtInfoRecuperarSenha" : "Para recuperar, forneça seu email e enviaremos as instruções para recuperação!",
             "recuperaSenha" : "Recuperar Senha"
         }

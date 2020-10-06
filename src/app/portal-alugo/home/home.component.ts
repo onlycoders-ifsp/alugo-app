@@ -5,7 +5,7 @@ import { eProduto } from 'src/app/entidades/eProduto';
 import { PortalService } from 'src/app/Services/PortalService';
 import { TranslateService } from '@ngx-translate/core';
 import { eResponseProdutos } from 'src/app/entidades/eResponseProdutos';
-import { iIdioma } from 'src/app/Interfaces/eIdioma';
+import { iIdioma } from 'src/app/Interfaces/iIdioma';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
 
   produtos: eResponseProdutos[] = [];
   currentProduto: eProduto;
-
   
 
   idiomaSelecionado: string;

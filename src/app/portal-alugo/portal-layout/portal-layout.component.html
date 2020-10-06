@@ -1,5 +1,5 @@
-<!-- Sign in / sign up modal-->
-<div class="modal fade" id="signin-modal" tabindex="-1" role="dialog">
+
+<!-- <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -81,13 +81,10 @@
       </div>
     </div>
   </div>
-</div>
-<!-- Navbar-->
-<!-- Quick View Modal-->
+</div> -->
 
 
 <header class="box-shadow-sm">
-  <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
   <div class="navbar-sticky bg-light" >
     <div class="navbar navbar-expand-lg navbar-light">
       <div class="container">
@@ -128,7 +125,7 @@
             </div>
           </a>
 
-          <a *ngIf="!currentUser.isLogado" class="navbar-tool ml-1 ml-lg-0 mr-n1 mr-lg-2" href="#signin-modal" data-toggle="modal">
+          <a *ngIf="!currentUser.isLogado" class="navbar-tool ml-1 ml-lg-0 mr-n1 mr-lg-2" routerLink="/login" data-toggle="modal">
             <div class="navbar-tool-icon-box">
               <i class="navbar-tool-icon fa fa-user-plus"></i>
             </div>

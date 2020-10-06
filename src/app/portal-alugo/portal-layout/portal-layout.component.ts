@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import * as $ from 'jquery';
 import { eCurrentUsuario } from 'src/app/entidades/eCurrentUsuario';
-import { iIdioma } from 'src/app/Interfaces/eIdioma';
+import { iIdioma } from 'src/app/Interfaces/iIdioma';
 
 @Component({
   selector: 'app-portal-layout',
