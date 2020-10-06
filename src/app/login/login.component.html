@@ -52,6 +52,18 @@
                     
                 </div>
                 <div class="card-body tab-content p-0">
+                    <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ mensagemSucesso }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div *ngIf="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ mensagemErro }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
                     <div class="text-center mt-1">
                         <mat-form-field>
                             <mat-label><img class="text-right" src="../../../assets/imagens/flags/{{currentBandeira}}" width="28px">
@@ -67,7 +79,7 @@
                     
                     <div class="row fade tab-pane fade show active" id="corpoLogin">
                         <div class="col-lg-12">
-                            <div class="p-5">
+                            <div class="p-4">
                                 <div class="text-center">
                                     <img src="../../assets/imagens/alugoIcon.PNG" width="150">
                                     <h1 class="h4 text-gray-900">{{ 'portal-alugo.login.entreEconomize' | translate }}</h1>
@@ -101,24 +113,33 @@
 
                     <div class="row fade tab-pane" id="corpoRegistro">
                         <div class="col-lg-12">
-                            <div class="p-5">
+                            <div class="p-4">
                                 <div class="text-center">
-                                    <img src="../../assets/imagens/alugoIcon.PNG" width="150">
+                                    <img src="../../assets/imagens/alugoIcon.PNG" width="50">
                                     <h1 class="h4 text-gray-900">{{ 'portal-alugo.login.crieConta' | translate }}</h1>
                                 </div>
-                                <form class="user">
+                                <form [formGroup]="formularioCadastro" (ngSubmit)="cadastrar()" class="user">
 
                                     <div class="input-group mb-3">
                                         <mat-form-field class="full-width">
                                             <mat-label>{{ 'portal-alugo.login.email' | translate }}</mat-label>
-                                            <input matInput placeholder="{{ 'portal-alugo.login.exUsuario' | translate }}">
+                                            <input formControlName="email" matInput placeholder="{{ 'portal-alugo.login.exUsuario' | translate }}">
+                                            <mat-error *ngIf="formularioCadastro.controls.email.errors && formularioCadastro.controls.email.errors.required">
+                                                Você precisa preencher o email
+                                              </mat-error>
+                                              <mat-error *ngIf="formularioCadastro.controls.email.errors && formularioCadastro.controls.email.errors.email">
+                                                o email precisa ser válido
+                                              </mat-error>
                                             <mat-icon matSuffix>person_pin</mat-icon>
                                         </mat-form-field>
                                     </div>
                                     <div class="input-group mb-3">
                                         <mat-form-field  class="full-width">
                                             <mat-label>{{ 'portal-alugo.login.nome' | translate }}</mat-label>
-                                            <input matInput>
+                                            <input matInput formControlName="nome">
+                                            <mat-error *ngIf="formularioCadastro.controls.nome.errors && formularioCadastro.controls.nome.errors.required">
+                                                Você precisa preencher o nome
+                                              </mat-error>
                                             <mat-icon matSuffix>person_pin</mat-icon>
                                         </mat-form-field>
                                     </div>
@@ -126,8 +147,8 @@
                                         <div class="col-md-6 mb-3">
                                             <div class="input-group mb-2">
                                                 <mat-form-field class="full-width">
-                                                    <mat-label>{{ 'portal-alugo.login.senha' | translate }}</mat-label>
-                                                    <input matInput placeholder="*****">
+                                                    <mat-label>{{ 'portal-alugo.login.cpf' | translate }}</mat-label>
+                                                    <input matInput formControlName="cpf" placeholder="{{ 'portal-alugo.login.exCpf' | translate }}">
                                                     <mat-icon matSuffix>lock</mat-icon>
                                                 </mat-form-field>
                                             </div>
@@ -135,15 +156,48 @@
                                         <div class="col-md-6 mb-3">
                                             <div class="input-group mb-2">
                                                 <mat-form-field  class="full-width">
-                                                    <mat-label>{{ 'portal-alugo.login.confirmaSenha' | translate }}</mat-label>
-                                                    <input matInput placeholder="*****">
+                                                    <mat-label>{{ 'portal-alugo.login.telefone' | translate }}</mat-label>
+                                                    <span matPrefix>+55 &nbsp;</span>
+                                                    <input matInput formControlName="celular" placeholder="{{ 'portal-alugo.login.exTelefone' | translate }}">
                                                     <mat-icon matSuffix>lock</mat-icon>
                                                 </mat-form-field>
                                             </div>
                                         </div>
                                     </div>
-                                    <input (click)="login()" class="btn btn-success btn-user btn-block"
-                                        value="{{ 'portal-alugo.login.registrar' | translate }}">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="input-group mb-2">
+                                                <mat-form-field class="full-width">
+                                                    <mat-label>{{ 'portal-alugo.login.senha' | translate }}</mat-label>
+                                                    <input matInput formControlName="senha" type="password" placeholder="*****">
+                                                    <mat-icon matSuffix>lock</mat-icon>
+                                                    <mat-error *ngIf="formularioCadastro.controls.senha.errors && formularioCadastro.controls.senha.errors.required">
+                                                        A senha está vazia
+                                                      </mat-error>
+                                                      <mat-error *ngIf="formularioCadastro.controls.senha.errors && formularioCadastro.controls.senha.errors.minlength">
+                                                        Deve ter no mínimo 8 caracteres
+                                                      </mat-error>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="input-group mb-2">
+                                                <mat-form-field  class="full-width">
+                                                    <mat-label>{{ 'portal-alugo.login.confirmaSenha' | translate }}</mat-label>
+                                                    <input matInput formControlName="confirmaSenha" type="password" placeholder="*****">
+                                                    <mat-error *ngIf="formularioCadastro.controls.confirmaSenha.errors && formularioCadastro.controls.confirmaSenha.errors.required">
+                                                        A senha está vazia
+                                                      </mat-error>
+                                                      <mat-error *ngIf="formularioCadastro.controls.confirmaSenha.value != formularioCadastro.controls.senha.value">
+                                                        a senha não bate
+                                                      </mat-error>
+                                                    <mat-icon matSuffix>lock</mat-icon>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button mat-flat-button class="btn btn-success btn-user btn-block"
+                                        value="">{{ 'portal-alugo.login.registrar' | translate }}</button>
                                 </form>
                                 <hr>
                                 <div class="text-center">

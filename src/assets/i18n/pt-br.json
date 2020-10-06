@@ -49,6 +49,10 @@
             "usuario" : "Usuário",
             "exUsuario" : "Ex: pessoa@pessoa.com",
             "senha" : "Senha",
+            "cpf" : "CPF",
+            "exCpf" : "123.456.789.01",
+            "telefone" : "Telefone",
+            "exTelefone" : "(11) 91234-8675",
             "confirmaSenha" : "Confirmar Senha",
             "esqueceuSenha" : "Esqueceu a Senha?",
             "crieConta" : "Crie sua Conta!",
@@ -62,7 +66,9 @@
         "cliente-credenciais": {},
         "cliente-layout": {},
         "cliente-perfil": {},
-        "cliente-produto": {},
+        "cliente-produto": {
+            "textSuportado" : "Formatações de texto suportadas:"
+        },
         "lista-produtos": {}
     },
     "admin": {

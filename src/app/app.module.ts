@@ -28,6 +28,10 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderModule } from './loader/loader.module';
+import { idiomaService } from './Services/idiomaService';
+import { PortalService } from './Services/PortalService';
+import { AuthService } from './Services/auth.service';
+import { ReactiveFormsModule } from '@angular/forms'
 
 
 @NgModule({
@@ -44,6 +48,7 @@ import { LoaderModule } from './loader/loader.module';
     MatToolbarModule,
     MatInputModule,
     MatCardModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
     BrowserAnimationsModule,
@@ -65,7 +70,10 @@ import { LoaderModule } from './loader/loader.module';
   ],
   providers: [
     UsuarioService,
-    AdminService
+    AdminService,
+    idiomaService,
+    PortalService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

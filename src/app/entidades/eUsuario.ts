@@ -11,4 +11,14 @@ export class eUsuario {
     data_nascimento: Date;
     ativo: boolean;
     codigo: string;
+    celular: string;
+
+    constructor(nome: string, email: string, senha: string, cpf: string, celular: string){
+        this.nome = nome;
+        this.email = email,
+        this.login = email,
+        this.senha = senha,
+        this.cpf = cpf,
+        this.celular = celular;
+    }
 }

@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://backend-alugo.herokuapp.com'
+  apiBaseUrl: 'https://backend-alugo.herokuapp.com',
+  client_id: 'front-alugo',
+  secret: 'aluGo@123!321',
+  authorizedGrantTypes: 'password'
 };
 
 /*
