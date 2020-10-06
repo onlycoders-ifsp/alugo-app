@@ -1,13 +1,13 @@
-<img class="wave" src="/assets/imagens/wave.png">
+<!-- <img class="wave" src="/assets/imagens/wave.png">
 	<div class="container">
 		<div class="img">
             <img src="/assets/imagens/bg.svg">
-		</div>
+        </div>
+        
 		<div class="login-content">
-            
-			<form>
-                
-				<img src="/assets/imagens/alugoIcon.PNG">
+              <form class="needs-validation tab-pane fade show active" id="signin-tab">
+                    
+                <img src="/assets/imagens/alugoIcon.PNG">
                 <div class="input-group mb-3">
                     <mat-form-field appearance="fill" class="full-width">
                         <mat-label>Usuário</mat-label>
@@ -22,9 +22,172 @@
                         <mat-icon matSuffix>lock</mat-icon>
                       </mat-form-field>
                 </div>
-            	<a href="#">Esqueceu a senha?</a>
-            	<input (click)="login()" class="btn" value="Login">
+                <a href="#">Esqueceu a senha?</a>
+                <input (click)="login()" class="btn" value="Login">
             </form>
+              
+        </div>
+    </div> -->
+
+
+<div class="container">
+    
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+        <div class="col-xl-8 col-lg-12 col-md-9">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                        <li class="nav-item"><a class="nav-link active" href="#corpoLogin" data-toggle="tab" role="tab"
+                                aria-selected="true"><i class="fa fa-lock mr-2 mt-n1"></i>
+                                Login
+                            </a></li>
+                        <li class="nav-item"><a class="nav-link" href="#corpoRegistro" data-toggle="tab" role="tab"
+                                aria-selected="false"><i class="fa fa-user mr-2 mt-n1"></i>
+                                Registrar-se</a></li>
+                    </ul>
+                    
+                    
+                    
+                    
+                </div>
+                <div class="card-body tab-content p-0">
+                    <div class="text-center mt-2">
+                        <mat-form-field>
+                            <mat-label><img class="text-right" src="../../../assets/imagens/flags/{{currentBandeira}}" width="28px">
+                            </mat-label>
+                            <mat-select [(value)]="currentIdioma">
+                                <mat-option (click)="setNewIdioma()" *ngFor="let idioma of idiomas" [value]="idioma.name">
+                                    <img class="text-right" src="../../../assets/imagens/flags/{{idioma.bandeira}}" width="32px">
+                                    {{idioma.displayNome}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    
+                    <!-- Nested Row within Card Body -->
+                    <div class="row fade tab-pane fade show active" id="corpoLogin">
+                        <div class="col-lg-12">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <img src="../../assets/imagens/alugoIcon.PNG" width="150">
+                                    <h1 class="h4 text-gray-900">{{ 'portal-alugo.login.entreEconomize' | translate }}</h1>
+                                </div>
+                                <form class="user">
+                                    <div class="input-group mb-3">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Usuário</mat-label>
+                                            <input matInput placeholder="Ex: pessoa@pessoa.com">
+                                            <mat-icon matSuffix>person_pin</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="input-group mb-2">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Senha</mat-label>
+                                            <input matInput placeholder="*****">
+                                            <mat-icon matSuffix>lock</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                    <a href="#">Esqueceu a senha?</a>
+                                    <input (click)="login()" class="btn btn-google btn-user btn-block" value="Login">
+                                </form>
+                                <hr>
+                                <div class="text-center">
+                                    <a class="nav-link" href="#corpoRegistro" data-toggle="tab" role="tab"
+                                    aria-selected="false">Registrar</a>
+                                </div>
+                                <div class="text-center">
+                                    <a class="nav-link" href="#esqueciSenha" data-toggle="tab" role="tab"
+                                    aria-selected="false">Esqueceu sua senha?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row fade tab-pane" id="corpoRegistro">
+                        <div class="col-lg-12">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <img src="../../assets/imagens/alugoIcon.PNG" width="150">
+                                    <h1 class="h4 text-gray-900">Crie sua conta!</h1>
+                                </div>
+                                <form class="user">
+
+                                    <div class="input-group mb-3">
+                                        <mat-form-field class="full-width">
+                                            <mat-label>Email</mat-label>
+                                            <input matInput placeholder="Ex: pessoa@pessoa.com">
+                                            <mat-icon matSuffix>person_pin</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <mat-form-field  class="full-width">
+                                            <mat-label>Nome</mat-label>
+                                            <input matInput placeholder="Ex: pessoa@pessoa.com">
+                                            <mat-icon matSuffix>person_pin</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="input-group mb-2">
+                                                <mat-form-field class="full-width">
+                                                    <mat-label>Senha</mat-label>
+                                                    <input matInput placeholder="*****">
+                                                    <mat-icon matSuffix>lock</mat-icon>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="input-group mb-2">
+                                                <mat-form-field  class="full-width">
+                                                    <mat-label>Confirme senha</mat-label>
+                                                    <input matInput placeholder="*****">
+                                                    <mat-icon matSuffix>lock</mat-icon>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input (click)="login()" class="btn btn-success btn-user btn-block"
+                                        value="Registrar">
+                                </form>
+                                <hr>
+                                <div class="text-center">
+                                    <a class="nav-link" href="#esqueciSenha" data-toggle="tab" role="tab"
+                                    aria-selected="false">Esqueceu sua senha?</a>
+                                </div>
+                                <div class="text-center">
+                                    <a class="nav-link" href="#corpoLogin" data-toggle="tab" role="tab"
+                                    aria-selected="false">Fazer Login</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fade tab-pane" id="esqueciSenha">
+                        <div class="col-lg-12">
+                          <div class="p-5">
+                            <div class="text-center">
+                              <h1 class="h4 text-gray-900 mb-2">Esqueceu sua senha?</h1>
+                              <p class="mb-4">Para recuperar, forneça seu email e enviaremos as instruções para recuperação!</p>
+                            </div>
+                            <form class="user">
+                                <div class="input-group mb-3">
+                                    <mat-form-field class="full-width">
+                                        <mat-label>Email</mat-label>
+                                        <input matInput placeholder="Ex: pessoa@pessoa.com">
+                                        <mat-icon matSuffix>person_pin</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <input class="btn btn-warning btn-user btn-block"
+                                value="Recuperar senha">
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+
+                </div>
+            </div>
         </div>
     </div>
-    
+</div>

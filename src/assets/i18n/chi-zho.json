@@ -19,6 +19,20 @@
         },
         "todos-produtos":{
     
+        },
+        "login" : {
+            "textoLogin" : "Entrar",
+            "registrar" : "Registre-se",
+            "entreEconomize" : "Mudou!",
+            "usuario" : "Usuário",
+            "exUsuario" : "Ex: pessoa@pessoa.com",
+            "senha" : "Senha",
+            "confirmaSenha" : "Confirmar Senha",
+            "esqueceuSenha" : "Esqueceu a Senha?",
+            "crieConta" : "Crie sua Conta!",
+            "email" : "Email",
+            "txtInfoRecuperarSenha" : "Para recuperar, forneça seu email e enviaremos as instruções para recuperação!",
+            "recuperaSenha" : "Recuperar Senha"
         }
     },
     "cliente":{

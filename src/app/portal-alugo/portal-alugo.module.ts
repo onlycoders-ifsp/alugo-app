@@ -6,6 +6,13 @@ import { TodosProdutosComponent } from './todos-produtos/todos-produtos.componen
 import { PaginaNaoExisteComponent } from './pagina-nao-existe/pagina-nao-existe.component';
 import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
 import { PortalAlugoRoutingModule } from './portal-alugo-routing.module';
+import {MatSelectModule} from '@angular/material/select';
+
+// import ngx-translate and the http loader
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -19,7 +26,17 @@ import { PortalAlugoRoutingModule } from './portal-alugo-routing.module';
   ],
   imports: [
     CommonModule,
-    PortalAlugoRoutingModule
+    PortalAlugoRoutingModule,
+    BrowserModule,
+    MatSelectModule,
+    HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })
   ], exports: [
     HomeComponent,
     PortalLayoutComponent,
@@ -29,3 +46,7 @@ import { PortalAlugoRoutingModule } from './portal-alugo-routing.module';
   ]
 })
 export class PortalAlugoModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

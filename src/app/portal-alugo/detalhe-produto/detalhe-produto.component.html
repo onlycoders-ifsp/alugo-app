@@ -1,7 +1,7 @@
-<div class="page-title-overlap bg-accent pt-4">
+<div *ngFor="let item of responseProduto" class="page-title-overlap bg-accent pt-4">
     <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
       <div class="order-lg-1 pr-lg-4 text-center text-lg-left">
-        <h1 class="h3 text-light mb-2">Parafusadeira</h1>
+        <h1 class="h3 text-light mb-2">{{item.produto.nome}}</h1>
         <div>
           <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="fa fa-star"></i>
           </div><span class="d-inline-block font-size-sm text-white opacity-70 align-middle mt-1 ml-1">14 Avaliações</span>
@@ -10,7 +10,7 @@
     </div>
   </div>
   <!-- Page Content-->
-  <div class="container">
+  <div *ngFor="let item of responseProduto" class="container">
     <div class="bg-light box-shadow-lg rounded-lg">
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item"><a class="nav-link p-4 active" href="#general" data-toggle="tab" role="tab">Informações gerais</a></li>
@@ -26,21 +26,33 @@
               <div class="col-lg-7 pr-lg-0">
                 <div class="cz-product-gallery">
                   <div class="cz-preview order-sm-2">
-                    <div class="cz-preview-item active" id="first"><img class="cz-image-zoom" src="../../assets/imagens/shop/single/gallery/05.jpg" data-zoom="../../assets/imagens/shop/single/gallery/05.jpg" alt="Product image">
+                    <div class="cz-preview-item active" id="first"><img class="cz-image-zoom" src="../../../assets/imagens/shop/catalog/{{item.produto.capa_foto}}" alt="{{item.produto.nome}}">
                       <div class="cz-image-zoom-pane"></div>
                     </div>
-                    <div class="cz-preview-item" id="second"><img class="cz-image-zoom" src="../../assets/imagens/shop/single/gallery/06.jpg" data-zoom="../../assets/imagens/shop/single/gallery/06.jpg" alt="Product image">
+                    <div class="cz-preview-item" id="second"><img class="cz-image-zoom" src="../../assets/imagens/image-not-available.jpg" data-zoom="../../assets/imagens/image-not-available.jpg" alt="{{item.produto.nome}}">
                       <div class="cz-image-zoom-pane"></div>
                     </div>
-                    <div class="cz-preview-item" id="third"><img class="cz-image-zoom" src="../../assets/imagens/shop/single/gallery/07.jpg" data-zoom="../../assets/imagens/shop/single/gallery/07.jpg" alt="Product image">
+                    <div class="cz-preview-item" id="third"><img class="cz-image-zoom" src="../../assets/imagens/image-not-available.jpg" data-zoom="../../assets/imagens/image-not-available.jpg" alt="{{item.produto.nome}}">
                       <div class="cz-image-zoom-pane"></div>
                     </div>
-                    <div class="cz-preview-item" id="fourth"><img class="cz-image-zoom" src="../../assets/imagens/shop/single/gallery/08.jpg" data-zoom="../../assets/imagens/shop/single/gallery/08.jpg" alt="Product image">
+                    <div class="cz-preview-item" id="fourth"><img class="cz-image-zoom" src="../../assets/imagens/image-not-available.jpg" data-zoom="../../assets/imagens/image-not-available.jpg" alt="{{item.produto.nome}}">
                       <div class="cz-image-zoom-pane"></div>
                     </div>
                   </div>
-                  <div class="cz-thumblist order-sm-1"><a class="cz-thumblist-item active" href="#first"><img src="../../assets/imagens/shop/single/gallery/th05.jpg" alt="Product thumb"></a><a class="cz-thumblist-item" href="#second"><img src="../../assets/imagens/shop/single/gallery/th06.jpg" alt="Product thumb"></a><a class="cz-thumblist-item" href="#third"><img src="../../assets/imagens/shop/single/gallery/th07.jpg" alt="Product thumb"></a><a class="cz-thumblist-item" href="#fourth"><img src="../../assets/imagens/shop/single/gallery/th08.jpg" alt="Product thumb"></a><a class="cz-thumblist-item video-item" href="#">
-                      <div class="cz-thumblist-item-text"><i class="czi-video"></i>Video</div></a></div>
+                  <div class="cz-thumblist order-sm-1">
+                    <a class="cz-thumblist-item active" href="#first">
+                      <img src="../../../assets/imagens/shop/catalog/{{item.produto.capa_foto}}" alt="Product thumb">
+                    </a>
+                    <a class="cz-thumblist-item" href="#second">
+                      <img src="../../assets/imagens/image-not-available.jpg" alt="Product thumb">
+                    </a>
+                    <a class="cz-thumblist-item" href="#third">
+                      <img src="../../assets/imagens/image-not-available.jpg" alt="Product thumb">
+                    </a>
+                    <a class="cz-thumblist-item" href="#fourth">
+                      <img src="../../assets/imagens/image-not-available.jpg" alt="Product thumb">
+                    </a>
+                  </div>
                 </div>
               </div>
               <!-- Product details-->
@@ -73,7 +85,7 @@
                   
                   <h6 class="font-size-sm mb-2">Número de identificação</h6>
                   <ul class="font-size-sm pl-4 mb-0">
-                    <li>183260098</li>
+                    <li>{{item.produto.id_produto}}</li>
                   </ul>
                 </div>
               </div>
@@ -82,10 +94,10 @@
           <!-- Tech specs tab-->
           <div class="tab-pane fade" id="specs" role="tabpanel">
             <div class="d-md-flex justify-content-between align-items-start pb-4 mb-4 border-bottom">
-              <div class="media align-items-center mr-md-3"><img src="../../assets/imagens/shop/single/gallery/th05.jpg" width="90" alt="Product thumb">
+              <div class="media align-items-center mr-md-3"><img src="../../../assets/imagens/shop/catalog/{{item.produto.capa_foto}}" width="90" alt="Product thumb">
                 <div class="mdeia-body pl-3">
-                  <h6 class="font-size-base mb-2">Parafusadeira</h6>
-                  <div class="h4 font-weight-normal text-accent">R$ 18.<small>00</small></div>
+                  <h6 class="font-size-base mb-2">{{item.produto.nome}}</h6>
+                  <div class="h4 font-weight-normal text-accent">R$ {{item.produto.valor_produto}}<small></small></div>
                 </div>
               </div>
               <div class="d-flex align-items-center pt-3">
@@ -104,8 +116,7 @@
                     <div class="row justify-content-center">
                       <div class="col-lg-8">
                         <h2 class="h3 pb-2">Descrição completa</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p><img src="../../assets/imagens/shop/single/prod-img2.jpg" alt="Product description">
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
+                        <p>{{item.produto.descricao}}</p>
                       </div>
                     </div>
                   </div>
@@ -114,10 +125,10 @@
           <!-- Reviews tab-->
           <div class="tab-pane fade" id="reviews" role="tabpanel">
             <div class="d-md-flex justify-content-between align-items-start pb-4 mb-4 border-bottom">
-                <div class="media align-items-center mr-md-3"><img src="../../assets/imagens/shop/single/gallery/th05.jpg" width="90" alt="Product thumb">
+                <div class="media align-items-center mr-md-3"><img src="../../../assets/imagens/shop/catalog/{{item.produto.capa_foto}}" width="90" alt="Product thumb">
                   <div class="mdeia-body pl-3">
-                    <h6 class="font-size-base mb-2">Parafusadeira</h6>
-                    <div class="h4 font-weight-normal text-accent">R$ 18.<small>00</small></div>
+                    <h6 class="font-size-base mb-2">{{item.produto.nome}}</h6>
+                    <div class="h4 font-weight-normal text-accent">R$ {{item.produto.valor_produto}}<small></small></div>
                   </div>
                 </div>
                 <div class="d-flex align-items-center pt-3">
@@ -253,13 +264,12 @@
   </div>
   <!-- Product description-->
   
-  <hr class="pb-5">
-  <!-- Product carousel (You may also like)-->
+  <!-- <hr class="pb-5">
   <div class="container pt-lg-2 pb-5 mb-md-3">
     <h2 class="h3 text-center pb-4">Você também pode gostar</h2>
     <div class="cz-carousel cz-controls-static cz-controls-outside">
       <div class="cz-carousel-inner" data-carousel-options="{&quot;items&quot;: 2, &quot;controls&quot;: true, &quot;nav&quot;: false, &quot;autoHeight&quot;: true, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2, &quot;gutter&quot;: 18},&quot;768&quot;:{&quot;items&quot;:3, &quot;gutter&quot;: 20}, &quot;1100&quot;:{&quot;items&quot;:4, &quot;gutter&quot;: 30}}}">
-        <!-- Product-->
+       
         <div>
           <div class="card product-card card-static">
             <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="czi-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="#"><img src="img/shop/catalog/66.jpg" alt="Product"></a>
@@ -273,7 +283,6 @@
             </div>
           </div>
         </div>
-        <!-- Product-->
         <div>
           <div class="card product-card card-static">
             <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="czi-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="#"><img src="img/shop/catalog/67.jpg" alt="Product"></a>
@@ -287,7 +296,6 @@
             </div>
           </div>
         </div>
-        <!-- Product-->
         <div>
           <div class="card product-card card-static">
             <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="czi-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="#"><img src="img/shop/catalog/64.jpg" alt="Product"></a>
@@ -301,7 +309,6 @@
             </div>
           </div>
         </div>
-        <!-- Product-->
         <div>
           <div class="card product-card card-static">
             <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="czi-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="#"><img src="img/shop/catalog/68.jpg" alt="Product"></a>
@@ -315,7 +322,6 @@
             </div>
           </div>
         </div>
-        <!-- Product-->
         <div>
           <div class="card product-card card-static">
             <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="czi-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="#"><img src="img/shop/catalog/69.jpg" alt="Product"></a>
@@ -331,5 +337,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   

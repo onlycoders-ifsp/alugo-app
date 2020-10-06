@@ -1,3 +1,106 @@
 {
-    "bannerTitulo":"Precisa de uma grana extra?"
+    "portal-alugo": {
+        "home": {
+            "modal": {
+                "avaliacoes": "avaliações",
+                "avaliacao": "avaliação",
+                "baixou": "Baixou",
+                "estado": "Estado",
+                "disponivel": "Produto Disponível",
+                "botaoAlugar": "ALUGAR",
+                "infoProduto": "Informações do Produto",
+                "descricao": "Descrição",
+                "numeroIdentificacao": "Número de identificação",
+                "bom": "Bom"
+            },
+            "tituloDestaque": "Você precisa de algum dinheiro extra?",
+            "subTituloDestaque": "Aluguel você sempre ganha dinheiro.",
+            "botaoComece": "Comece",
+            "produtosEmAlta": "Produtos em Alta",
+            "botaoVisualizarDetalhes": "Visualizar detalhes",
+            "botaoMaisProdutos": "Mais Produtos"
+        },
+        "detalhe-produto": {},
+        "404": {},
+        "portal-layout": {
+            "registrar": "Registrar-se",
+            "esqueceuSenha": "Esqueceu a Senha?",
+            "login": "Entrar",
+            "cadastrar": "Cadastrar",
+            "mostraSenha": "Mostrar a senha",
+            "expandirMenu": "Expandir Menu",
+            "ola": "Olá",
+            "minhaConta": "Minha Conta",
+            "naoLogado": "Usuário Não Logado",
+            "procuraProdutos": "Procurar Produtos",
+            "categorias": "Categorias",
+            "suporte": "Suporte",
+            "privacidade": "Privacidade",
+            "termosUso": "Termos de Uso",
+            "meuPerfil": "Meu Perfil",
+            "menu": "Menu"
+        },
+        "todos-produtos": {},
+        "login" : {
+            "textoLogin" : "Entrar",
+            "registrar" : "Registre-se",
+            "entreEconomize" : "Entre e Economize!",
+            "usuario" : "Usuário",
+            "exUsuario" : "Ex: pessoa@pessoa.com",
+            "senha" : "Senha",
+            "confirmaSenha" : "Confirmar Senha",
+            "esqueceuSenha" : "Esqueceu a Senha?",
+            "crieConta" : "Crie sua Conta!",
+            "email" : "Email",
+            "txtInfoRecuperarSenha" : "Para recuperar, forneça seu email e enviaremos as instruções para recuperação!",
+            "recuperaSenha" : "Recuperar Senha"
+        }
+    },
+    "cliente": {
+        "cliente-credenciais": {},
+        "cliente-layout": {},
+        "cliente-perfil": {},
+        "cliente-produto": {},
+        "lista-produtos": {}
+    },
+    "admin": {
+        "admin-layout": {},
+        "lista-usuarios": {}
+    },
+    "campos": {
+        "label": {
+            "nome": "Nome",
+            "email": "Email",
+            "senha": "Senha"
+        },
+        "validacao": {
+            "sucesso": {},
+            "erro": {}
+        }
+    },
+    "categorias": {
+        "cozinha": "Cozinha",
+        "eletrodomestico": "Eletrodomésticos",
+        "recipiente": "Recipientes",
+        "industrial": "Industrial",
+        "objetosProfissionais": "Objetos Profissionais",
+        "cameras": "Câmeras",
+        "filmadoras": "Filmadoras",
+        "microfones": "Microfones",
+        "jardim": "Jardim",
+        "aparelhoCortarGrama": "Aparelhos de cortar grama",
+        "ferramentaJardinagem": "Ferramentas de Jardinagem",
+        "automovel": "Automóvel",
+        "lavagemPressao": "lavagem alta pressão",
+        "aspirador": "Aspirador",
+        "polimento": "Polimento",
+        "acessorios": "Acessórios",
+        "fones": "Fones",
+        "monitores": "Monitores",
+        "mochilas": "Mochilas",
+        "studio": "Stúdio",
+        "luzesProfissionais": "Luzes Profissionais",
+        "aparelhosSonoros": "Aparelhos sonoros",
+        "mixagem": "Mixagem"
+    }
 }

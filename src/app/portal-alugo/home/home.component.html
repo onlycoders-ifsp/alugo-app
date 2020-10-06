@@ -15,7 +15,7 @@
             <div class="cz-product-gallery">
               <div class="cz-preview order-sm-2">
                 <div class="cz-preview-item active" id="first"><img class="cz-image-zoom"
-                    src="../../assets/imagens/shop/single/gallery/01.jpg"
+                    src="../../assets/imagens/shop/catalog/{{currentProduto.capa_foto}}"
                     data-zoom="../../assets/imagens/shop/single/gallery/01.jpg" alt="Product image">
                   <div class="cz-image-zoom-pane"></div>
                 </div>
@@ -36,11 +36,11 @@
                 </div>
               </div>
               <div class="cz-thumblist order-sm-1"><a class="cz-thumblist-item active" href="#first"><img
-                    src="../../assets/imagens/shop/single/gallery/th01.jpg" alt="Product thumb"></a><a
-                  class="cz-thumblist-item" href="#second"><img src="../../assets/imagens/shop/single/gallery/th02.jpg"
+                    src="../../assets/imagens/shop/catalog/{{currentProduto.capa_foto}}" alt="Product thumb"></a><a
+                  class="cz-thumblist-item" href="#second"><img src="../../assets/imagens/image-not-available.jpg"
                     alt="Product thumb"></a><a class="cz-thumblist-item" href="#third"><img
-                    src="../../assets/imagens/shop/single/gallery/th03.jpg" alt="Product thumb"></a><a
-                  class="cz-thumblist-item" href="#fourth"><img src="../../assets/imagens/shop/single/gallery/th04.jpg"
+                    src="../../assets/imagens/image-not-available.jpg" alt="Product thumb"></a><a
+                  class="cz-thumblist-item" href="#fourth"><img src="../../assets/imagens/image-not-available.jpg"
                     alt="Product thumb"></a></div>
             </div>
           </div>
@@ -51,43 +51,39 @@
                   <div class="star-rating"><i class="sr-star fa fa-star active"></i><i
                       class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i
                       class="sr-star fa fa-star active"></i><i class="fa fa-star"></i>
-                  </div><span class="d-inline-block font-size-sm text-body align-middle mt-1 ml-1">14 avaliações</span>
+                  </div><span class="d-inline-block font-size-sm text-body align-middle mt-1 ml-1">14 {{ 'portal-alugo.home.modal.avaliacoes' | translate }}</span>
                 </a>
                 <button class="btn-wishlist" type="button" data-toggle="tooltip" title="Add to wishlist"><i
                     class="fa fa-heart"></i></button>
               </div>
-              <div class="mb-3"><span class="h3 font-weight-normal text-accent mr-1">R$ {{currentProduto.valorProduto}}<small>00</small></span>
-                <del class="text-muted font-size-lg mr-3">R$ {{currentProduto.valorBaseMensal}}<small></small></del><span
-                  class="badge badge-danger badge-shadow align-middle mt-n2">Baixou</span>
+              <div class="mb-3"><span class="h3 font-weight-normal text-accent mr-1">R$ {{currentProduto.valor_produto}}<small>00</small></span>
+                <del class="text-muted font-size-lg mr-3">R$ {{currentProduto.valor_base_mensal}}<small></small></del><span
+                  class="badge badge-danger badge-shadow align-middle mt-n2">{{ 'portal-alugo.home.modal.baixou' | translate }}</span>
               </div>
-              <div class="font-size-sm mb-4"><span class="text-heading font-weight-medium mr-1">Estado:</span><span
-                  class="text-muted">Bom</span></div>
+              <div class="font-size-sm mb-4"><span class="text-heading font-weight-medium mr-1">{{ 'portal-alugo.home.modal.estado' | translate }}</span><span
+                  class="text-muted">{{ 'portal-alugo.home.modal.disponivel' | translate }}</span></div>
               <div class="position-relative mr-n4 mb-3">
-                <div class="product-badge product-available mt-n1"><i class="fa fa-check"></i>Produto Disponível</div>
+                <div class="product-badge product-available mt-n1"><i class="fa fa-check"></i>{{ 'portal-alugo.home.modal.disponivel' | translate }}</div>
               </div>
               <form class="mb-grid-gutter">
                 <div class="form-group">
-                  <label class="font-weight-medium pb-1" for="product-size">Ação:</label>
+                  <label class="font-weight-medium pb-1" for="product-size">:</label>
 
                 </div>
                 <div class="form-group d-flex align-items-center">
 
                   <button class="btn btn-primary btn-shadow btn-block" type="submit"><i
-                      class="fa fa-shopping-cart font-size-lg mr-2"></i>ALUGAR</button>
+                      class="fa fa-shopping-cart font-size-lg mr-2"></i>{{ 'portal-alugo.home.modal.botaoAlugar' | translate }}</button>
                 </div>
               </form>
               <h5 class="h6 mb-3 pb-2 border-bottom"><i
-                  class="fa fa-bullhorn text-muted font-size-lg align-middle mt-n1 mr-2"></i>Informações do Produto</h5>
+                  class="fa fa-bullhorn text-muted font-size-lg align-middle mt-n1 mr-2"></i>{{ 'portal-alugo.home.modal.infoProduto' | translate }}</h5>
 
-              <h6 class="font-size-sm mb-2">Descrição</h6>
+              <h6 class="font-size-sm mb-2">{{ 'portal-alugo.home.modal.descricao' | translate }}</h6>
               <ul class="font-size-sm pl-4">
                 <li>
                   {{currentProduto.descricao}}
                 </li>
-              </ul>
-              <h6 class="font-size-sm mb-2">Número de identificação</h6>
-              <ul class="font-size-sm pl-4 mb-0">
-                <li>{{currentProduto.idProduto}}</li>
               </ul>
             </div>
           </div>
@@ -103,9 +99,9 @@
         <div class="d-lg-flex justify-content-between align-items-center pl-lg-4"><img class="d-block order-lg-2 mr-lg-n5 flex-shrink-0" src="../../assets/imagens/home/slider/01.png" alt="Summer Collection">
           <div class="position-relative mx-auto mr-lg-n5 py-5 px-4 mb-lg-5 order-lg-1" style="max-width: 42rem; z-index: 10;">
             <div class="pb-lg-5 mb-lg-5 text-center text-lg-left text-lg-nowrap">
-              <h2 class="text-light font-weight-light pb-1 from-left">bannerTitulo</h2>
+              <h2 class="text-light font-weight-light pb-1 from-left">{{ 'portal-alugo.home.tituloDestaque' | translate }}</h2>
               <h1 class="text-light display-4 from-left delay-1">aluGO</h1>
-              <p class="font-size-lg text-light pb-3 from-left delay-2">Alugando você sempre ganha dinheiro</p><a class="btn btn-primary scale-up delay-4" routerLink="/list-all">Economizar<i class="fa fa-arrow-right ml-2 mr-n1"></i></a>
+              <p class="font-size-lg text-light pb-3 from-left delay-2">{{ 'portal-alugo.home.subTituloDestaque' | translate }}</p><a class="btn btn-primary scale-up delay-4" routerLink="/list-all">{{ 'portal-alugo.home.botaoComece' | translate }}<i class="fa fa-arrow-right ml-2 mr-n1"></i></a>
             </div>
           </div>
         </div>
@@ -118,11 +114,11 @@
         <div class="card border-0 box-shadow-lg">
           <div class="card-body px-3 pt-grid-gutter pb-0">
             <div class="row no-gutters pl-1">
-              <div class="col-sm-4 px-2 mb-grid-gutter"><a class="d-block text-center text-decoration-none mr-1" href="shop-grid-ls.html"><img class="d-block rounded mb-3" src="../../assets/imagens/home/categories/cat-sm01.jpg" alt="Men">
-                  <h3 class="font-size-base pt-1 mb-0">Ferramentas</h3></a></div>
-              <div class="col-sm-4 px-2 mb-grid-gutter"><a class="d-block text-center text-decoration-none mr-1" href="shop-grid-ls.html"><img class="d-block rounded mb-3" src="../../assets/imagens/home/categories/cat-sm02.jpg" alt="Women">
-                  <h3 class="font-size-base pt-1 mb-0">Casa</h3></a></div>
-              <div class="col-sm-4 px-2 mb-grid-gutter"><a class="d-block text-center text-decoration-none mr-1" href="shop-grid-ls.html"><img class="d-block rounded mb-3" src="../../assets/imagens/home/categories/cat-sm03.jpg" alt="Kids">
+              <div class="col-sm-4 px-2 mb-grid-gutter"><a class="d-block text-center text-decoration-none mr-1" routerLink="list-all"><img class="d-block rounded mb-3" src="../../../assets/imagens/shop/widget/11.jpg" alt="Audio">
+                  <h3 class="font-size-base pt-1 mb-0">Audio</h3></a></div>
+              <div class="col-sm-4 px-2 mb-grid-gutter"><a class="d-block text-center text-decoration-none mr-1" routerLink="list-all"><img class="d-block rounded mb-3" src="../../../assets/imagens/shop/widget/09.jpg" alt="Pessoal">
+                  <h3 class="font-size-base pt-1 mb-0">Pessoal</h3></a></div>
+              <div class="col-sm-4 px-2 mb-grid-gutter"><a class="d-block text-center text-decoration-none mr-1" routerLink="list-all"><img class="d-block rounded mb-3" src="../../../assets/imagens/shop/widget/13.jpg" alt="Profissional">
                   <h3 class="font-size-base pt-1 mb-0">Profissional</h3></a></div>
             </div>
           </div>
@@ -132,28 +128,33 @@
   </section>
 
   <section class="container pt-md-3 pb-5 mb-md-3">
-    <h2 class="h3 text-center">Produtos em Alta</h2>
+    <h2 class="h3 text-center">{{ 'portal-alugo.home.produtosEmAlta' | translate }}</h2>
     <div class="row pt-4 mx-n2">
       <div *ngFor="let item of produtos" class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
         <div class="card product-card">
-          <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" routerLink="detalhe-produto"><img src="../../assets/imagens/shop/catalog/01.jpg" alt="Product"></a>
+          <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" (click)="verProdutoDeslogado(item)"><img src="../../assets/imagens/shop/catalog/{{item.produto.capa_foto}}" alt="Product"></a>
           <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">{{item.produto.descricao}}</a>
-            <h3 class="product-title font-size-sm"><a routerLink="detalhe-produto">{{item.produto.nome}}</a></h3>
+            <h3 class="product-title font-size-sm"><a routerLink="detalhe-produto">{{item.produto.nome}} + {{item.produto.ativo}}</a></h3>
             <div class="d-flex justify-content-between">
-              <div class="product-price"><span class="text-accent">R$ {{item.produto.valorBaseDiaria}}<small></small></span></div>
-              <div class="star-rating"><i class="fa fa-star text-primary"></i><i class="fa fa-star text-primary"></i><i class="fa fa-star text-primary"></i><i class="fa fa-star text-primary"></i><i class="fa fa-star"></i>
+              <div class="product-price"><span class="text-accent">R$ {{item.produto.valor_base_diario}}<small></small></span></div>
+              <div class="star-rating">
+                <i class="fa fa-star text-primary"></i>
+                <i class="fa fa-star text-primary"></i>
+                <i class="fa fa-star text-primary"></i>
+                <i class="fa fa-star text-primary"></i>
+                <i class="fa fa-star"></i>
               </div>
             </div>
           </div>
           <div class="card-body card-body-hidden">
-            <button class="btn btn-primary btn-sm btn-block mb-2" (click)="exibeDetalhesModal(item)"  type="button" data-target="#quick-view" data-toggle="modal"><i class="fa fa-cart font-size-sm mr-1"></i>Visualizar Detalhes</button>
+            <button class="btn btn-primary btn-sm btn-block mb-2" (click)="exibeDetalhesModal(item)"  type="button" data-target="#quick-view" data-toggle="modal"><i class="fa fa-cart font-size-sm mr-1"></i>{{ 'portal-alugo.home.botaoVisualizarDetalhes' | translate }}</button>
           </div>
         </div>
         <hr class="d-sm-none">
       </div>
       
     </div>
-    <div class="text-center pt-3"><a class="btn btn-outline-accent" routerLink="list-all">Mais Produtos<i class="fa fa-arrow-right ml-1"></i></a></div>
+    <div class="text-center pt-3"><a class="btn btn-outline-accent" routerLink="list-all">{{ 'portal-alugo.home.botaoMaisProdutos' | translate }}<i class="fa fa-arrow-right ml-1"></i></a></div>
   </section>
 
   

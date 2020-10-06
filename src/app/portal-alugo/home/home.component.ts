@@ -5,6 +5,7 @@ import { eProduto } from 'src/app/entidades/eProduto';
 import { PortalService } from 'src/app/Services/PortalService';
 import { TranslateService } from '@ngx-translate/core';
 import { eResponseProdutos } from 'src/app/entidades/eResponseProdutos';
+import { iIdioma } from 'src/app/Interfaces/eIdioma';
 
 @Component({
   selector: 'app-home',
@@ -13,15 +14,18 @@ import { eResponseProdutos } from 'src/app/entidades/eResponseProdutos';
 })
 export class HomeComponent implements OnInit {
 
-  langs = ['pt-br', 'en-us'];
   produtos: eResponseProdutos[] = [];
   currentProduto: eProduto;
+
+  
+
+  idiomaSelecionado: string;
+
 
   constructor(
     private router : Router,
     private portalService: PortalService,
-    private translateService: TranslateService
-    ) { }
+    ) {     }
 
   ngOnInit(): void {
     this.currentProduto = new eProduto();
@@ -32,28 +36,24 @@ export class HomeComponent implements OnInit {
         console.log(errorResponse)
       });
 
-    let browserlang = this.translateService.getBrowserLang();
-    if (this.langs.indexOf(browserlang) > -1) {
-      this.translateService.setDefaultLang(browserlang);
-    } else {
-      this.translateService.setDefaultLang('pt-br');
-    }
+    // let browserlang = this.translateService.getBrowserLang();
+    // if (this.langs.indexOf(browserlang) > -1) {
+    //   this.translateService.setDefaultLang(browserlang);
+    // } else {
+    //   this.translateService.setDefaultLang('pt-br');
+    // }
     
   }
 
   exibeDetalhesModal(itemSelecionado : eResponseProdutos){
-    console.log(itemSelecionado);
-    console.log("retorno acima")
     this.currentProduto = itemSelecionado.produto;
     console.log(this.currentProduto)
   }
 
-  public useLanguage(lang: string): void {
-    this.translateService.setDefaultLang(lang);
-  }
 
-
-  verProdutoDeslogado(){
+  verProdutoDeslogado(itemSelecionado : eResponseProdutos){
+    window.sessionStorage.setItem('idUsuario', itemSelecionado.id_usuario);
+    window.sessionStorage.setItem('idProduto', itemSelecionado.produto.id_produto);
     this.router.navigate(['/detalhe-produto']);
   }
 
