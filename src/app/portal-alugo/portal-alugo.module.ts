@@ -11,6 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { RealizaAluguelComponent } from './realiza-aluguel/realiza-aluguel.component';
 
 
 
@@ -21,6 +22,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     TodosProdutosComponent,
     PaginaNaoExisteComponent,
     DetalheProdutoComponent,
+    RealizaAluguelComponent,
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     PortalLayoutComponent,
     TodosProdutosComponent,
     PaginaNaoExisteComponent,
-    DetalheProdutoComponent
+    DetalheProdutoComponent,
+    RealizaAluguelComponent
   ]
 })
 export class PortalAlugoModule { }

@@ -58,9 +58,6 @@ export class AuthService {
       'Authorization' : 'Basic ' + btoa(`${this.clientID}:${this.clientSecret}`),
       'Content-Type' : 'application/x-www-form-urlencoded'
     }
-    console.log(this.tokenUrl)
-    console.log(params.toString())
-    console.log(headers)
     return this.http.post(this.tokenUrl, params.toString(), { headers  })
   }
   salvar(usuario: eUserLogin) : Observable<any>{

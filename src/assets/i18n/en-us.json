@@ -1,50 +1,214 @@
 {
-    "portal-alugo":{
-        "home":{
-            "tituloDestaque":"你需要一些額外的錢嗎?",
-            "subTituloDestaque": "租你總是賺錢",
-            "botaoComece": "救",
-            "produtosEmAlta" : "Produtos em Alta",
-            "botaoVisualizarDetalhes" : "Visualizar detalhes",
-            "botaoMaisProdutos" : "Mais Produtos"
+    "portal-alugo": {
+        "home": {
+            "modal": {
+                "avaliacoes": "avaliações",
+                "avaliacao": "avaliação",
+                "baixou": "Baixou",
+                "estado": "Estado",
+                "disponivel": "Produto Disponível",
+                "botaoAlugar": "ALUGAR",
+                "infoProduto": "Informações do Produto",
+                "descricao": "Descrição",
+                "numeroIdentificacao": "Número de identificação",
+                "bom": "Bom"
+            },
+            "tituloDestaque": "Você precisa de algum dinheiro extra?",
+            "subTituloDestaque": "Aluguel você sempre ganha dinheiro.",
+            "botaoComece": "Comece",
+            "produtosEmAlta": "Produtos em Alta",
+            "botaoVisualizarDetalhes": "Visualizar detalhes",
+            "botaoMaisProdutos": "Mais Produtos"
         },
-        "detalhe-produto":{
-    
+        "detalhe-produto": {
+            "14avaliacoes":"14 Avalições",
+            "avaliacoes":"Avaliações",
+            "infosgerais":"Informações gerais",
+            "descricao":"Descrição",
+            "produtodisponivel":"Produto Disponível",
+            "estado":"Estado:",
+            "baixou":"Baixou",
+            "acao":"Ação",
+            "alugar":"ALUGAR",
+            "Infoprod":"Informações do Produto",
+            "numeroidentificacao":"Número de identificação",
+            "descricaocompleta":"Descrição completa",
+            "9de14":"9 de 14 (64,28%)",
+            "consumidoresrecomendacao":"Consumidores que recomendam este produto",
+            "28setembro":"28 de Setembro de 2020",
+            "15agosto":"15 de Agosto de 2020",
+            "9marco":"9 de Março de 2020",
+            "pros":"Pros",
+            "cons":"Cons",
+            "carregarmais":"Carregar mais avaliações"
         },
-        "404":{
-    
+        "404": {
+            "mensagem":"Parece que esta página não existe"
         },
-        "portal-layout":{
-    
+        "portal-layout": {
+            "registrar": "Registrar-se",
+            "esqueceuSenha": "Esqueceu a Senha?",
+            "login": "Entrar",
+            "cadastrar": "Cadastrar",
+            "mostraSenha": "Mostrar a senha",
+            "expandirMenu": "Expandir Menu",
+            "ola": "Olá",
+            "minhaConta": "Minha Conta",
+            "naoLogado": "Usuário Não Logado",
+            "procuraProdutos": "Procurar Produtos",
+            "categorias": "Categorias",
+            "suporte": "Suporte",
+            "privacidade": "Privacidade",
+            "termosUso": "Termos de Uso",
+            "meuPerfil": "Meu Perfil",
+            "menu": "Menu"
         },
-        "todos-produtos":{
-    
+        "todos-produtos": {
+            "produtosdisponiveis":"Produtos disponíveis para aluguel",
+            "filtros":"Filtros",
+            "categorias":"Categorias",
+            "procuraartigos":"Procura artigos para lavagem de automóvel?",
+            "deixeseucarrobrilhando":"Deixe seu carro brilhando!",
+            "alugaragora":"Alugar agora",
+            "vocequerganhardinheiro":"Você quer ganhar dinheiro?",
+            "disponibilize":"Disponibilize hoje mesmo!",
+            "locarproduto":"Locar Produto",
+            "anterior":"Anterior",
+            "proximo":"Próximo"
+        },
+        "login" : {
+            "textoLogin" : "Entrar",
+            "registrar" : "Registre-se",
+            "entreEconomize" : "Entre e Economize!",
+            "nome" : "Nome",
+            "usuario" : "Usuário",
+            "exUsuario" : "Ex: pessoa@pessoa.com",
+            "senha" : "Senha",
+            "cpf" : "CPF",
+            "exCpf" : "123.456.789.01",
+            "telefone" : "Telefone",
+            "exTelefone" : "(11) 91234-8675",
+            "confirmaSenha" : "Confirmar Senha",
+            "esqueceuSenha" : "Esqueceu a Senha?",
+            "crieConta" : "Crie sua Conta!",
+            "email" : "Email",
+            "temConta" : "Já possui uma conta? Entre",
+            "txtInfoRecuperarSenha" : "Para recuperar, forneça seu email e enviaremos as instruções para recuperação!",
+            "recuperaSenha" : "Recuperar Senha"
         }
     },
-    "cliente":{
-        "cliente-credenciais":{
-
+    "cliente": {
+        "cliente-credenciais": {
+            "login" : "Login",
+            "placeholderlogin" : "João das Neves",
+            "senhaantiga" : "Senha Antiga",
+            "infosenha1" : "Uma letra maiúscula e um número",
+            "infosenha2" : "Máximo 8 caracteres",
+            "novasenha" : "Nova Senha",
+            "confirmesenha" : "Confirme nova senha",
+            "atualizarsenha" : "Atualizar Senha"
         },
-        "cliente-layout":{
-
+        "cliente-layout": {
+            "suasinfos" : "Suas Informações",
+            "containfos" : "Informações de conta",
+            "perfil" : "Perfil",
+            "credenciais" : "Credenciais",
+            "transacoes" : "Transações",
+            "locador" : "Locador",
+            "locatario" : "Locatário",
+            "seusprodutos" : "Seus Produtos",
+            "ativos" : "Ativos",
+            "inativos" : "Inativos",
+            "pagamentos" : "Pagamentos",
+            "vencimentos" : "Vencimentos",
+            "infospagamento" : "Informações de Pagamento"
         },
-        "cliente-perfil":{
-
+        "cliente-perfil": {            
+            "atualizarperfil" : "Atualizar Perfil",
+            "mudarfoto" : "Mudar foto",
+            "uploadfoto" : "Upload JPG, GIF ou PNG image. 300 x 300 necessário."
         },
-        "cliente-produto":{
-
+        "cliente-produto": {
+            "textSuportado" : "Formatações de texto suportadas:",
+            "tamanhoideal" : "1000 x 800px É o tamanho ideal",
+            "addeditprod" : "Adicionar/Editar o produto",
+            "nomeproduto" : "Nome do Produto",
+            "maxcaracteres" : "Máximo 100 carácteres",
+            "uploadfoto" : "Upload da foto de capa do produto",
+            "selecaoarquivo" : "Ou selecione o arquivo",
+            "Descricao" : "Descrição",
+            "valoraluguel" : "Valor do Aluguel",
+            "taxa" : "aluGO aplica uma taxa de 10% sobre o valor.",
+            "tags" : "Tags do produto",
+            "formattags" : "Minúsculas, separadas por vírgula e uma única palavra"            
         },
-        "lista-produtos":{
-
+        "lista-produtos": {            
+            "seusprodutos" : "Seus Produtos",
+            "ordenarpor" : "Ordenar Por",
+            "datacadastro" : "Data cadastro",
+            "nome" : "Nome",
+            "valoraluguel" : "Valor Aluguel",
+            "avaliacao" : "Avaliação",
+            "alugueis" : "Aluguéis",
+            "ganhos" : "Ganhos",
+            "anterior" : "Anterior",
+            "proximo" : "Próximo"
         }
     },
-    "admin":{
-        "admin-layout":{
-
+    "admin": {
+        "admin-layout": {
+            "dashboard":"Dashboard",
+            "interface":"Interface"
         },
-        "lista-usuarios":{
-
+        "lista-usuarios": {
+            "deletadocomsucesso":"Deletado com sucesso!",
+            "editar":"Editar",
+            "excluir":"Excluir",
+            "delecaousuario":"Deleção de Usuários",
+            "deletar":"deletar"
         }
-
+    },
+    "campos": {
+        "label": {
+            "nome": "Nome",
+            "email": "Email",
+            "senha": "Senha",
+            "telefone": "Telefone",
+            "endereco" : "Endereço",
+            "numero" : "Número",
+            "complemento" : "Complemento",
+            "placeholdernome" : "João das Neves",
+            "placeholderemail" : "pessoas@pessoa.com",
+            "placeholderendereco" : "Rua Capitão João"
+        },
+        "validacao": {
+            "sucesso": {},
+            "erro": {}
+        }
+    },
+    "categorias": {
+        "cozinha": "Cozinha",
+        "eletrodomestico": "Eletrodomésticos",
+        "recipiente": "Recipientes",
+        "industrial": "Industrial",
+        "objetosProfissionais": "Objetos Profissionais",
+        "cameras": "Câmeras",
+        "filmadoras": "Filmadoras",
+        "microfones": "Microfones",
+        "jardim": "Jardim",
+        "aparelhoCortarGrama": "Aparelhos de cortar grama",
+        "ferramentaJardinagem": "Ferramentas de Jardinagem",
+        "automovel": "Automóvel",
+        "lavagemPressao": "lavagem alta pressão",
+        "aspirador": "Aspirador",
+        "polimento": "Polimento",
+        "acessorios": "Acessórios",
+        "fones": "Fones",
+        "monitores": "Monitores",
+        "mochilas": "Mochilas",
+        "studio": "Stúdio",
+        "luzesProfissionais": "Luzes Profissionais",
+        "aparelhosSonoros": "Aparelhos sonoros",
+        "mixagem": "Mixagem"
     }
 }
