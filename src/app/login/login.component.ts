@@ -75,7 +75,8 @@ export class LoginComponent implements OnInit {
       const formLoginValues = this.formularioLogin.value;
       this.authService.tentarLogin(formLoginValues.username, formLoginValues.password)
                                                   .subscribe(response =>{
-                                                    console.log(response),
+                                                    const access_token = JSON.stringify(response);
+                                                    localStorage.setItem("access_token", access_token)
                                                     this.router.navigate(['/cliente/perfil/dados']),
                                                     this.loginErro = null;
                                                   }, errorResponse =>{

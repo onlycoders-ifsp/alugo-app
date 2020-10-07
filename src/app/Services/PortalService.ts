@@ -12,6 +12,7 @@ export class PortalService {
 
 url: string = environment.apiBaseUrl + '/produtos/lista-todos';
 
+
   constructor( private http: HttpClient ) { }
 
 

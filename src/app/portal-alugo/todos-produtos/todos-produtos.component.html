@@ -430,45 +430,11 @@
   </div>
   <!-- Products grid-->
   <div class="row mx-n2">
-    <!-- Product-->
-    <div class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
+    <div *ngFor="let item of produtos" class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
       <div class="card product-card">
-        <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" routerLink="/detalhe-produto"><img src="../../assets/imagens/shop/catalog/09.jpg" alt="Product"></a>
-        <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Cosmetics</a>
-          <h3 class="product-title font-size-sm"><a routerLink="/detalhe-produto">Metallic Lipstick (Crimson)</a></h3>
-          <div class="d-flex justify-content-between">
-            <div class="product-price"><span class="text-accent">R$ 12.<small>99</small></span></div>
-            <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star"></i>
-            </div>
-          </div>
-        </div>
-        <div class="card-body card-body-hidden">
-          <div class="text-center pb-2">
-            <div class="custom-control custom-option custom-control-inline mb-2">
-              <input class="custom-control-input" type="radio" name="color2" id="crimson" checked>
-              <label class="custom-option-label rounded-circle" for="crimson"><span class="custom-option-color rounded-circle" style="background-color: #bd3c82;"></span></label>
-            </div>
-            <div class="custom-control custom-option custom-control-inline mb-2">
-              <input class="custom-control-input" type="radio" name="color2" id="creamy">
-              <label class="custom-option-label rounded-circle" for="creamy"><span class="custom-option-color rounded-circle" style="background-color: #ebae81;"></span></label>
-            </div>
-            <div class="custom-control custom-option custom-control-inline mb-2">
-              <input class="custom-control-input" type="radio" name="color2" id="palm">
-              <label class="custom-option-label rounded-circle" for="palm"><span class="custom-option-color rounded-circle" style="background-color: #ca8799;"></span></label>
-            </div>
-          </div>
-          <button class="btn btn-primary btn-sm btn-block mb-2" type="button" href="#quick-view" data-toggle="modal"><i class="fa fa-cart font-size-sm mr-1"></i>Visualizar Detalhes</button>
-          
-        </div>
-      </div>
-      <hr class="d-sm-none">
-    </div>
-    <!-- Product-->
-    <div class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
-      <div class="card product-card">
-        <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" routerLink="/detalhe-produto"><img src="../../assets/imagens/shop/catalog/10.jpg" alt="Product"></a>
+        <button (click)="verProdutoDeslogado(item)" class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Adicionar aos Favoritos"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="#"><img src="../../assets/imagens/shop/catalog/10.jpg" alt="Produto"></a>
         <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Men’s Accessories</a>
-          <h3 class="product-title font-size-sm"><a routerLink="/detalhe-produto">5-Pack Multicolor Bracelets</a></h3>
+          <h3 class="product-title font-size-sm"><a routerLink="/detalhe-produto">{{item.produto.nome}}</a></h3>
           <div class="d-flex justify-content-between">
             <div class="product-price"><span class="text-accent">R$ 7.<small>99</small></span></div>
             <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i>
@@ -481,119 +447,8 @@
       </div>
       <hr class="d-sm-none">
     </div>
-    <!-- Product-->
-    <div class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
-      <div class="card product-card">
-        <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" routerLink="/detalhe-produto"><img src="../../assets/imagens/shop/catalog/11.jpg" alt="Product"></a>
-        <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Men’s Sandals</a>
-          <h3 class="product-title font-size-sm"><a routerLink="/detalhe-produto">Soft Footbed Sandals</a></h3>
-          <div class="d-flex justify-content-between">
-            <div class="product-price"><span class="text-accent">R$ 99.<small>50</small></span></div>
-            <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star"></i>
-            </div>
-          </div>
-        </div>
-        <div class="card-body card-body-hidden">
-          <button class="btn btn-primary btn-sm btn-block mb-2" type="button" href="#quick-view" data-toggle="modal"><i class="fa fa-cart font-size-sm mr-1"></i>Visualizar Detalhes</button>
-        </div>
-      </div>
-      <hr class="d-sm-none">
-    </div>
-    <!-- Product-->
-    <div class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
-      <div class="card product-card">
-        <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" routerLink="/detalhe-produto"><img src="../../assets/imagens/shop/catalog/12.jpg" alt="Product"></a>
-        <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Men’s Hats</a>
-          <h3 class="product-title font-size-sm"><a routerLink="/detalhe-produto">3-Color Sun Stash Hat</a></h3>
-          <div class="d-flex justify-content-between">
-            <div class="product-price"><span class="text-accent">R$ 25.<small>99</small></span></div>
-            <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i>
-            </div>
-          </div>
-        </div>
-        <div class="card-body card-body-hidden">
-          <button class="btn btn-primary btn-sm btn-block mb-2" type="button" href="#quick-view" data-toggle="modal"><i class="fa fa-cart font-size-sm mr-1"></i>Visualizar Detalhes</button>
-          
-        </div>
-      </div>
-      <hr class="d-sm-none">
-    </div>
-    <!-- Product-->
-    <div class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
-      <div class="card product-card"><span class="badge badge-danger badge-shadow">Sale</span>
-        <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" routerLink="/detalhe-produto"><img src="../../assets/imagens/shop/catalog/13.jpg" alt="Product"></a>
-        <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Men’s T-shirts</a>
-          <h3 class="product-title font-size-sm"><a routerLink="/detalhe-produto">Cotton Polo Regular Fit</a></h3>
-          <div class="d-flex justify-content-between">
-            <div class="product-price"><span class="text-accent">R$ 11.<small>50</small></span>
-              <del class="font-size-sm text-muted">R$ 13.<small>50</small></del>
-            </div>
-            <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star"></i><i class="sr-star fa fa-star"></i>
-            </div>
-          </div>
-        </div>
-        <div class="card-body card-body-hidden">
-          <button class="btn btn-primary btn-sm btn-block mb-2" type="button" href="#quick-view" data-toggle="modal"><i class="fa fa-cart font-size-sm mr-1"></i>Visualizar Detalhes</button>
-          
-        </div>
-      </div>
-      <hr class="d-sm-none">
-    </div>
-    <!-- Product-->
-    <div class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
-      <div class="card product-card">
-        <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" routerLink="/detalhe-produto"><img src="../../assets/imagens/shop/catalog/14.jpg" alt="Product"></a>
-        <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Men’s Jeans</a>
-          <h3 class="product-title font-size-sm"><a routerLink="/detalhe-produto">Slim Taper Fit Jeans</a></h3>
-          <div class="d-flex justify-content-between">
-            <div class="product-price"><span class="text-accent">R$ 58.<small>99</small></span></div>
-            <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star"></i>
-            </div>
-          </div>
-        </div>
-        <div class="card-body card-body-hidden">
-          <button class="btn btn-primary btn-sm btn-block mb-2" type="button" href="#quick-view" data-toggle="modal"><i class="fa fa-cart font-size-sm mr-1"></i>Visualizar Detalhes</button>
-          
-        </div>
-      </div>
-      <hr class="d-sm-none">
-    </div>
-    <!-- Product-->
-    <div class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
-      <div class="card product-card">
-        <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" routerLink="/detalhe-produto"><img src="../../assets/imagens/shop/catalog/15.jpg" alt="Product"></a>
-        <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Men’s Waistcoats</a>
-          <h3 class="product-title font-size-sm"><a routerLink="/detalhe-produto">Single-breasted Trenchcoat</a></h3>
-          <div class="d-flex justify-content-between">
-            <div class="product-price"><span class="text-accent">R$ 79.<small>99</small></span></div>
-            <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star"></i>
-            </div>
-          </div>
-        </div>
-        <div class="card-body card-body-hidden">
-          <button class="btn btn-primary btn-sm btn-block mb-2" type="button" href="#quick-view" data-toggle="modal"><i class="fa fa-cart font-size-sm mr-1"></i>Visualizar Detalhes</button>
-          
-        </div>
-      </div>
-    </div>
-    <!-- Product-->
-    <div class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
-      <div class="card product-card">
-        <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" routerLink="/detalhe-produto"><img src="../../assets/imagens/shop/catalog/16.jpg" alt="Product"></a>
-        <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Men’s Hoodie</a>
-          <h3 class="product-title font-size-sm"><a routerLink="/detalhe-produto">Sports Hooded Sweatshirt</a></h3>
-          <div class="d-flex justify-content-between">
-            <div class="product-price"><span class="text-accent">R$ 25.<small>00</small></span></div>
-            <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i>
-            </div>
-          </div>
-        </div>
-        <div class="card-body card-body-hidden">
-          <button class="btn btn-primary btn-sm btn-block mb-2" type="button" href="#quick-view" data-toggle="modal"><i class="fa fa-cart font-size-sm mr-1"></i>Visualizar Detalhes</button>
-          
-        </div>
-      </div>
-    </div>
+    
+    
   </div>
   <hr class="my-3">
   <!-- Pagination-->

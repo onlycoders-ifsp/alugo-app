@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { eProduto } from 'src/app/entidades/eProduto';
+import { eResponseProdutos } from 'src/app/entidades/eResponseProdutos';
+import { PortalService } from 'src/app/Services/PortalService';
 
 @Component({
   selector: 'app-todos-produtos',
@@ -8,14 +11,28 @@ import { Router } from '@angular/router';
 })
 export class TodosProdutosComponent implements OnInit {
 
+  produtos: eResponseProdutos[] = [];
+  currentProduto: eProduto;
+  
   constructor(
-    private router: Router
+    private router: Router,
+    private portalService: PortalService,
   ) { }
 
   ngOnInit(): void {
+    this.currentProduto = new eProduto();
+    this.portalService.getProdutos().subscribe(resposta => {
+      this.produtos = resposta;
+      console.log(this.produtos)},
+      errorResponse => {
+        console.log(errorResponse)
+      });
   }
 
-  verProdutoDeslogado(){
+
+  verProdutoDeslogado(itemSelecionado: eResponseProdutos){
+    console.log(itemSelecionado.produto.id_produto)
+    window.sessionStorage.setItem('idProduto', itemSelecionado.produto.id_produto)
     this.router.navigate(['/detalhe-produto']);
   }
 

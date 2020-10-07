@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../auth.guard';
 import { PaginaNaoExisteComponent } from '../portal-alugo/pagina-nao-existe/pagina-nao-existe.component';
 import { PortalLayoutComponent } from '../portal-alugo/portal-layout/portal-layout.component';
 import { ClienteCredenciaisComponent } from './cliente-credenciais/cliente-credenciais.component';
@@ -10,15 +11,10 @@ import { ListaProdutosComponent } from './lista-produtos/lista-produtos.componen
 
 
 const routes: Routes = [
-  {path: 'cliente', component: PortalLayoutComponent, children: [
-
-    //REDIRECT para não cair em página sem layout
-    {path: 'cliente', redirectTo: 'perfil/dados', pathMatch: 'full' },
+  {path: 'cliente', component: PortalLayoutComponent, canActivate: [AuthGuard] ,children: [
+    { path: '', redirectTo: 'cliente/perfil/dados', pathMatch: 'full' },
     { path: 'perfil', component: ClienteLayoutComponent, children: [
-
-      //REDIRECT para não cair em página sem layout
-      {path: 'perfil', redirectTo: 'perfil/dados', pathMatch: 'full' },
-      
+      { path: '', redirectTo: 'cliente/perfil/dados', pathMatch: 'full' },
       { path: 'dados', component: ClientePerfilComponent },
       { path: 'credenciais', component: ClienteCredenciaisComponent },
       { path: 'produto', component: ClienteProdutoComponent },

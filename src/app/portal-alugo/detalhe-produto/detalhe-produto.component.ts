@@ -10,6 +10,8 @@ import { PortalService } from 'src/app/Services/PortalService';
   styleUrls: ['./detalhe-produto.component.css']
 })
 export class DetalheProdutoComponent implements OnInit {
+  private id_produto: string;
+  private id_usuario: string;
 
   responseProduto: eResponseProdutos = new eResponseProdutos();
   constructor(
@@ -17,11 +19,15 @@ export class DetalheProdutoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(window.sessionStorage.getItem('idProduto'));
-    console.log(window.sessionStorage.getItem('idUsuario'))
 
+    this.id_produto = window.sessionStorage.getItem('idProduto');
+    window.sessionStorage.removeItem('IdProduto')
+    this.id_produto = window.sessionStorage.getItem('idUsuario');
+    window.sessionStorage.removeItem('idUsuario')
+
+    console.log("idproduto = " + this.id_produto);
     this.portalService
-      .getProdutoById(window.sessionStorage.getItem('idProduto'), window.sessionStorage.getItem('idUsuario'))
+      .getProdutoById(this.id_produto, this.id_usuario)
       .subscribe( 
         response => {
           this.responseProduto = response

@@ -25,13 +25,14 @@ import { AdminService } from './Services/AdminService';
 // import ngx-translate and the http loader
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderModule } from './loader/loader.module';
 import { idiomaService } from './Services/idiomaService';
 import { PortalService } from './Services/PortalService';
 import { AuthService } from './Services/auth.service';
 import { ReactiveFormsModule } from '@angular/forms'
+import { TokenInterceptor } from './Services/token.interceptor';
 
 
 @NgModule({
@@ -73,7 +74,12 @@ import { ReactiveFormsModule } from '@angular/forms'
     AdminService,
     idiomaService,
     PortalService,
-    AuthService
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
