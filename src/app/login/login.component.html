@@ -52,6 +52,12 @@
                     
                 </div>
                 <div class="card-body tab-content p-0">
+                    <div *ngIf="loginErro" class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{ loginErro }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
                     <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
                         {{ mensagemSucesso }}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -84,22 +90,23 @@
                                     <img src="../../assets/imagens/alugoIcon.PNG" width="150">
                                     <h1 class="h4 text-gray-900">{{ 'portal-alugo.login.entreEconomize' | translate }}</h1>
                                 </div>
-                                <form class="user">
+                                <form [formGroup]="formularioLogin" (ngSubmit)="login()" class="user">
                                     <div class="input-group mb-3">
                                         <mat-form-field class="full-width">
                                             <mat-label>{{ 'portal-alugo.login.usuario' | translate }}</mat-label>
-                                            <input matInput placeholder="{{ 'portal-alugo.login.exUsuario' | translate }}">
+                                            <input formControlName="username" matInput placeholder="{{ 'portal-alugo.login.exUsuario' | translate }}">
                                             <mat-icon matSuffix>person_pin</mat-icon>
                                         </mat-form-field>
                                     </div>
                                     <div class="input-group mb-2">
                                         <mat-form-field class="full-width">
                                             <mat-label>{{ 'portal-alugo.login.senha' | translate }}</mat-label>
-                                            <input matInput placeholder="*****">
+                                            <input formControlName="password" type="password" matInput placeholder="*****">
                                             <mat-icon matSuffix>lock</mat-icon>
                                         </mat-form-field>
                                     </div>
-                                    <input (click)="login()" class="btn btn-google btn-user btn-block" value="{{ 'portal-alugo.login.textoLogin' | translate }}">
+                                    <button mat-flat-button class="btn btn-success btn-user btn-block"
+                                        value="">{{ 'portal-alugo.login.textoLogin' | translate }}</button>
                                 </form>
                                 <hr>
                                 <div class="text-center">

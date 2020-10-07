@@ -16,6 +16,7 @@ import { eUsuario } from '../entidades/eUsuario';
 export class LoginComponent implements OnInit {
 
   formularioCadastro: FormGroup;
+  formularioLogin: FormGroup;
   currentBandeira: string;
 
   username: string;
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
 
   mensagemErro: string;
   mensagemSucesso: string;
+  loginErro: string;
 
 
   constructor(
@@ -61,10 +63,28 @@ export class LoginComponent implements OnInit {
         Validators.required
       ], ]
     })
+
+    this.formularioLogin = this.fb.group({
+      username:['',[Validators.required]],
+      password:['',[Validators.required,Validators.minLength(4)]]
+    })
   }
 
   login() {
-    this.router.navigate(['/usuarios/lista']);
+    if(this.formularioLogin.valid){
+      const formLoginValues = this.formularioLogin.value;
+      this.authService.tentarLogin(formLoginValues.username, formLoginValues.password)
+                                                  .subscribe(response =>{
+                                                    console.log(response),
+                                                    this.router.navigate(['/cliente/perfil/dados']),
+                                                    this.loginErro = null;
+                                                  }, errorResponse =>{
+                                                    //this.loginErro = formLoginValues.username + ' Usuário e/ou senha inválidos'
+                                                    this.loginErro = errorResponse;
+                                                  })
+    }
+    
+    
   }
 
   cadastrar() {
