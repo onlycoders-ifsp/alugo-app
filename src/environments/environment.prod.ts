@@ -4,5 +4,5 @@ export const environment = {
   clientId: 'front-alugo',
   secret: 'aluGo@123!321',
   authorizedGrantTypes: 'password',
-  obterToken: "oauth/token"
+  obterToken: "/oauth/token"
 };
