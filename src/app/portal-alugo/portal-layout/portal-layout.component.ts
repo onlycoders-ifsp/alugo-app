@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 import * as $ from 'jquery';
 import { eCurrentUsuario } from 'src/app/entidades/eCurrentUsuario';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
+import { idiomaService } from 'src/app/Services/idiomaService';
 
 @Component({
   selector: 'app-portal-layout',
@@ -15,22 +15,17 @@ export class PortalLayoutComponent implements OnInit {
   isLogado: boolean = false;
 
   currentUser: eCurrentUsuario;
-  currentIdioma: string;
+  idiomas: iIdioma[];
   currentBandeira: string;
-
-  idiomas: iIdioma[] = [
-    {id: 1, name: 'pt-br', bandeira: 'BR.png', displayNome: "Portuguese"},
-    {id: 2, name: 'en-us', bandeira: 'US.png', displayNome: "English"},
-    {id: 3, name: 'chi-zho', bandeira: 'CN.png', displayNome: "Chinese"},
-  ];
+  currentIdioma: string;
 
   constructor(
     private router: Router,
-    private translate: TranslateService
+    private idiService: idiomaService,
   ) {
     this.currentUser = new eCurrentUsuario();
-    translate.setDefaultLang('pt-br');
-    this.currentBandeira = 'BR.png'
+    this.currentBandeira = idiService.setDefaultLanguage(),
+    this.idiomas = idiService.getListIdiomas()
    }
 
   ngOnInit(): void {
@@ -41,13 +36,8 @@ export class PortalLayoutComponent implements OnInit {
     }
   }
 
-  setNewIdioma(){
-    this.translate.use(this.currentIdioma);
-    this.idiomas.forEach(element => {
-      if(element.name == this.currentIdioma){
-        this.currentBandeira = element.bandeira;
-      }
-    });
+  clickMudaIdioma() {
+    this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
   }
 
   logaUsuario(){

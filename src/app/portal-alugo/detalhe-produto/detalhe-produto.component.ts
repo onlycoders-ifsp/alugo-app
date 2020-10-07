@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { eResponseProdutos } from 'src/app/entidades/eResponseProdutos';
+import { iIdioma } from 'src/app/Interfaces/iIdioma';
+import { idiomaService } from 'src/app/Services/idiomaService';
 import { PortalService } from 'src/app/Services/PortalService';
 
 @Component({
@@ -12,11 +14,20 @@ import { PortalService } from 'src/app/Services/PortalService';
 export class DetalheProdutoComponent implements OnInit {
   private id_produto: string;
   private id_usuario: string;
+  idiomas: iIdioma[];
+  currentBandeira: string;
+  currentIdioma: string;
+  
 
   responseProduto: eResponseProdutos = new eResponseProdutos();
+  
   constructor(
-    private portalService : PortalService
-  ) { }
+    private portalService : PortalService,
+    private idiService: idiomaService,
+  ) {
+    this.currentBandeira = idiService.setDefaultLanguage(),
+    this.idiomas = idiService.getListIdiomas()
+   }
 
   ngOnInit(): void {
 
@@ -36,6 +47,9 @@ export class DetalheProdutoComponent implements OnInit {
         errorResponse => {
           console.log(errorResponse)
         });
+  }
+  clickMudaIdioma() {
+    this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
   }
 
 }

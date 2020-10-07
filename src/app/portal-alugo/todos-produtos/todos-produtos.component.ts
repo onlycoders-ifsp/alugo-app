@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { eResponseProdutos } from 'src/app/entidades/eResponseProdutos';
+import { iIdioma } from 'src/app/Interfaces/iIdioma';
+import { idiomaService } from 'src/app/Services/idiomaService';
 import { PortalService } from 'src/app/Services/PortalService';
 
 @Component({
@@ -13,11 +15,19 @@ export class TodosProdutosComponent implements OnInit {
 
   produtos: eResponseProdutos[] = [];
   currentProduto: eProduto;
+
+  idiomas: iIdioma[];
+  currentBandeira: string;
+  currentIdioma: string;
   
   constructor(
     private router: Router,
     private portalService: PortalService,
-  ) { }
+    private idiService: idiomaService,
+  ) {
+    this.currentBandeira = idiService.setDefaultLanguage(),
+    this.idiomas = idiService.getListIdiomas()
+  }
 
   ngOnInit(): void {
     this.currentProduto = new eProduto();
@@ -29,6 +39,9 @@ export class TodosProdutosComponent implements OnInit {
       });
   }
 
+  clickMudaIdioma() {
+    this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
+  }
 
   verProdutoDeslogado(itemSelecionado: eResponseProdutos){
     console.log(itemSelecionado.produto.id_produto)

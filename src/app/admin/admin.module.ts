@@ -11,11 +11,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component'
 import { AdminRoutingModule } from './admin-routing.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 
@@ -37,10 +39,22 @@ import { AdminRoutingModule } from './admin-routing.module';
     MatIconModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })
   ], exports: [
     CommonModule,
     ListaUsuariosComponent
   ]
 })
 export class AdminModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

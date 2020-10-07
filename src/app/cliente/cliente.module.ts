@@ -12,7 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table'
 import { ClienteRoutingModule } from './cliente-routing.module';
@@ -20,6 +20,8 @@ import { ClienteProdutoComponent } from './cliente-produto/cliente-produto.compo
 import { ListaProdutosComponent } from './lista-produtos/lista-produtos.component';
 import { ClienteCredenciaisComponent } from './cliente-credenciais/cliente-credenciais.component';
 import { ClienteLayoutComponent } from './cliente-layout/cliente-layout.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 
@@ -47,10 +49,22 @@ import { ClienteLayoutComponent } from './cliente-layout/cliente-layout.componen
     MatIconModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ClienteRoutingModule
+    ClienteRoutingModule,
+    HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })
   ], exports: [
     ClienteLayoutComponent,
     CommonModule
   ]
 })
 export class ClienteModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

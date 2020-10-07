@@ -5,7 +5,6 @@ import { idiomaService } from '../Services/idiomaService';
 import { eUserLogin } from '../entidades/eUserLogin';
 import { AuthService } from '../Services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { Validacoes } from '../Classes/Validacoes';
 import { eUsuario } from '../entidades/eUsuario';
 
 @Component({

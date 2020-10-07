@@ -6,6 +6,7 @@ import { PortalService } from 'src/app/Services/PortalService';
 import { TranslateService } from '@ngx-translate/core';
 import { eResponseProdutos } from 'src/app/entidades/eResponseProdutos';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
+import { idiomaService } from 'src/app/Services/idiomaService';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,9 @@ export class HomeComponent implements OnInit {
 
   produtos: eResponseProdutos[] = [];
   currentProduto: eProduto;
-  
+  idiomas: iIdioma[];
+  currentBandeira: string;
+  currentIdioma: string;
 
   idiomaSelecionado: string;
 
@@ -24,7 +27,11 @@ export class HomeComponent implements OnInit {
   constructor(
     private router : Router,
     private portalService: PortalService,
-    ) {     }
+    private idiService: idiomaService,
+    ) {   
+      this.currentBandeira = idiService.setDefaultLanguage(),
+    this.idiomas = idiService.getListIdiomas()
+      }
 
   ngOnInit(): void {
     this.currentProduto = new eProduto();
@@ -42,6 +49,10 @@ export class HomeComponent implements OnInit {
     //   this.translateService.setDefaultLang('pt-br');
     // }
     
+  }
+
+  clickMudaIdioma() {
+    this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
   }
 
   exibeDetalhesModal(itemSelecionado : eResponseProdutos){

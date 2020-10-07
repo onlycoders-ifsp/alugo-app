@@ -245,7 +245,7 @@
           <mat-form-field>
             <mat-label><img class="text-right" src="../../../assets/imagens/flags/{{currentBandeira}}" width="28px"></mat-label>
             <mat-select [(value)]="currentIdioma" >
-              <mat-option (click)="setNewIdioma()" *ngFor="let idioma of idiomas" [value]="idioma.name">
+              <mat-option (click)="clickMudaIdioma()" *ngFor="let idioma of idiomas" [value]="idioma.name">
                 <img class="text-right" src="../../../assets/imagens/flags/{{idioma.bandeira}}" width="32px"> 
                 {{idioma.displayNome}} 
               </mat-option>

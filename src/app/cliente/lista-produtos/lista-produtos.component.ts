@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { eProduto } from 'src/app/entidades/eProduto';
+import { iIdioma } from 'src/app/Interfaces/iIdioma';
+import { idiomaService } from 'src/app/Services/idiomaService';
 
 @Component({
   selector: 'app-lista-produtos',
@@ -14,12 +16,19 @@ export class ListaProdutosComponent implements OnInit {
   produto2: eProduto;
   produto3: eProduto;
 
+  idiomas: iIdioma[];
+  currentBandeira: string;
+  currentIdioma: string;
+
   constructor(
-    private router: Router
+    private router: Router,
+    private idiService: idiomaService,
   ) {
     this.produto1 = new eProduto();
     this.produto2 = new eProduto();
     this.produto3 = new eProduto();
+    this.currentBandeira = idiService.setDefaultLanguage(),
+    this.idiomas = idiService.getListIdiomas()
    }
 
   ngOnInit(): void {
@@ -46,6 +55,10 @@ export class ListaProdutosComponent implements OnInit {
     this.Produtos.push(this.produto3);
   }
 
+  clickMudaIdioma() {
+    this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
+  }
+  
   verProdutoDeslogado(){
     this.router.navigate(['/detalhe-produto']);
   }

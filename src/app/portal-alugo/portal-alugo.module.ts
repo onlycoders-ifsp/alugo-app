@@ -7,12 +7,10 @@ import { PaginaNaoExisteComponent } from './pagina-nao-existe/pagina-nao-existe.
 import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
 import { PortalAlugoRoutingModule } from './portal-alugo-routing.module';
 import {MatSelectModule} from '@angular/material/select';
-
-// import ngx-translate and the http loader
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 
@@ -37,6 +35,7 @@ import { BrowserModule } from '@angular/platform-browser';
                 deps: [HttpClient]
             }
         })
+    
   ], exports: [
     HomeComponent,
     PortalLayoutComponent,

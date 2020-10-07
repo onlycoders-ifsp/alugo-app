@@ -18,14 +18,10 @@ import { LoginComponent } from './login/login.component';
 import { UsuarioModule } from './usuario/usuario.module';
 import { RouterModule } from '@angular/router';
 import { ClienteModule } from './cliente/cliente.module';
-import { HttpLoaderFactory, PortalAlugoModule } from './portal-alugo/portal-alugo.module';
+import { PortalAlugoModule } from './portal-alugo/portal-alugo.module';
 import { AdminModule } from './admin/admin.module';
 import { AdminService } from './Services/AdminService';
 
-// import ngx-translate and the http loader
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderModule } from './loader/loader.module';
 import { idiomaService } from './Services/idiomaService';
@@ -33,6 +29,11 @@ import { PortalService } from './Services/PortalService';
 import { AuthService } from './Services/auth.service';
 import { ReactiveFormsModule } from '@angular/forms'
 import { TokenInterceptor } from './Services/token.interceptor';
+
+// import ngx-translate and the http loader
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 
 @NgModule({
@@ -84,3 +85,7 @@ import { TokenInterceptor } from './Services/token.interceptor';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

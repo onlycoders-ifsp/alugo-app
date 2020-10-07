@@ -21,7 +21,7 @@
             "botaoMaisProdutos": "Mais Produtos"
         },
         "detalhe-produto": {
-            "14avaliacoes":"14 Avaliações",
+            "14avaliacoes":"14 Avalições",
             "avaliacoes":"Avaliações",
             "infosgerais":"Informações gerais",
             "descricao":"Descrição",
@@ -40,8 +40,7 @@
             "9marco":"9 de Março de 2020",
             "pros":"Pros",
             "cons":"Cons",
-            "carregarmais":"Carregar mais avaliações",
-            "avaliacaogeral":"4.1 de avaliação geral"
+            "carregarmais":"Carregar mais avaliações"
         },
         "404": {
             "mensagem":"Parece que esta página não existe"
@@ -122,9 +121,7 @@
             "inativos" : "Inativos",
             "pagamentos" : "Pagamentos",
             "vencimentos" : "Vencimentos",
-            "infospagamento" : "Informações de Pagamento",
-            "atualize":"Atualize seus detalhes abaixo",
-            "sair":"Sair"
+            "infospagamento" : "Informações de Pagamento"
         },
         "cliente-perfil": {            
             "atualizarperfil" : "Atualizar Perfil",
@@ -143,8 +140,7 @@
             "valoraluguel" : "Valor do Aluguel",
             "taxa" : "aluGO aplica uma taxa de 10% sobre o valor.",
             "tags" : "Tags do produto",
-            "formattags" : "Minúsculas, separadas por vírgula e uma única palavra",
-            "selecionecategoria":"Selecione a categoria"         
+            "formattags" : "Minúsculas, separadas por vírgula e uma única palavra"            
         },
         "lista-produtos": {            
             "seusprodutos" : "Seus Produtos",
@@ -169,7 +165,7 @@
             "editar":"Editar",
             "excluir":"Excluir",
             "delecaousuario":"Deleção de Usuários",
-            "deletar":"Deletar"
+            "deletar":"deletar"
         }
     },
     "campos": {
@@ -183,9 +179,7 @@
             "complemento" : "Complemento",
             "placeholdernome" : "João das Neves",
             "placeholderemail" : "pessoas@pessoa.com",
-            "placeholderendereco" : "Rua Capitão João",
-            "seulogin":"Este será seu login",
-            "pontostracos":"Sem pontos ou traços"
+            "placeholderendereco" : "Rua Capitão João"
         },
         "validacao": {
             "sucesso": {},

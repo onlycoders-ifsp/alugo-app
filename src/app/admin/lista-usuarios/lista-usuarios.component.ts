@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { eUsuario } from 'src/app/entidades/eUsuario';
+import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { AdminService } from 'src/app/Services/AdminService';
+import { idiomaService } from 'src/app/Services/idiomaService';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -15,10 +17,19 @@ export class ListaUsuariosComponent implements OnInit {
   success: boolean;
   error: boolean;
 
+  
+  idiomas: iIdioma[];
+  currentBandeira: string;
+  currentIdioma: string;
+
   constructor(
     private adminService: AdminService,
-    private router : Router
-    ) { }
+    private router : Router,
+    private idiService: idiomaService,
+    ) { 
+      this.currentBandeira = idiService.setDefaultLanguage(),
+      this.idiomas = idiService.getListIdiomas()
+    }
 
   ngOnInit(): void {
     this.adminService.getUsuarios().subscribe(resposta => {
@@ -29,6 +40,10 @@ export class ListaUsuariosComponent implements OnInit {
       });
   }
 
+  clickMudaIdioma() {
+    this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
+  }
+  
   novoUsuario(){
     this.router.navigate(['/usuarios/cad']);
   }
