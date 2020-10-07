@@ -4,7 +4,7 @@
         <h1 class="h3 text-light mb-2">{{item.produto.nome}}</h1>
         <div>
           <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="fa fa-star"></i>
-          </div><span class="d-inline-block font-size-sm text-white opacity-70 align-middle mt-1 ml-1">14 Avaliações</span>
+          </div><span class="d-inline-block font-size-sm text-white opacity-70 align-middle mt-1 ml-1">{{ 'portal-alugo.detalhe-produto.14avaliacoes' | translate }}</span>
         </div>
       </div>
     </div>
@@ -13,9 +13,9 @@
   <div *ngFor="let item of responseProduto" class="container">
     <div class="bg-light box-shadow-lg rounded-lg">
         <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item"><a class="nav-link p-4 active" href="#general" data-toggle="tab" role="tab">Informações gerais</a></li>
-            <li class="nav-item"><a class="nav-link p-4" href="#specs" data-toggle="tab" role="tab">Descrição</a></li>
-            <li class="nav-item"><a class="nav-link p-4" href="#reviews" data-toggle="tab" role="tab">Avaliações <span class="font-size-sm opacity-60">(14)</span></a></li>
+            <li class="nav-item"><a class="nav-link p-4 active" href="#general" data-toggle="tab" role="tab">{{ 'portal-alugo.detalhe-produto.infosgerais' | translate }}</a></li>
+            <li class="nav-item"><a class="nav-link p-4" href="#specs" data-toggle="tab" role="tab">{{ 'portal-alugo.detalhe-produto.descricao' | translate }}</a></li>
+            <li class="nav-item"><a class="nav-link p-4" href="#reviews" data-toggle="tab" role="tab">{{ 'portal-alugo.detalhe-produto.avaliacoes' | translate }}<span class="font-size-sm opacity-60">(14)</span></a></li>
           </ul>
       <div class="px-4 pt-lg-3 pb-3 mb-5">
         <div class="tab-content px-lg-3">
@@ -60,30 +60,30 @@
                 <div class="product-details ml-auto pb-3">
                   <div class="d-flex justify-content-between align-items-center mb-2"><a href="shop-single-v1.html#reviews">
                       <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="fa fa-star"></i>
-                      </div><span class="d-inline-block font-size-sm text-body align-middle mt-1 ml-1">14 avaliações</span></a>
+                      </div><span class="d-inline-block font-size-sm text-body align-middle mt-1 ml-1">{{ 'portal-alugo.detalhe-produto.14avaliacoes' | translate }}</span></a>
                     <button class="btn-wishlist" type="button" data-toggle="tooltip" title="Add to wishlist"><i class="fa fa-heart"></i></button>
                   </div>
                   <div class="mb-3"><span class="h3 font-weight-normal text-accent mr-1">R$ 18.<small>00</small></span>
-                    <del class="text-muted font-size-lg mr-3">R$ 24<small>00</small></del><span class="badge badge-danger badge-shadow align-middle mt-n2">Baixou</span>
+                    <del class="text-muted font-size-lg mr-3">R$ 24<small>00</small></del><span class="badge badge-danger badge-shadow align-middle mt-n2">{{ 'portal-alugo.detalhe-produto.baixou' | translate }}</span>
                   </div>
-                  <div class="font-size-sm mb-4"><span class="text-heading font-weight-medium mr-1">Estado:</span><span class="text-muted">Bom</span></div>
+                  <div class="font-size-sm mb-4"><span class="text-heading font-weight-medium mr-1">{{ 'portal-alugo.detalhe-produto.estado' | translate }}:</span><span class="text-muted">Bom</span></div>
                   <div class="position-relative mr-n4 mb-3">
-                    <div class="product-badge product-available mt-n1"><i class="fa fa-check"></i>Produto Disponível</div>
+                    <div class="product-badge product-available mt-n1"><i class="fa fa-check"></i>{{ 'portal-alugo.detalhe-produto.produtodisponivel' | translate }}</div>
                   </div>
                   <form class="mb-grid-gutter">
                     <div class="form-group">
-                      <label class="font-weight-medium pb-1" for="product-size">Ação:</label>
+                      <label class="font-weight-medium pb-1" for="product-size">{{ 'portal-alugo.detalhe-produto.acao' | translate }}:</label>
                       
                     </div>
                     <div class="form-group d-flex align-items-center">
                       
-                      <button class="btn btn-primary btn-shadow btn-block" type="submit"><i class="fa fa-shopping-cart font-size-lg mr-2"></i>ALUGAR</button>
+                      <button class="btn btn-primary btn-shadow btn-block" type="submit"><i class="fa fa-shopping-cart font-size-lg mr-2"></i>{{ 'portal-alugo.detalhe-produto.alugar' | translate }}</button>
                     </div>
                   </form>
-                  <h5 class="h6 mb-3 pb-2 border-bottom"><i class="fa fa-bullhorn text-muted font-size-lg align-middle mt-n1 mr-2"></i>Informações do Produto</h5>
+                  <h5 class="h6 mb-3 pb-2 border-bottom"><i class="fa fa-bullhorn text-muted font-size-lg align-middle mt-n1 mr-2"></i>{{ 'portal-alugo.detalhe-produto.Infoprod' | translate }}</h5>
                   
                   
-                  <h6 class="font-size-sm mb-2">Número de identificação</h6>
+                  <h6 class="font-size-sm mb-2">{{ 'portal-alugo.detalhe-produto.numeroidentificacao' | translate }}</h6>
                   <ul class="font-size-sm pl-4 mb-0">
                     <li>{{item.produto.id_produto}}</li>
                   </ul>
@@ -101,7 +101,7 @@
                 </div>
               </div>
               <div class="d-flex align-items-center pt-3">
-                <button class="btn btn-primary btn-shadow mr-2" type="button"><i class="fa fa-shopping-cart font-size-lg mr-sm-2"></i><span class="d-none d-sm-inline">ALUGAR</span></button>
+                <button class="btn btn-primary btn-shadow mr-2" type="button"><i class="fa fa-shopping-cart font-size-lg mr-sm-2"></i><span class="d-none d-sm-inline">{{ 'portal-alugo.detalhe-produto.alugar' | translate }}</span></button>
                 <div class="mr-2">
                   <button class="btn btn-secondary btn-icon" type="button" data-toggle="tooltip" title="Favoritar"><i class="fa fa-heart font-size-lg"></i></button>
                 </div>
@@ -115,7 +115,7 @@
                 <div class="container pt-lg-3 pb-4 pb-sm-5">
                     <div class="row justify-content-center">
                       <div class="col-lg-8">
-                        <h2 class="h3 pb-2">Descrição completa</h2>
+                        <h2 class="h3 pb-2">{{ 'portal-alugo.detalhe-produto.descricaocompleta' | translate }}</h2>
                         <p>{{item.produto.descricao}}</p>
                       </div>
                     </div>
@@ -144,9 +144,9 @@
             <!-- Reviews-->
             <div class="row pt-2 pb-3">
               <div class="col-lg-4 col-md-5">
-                <h2 class="h3 mb-4">14 Avaliações</h2>
-                <div class="star-rating mr-2"><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="czi-star font-size-sm text-muted mr-1"></i></div><span class="d-inline-block align-middle">4.1 de avaliação geral</span>
-                <p class="pt-3 font-size-sm text-muted">9 de 14 (64,28%)<br>Consumidores que recomendam este produto</p>
+                <h2 class="h3 mb-4">{{ 'portal-alugo.detalhe-produto.14avaliacoes' | translate }}</h2>
+                <div class="star-rating mr-2"><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="czi-star font-size-sm text-muted mr-1"></i></div><span class="d-inline-block align-middle">{{ 'portal-alugo.detalhe-produto.avaliacaogeral' | translate }}</span>
+                <p class="pt-3 font-size-sm text-muted">{{ 'portal-alugo.detalhe-produto.9de14' | translate }}<br>{{ 'portal-alugo.detalhe-produto.consumidoresrecomendacao' | translate }}</p>
               </div>
               <div class="col-lg-8 col-md-7">
                 <div class="d-flex align-items-center mb-2">
@@ -200,7 +200,7 @@
                   <div class="d-flex mb-3">
                     <div class="media media-ie-fix align-items-center mr-4 pr-2"><img class="rounded-circle" width="50" src="../../assets/imagens/shop/account/dilan.jpg" alt="Rafael Marquez"/>
                       <div class="media-body pl-3">
-                        <h6 class="font-size-sm mb-0">João da Silva</h6><span class="font-size-ms text-muted">28 de Setembro de 2020</span>
+                        <h6 class="font-size-sm mb-0">João da Silva</h6><span class="font-size-ms text-muted">{{ 'portal-alugo.detalhe-produto.28setembro' | translate }}</span>
                       </div>
                     </div>
                     <div>
@@ -210,8 +210,8 @@
                   </div>
                   <p class="font-size-md mb-2">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est...</p>
                   <ul class="list-unstyled font-size-ms pt-1">
-                    <li class="mb-1"><span class="font-weight-medium">Pros:&nbsp;</span>Consequuntur magni, voluptatem sequi, tempora</li>
-                    <li class="mb-1"><span class="font-weight-medium">Cons:&nbsp;</span>Architecto beatae, quis autem</li>
+                    <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.pros' | translate }}:&nbsp;</span>Consequuntur magni, voluptatem sequi, tempora</li>
+                    <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.cons' | translate }}:&nbsp;</span>Architecto beatae, quis autem</li>
                   </ul>
                 </div>
                 <!-- Review-->
@@ -219,7 +219,7 @@
                   <div class="d-flex mb-3">
                     <div class="media media-ie-fix align-items-center mr-4 pr-2"><img class="rounded-circle" width="50" src="../../assets/imagens/shop/account/dilan.jpg" alt="Barbara Palson"/>
                       <div class="media-body pl-3">
-                        <h6 class="font-size-sm mb-0">Arnold Shuawgneguer</h6><span class="font-size-ms text-muted">15 de agosto de 2020</span>
+                        <h6 class="font-size-sm mb-0">Arnold Shuawgneguer</h6><span class="font-size-ms text-muted">{{ 'portal-alugo.detalhe-produto.15agosto' | translate }}</span>
                       </div>
                     </div>
                     <div>
@@ -229,8 +229,8 @@
                   </div>
                   <p class="font-size-md mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   <ul class="list-unstyled font-size-ms pt-1">
-                    <li class="mb-1"><span class="font-weight-medium">Pros:&nbsp;</span>Consequuntur magni, voluptatem sequi, tempora</li>
-                    <li class="mb-1"><span class="font-weight-medium">Cons:&nbsp;</span>Architecto beatae, quis autem</li>
+                    <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.pros' | translate }}:&nbsp;</span>Consequuntur magni, voluptatem sequi, tempora</li>
+                    <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.cons' | translate }}:&nbsp;</span>Architecto beatae, quis autem</li>
                   </ul>
                 </div>
                 <!-- Review-->
@@ -238,7 +238,7 @@
                   <div class="d-flex mb-3">
                     <div class="media media-ie-fix align-items-center mr-4 pr-2"><img class="rounded-circle" width="50" src="../../assets/imagens/shop/account/dilan.jpg" alt="Daniel Adams"/>
                       <div class="media-body pl-3">
-                        <h6 class="font-size-sm mb-0">David Luiz</h6><span class="font-size-ms text-muted">9 de março de 2020</span>
+                        <h6 class="font-size-sm mb-0">David Luiz</h6><span class="font-size-ms text-muted">{{ 'portal-alugo.detalhe-produto.9marco' | translate }}</span>
                       </div>
                     </div>
                     <div>
@@ -248,12 +248,12 @@
                   </div>
                   <p class="font-size-md mb-2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.</p>
                   <ul class="list-unstyled font-size-ms pt-1">
-                    <li class="mb-1"><span class="font-weight-medium">Pros:&nbsp;</span>Consequuntur magni, voluptatem sequi</li>
-                    <li class="mb-1"><span class="font-weight-medium">Cons:&nbsp;</span>Architecto beatae,  quis autem, voluptatem sequ</li>
+                    <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.pros' | translate }}:&nbsp;</span>Consequuntur magni, voluptatem sequi</li>
+                    <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.cons' | translate }}:&nbsp;</span>Architecto beatae,  quis autem, voluptatem sequ</li>
                   </ul>
                 </div>
                 <div class="text-center">
-                  <button class="btn btn-outline-accent" type="button"><i class="fa fa-plus mr-2"></i>Carregar mais avaliações</button>
+                  <button class="btn btn-outline-accent" type="button"><i class="fa fa-plus mr-2"></i>{{ 'portal-alugo.detalhe-produto.carregarmais' | translate }}</button>
                 </div>
               </div>
             </div>

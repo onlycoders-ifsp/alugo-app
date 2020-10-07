@@ -3,8 +3,8 @@
   <div class="bg-secondary rounded-lg p-4 mb-4">
     <div class="media align-items-center"><img src="../../../assets/imagens/shop/account/dilan.jpg" width="90" alt="Dilan Lima">
       <div class="media-body pl-3">
-        <button class="btn btn-light btn-shadow btn-sm mb-2" type="button"><i class="fa fa-exchange-alt mr-2"></i>Mudar Foto</button>
-        <div class="p mb-0 font-size-ms text-muted">Upload JPG, GIF ou PNG image. 300 x 300 necessário</div>
+        <button class="btn btn-light btn-shadow btn-sm mb-2" type="button"><i class="fa fa-exchange-alt mr-2"></i>{{ 'cliente.cliente-perfil.mudarfoto' | translate }}</button>
+        <div class="p mb-0 font-size-ms text-muted">{{ 'cliente.cliente-perfil.uploadfoto' | translate }}</div>
       </div>
     </div>
   </div>
@@ -15,8 +15,8 @@
     <div class="col-sm-6">
       <div class="form-group">
         <mat-form-field  class="full-width">
-          <mat-label>Nome</mat-label>
-          <input name="nome" matInput placeholder="João das Neves">
+          <mat-label>{{ 'campos.label.nome' | translate }}</mat-label>
+          <input name="nome" matInput placeholder="{{ 'campos.label.placeholdernome' | translate }}">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
@@ -26,7 +26,7 @@
         <mat-form-field  class="full-width">
           <mat-label>CPF</mat-label>
           <input name="cpf" matInput placeholder="123.456.789-01">
-          <mat-hint align="start"><strong>Sem pontos ou traços</strong> </mat-hint>
+          <mat-hint align="start"><strong>{{ 'campos.label.pontostracos' | translate }}</strong> </mat-hint>
         <mat-hint align="end">max 11</mat-hint>
           <mat-icon class="text-primary" matSuffix >lock</mat-icon>
         </mat-form-field>
@@ -35,9 +35,9 @@
     <div class="col-sm-6">
       <div class="form-group">
         <mat-form-field  class="full-width">
-          <mat-label>Email</mat-label>
-          <input  name="email" matInput placeholder="Ex: pessoa@pessoa.com">
-          <mat-hint align="start"><strong>este será seu login</strong> </mat-hint>
+          <mat-label>{{ 'campos.label.email' | translate }}</mat-label>
+          <input  name="email" matInput placeholder="{{ 'campos.label.placeholderemail' | translate }}">
+          <mat-hint align="start"><strong>{{ 'campos.label.seulogin' | translate }}</strong> </mat-hint>
           <mat-icon class="text-primary"  matSuffix>person_pin</mat-icon>
         </mat-form-field>
       </div>
@@ -45,8 +45,8 @@
     <div class="col-sm-6">
       <div class="form-group">
         <mat-form-field  class="full-width">
-          <mat-label>Telefone</mat-label>
-          <input name="telefone" matInput placeholder="(11) 98838-9393)">
+          <mat-label>{{ 'campos.label.telefone' | translate }}</mat-label>
+          <input name="telefone" matInput placeholder="(11) 98838-9393">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
@@ -55,8 +55,8 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>CEP</mat-label>
-          <input  name="cep" matInput placeholder="08664-967">
-          <mat-hint align="start"><strong>Sem pontos ou traços</strong> </mat-hint>
+          <input  name="cep" matInput placeholder="08664967">
+          <mat-hint align="start"><strong>{{ 'campos.label.pontostracos' | translate }}</strong> </mat-hint>
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
@@ -64,8 +64,8 @@
     <div class="col-sm-6">
       <div class="form-group">
         <mat-form-field  class="full-width">
-          <mat-label>Endereço</mat-label>
-          <input  name="endereco" matInput placeholder="Rua capitão joão">
+          <mat-label>{{ 'campos.label.endereco' | translate }}</mat-label>
+          <input  name="endereco" matInput placeholder="{{ 'campos.label.placeholderendereco' | translate }}">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
@@ -73,7 +73,7 @@
     <div class="col-sm-6">
       <div class="form-group">
         <mat-form-field  class="full-width">
-          <mat-label>Número</mat-label>
+          <mat-label>{{ 'campos.label.numero' | translate }}</mat-label>
           <input  name="numero" matInput placeholder="321">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
@@ -82,7 +82,7 @@
     <div class="col-sm-6">
       <div class="form-group">
         <mat-form-field  class="full-width">
-          <mat-label>Complemento</mat-label>
+          <mat-label>{{ 'campos.label.complemento' | translate }}</mat-label>
           <input  name="complemento" matInput placeholder="apt 91">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
@@ -92,7 +92,7 @@
     <div class="col-12">
       <hr class="mt-2 mb-3">
       <div class="d-flex flex-wrap justify-content-between align-items-center">
-        <button class="btn btn-primary mt-3 mt-sm-0" type="button">Atualizar Perfil</button>
+        <button class="btn btn-primary mt-3 mt-sm-0" type="button">{{ 'cliente.cliente-perfil.atualizarperfil' | translate }}</button>
       </div>
     </div>
   </div>
