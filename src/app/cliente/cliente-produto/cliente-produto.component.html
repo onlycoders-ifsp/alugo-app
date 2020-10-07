@@ -3,10 +3,10 @@
     <div class="pt-2 px-4 pl-lg-0 pr-xl-5">
       <!-- Title-->
       <div class="d-sm-flex flex-wrap justify-content-between align-items-center pb-2">
-        <h2 class="h3 py-2 mr-2 text-center text-sm-left">Adicionar/Editar o produto</h2>
+        <h2 class="h3 py-2 mr-2 text-center text-sm-left">{{ 'clientes.cliente-produto.addeditprod' | translate }}</h2>
         <div class="py-2">
           <select class="custom-select mr-2" id="unp-category">
-            <option>Selecione a categoria</option>
+            <option>{{ 'clientes.cliente-produto.selecionecategoria' | translate }}</option>
             <option>Acessórios</option>
             <option>Stúdio</option>
             <option>Automóvel</option>
@@ -18,44 +18,43 @@
       </div>
       <form>
         <div class="form-group pb-2">
-          <label class="font-weight-medium" for="unp-product-name">Nome do Produto</label>
-          <input class="form-control" type="text" id="unp-product-name"><small class="form-text text-muted">Maximum
-            100 carácteres.</small>
+          <label class="font-weight-medium" for="unp-product-name">{{ 'clientes.cliente-produto.nomeproduto' | translate }}</label>
+          <input class="form-control" type="text" id="unp-product-name"><small class="form-text text-muted">{{ 'clientes.cliente-produto.maxcaracteres' | translate }}</small>
         </div>
         <div class="cz-file-drop-area form-group">
-          <div class="cz-file-drop-icon fa fa-file-alt"></div><span class="cz-file-drop-message">Upload da foto de capa do produto</span>
+          <div class="cz-file-drop-icon fa fa-file-alt"></div><span class="cz-file-drop-message">{{ 'clientes.cliente-produto.uploadfoto' | translate }}</span>
           <input class="cz-file-drop-input" type="file">
-          <button class="cz-file-drop-btn btn btn-primary btn-sm mb-2" type="button">Ou selecione o arquivo</button><small
-            class="form-text text-muted">1000 x 800px É o tamanho ideal</small>
+          <button class="cz-file-drop-btn btn btn-primary btn-sm mb-2" type="button">{{ 'clientes.cliente-produto.selecaoarquivo' | translate }}</button><small
+            class="form-text text-muted">{{ 'clientes.cliente-produto.tamanhoideal' | translate }}</small>
         </div>
         <div class="form-group py-2">
-          <label class="font-weight-medium" for="unp-product-description">Descrição</label>
+          <label class="font-weight-medium" for="unp-product-description">{{ 'clientes.cliente-produto.descricao' | translate }}</label>
           <textarea class="form-control" rows="6" id="unp-product-description"></textarea>
           <div class="bg-secondary p-3 font-size-ms rounded-bottom"><span
-              class="d-inline-block font-weight-medium mr-2 my-1">Formatações de texto suportadas:</span><em
-              class="d-inline-block border-right pr-2 mr-2 my-1">*Itálico*</em><strong
+              class="d-inline-block font-weight-medium mr-2 my-1">{{ 'clientes.cliente-produto.textSuportado' | translate }}</span><em
+              class="d-inline-block border-right pr-2 mr-2 my-1">*Itálic*</em><strong
               class="d-inline-block border-right pr-2 mr-2 my-1">**Bold**</strong><span
-              class="d-inline-block border-right pr-2 mr-2 my-1">- Lista</span><span
-              class="d-inline-block border-right pr-2 mr-2 my-1">##Cabeçalho##</span>
+              class="d-inline-block border-right pr-2 mr-2 my-1">- List</span><span
+              class="d-inline-block border-right pr-2 mr-2 my-1">##Header##</span>
             </div>
         </div>
         <div class="row">
           <div class="col-sm-6 form-group">
-            <label class="font-weight-medium" for="unp-standard-price">Valor do Aluguel</label>
+            <label class="font-weight-medium" for="unp-standard-price">{{ 'clientes.cliente-produto.valoraluguel' | translate }}</label>
             <div class="input-group">
               <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-money-bill-alt"></i></span>
               </div>
               <input class="form-control" type="text" id="unp-standard-price">
-            </div><small class="form-text text-muted">aluGO aplica uma taxa de 1.5% sobre o valor pelos encargos.</small>
+            </div><small class="form-text text-muted">{{ 'clientes.cliente-produto.taxa' | translate }}</small>
           </div>
         </div>
         <div class="form-group py-2">
-          <label class="font-weight-medium" for="unp-product-tags">Tags do Produto</label>
+          <label class="font-weight-medium" for="unp-product-tags">{{ 'clientes.cliente-produto.tags' | translate }}</label>
           <textarea class="form-control" rows="4" id="unp-product-tags"></textarea><small
-            class="form-text text-muted">minúsculas, separadas por vírgula e uma única palavra</small>
+            class="form-text text-muted">{{ 'clientes.cliente-produto.formattags' | translate }}</small>
         </div>
         <button class="btn btn-primary btn-block" type="submit"><i
-            class="fa fa-edit font-size-lg mr-2"></i>Cadastrar/Editar Produto</button>
+            class="fa fa-edit font-size-lg mr-2"></i>{{ 'clientes.cliente-produto.addeditprod' | translate }}</button>
       </form>
     </div>
   </section>

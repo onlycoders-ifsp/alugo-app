@@ -15,7 +15,7 @@
   
     <div class="col-10">
       <div *ngIf="success" class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>{{usuarioSelecionado.nome}}</strong> deletado com sucesso!
+        <strong>{{usuarioSelecionado.nome}}</strong> {{ 'admin.lista-usuarios.deletadocomsucesso' | translate }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -30,11 +30,11 @@
         <thead>
           <tr>
             <th scope="col"></th>
-            <th scope="col">Nome</th>
+            <th scope="col">{{ 'campos.label.nome' | translate }}</th>
             <th scope="col">CPF</th>
-            <th scope="col">Email</th>
-            <th scope="col">Editar</th>
-            <th scope="col">Excluir</th>
+            <th scope="col">{{ 'campos.label.email' | translate }}</th>
+            <th scope="col">{{ 'admin.lista-usuarios.editar' | translate }}</th>
+            <th scope="col">{{ 'admin.lista-usuarios.excluir' | translate }}</th>
           </tr>
         </thead>
         <tbody>
@@ -59,7 +59,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Deleção de Usuários</h5>
+            <h5 class="modal-title" id="exampleModalLabel">{{ 'admin.lista-usuarios.delecaousuario' | translate }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -68,7 +68,7 @@
             Deletar Usuário {{ usuarioSelecionado.nome }} ?
           </div> -->
           <div class="modal-footer">
-            <button type="button" data-dismiss="modal" class="btn btn-danger">Deletar</button>
+            <button type="button" data-dismiss="modal" class="btn btn-danger">{{ 'admin.lista-usuarios.deletar' | translate }}</button>
           </div>
         </div>
       </div>
