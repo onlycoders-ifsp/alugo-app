@@ -12,9 +12,7 @@ import { ListaProdutosComponent } from './lista-produtos/lista-produtos.componen
 
 const routes: Routes = [
   {path: 'cliente', component: PortalLayoutComponent, canActivate: [AuthGuard] ,children: [
-    { path: '', redirectTo: 'cliente/perfil/dados', pathMatch: 'full' },
     { path: 'perfil', component: ClienteLayoutComponent, children: [
-      { path: '', redirectTo: 'cliente/perfil/dados', pathMatch: 'full' },
       { path: 'dados', component: ClientePerfilComponent },
       { path: 'credenciais', component: ClienteCredenciaisComponent },
       { path: 'produto', component: ClienteProdutoComponent },

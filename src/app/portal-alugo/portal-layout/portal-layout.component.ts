@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { eCurrentUsuario } from 'src/app/entidades/eCurrentUsuario';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
+import { AuthService } from 'src/app/Services/auth.service';
 import { idiomaService } from 'src/app/Services/idiomaService';
 
 @Component({
@@ -18,22 +19,22 @@ export class PortalLayoutComponent implements OnInit {
   idiomas: iIdioma[];
   currentBandeira: string;
   currentIdioma: string;
+  
 
   constructor(
     private router: Router,
     private idiService: idiomaService,
+    private auth: AuthService
   ) {
     this.currentUser = new eCurrentUsuario();
     this.currentBandeira = idiService.setDefaultLanguage(),
-    this.idiomas = idiService.getListIdiomas()
+    this.idiomas = idiService.getListIdiomas();
+    
    }
 
   ngOnInit(): void {
-    if(window.sessionStorage.getItem('usuario') == "true"){
-      this.currentUser.isLogado = true;
-    }else{
-      this.currentUser.isLogado = false;
-    }
+    this.currentUser.isLogado = this.auth.isAutenticado();
+    this.currentUser.nome = this.auth.getUsuarioAutenticado();
   }
 
   clickMudaIdioma() {

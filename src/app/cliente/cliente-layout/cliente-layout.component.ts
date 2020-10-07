@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { eProduto } from 'src/app/entidades/eProduto';
+import { eObjetoUsuario } from 'src/app/entidades/eObjetoUsuario';
+import { eUsuario } from 'src/app/entidades/eUsuario';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
+import { AuthService } from 'src/app/Services/auth.service';
 import { idiomaService } from 'src/app/Services/idiomaService';
 
 @Component({
@@ -10,26 +12,34 @@ import { idiomaService } from 'src/app/Services/idiomaService';
 })
 export class ClienteLayoutComponent implements OnInit {
 
-  Produtos: eProduto[] = [];
-  produto1: eProduto;
-  produto2: eProduto;
-  produto3: eProduto;
 
   idiomas: iIdioma[];
   currentBandeira: string;
   currentIdioma: string;
 
+  currentUsuario: eUsuario;
 
 
-  constructor( private idiService: idiomaService, ) { 
+
+  constructor( 
+    private idiService: idiomaService,
+    private auth: AuthService 
+    ) { 
     this.currentBandeira = idiService.setDefaultLanguage(),
-      this.idiomas = idiService.getListIdiomas()
+    this.idiomas = idiService.getListIdiomas(),
+    this.currentUsuario = new eUsuario();
+    this.auth.getUserByLogin().subscribe(resposta => {
+      this.currentUsuario = resposta;
+      console.log(this.currentUsuario);
+      console.log(this.currentUsuario.nome);
+      errorResponse => {
+        console.log(errorResponse)
+      }
+    });
   }
 
   ngOnInit(): void { 
-    this.Produtos.push(this.produto1);
-    this.Produtos.push(this.produto2);
-    this.Produtos.push(this.produto3);
+    
   }
 
   clickMudaIdioma() {

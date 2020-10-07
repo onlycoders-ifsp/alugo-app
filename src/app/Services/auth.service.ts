@@ -5,6 +5,9 @@ import { environment } from 'src/environments/environment';
 import { eUserLogin } from '../entidades/eUserLogin';
 import { eUsuario } from '../entidades/eUsuario';
 import { JwtHelperService } from '@auth0/angular-jwt'
+import { Router } from '@angular/router';
+import { eObjetoUsuario } from '../entidades/eObjetoUsuario';
+import { eUsuarioConstructor } from '../entidades/eUsuarioConstrutor';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +16,8 @@ export class AuthService {
 
   apiUrl: string = environment.apiBaseUrl + "/login"
   apiUsuario: string = environment.apiBaseUrl + "/usuarios"
+  urlUserLogin: string = environment.apiBaseUrl + '/usuarios/usuario-login'
+
   tokenUrl: string = environment.apiBaseUrl + environment.obterToken;
   clientID: string = environment.clientId;
   clientSecret: string = environment.secret;
@@ -20,7 +25,8 @@ export class AuthService {
 
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { 
 
   }
@@ -30,6 +36,22 @@ export class AuthService {
     if(tokenString){
       const token = JSON.parse(tokenString).access_token;
       return token;
+    }else{
+      return null;
+    }
+  }
+
+  encerrarSessao(){
+    localStorage.removeItem("access_token");
+    this.router.navigate(['']);
+  }
+
+  getUsuarioAutenticado(){
+    const token = this.obterToken();
+
+    if(token){
+      const user = this.jwtHelper.decodeToken(token).user_name;
+      return user;
     }else{
       return null;
     }
@@ -58,14 +80,25 @@ export class AuthService {
       'Authorization' : 'Basic ' + btoa(`${this.clientID}:${this.clientSecret}`),
       'Content-Type' : 'application/x-www-form-urlencoded'
     }
-    return this.http.post(this.tokenUrl, params.toString(), { headers  })
+    return this.http.post<any>(this.tokenUrl, params.toString(), { headers  })
   }
   salvar(usuario: eUserLogin) : Observable<any>{
     return this.http.post<any>(this.apiUrl, usuario);
   }
 
-  cadastrarNovoUsuario(usuario: eUsuario) : Observable<eUsuario>{
-    return this.http.post<eUsuario>(this.apiUsuario + "/cadastro",usuario );
+  cadastrarNovoUsuario(usuario: eUsuarioConstructor) : Observable<eUsuarioConstructor>{
+    return this.http.post<eUsuarioConstructor>(this.apiUsuario + "/cadastro",usuario );
 
+  }
+
+  updateUsuario(usuario: eUsuarioConstructor) : Observable<eUsuarioConstructor>{
+    return this.http.put<eUsuarioConstructor>(this.apiUsuario + "/altera-dados",usuario );
+
+  }
+
+  getUserByLogin() : Observable<eUsuario>{
+    let params = new HttpParams();
+    params = params.append('login' , this.getUsuarioAutenticado());
+    return this.http.get<eUsuario>(this.urlUserLogin, {params});
   }
 }

@@ -95,6 +95,31 @@
             "temConta" : "Já possui uma conta? Entre",
             "txtInfoRecuperarSenha" : "Para recuperar, forneça seu email e enviaremos as instruções para recuperação!",
             "recuperaSenha" : "Recuperar Senha"
+        },
+        "categorias": {
+            "cozinha": "Cozinha",
+            "eletrodomestico": "Eletrodomésticos",
+            "recipiente": "Recipientes",
+            "industrial": "Industrial",
+            "objetosProfissionais": "Objetos Profissionais",
+            "cameras": "Câmeras",
+            "filmadoras": "Filmadoras",
+            "microfones": "Microfones",
+            "jardim": "Jardim",
+            "aparelhoCortarGrama": "Aparelhos de cortar grama",
+            "ferramentaJardinagem": "Ferramentas de Jardinagem",
+            "automovel": "Automóvel",
+            "lavagemPressao": "lavagem alta pressão",
+            "aspirador": "Aspirador",
+            "polimento": "Polimento",
+            "acessorios": "Acessórios",
+            "fones": "Fones",
+            "monitores": "Monitores",
+            "mochilas": "Mochilas",
+            "studio": "Stúdio",
+            "luzesProfissionais": "Luzes Profissionais",
+            "aparelhosSonoros": "Aparelhos sonoros",
+            "mixagem": "Mixagem"
         }
     },
     "cliente": {
@@ -185,30 +210,5 @@
             "sucesso": {},
             "erro": {}
         }
-    },
-    "categorias": {
-        "cozinha": "Cozinha",
-        "eletrodomestico": "Eletrodomésticos",
-        "recipiente": "Recipientes",
-        "industrial": "Industrial",
-        "objetosProfissionais": "Objetos Profissionais",
-        "cameras": "Câmeras",
-        "filmadoras": "Filmadoras",
-        "microfones": "Microfones",
-        "jardim": "Jardim",
-        "aparelhoCortarGrama": "Aparelhos de cortar grama",
-        "ferramentaJardinagem": "Ferramentas de Jardinagem",
-        "automovel": "Automóvel",
-        "lavagemPressao": "lavagem alta pressão",
-        "aspirador": "Aspirador",
-        "polimento": "Polimento",
-        "acessorios": "Acessórios",
-        "fones": "Fones",
-        "monitores": "Monitores",
-        "mochilas": "Mochilas",
-        "studio": "Stúdio",
-        "luzesProfissionais": "Luzes Profissionais",
-        "aparelhosSonoros": "Aparelhos sonoros",
-        "mixagem": "Mixagem"
-    }
+    }    
 }

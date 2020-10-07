@@ -11,15 +11,13 @@ import {MatSelectModule} from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UsuarioService } from './usuario.service'
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
-import { UsuarioModule } from './usuario/usuario.module';
 import { RouterModule } from '@angular/router';
 import { ClienteModule } from './cliente/cliente.module';
 import { PortalAlugoModule } from './portal-alugo/portal-alugo.module';
-import { AdminModule } from './admin/admin.module';
+//import { AdminModule } from './admin/admin.module';
 import { AdminService } from './Services/AdminService';
 
 import { LoaderComponent } from './loader/loader.component';
@@ -54,10 +52,9 @@ import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/h
     MatButtonModule,
     MatIconModule,
     BrowserAnimationsModule,
-    UsuarioModule,
     ClienteModule,
     PortalAlugoModule,
-    AdminModule,
+    //AdminModule,
     RouterModule,
     MatSelectModule,
     LoaderModule,
@@ -71,7 +68,6 @@ import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/h
         })
   ],
   providers: [
-    UsuarioService,
     AdminService,
     idiomaService,
     PortalService,

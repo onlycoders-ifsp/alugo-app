@@ -22,6 +22,7 @@ import { ClienteCredenciaisComponent } from './cliente-credenciais/cliente-crede
 import { ClienteLayoutComponent } from './cliente-layout/cliente-layout.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ReactiveFormsModule } from '@angular/forms'
 
 
 
@@ -47,6 +48,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     ClienteRoutingModule,

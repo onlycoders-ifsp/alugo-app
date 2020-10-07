@@ -13,8 +13,8 @@ export class idiomaService {
 
   listaIdiomas: iIdioma[] = [
     {id: 1, name: 'pt-br', bandeira: 'BR.png', displayNome: "Portuguese"},
-    {id: 2, name: 'en-us', bandeira: 'US.png', displayNome: "English"},
-    {id: 3, name: 'chi-zho', bandeira: 'CN.png', displayNome: "Chinese"},
+    {id: 2, name: 'en-us', bandeira: 'US.png', displayNome: "English"}
+    // ,{id: 3, name: 'chi-zho', bandeira: 'CN.png', displayNome: "Chinese"},
   ];
 
   setNewIdioma(idiomaName: string){

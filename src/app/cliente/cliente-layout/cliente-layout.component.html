@@ -12,8 +12,8 @@
           <div class="px-4 mb-4">
             <div class="media align-items-center">
               <div class="img-thumbnail rounded-circle position-relative" style="width: 6.375rem;"><span class="badge badge-warning" data-toggle="tooltip" title="Reward points">10</span><img class="rounded-circle" src="../../../assets/imagens/shop/account/dilan.jpg" alt="Dilan Lima"></div>
-              <div class="media-body pl-3">
-                <h3 class="font-size-base mb-0">Dilan Lima</h3><span class="text-accent font-size-sm">dilan.lima@exemplo.com</span>
+              <div *ngFor="let user of currentUsuario" class="media-body pl-3">
+                <h3 class="font-size-base mb-0">{{ user.nome }}</h3><span class="text-accent font-size-sm">{{ user.login }}</span>
               </div>
             </div>
           </div>
@@ -35,7 +35,7 @@
             <h3 class="font-size-sm mb-0 text-muted">{{ 'cliente.cliente-layout.seusprodutos' | translate }}</h3>
           </div>
           <ul class="list-unstyled mb-0">
-            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" routerLink="/cliente/perfil/meusprodutos"><i class="fa fa-product-hunt opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.ativos' | translate }}<span class="font-size-sm text-muted ml-auto">{{ Produtos.length }}</span></a></li>
+            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" routerLink="/cliente/perfil/meusprodutos"><i class="fa fa-product-hunt opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.ativos' | translate }}<span class="font-size-sm text-muted ml-auto">0</span></a></li>
             <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" routerLink="/cliente/perfil/meusprodutos"><i class="fa fa-product-hunt opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.inativos' | translate }}<span class="font-size-sm text-muted ml-auto">1</span></a></li>
           </ul>
           <div class="bg-secondary px-4 py-3">

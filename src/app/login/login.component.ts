@@ -6,6 +6,7 @@ import { eUserLogin } from '../entidades/eUserLogin';
 import { AuthService } from '../Services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { eUsuario } from '../entidades/eUsuario';
+import { eUsuarioConstructor } from '../entidades/eUsuarioConstrutor';
 
 @Component({
   selector: 'app-login',
@@ -89,9 +90,16 @@ export class LoginComponent implements OnInit {
 
   cadastrar() {
     const formCadValues = this.formularioCadastro.value;
-    const user : eUsuario = new eUsuario(formCadValues.nome, formCadValues.email, formCadValues.senha, formCadValues.cpf, formCadValues.celular)
+    const user : eUsuarioConstructor = new eUsuarioConstructor(formCadValues.nome, 
+      formCadValues.email, 
+      formCadValues.senha, 
+      formCadValues.cpf, 
+      formCadValues.celular,
+      "",
+      "",
+      "",
+      "")
     if(this.formularioCadastro.valid){
-      console.log(user)
       this.authService.cadastrarNovoUsuario(user).subscribe(response =>{
         this.mensagemSucesso = "Cadastro Efetuado com sucesso! Faça Login",
           this.mensagemErro = null

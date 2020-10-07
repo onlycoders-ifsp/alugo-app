@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment'
 import { eResponseProdutos } from '../entidades/eResponseProdutos';
 import { eProduto } from '../entidades/eProduto';
+import { eUsuario } from '../entidades/eUsuario';
 
 @Injectable({
   providedIn: 'root'
@@ -29,4 +30,6 @@ url: string = environment.apiBaseUrl + '/produtos/lista-todos';
     params = params.append('id_produto', idProduto);
     return this.http.get<eResponseProdutos>(this.url, {params});
   }
+
+  
 }
