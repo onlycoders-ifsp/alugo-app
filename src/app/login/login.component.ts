@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
                                                     this.loginErro = null;
                                                   }, errorResponse =>{
                                                     //this.loginErro = formLoginValues.username + ' Usuário e/ou senha inválidos'
-                                                    this.loginErro = errorResponse;
+                                                    this.loginErro = 'Usuário e/ou senha inválidos';
                                                   })
     }
     

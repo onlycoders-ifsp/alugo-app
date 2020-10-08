@@ -12,6 +12,7 @@ import { eUsuario } from '../entidades/eUsuario';
 export class PortalService {
 
 url: string = environment.apiBaseUrl + '/produtos/lista-todos';
+urlEdited: string = environment.apiBaseUrl + '/produtos/usuario'
 
 
   constructor( private http: HttpClient ) { }
@@ -24,11 +25,11 @@ url: string = environment.apiBaseUrl + '/produtos/lista-todos';
     return this.http.get<eResponseProdutos[]>(this.url, {params});
   }
 
-  getProdutoById(idProduto: string, idUsuario: string) : Observable<eResponseProdutos> {
+  getProdutoById(idProduto: string, idUsuario: string) : Observable<eResponseProdutos[]> {
     let params = new HttpParams();
-    params = params.append('id_usuario' , idUsuario);
+     params = params.append('id_usuario' , idUsuario);
     params = params.append('id_produto', idProduto);
-    return this.http.get<eResponseProdutos>(this.url, {params});
+    return this.http.get<eResponseProdutos[]>(this.url, {params});
   }
 
   

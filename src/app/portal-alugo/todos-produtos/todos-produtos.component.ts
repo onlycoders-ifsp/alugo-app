@@ -39,6 +39,8 @@ export class TodosProdutosComponent implements OnInit {
       });
   }
 
+  
+
   clickMudaIdioma() {
     this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
   }

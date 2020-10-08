@@ -430,9 +430,12 @@
   </div>
   <!-- Products grid-->
   <div class="row mx-n2">
-    <div *ngFor="let item of produtos" class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
+    <div *ngFor="let item of produtos; let i = index" class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
       <div class="card product-card">
-        <button (click)="verProdutoDeslogado(item)" class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Adicionar aos Favoritos"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="#"><img src="../../assets/imagens/shop/catalog/10.jpg" alt="Produto"></a>
+        <button (click)="verProdutoDeslogado(item)" class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Adicionar aos Favoritos"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" (click)="verProdutoDeslogado(item)">
+          <img *ngIf="!item.produto.capa_foto" src="../../assets/imagens/shop/catalog/{{i+1}}.jpg" alt="Produto">
+          <img *ngIf="item.produto.capa_foto" src="../../assets/imagens/shop/catalog/{{item.produto.capa_foto}}" alt="Produto">
+        </a>
         <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Men’s Accessories</a>
           <h3 class="product-title font-size-sm"><a routerLink="/detalhe-produto">{{item.produto.nome}}</a></h3>
           <div class="d-flex justify-content-between">

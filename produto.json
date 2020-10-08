@@ -1,0 +1,86 @@
+// {
+//     "produto":
+//     {
+//         "nome": "Iphone X",
+//         "descricao_curta": "Iphone X para temporada. Ótima qualidade de foto e vídeo. Melhor do mercado.",
+//         "descricao": "Tela 4k, 12GB RAM e 256GB de memória.\n Perfeito para capturar cada momento.",
+//         "valor_base_diario": 22.0,
+//         "valor_base_mensal": 300.0,
+//         "valor_produto": 4500.0,
+//         "data_compra": "2019-05-01",
+//         "qtd_alugueis": 1,
+//         "total_ganhos": 44.0,
+//         "media_avaliacao": 5.0,
+//         "capa_foto": "1.jpg",
+//         "ativo": true
+//     },
+//     "produto":
+//     {
+//         "nome": "Camera Semi Profissional Canon",
+//         "descricao_curta": "Camera Semi Profissional Canon.",
+//         "descricao": "Perfeito para capturar cada momento. Portátil para viagens, não ocupando tanto espaço quanto uma câmera profissional.",
+//         "valor_base_diario": 12.0,
+//         "valor_base_mensal": 180.0,
+//         "valor_produto": 2000.0,
+//         "data_compra": "2018-05-01",
+//         "qtd_alugueis": 2,
+//         "total_ganhos": 24.0,
+//         "media_avaliacao": 5.0,
+//         "capa_foto": "2.jpg",
+//         "ativo": true      
+//     },
+//     {
+//         "nome": "Kit Ferramenta para Carpintaria",
+//         "descricao_curta": "Kit Ferramenta para carpintaria.",
+//         "descricao": "Perfeito para realização daquele projeto pessoal e pontual. Ferramenta sob medida para trabalho artesanal em madeira.",
+//         "valor_base_diario": 20.0,
+//         "valor_base_mensal": 350.0,
+//         "valor_produto": 6000.0,
+//         "data_compra": "2017-05-01",
+//         "qtd_alugueis": 2,
+//         "total_ganhos": 40.0,
+//         "media_avaliacao": 4.0,
+//         "capa_foto": "3.jpg",
+//         "ativo": true 
+//     },
+//     {
+//         "nome": "Kit para Edição de Fotos e Vídeos",
+//             "descricao_curta": "Kit para Edição de Fotos e Vídeos",
+//             "descricao": "Perfeito para realização daquele projeto pessoal e pontual de design. Já vem com diversos programas de edição instalados.",
+//             "valor_base_diario": 100.0,
+//             "valor_base_mensal": 2500.0,
+//             "valor_produto": 20000.0,
+//             "data_compra": "2020-09-01",
+//             "qtd_alugueis": 1,
+//             "total_ganhos": 2500.0,
+//             "media_avaliacao": 5.0,
+//             "capa_foto": "4.jpg",
+//             "ativo": true      
+//     },
+//     {
+//         "nome": "Telescópio Profissional",
+//             "descricao_curta": "Telescópio Profissional",
+//             "descricao": "Perfeito para aqueles que amam as estrelas. Podendo ser utilizado como ferramenta de fotografia.",
+//             "valor_base_diario": 20.0,
+//             "valor_base_mensal": 1000.0,
+//             "valor_produto": 3000.0,
+//             "data_compra": "2019-06-01",
+//             "qtd_alugueis": 1,
+//             "total_ganhos": 2500.0,
+//             "media_avaliacao": 5.0,
+//             "capa_foto": "5.jpg",
+//             "ativo": true   
+//     }
+    
+
+
+
+
+      
+
+       
+
+
+
+            
+                          
