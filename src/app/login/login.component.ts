@@ -82,6 +82,8 @@ export class LoginComponent implements OnInit {
                                                   }, errorResponse =>{
                                                     //this.loginErro = formLoginValues.username + ' Usuário e/ou senha inválidos'
                                                     this.loginErro = 'Usuário e/ou senha inválidos';
+                                                    console.log(errorResponse)
+                                                    
                                                   })
     }
     
@@ -105,7 +107,7 @@ export class LoginComponent implements OnInit {
           this.mensagemErro = null
       }, errorResponse => {
         this.mensagemSucesso = null,
-          this.mensagemErro = "Erro ao realizar o cadastro"
+          this.mensagemErro = "Erro ao realizar o cadastro" + errorResponse
       });
     }else{
       this.mensagemErro = "O formulário ainda não está valido"

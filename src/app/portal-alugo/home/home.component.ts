@@ -15,7 +15,7 @@ import { idiomaService } from 'src/app/Services/idiomaService';
 })
 export class HomeComponent implements OnInit {
 
-  produtos: eResponseProdutos[] = [];
+  produtos: eProduto[] = [];
   currentProduto: eProduto;
   idiomas: iIdioma[];
   currentBandeira: string;
@@ -34,10 +34,10 @@ export class HomeComponent implements OnInit {
       }
 
   ngOnInit(): void {
-    this.currentProduto = new eProduto();
     this.portalService.getProdutos().subscribe(resposta => {
       this.produtos = resposta;
-      console.log(this.produtos)},
+      console.log(this.produtos);
+      console.log(this.produtos[0].nome);},
       errorResponse => {
         console.log(errorResponse)
       });
@@ -55,15 +55,15 @@ export class HomeComponent implements OnInit {
     this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
   }
 
-  exibeDetalhesModal(itemSelecionado : eResponseProdutos){
-    this.currentProduto = itemSelecionado.produto;
+  exibeDetalhesModal(itemSelecionado : eProduto){
+    this.currentProduto = itemSelecionado;
     console.log(this.currentProduto)
   }
 
 
-  verProdutoDeslogado(itemSelecionado : eResponseProdutos){
+  verProdutoDeslogado(itemSelecionado : eProduto){
     window.sessionStorage.setItem('idUsuario', itemSelecionado.id_usuario);
-    window.sessionStorage.setItem('idProduto', itemSelecionado.produto.id_produto);
+    window.sessionStorage.setItem('idProduto', itemSelecionado.id_produto);
     this.router.navigate(['/detalhe-produto']);
   }
 

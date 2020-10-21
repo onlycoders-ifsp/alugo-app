@@ -20,7 +20,7 @@ export class DetalheProdutoComponent implements OnInit {
   produtoI: eProduto;
   
 
-  responseProduto: eResponseProdutos[] = [];
+  responseProduto: eProduto;
   
   constructor(
     private portalService : PortalService,

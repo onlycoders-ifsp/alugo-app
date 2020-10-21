@@ -14,10 +14,6 @@ import { eUsuarioConstructor } from '../entidades/eUsuarioConstrutor';
 })
 export class AuthService {
 
-  apiUrl: string = environment.apiBaseUrl + "/login"
-  apiUsuario: string = environment.apiBaseUrl + "/usuarios"
-  urlUserLogin: string = environment.apiBaseUrl + '/usuarios/usuario-login'
-
   tokenUrl: string = environment.apiBaseUrl + environment.obterToken;
   clientID: string = environment.clientId;
   clientSecret: string = environment.secret;
@@ -68,6 +64,7 @@ export class AuthService {
 
   encerraSessao(){
     localStorage.removeItem('access_token');
+    this.router.navigate(['']);
   }
 
   tentarLogin(username: string, password: string) : Observable<any> {
@@ -83,22 +80,22 @@ export class AuthService {
     return this.http.post<any>(this.tokenUrl, params.toString(), { headers  })
   }
   salvar(usuario: eUserLogin) : Observable<any>{
-    return this.http.post<any>(this.apiUrl, usuario);
+    return this.http.post<any>(environment.apiBaseUrl + environment.login, usuario);
   }
 
   cadastrarNovoUsuario(usuario: eUsuarioConstructor) : Observable<eUsuarioConstructor>{
-    return this.http.post<eUsuarioConstructor>(this.apiUsuario + "/cadastro",usuario );
+    return this.http.post<eUsuarioConstructor>(environment.apiBaseUrl + environment.postCadUsuario,usuario );
 
   }
 
   updateUsuario(usuario: eUsuarioConstructor) : Observable<eUsuarioConstructor>{
-    return this.http.put<eUsuarioConstructor>(this.apiUsuario + "/altera-dados",usuario );
+    return this.http.put<eUsuarioConstructor>(environment.apiBaseUrl + environment.putAlteraUsuario, usuario );
 
   }
 
   getUserByLogin() : Observable<eUsuario>{
     let params = new HttpParams();
     params = params.append('login' , this.getUsuarioAutenticado());
-    return this.http.get<eUsuario>(this.urlUserLogin, {params});
+    return this.http.get<eUsuario>(environment.getDadosUsuario, {params});
   }
 }

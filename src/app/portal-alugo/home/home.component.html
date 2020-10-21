@@ -1,4 +1,4 @@
-<div class="modal-quick-view modal fade" id="quick-view" tabindex="-1">
+<!-- <div class="modal-quick-view modal fade" id="quick-view" tabindex="-1">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
@@ -10,7 +10,6 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <!-- Product gallery-->
           <div class="col-lg-7 pr-lg-0">
             <div class="cz-product-gallery">
               <div class="cz-preview order-sm-2">
@@ -44,7 +43,6 @@
                     alt="Product thumb"></a></div>
             </div>
           </div>
-          <!-- Product details-->
           <div class="col-lg-5 pt-4 pt-lg-0 cz-image-zoom-pane">
             <div class="product-details ml-auto pb-3">
               <div class="d-flex justify-content-between align-items-center mb-2"><a href="shop-single-v1.html#reviews">
@@ -91,7 +89,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <section class="carousel cz-controls-lg">
     <div class="carousel-inner" >
@@ -130,13 +128,13 @@
   <section class="container pt-md-3 pb-5 mb-md-3">
     <h2 class="h3 text-center">{{ 'portal-alugo.home.produtosEmAlta' | translate }}</h2>
     <div class="row pt-4 mx-n2">
-      <div *ngFor="let item of produtos | slice:0:4 ; index as i" class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
+      <div *ngFor="let item of produtos; index as i" class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
         <div class="card product-card">
-          <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" (click)="verProdutoDeslogado(item)"><img src="../../assets/imagens/shop/catalog/{{item.produto.capa_foto}}" alt="Product"></a>
-          <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">{{item.produto.descricao}}</a>
-            <h3 class="product-title font-size-sm"><a routerLink="detalhe-produto">{{item.produto.nome}} + {{item.produto.ativo}}</a></h3>
+          <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" (click)="verProdutoDeslogado(item)"><img src="../../assets/imagens/shop/catalog/{{item.capa_foto}}" alt="Product"></a>
+          <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">{{item.descricao}}</a>
+            <h3 class="product-title font-size-sm"><a routerLink="detalhe-produto">{{item.nome}}</a></h3>
             <div class="d-flex justify-content-between">
-              <div class="product-price"><span class="text-accent">R$ {{item.produto.valor_base_diario}}<small></small></span></div>
+              <div class="product-price"><span class="text-accent">R$ {{item.valor_base_diario}}<small></small></span></div>
               <div class="star-rating">
                 <i class="fa fa-star text-primary"></i>
                 <i class="fa fa-star text-primary"></i>

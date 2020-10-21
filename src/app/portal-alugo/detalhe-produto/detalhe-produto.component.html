@@ -1,109 +1,138 @@
-<div *ngFor="let item of responseProduto">
-
-<div *ngIf="item.produto.id_produto==id_produto" class="page-title-overlap bg-accent pt-4">
-    <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
-      <div class="order-lg-1 pr-lg-4 text-center text-lg-left">
-        <h1 class="h3 text-light mb-2">{{item.produto.nome}}</h1>
-        <div>
-          <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="fa fa-star"></i>
-          </div><span class="d-inline-block font-size-sm text-white opacity-70 align-middle mt-1 ml-1">{{ 'portal-alugo.detalhe-produto.14avaliacoes' | translate }}</span>
-        </div>
+<div class="page-title-overlap bg-accent pt-4">
+  <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
+    <div class="order-lg-1 pr-lg-4 text-center text-lg-left">
+      <h1 class="h3 text-light mb-2">{{responseProduto.nome}}</h1>
+      <div>
+        <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="fa fa-star"></i>
+        </div><span class="d-inline-block font-size-sm text-white opacity-70 align-middle mt-1 ml-1">{{ 'portal-alugo.detalhe-produto.14avaliacoes' | translate }}</span>
       </div>
     </div>
   </div>
-  <!-- Page Content-->
-  <div *ngIf="item.produto.id_produto==id_produto" class="container">
-    <div class="bg-light box-shadow-lg rounded-lg">
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item"><a class="nav-link p-4 active" href="#general" data-toggle="tab" role="tab">{{ 'portal-alugo.detalhe-produto.infosgerais' | translate }}</a></li>
-            <li class="nav-item"><a class="nav-link p-4" href="#specs" data-toggle="tab" role="tab">{{ 'portal-alugo.detalhe-produto.descricao' | translate }}</a></li>
-            <li class="nav-item"><a class="nav-link p-4" href="#reviews" data-toggle="tab" role="tab">{{ 'portal-alugo.detalhe-produto.avaliacoes' | translate }}<span class="font-size-sm opacity-60">(14)</span></a></li>
-          </ul>
-      <div class="px-4 pt-lg-3 pb-3 mb-5">
-        <div class="tab-content px-lg-3">
-          <!-- General info tab-->
-          <div class="tab-pane fade show active" id="general" role="tabpanel">
-            <div class="row">
-              <!-- Product gallery-->
-              <div class="col-lg-7 pr-lg-0">
-                <div class="cz-product-gallery">
-                  <div class="cz-preview order-sm-2">
-                    <div class="cz-preview-item active" id="first"><img class="cz-image-zoom" src="../../../assets/imagens/shop/catalog/{{item.produto.capa_foto}}" alt="{{item.produto.nome}}">
-                      <div class="cz-image-zoom-pane"></div>
-                    </div>
-                    <div class="cz-preview-item" id="second"><img class="cz-image-zoom" src="../../assets/imagens/image-not-available.jpg" data-zoom="../../assets/imagens/image-not-available.jpg" alt="{{item.produto.nome}}">
-                      <div class="cz-image-zoom-pane"></div>
-                    </div>
-                    <div class="cz-preview-item" id="third"><img class="cz-image-zoom" src="../../assets/imagens/image-not-available.jpg" data-zoom="../../assets/imagens/image-not-available.jpg" alt="{{item.produto.nome}}">
-                      <div class="cz-image-zoom-pane"></div>
-                    </div>
-                    <div class="cz-preview-item" id="fourth"><img class="cz-image-zoom" src="../../assets/imagens/image-not-available.jpg" data-zoom="../../assets/imagens/image-not-available.jpg" alt="{{item.produto.nome}}">
-                      <div class="cz-image-zoom-pane"></div>
-                    </div>
+</div>
+<!-- Page Content-->
+<div class="container">
+  <div class="bg-light box-shadow-lg rounded-lg">
+      <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item"><a class="nav-link p-4 active" href="#general" data-toggle="tab" role="tab">{{ 'portal-alugo.detalhe-produto.infosgerais' | translate }}</a></li>
+          <li class="nav-item"><a class="nav-link p-4" href="#specs" data-toggle="tab" role="tab">{{ 'portal-alugo.detalhe-produto.descricao' | translate }}</a></li>
+          <li class="nav-item"><a class="nav-link p-4" href="#reviews" data-toggle="tab" role="tab">{{ 'portal-alugo.detalhe-produto.avaliacoes' | translate }}<span class="font-size-sm opacity-60">(14)</span></a></li>
+        </ul>
+    <div class="px-4 pt-lg-3 pb-3 mb-5">
+      <div class="tab-content px-lg-3">
+        <!-- General info tab-->
+        <div class="tab-pane fade show active" id="general" role="tabpanel">
+          <div class="row">
+            <!-- Product gallery-->
+            <div class="col-lg-7 pr-lg-0">
+              <div class="cz-product-gallery">
+                <div class="cz-preview order-sm-2">
+                  <div class="cz-preview-item active" id="first"><img class="cz-image-zoom" src="../../../assets/imagens/shop/catalog/{{responseProduto.capa_foto}}" alt="{{responseProduto.nome}}">
+                    <div class="cz-image-zoom-pane"></div>
                   </div>
-                  <div class="cz-thumblist order-sm-1">
-                    <a class="cz-thumblist-item active" href="#first">
-                      <img src="../../../assets/imagens/shop/catalog/{{item.produto.capa_foto}}" alt="Product thumb">
-                    </a>
-                    <a class="cz-thumblist-item" href="#second">
-                      <img src="../../assets/imagens/image-not-available.jpg" alt="Product thumb">
-                    </a>
-                    <a class="cz-thumblist-item" href="#third">
-                      <img src="../../assets/imagens/image-not-available.jpg" alt="Product thumb">
-                    </a>
-                    <a class="cz-thumblist-item" href="#fourth">
-                      <img src="../../assets/imagens/image-not-available.jpg" alt="Product thumb">
-                    </a>
+                  <div class="cz-preview-item" id="second"><img class="cz-image-zoom" src="../../assets/imagens/image-not-available.jpg" data-zoom="../../assets/imagens/image-not-available.jpg" alt="{{responseProduto.nome}}">
+                    <div class="cz-image-zoom-pane"></div>
+                  </div>
+                  <div class="cz-preview-item" id="third"><img class="cz-image-zoom" src="../../assets/imagens/image-not-available.jpg" data-zoom="../../assets/imagens/image-not-available.jpg" alt="{{responseProduto.nome}}">
+                    <div class="cz-image-zoom-pane"></div>
+                  </div>
+                  <div class="cz-preview-item" id="fourth"><img class="cz-image-zoom" src="../../assets/imagens/image-not-available.jpg" data-zoom="../../assets/imagens/image-not-available.jpg" alt="{{responseProduto.nome}}">
+                    <div class="cz-image-zoom-pane"></div>
                   </div>
                 </div>
-              </div>
-              <!-- Product details-->
-              <div class="col-lg-5 pt-4 pt-lg-0 cz-image-zoom-pane">
-                <div class="product-details ml-auto pb-3">
-                  <div class="d-flex justify-content-between align-items-center mb-2"><a href="shop-single-v1.html#reviews">
-                      <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="fa fa-star"></i>
-                      </div><span class="d-inline-block font-size-sm text-body align-middle mt-1 ml-1">{{ 'portal-alugo.detalhe-produto.14avaliacoes' | translate }}</span></a>
-                    <button class="btn-wishlist" type="button" data-toggle="tooltip" title="Add to wishlist"><i class="fa fa-heart"></i></button>
-                  </div>
-                  <div class="mb-3"><span class="h3 font-weight-normal text-accent mr-1">R$ {{item.produto.valor_base_diario}}<small></small></span>
-                    <del class="text-muted font-size-lg mr-3">R$ {{item.produto.valor_base_mensal}}<small></small></del><span class="badge badge-danger badge-shadow align-middle mt-n2">{{ 'portal-alugo.detalhe-produto.baixou' | translate }}</span>
-                  </div>
-                  <div class="font-size-sm mb-4"><span class="text-heading font-weight-medium mr-1">{{ 'portal-alugo.detalhe-produto.estado' | translate }}:</span><span class="text-muted">Bom</span></div>
-                  <div class="position-relative mr-n4 mb-3">
-                    <div class="product-badge product-available mt-n1"><i class="fa fa-check"></i>{{ 'portal-alugo.detalhe-produto.produtodisponivel' | translate }}</div>
-                  </div>
-                  <form class="mb-grid-gutter">
-                    <div class="form-group">
-                      <label class="font-weight-medium pb-1" for="product-size">{{ 'portal-alugo.detalhe-produto.acao' | translate }}:</label>
-                      
-                    </div>
-                    <div class="form-group d-flex align-items-center">
-                      
-                      <button class="btn btn-primary btn-shadow btn-block" type="submit"><i class="fa fa-shopping-cart font-size-lg mr-2"></i>{{ 'portal-alugo.detalhe-produto.alugar' | translate }}</button>
-                    </div>
-                  </form>
-                  <h5 class="h6 mb-3 pb-2 border-bottom"><i class="fa fa-bullhorn text-muted font-size-lg align-middle mt-n1 mr-2"></i>{{ 'portal-alugo.detalhe-produto.Infoprod' | translate }}</h5>
-                  
-                  
-                  <h6 class="font-size-sm mb-2">{{ 'portal-alugo.detalhe-produto.numeroidentificacao' | translate }}</h6>
-                  <ul class="font-size-sm pl-4 mb-0">
-                    <li>{{item.produto.id_produto}}</li>
-                  </ul>
+                <div class="cz-thumblist order-sm-1">
+                  <a class="cz-thumblist-item active" href="#first">
+                    <img src="../../../assets/imagens/shop/catalog/{{responseProduto.capa_foto}}" alt="Product thumb">
+                  </a>
+                  <a class="cz-thumblist-item" href="#second">
+                    <img src="../../assets/imagens/image-not-available.jpg" alt="Product thumb">
+                  </a>
+                  <a class="cz-thumblist-item" href="#third">
+                    <img src="../../assets/imagens/image-not-available.jpg" alt="Product thumb">
+                  </a>
+                  <a class="cz-thumblist-item" href="#fourth">
+                    <img src="../../assets/imagens/image-not-available.jpg" alt="Product thumb">
+                  </a>
                 </div>
               </div>
             </div>
+            <!-- Product details-->
+            <div class="col-lg-5 pt-4 pt-lg-0 cz-image-zoom-pane">
+              <div class="product-details ml-auto pb-3">
+                <div class="d-flex justify-content-between align-items-center mb-2"><a href="shop-single-v1.html#reviews">
+                    <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="fa fa-star"></i>
+                    </div><span class="d-inline-block font-size-sm text-body align-middle mt-1 ml-1">{{ 'portal-alugo.detalhe-produto.14avaliacoes' | translate }}</span></a>
+                  <button class="btn-wishlist" type="button" data-toggle="tooltip" title="Add to wishlist"><i class="fa fa-heart"></i></button>
+                </div>
+                <div class="mb-3"><span class="h3 font-weight-normal text-accent mr-1">R$ {{responseProduto.valor_base_diario}}<small></small></span>
+                  <del class="text-muted font-size-lg mr-3">R$ {{responseProduto.valor_base_mensal}}<small></small></del><span class="badge badge-danger badge-shadow align-middle mt-n2">{{ 'portal-alugo.detalhe-produto.baixou' | translate }}</span>
+                </div>
+                <div class="font-size-sm mb-4"><span class="text-heading font-weight-medium mr-1">{{ 'portal-alugo.detalhe-produto.estado' | translate }}:</span><span class="text-muted">Bom</span></div>
+                <div class="position-relative mr-n4 mb-3">
+                  <div class="product-badge product-available mt-n1"><i class="fa fa-check"></i>{{ 'portal-alugo.detalhe-produto.produtodisponivel' | translate }}</div>
+                </div>
+                <form class="mb-grid-gutter">
+                  <div class="form-group">
+                    <label class="font-weight-medium pb-1" for="product-size">{{ 'portal-alugo.detalhe-produto.acao' | translate }}:</label>
+                    
+                  </div>
+                  <div class="form-group d-flex align-items-center">
+                    
+                    <button class="btn btn-primary btn-shadow btn-block" type="submit"><i class="fa fa-shopping-cart font-size-lg mr-2"></i>{{ 'portal-alugo.detalhe-produto.alugar' | translate }}</button>
+                  </div>
+                </form>
+                <h5 class="h6 mb-3 pb-2 border-bottom"><i class="fa fa-bullhorn text-muted font-size-lg align-middle mt-n1 mr-2"></i>{{ 'portal-alugo.detalhe-produto.Infoprod' | translate }}</h5>
+                
+                
+                <h6 class="font-size-sm mb-2">{{ 'portal-alugo.detalhe-produto.numeroidentificacao' | translate }}</h6>
+                <ul class="font-size-sm pl-4 mb-0">
+                  <li>{{responseProduto.id_produto}}</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <!-- Tech specs tab-->
-          <div class="tab-pane fade" id="specs" role="tabpanel">
-            <div class="d-md-flex justify-content-between align-items-start pb-4 mb-4 border-bottom">
-              <div class="media align-items-center mr-md-3"><img src="../../../assets/imagens/shop/catalog/{{item.produto.capa_foto}}" width="90" alt="Product thumb">
+        </div>
+        <!-- Tech specs tab-->
+        <div class="tab-pane fade" id="specs" role="tabpanel">
+          <div class="d-md-flex justify-content-between align-items-start pb-4 mb-4 border-bottom">
+            <div class="media align-items-center mr-md-3"><img src="../../../assets/imagens/shop/catalog/{{responseProduto.capa_foto}}" width="90" alt="Product thumb">
+              <div class="mdeia-body pl-3">
+                <h6 class="font-size-base mb-2">{{responseProduto.nome}}</h6>
+                <div class="h4 font-weight-normal text-accent">R$ {{responseProduto.valor_produto}}<small></small></div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center pt-3">
+              <button class="btn btn-primary btn-shadow mr-2" type="button"><i class="fa fa-shopping-cart font-size-lg mr-sm-2"></i><span class="d-none d-sm-inline">{{ 'portal-alugo.detalhe-produto.alugar' | translate }}</span></button>
+              <div class="mr-2">
+                <button class="btn btn-secondary btn-icon" type="button" data-toggle="tooltip" title="Favoritar"><i class="fa fa-heart font-size-lg"></i></button>
+              </div>
+              <div>
+                <button class="btn btn-secondary btn-icon" type="button" data-toggle="tooltip" title="Compare"><i class="fa fa-retweet font-size-lg"></i></button>
+              </div>
+            </div>
+          </div>
+          <!-- Specs table-->
+          <div class="row pt-2">
+              <div class="container pt-lg-3 pb-4 pb-sm-5">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                      <h2 class="h3 pb-2">{{ 'portal-alugo.detalhe-produto.descricaocompleta' | translate }}</h2>
+                      <p>{{responseProduto.descricao}}</p>
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </div>
+        <!-- Reviews tab-->
+        <div class="tab-pane fade" id="reviews" role="tabpanel">
+          <div class="d-md-flex justify-content-between align-items-start pb-4 mb-4 border-bottom">
+              <div class="media align-items-center mr-md-3"><img src="../../../assets/imagens/shop/catalog/{{responseProduto.capa_foto}}" width="90" alt="Product thumb">
                 <div class="mdeia-body pl-3">
-                  <h6 class="font-size-base mb-2">{{item.produto.nome}}</h6>
-                  <div class="h4 font-weight-normal text-accent">R$ {{item.produto.valor_produto}}<small></small></div>
+                  <h6 class="font-size-base mb-2">{{responseProduto.nome}}</h6>
+                  <div class="h4 font-weight-normal text-accent">R$ {{responseProduto.valor_produto}}<small></small></div>
                 </div>
               </div>
               <div class="d-flex align-items-center pt-3">
-                <button class="btn btn-primary btn-shadow mr-2" type="button"><i class="fa fa-shopping-cart font-size-lg mr-sm-2"></i><span class="d-none d-sm-inline">{{ 'portal-alugo.detalhe-produto.alugar' | translate }}</span></button>
+                <button class="btn btn-primary btn-shadow mr-2" type="button"><i class="fa fa-shopping-cart font-size-lg mr-sm-2"></i><span class="d-none d-sm-inline">ALUGAR</span></button>
                 <div class="mr-2">
                   <button class="btn btn-secondary btn-icon" type="button" data-toggle="tooltip" title="Favoritar"><i class="fa fa-heart font-size-lg"></i></button>
                 </div>
@@ -112,151 +141,119 @@
                 </div>
               </div>
             </div>
-            <!-- Specs table-->
-            <div class="row pt-2">
-                <div class="container pt-lg-3 pb-4 pb-sm-5">
-                    <div class="row justify-content-center">
-                      <div class="col-lg-8">
-                        <h2 class="h3 pb-2">{{ 'portal-alugo.detalhe-produto.descricaocompleta' | translate }}</h2>
-                        <p>{{item.produto.descricao}}</p>
-                      </div>
-                    </div>
+          <!-- Reviews-->
+          <div class="row pt-2 pb-3">
+            <div class="col-lg-4 col-md-5">
+              <h2 class="h3 mb-4">{{ 'portal-alugo.detalhe-produto.14avaliacoes' | translate }}</h2>
+              <div class="star-rating mr-2"><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="czi-star font-size-sm text-muted mr-1"></i></div><span class="d-inline-block align-middle">{{ 'portal-alugo.detalhe-produto.avaliacaogeral' | translate }}</span>
+              <p class="pt-3 font-size-sm text-muted">{{ 'portal-alugo.detalhe-produto.9de14' | translate }}<br>{{ 'portal-alugo.detalhe-produto.consumidoresrecomendacao' | translate }}</p>
+            </div>
+            <div class="col-lg-8 col-md-7">
+              <div class="d-flex align-items-center mb-2">
+                <div class="text-nowrap mr-3"><span class="d-inline-block align-middle text-muted">5</span><i class="fa fa-star font-size-xs ml-1"></i></div>
+                <div class="w-100">
+                  <div class="progress" style="height: 4px;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
+                </div><span class="text-muted ml-3">4</span>
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <div class="text-nowrap mr-3"><span class="d-inline-block align-middle text-muted">4</span><i class="fa fa-star font-size-xs ml-1"></i></div>
+                <div class="w-100">
+                  <div class="progress" style="height: 4px;">
+                    <div class="progress-bar" role="progressbar" style="width: 27%; background-color: #a7e453;" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div><span class="text-muted ml-3">3</span>
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <div class="text-nowrap mr-3"><span class="d-inline-block align-middle text-muted">3</span><i class="fa fa-star font-size-xs ml-1"></i></div>
+                <div class="w-100">
+                  <div class="progress" style="height: 4px;">
+                    <div class="progress-bar" role="progressbar" style="width: 17%; background-color: #ffda75;" aria-valuenow="17" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div><span class="text-muted ml-3">3</span>
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <div class="text-nowrap mr-3"><span class="d-inline-block align-middle text-muted">2</span><i class="fa fa-star font-size-xs ml-1"></i></div>
+                <div class="w-100">
+                  <div class="progress" style="height: 4px;">
+                    <div class="progress-bar" role="progressbar" style="width: 9%; background-color: #fea569;" aria-valuenow="9" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div><span class="text-muted ml-3">2</span>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="text-nowrap mr-3"><span class="d-inline-block align-middle text-muted">1</span><i class="fa fa-star font-size-xs ml-1"></i></div>
+                <div class="w-100">
+                  <div class="progress" style="height: 4px;">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 4%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div><span class="text-muted ml-3">2</span>
+              </div>
             </div>
           </div>
-          <!-- Reviews tab-->
-          <div class="tab-pane fade" id="reviews" role="tabpanel">
-            <div class="d-md-flex justify-content-between align-items-start pb-4 mb-4 border-bottom">
-                <div class="media align-items-center mr-md-3"><img src="../../../assets/imagens/shop/catalog/{{item.produto.capa_foto}}" width="90" alt="Product thumb">
-                  <div class="mdeia-body pl-3">
-                    <h6 class="font-size-base mb-2">{{item.produto.nome}}</h6>
-                    <div class="h4 font-weight-normal text-accent">R$ {{item.produto.valor_produto}}<small></small></div>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center pt-3">
-                  <button class="btn btn-primary btn-shadow mr-2" type="button"><i class="fa fa-shopping-cart font-size-lg mr-sm-2"></i><span class="d-none d-sm-inline">ALUGAR</span></button>
-                  <div class="mr-2">
-                    <button class="btn btn-secondary btn-icon" type="button" data-toggle="tooltip" title="Favoritar"><i class="fa fa-heart font-size-lg"></i></button>
+          <hr class="mt-4 pb-4 mb-3">
+          <div class="row pb-4">
+            <!-- Reviews list-->
+            <div class="col-md-12">
+              <!-- Review-->
+              <div class="product-review pb-4 mb-4 border-bottom">
+                <div class="d-flex mb-3">
+                  <div class="media media-ie-fix align-items-center mr-4 pr-2"><img class="rounded-circle" width="50" src="../../assets/imagens/shop/account/dilan.jpg" alt="Rafael Marquez"/>
+                    <div class="media-body pl-3">
+                      <h6 class="font-size-sm mb-0">João da Silva</h6><span class="font-size-ms text-muted">{{ 'portal-alugo.detalhe-produto.28setembro' | translate }}</span>
+                    </div>
                   </div>
                   <div>
-                    <button class="btn btn-secondary btn-icon" type="button" data-toggle="tooltip" title="Compare"><i class="fa fa-retweet font-size-lg"></i></button>
+                    <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star czi-star"></i>
+                    </div>
                   </div>
                 </div>
+                <p class="font-size-md mb-2">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est...</p>
+                <ul class="list-unstyled font-size-ms pt-1">
+                  <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.pros' | translate }}:&nbsp;</span>Consequuntur magni, voluptatem sequi, tempora</li>
+                  <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.cons' | translate }}:&nbsp;</span>Architecto beatae, quis autem</li>
+                </ul>
               </div>
-            <!-- Reviews-->
-            <div class="row pt-2 pb-3">
-              <div class="col-lg-4 col-md-5">
-                <h2 class="h3 mb-4">{{ 'portal-alugo.detalhe-produto.14avaliacoes' | translate }}</h2>
-                <div class="star-rating mr-2"><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="fa fa-star font-size-sm text-accent mr-1"></i><i class="czi-star font-size-sm text-muted mr-1"></i></div><span class="d-inline-block align-middle">{{ 'portal-alugo.detalhe-produto.avaliacaogeral' | translate }}</span>
-                <p class="pt-3 font-size-sm text-muted">{{ 'portal-alugo.detalhe-produto.9de14' | translate }}<br>{{ 'portal-alugo.detalhe-produto.consumidoresrecomendacao' | translate }}</p>
+              <!-- Review-->
+              <div class="product-review pb-4 mb-4 border-bottom">
+                <div class="d-flex mb-3">
+                  <div class="media media-ie-fix align-items-center mr-4 pr-2"><img class="rounded-circle" width="50" src="../../assets/imagens/shop/account/dilan.jpg" alt="Barbara Palson"/>
+                    <div class="media-body pl-3">
+                      <h6 class="font-size-sm mb-0">Arnold Shuawgneguer</h6><span class="font-size-ms text-muted">{{ 'portal-alugo.detalhe-produto.15agosto' | translate }}</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="font-size-md mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <ul class="list-unstyled font-size-ms pt-1">
+                  <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.pros' | translate }}:&nbsp;</span>Consequuntur magni, voluptatem sequi, tempora</li>
+                  <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.cons' | translate }}:&nbsp;</span>Architecto beatae, quis autem</li>
+                </ul>
               </div>
-              <div class="col-lg-8 col-md-7">
-                <div class="d-flex align-items-center mb-2">
-                  <div class="text-nowrap mr-3"><span class="d-inline-block align-middle text-muted">5</span><i class="fa fa-star font-size-xs ml-1"></i></div>
-                  <div class="w-100">
-                    <div class="progress" style="height: 4px;">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+              <!-- Review-->
+              <div class="product-review pb-4 mb-4 border-bottom">
+                <div class="d-flex mb-3">
+                  <div class="media media-ie-fix align-items-center mr-4 pr-2"><img class="rounded-circle" width="50" src="../../assets/imagens/shop/account/dilan.jpg" alt="Daniel Adams"/>
+                    <div class="media-body pl-3">
+                      <h6 class="font-size-sm mb-0">David Luiz</h6><span class="font-size-ms text-muted">{{ 'portal-alugo.detalhe-produto.9marco' | translate }}</span>
                     </div>
-                  </div><span class="text-muted ml-3">4</span>
-                </div>
-                <div class="d-flex align-items-center mb-2">
-                  <div class="text-nowrap mr-3"><span class="d-inline-block align-middle text-muted">4</span><i class="fa fa-star font-size-xs ml-1"></i></div>
-                  <div class="w-100">
-                    <div class="progress" style="height: 4px;">
-                      <div class="progress-bar" role="progressbar" style="width: 27%; background-color: #a7e453;" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div>
+                    <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star czi-star"></i><i class="sr-star czi-star"></i>
                     </div>
-                  </div><span class="text-muted ml-3">3</span>
+                  </div>
                 </div>
-                <div class="d-flex align-items-center mb-2">
-                  <div class="text-nowrap mr-3"><span class="d-inline-block align-middle text-muted">3</span><i class="fa fa-star font-size-xs ml-1"></i></div>
-                  <div class="w-100">
-                    <div class="progress" style="height: 4px;">
-                      <div class="progress-bar" role="progressbar" style="width: 17%; background-color: #ffda75;" aria-valuenow="17" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div><span class="text-muted ml-3">3</span>
-                </div>
-                <div class="d-flex align-items-center mb-2">
-                  <div class="text-nowrap mr-3"><span class="d-inline-block align-middle text-muted">2</span><i class="fa fa-star font-size-xs ml-1"></i></div>
-                  <div class="w-100">
-                    <div class="progress" style="height: 4px;">
-                      <div class="progress-bar" role="progressbar" style="width: 9%; background-color: #fea569;" aria-valuenow="9" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div><span class="text-muted ml-3">2</span>
-                </div>
-                <div class="d-flex align-items-center">
-                  <div class="text-nowrap mr-3"><span class="d-inline-block align-middle text-muted">1</span><i class="fa fa-star font-size-xs ml-1"></i></div>
-                  <div class="w-100">
-                    <div class="progress" style="height: 4px;">
-                      <div class="progress-bar bg-danger" role="progressbar" style="width: 4%;" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div><span class="text-muted ml-3">2</span>
-                </div>
+                <p class="font-size-md mb-2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.</p>
+                <ul class="list-unstyled font-size-ms pt-1">
+                  <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.pros' | translate }}:&nbsp;</span>Consequuntur magni, voluptatem sequi</li>
+                  <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.cons' | translate }}:&nbsp;</span>Architecto beatae,  quis autem, voluptatem sequ</li>
+                </ul>
               </div>
-            </div>
-            <hr class="mt-4 pb-4 mb-3">
-            <div class="row pb-4">
-              <!-- Reviews list-->
-              <div class="col-md-12">
-                <!-- Review-->
-                <div class="product-review pb-4 mb-4 border-bottom">
-                  <div class="d-flex mb-3">
-                    <div class="media media-ie-fix align-items-center mr-4 pr-2"><img class="rounded-circle" width="50" src="../../assets/imagens/shop/account/dilan.jpg" alt="Rafael Marquez"/>
-                      <div class="media-body pl-3">
-                        <h6 class="font-size-sm mb-0">João da Silva</h6><span class="font-size-ms text-muted">{{ 'portal-alugo.detalhe-produto.28setembro' | translate }}</span>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star czi-star"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="font-size-md mb-2">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est...</p>
-                  <ul class="list-unstyled font-size-ms pt-1">
-                    <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.pros' | translate }}:&nbsp;</span>Consequuntur magni, voluptatem sequi, tempora</li>
-                    <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.cons' | translate }}:&nbsp;</span>Architecto beatae, quis autem</li>
-                  </ul>
-                </div>
-                <!-- Review-->
-                <div class="product-review pb-4 mb-4 border-bottom">
-                  <div class="d-flex mb-3">
-                    <div class="media media-ie-fix align-items-center mr-4 pr-2"><img class="rounded-circle" width="50" src="../../assets/imagens/shop/account/dilan.jpg" alt="Barbara Palson"/>
-                      <div class="media-body pl-3">
-                        <h6 class="font-size-sm mb-0">Arnold Shuawgneguer</h6><span class="font-size-ms text-muted">{{ 'portal-alugo.detalhe-produto.15agosto' | translate }}</span>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="font-size-md mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  <ul class="list-unstyled font-size-ms pt-1">
-                    <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.pros' | translate }}:&nbsp;</span>Consequuntur magni, voluptatem sequi, tempora</li>
-                    <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.cons' | translate }}:&nbsp;</span>Architecto beatae, quis autem</li>
-                  </ul>
-                </div>
-                <!-- Review-->
-                <div class="product-review pb-4 mb-4 border-bottom">
-                  <div class="d-flex mb-3">
-                    <div class="media media-ie-fix align-items-center mr-4 pr-2"><img class="rounded-circle" width="50" src="../../assets/imagens/shop/account/dilan.jpg" alt="Daniel Adams"/>
-                      <div class="media-body pl-3">
-                        <h6 class="font-size-sm mb-0">David Luiz</h6><span class="font-size-ms text-muted">{{ 'portal-alugo.detalhe-produto.9marco' | translate }}</span>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star czi-star"></i><i class="sr-star czi-star"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="font-size-md mb-2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.</p>
-                  <ul class="list-unstyled font-size-ms pt-1">
-                    <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.pros' | translate }}:&nbsp;</span>Consequuntur magni, voluptatem sequi</li>
-                    <li class="mb-1"><span class="font-weight-medium">{{ 'portal-alugo.detalhe-produto.cons' | translate }}:&nbsp;</span>Architecto beatae,  quis autem, voluptatem sequ</li>
-                  </ul>
-                </div>
-                <div class="text-center">
-                  <button class="btn btn-outline-accent" type="button"><i class="fa fa-plus mr-2"></i>{{ 'portal-alugo.detalhe-produto.carregarmais' | translate }}</button>
-                </div>
+              <div class="text-center">
+                <button class="btn btn-outline-accent" type="button"><i class="fa fa-plus mr-2"></i>{{ 'portal-alugo.detalhe-produto.carregarmais' | translate }}</button>
               </div>
             </div>
           </div>

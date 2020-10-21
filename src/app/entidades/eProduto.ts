@@ -1,5 +1,6 @@
 export class eProduto {
     id_produto: string;
+    id_usuario: string;
     nome: string;
     ganhos: number;
     valorAluguel: number;

@@ -42,6 +42,10 @@ export class ClienteLayoutComponent implements OnInit {
     
   }
 
+
+  logout(){
+    this.auth.encerraSessao();
+  }
   clickMudaIdioma() {
     this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
   }

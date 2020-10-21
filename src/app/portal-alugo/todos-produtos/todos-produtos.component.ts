@@ -13,7 +13,7 @@ import { PortalService } from 'src/app/Services/PortalService';
 })
 export class TodosProdutosComponent implements OnInit {
 
-  produtos: eResponseProdutos[] = [];
+  produtos: eProduto[] = [];
   currentProduto: eProduto;
 
   idiomas: iIdioma[];

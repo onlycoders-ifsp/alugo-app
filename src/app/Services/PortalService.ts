@@ -11,25 +11,22 @@ import { eUsuario } from '../entidades/eUsuario';
 })
 export class PortalService {
 
-url: string = environment.apiBaseUrl + '/produtos/lista-todos';
-urlEdited: string = environment.apiBaseUrl + '/produtos/usuario'
-
 
   constructor( private http: HttpClient ) { }
 
 
-  getProdutos() : Observable<eResponseProdutos[]> {
-    let params = new HttpParams();
-    params = params.append('id_usuario' , "0");
-    params = params.append('id_produto', "0");
-    return this.http.get<eResponseProdutos[]>(this.url, {params});
+  getProdutos() : Observable<eProduto[]> {
+    // let params = new HttpParams();
+    // params = params.append('id_usuario' , "0");
+    // params = params.append('id_produto', "0");
+    return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getListaProdutos);
   }
 
-  getProdutoById(idProduto: string, idUsuario: string) : Observable<eResponseProdutos[]> {
+  getProdutoById(idProduto: string, idUsuario: string) : Observable<eProduto> {
     let params = new HttpParams();
-     params = params.append('id_usuario' , idUsuario);
+    //params = params.append('id_usuario' , idUsuario);
     params = params.append('id_produto', idProduto);
-    return this.http.get<eResponseProdutos[]>(this.url, {params});
+    return this.http.get<eProduto>(environment.apiBaseUrl + environment.getOnly1Produto, {params});
   }
 
   
