@@ -44,6 +44,9 @@ userAlterado: eUsuario = new eUsuario();
   loadCurrentUser(){
     this.auth.getCurrentUserLogado().subscribe(resposta => {
       this.currentUsuarioLogado = resposta;
+      let dataFormatada = this.datepipe.transform(this.currentUsuarioLogado.data_nascimento, 'MM-dd-yyyy');
+      let date: Date = new Date(dataFormatada);
+    
       this.formularioCliente.patchValue({
         nome: this.currentUsuarioLogado.nome,
         email: this.currentUsuarioLogado.email,
@@ -51,6 +54,7 @@ userAlterado: eUsuario = new eUsuario();
         celular: this.currentUsuarioLogado.celular,
         cep: this.currentUsuarioLogado.cep,
         login: this.currentUsuarioLogado.login,
+        dataNascimento: date,
         bairro: this.currentUsuarioLogado.bairro,
         endereco: this.currentUsuarioLogado.endereco,
         numero: this.currentUsuarioLogado.numero,
