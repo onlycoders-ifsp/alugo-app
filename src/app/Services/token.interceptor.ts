@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  urlsDeslogado : string[] = ['/oauth/token', 'produtos/lista-produto', '/usuarios/cadastro'];
+  urlsDeslogado : string[] = ['/oauth/token', 'produtos/lista-produto', '/usuarios/cadastro', 'produtos/produto'];
   needBearer : boolean = true;
 
   constructor() {}

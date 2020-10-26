@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import * as $ from 'jquery';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { PortalService } from 'src/app/Services/PortalService';
-import { TranslateService } from '@ngx-translate/core';
-import { eResponseProdutos } from 'src/app/entidades/eResponseProdutos';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
 
@@ -35,9 +32,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.portalService.getProdutos().subscribe(resposta => {
-      this.produtos = resposta;
-      console.log(this.produtos);
-      console.log(this.produtos[0].nome);},
+      this.produtos = resposta;},
       errorResponse => {
         console.log(errorResponse)
       });
@@ -57,7 +52,6 @@ export class HomeComponent implements OnInit {
 
   exibeDetalhesModal(itemSelecionado : eProduto){
     this.currentProduto = itemSelecionado;
-    console.log(this.currentProduto)
   }
 
 

@@ -34,7 +34,6 @@ export class DetalheProdutoComponent implements OnInit {
     .subscribe( 
       response => {
         this.responseProduto = response;
-        console.log(this.responseProduto);
       },
       errorResponse => {
         console.log(errorResponse)
