@@ -12,8 +12,8 @@ export class idiomaService {
   constructor( private translate: TranslateService ) { }
 
   listaIdiomas: iIdioma[] = [
-    {id: 1, name: 'pt-br', bandeira: 'BR.png', displayNome: "Portuguese"},
-    {id: 2, name: 'en-us', bandeira: 'US.png', displayNome: "English"}
+    {id: 1, name: 'pt-BR', bandeira: 'BR.png', displayNome: "Portuguese"},
+    {id: 2, name: 'en-US', bandeira: 'US.png', displayNome: "English"}
     // ,{id: 3, name: 'chi-zho', bandeira: 'CN.png', displayNome: "Chinese"},
   ];
 
@@ -33,8 +33,12 @@ export class idiomaService {
   }
 
   setDefaultLanguage(){
-    this.translate.setDefaultLang('pt-br');
-    return 'BR.png';
+    this.translate.setDefaultLang(navigator.language);
+    for(let idioma in this.listaIdiomas){
+      if(this.listaIdiomas[idioma].name == navigator.language){
+        return this.listaIdiomas[idioma].bandeira;
+      }
+    }
   }
 
   
