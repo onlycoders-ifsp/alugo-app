@@ -29,11 +29,8 @@ export class DetalheProdutoComponent implements OnInit {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas(),
     this.id_produto = window.sessionStorage.getItem('idProduto');
-    console.log(this.id_produto);
-    window.sessionStorage.removeItem('idUsuario'),
 
-    this.portalService
-    .getProdutoById(this.id_produto)
+    this.portalService.getProdutoById(this.id_produto)
     .subscribe( 
       response => {
         this.responseProduto = response;
