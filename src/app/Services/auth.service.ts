@@ -88,8 +88,8 @@ export class AuthService {
 
   }
 
-  updateUsuario(usuario: eUsuarioConstructor) : Observable<eUsuarioConstructor>{
-    return this.http.put<eUsuarioConstructor>(environment.apiBaseUrl + environment.putAlteraUsuario, usuario );
+  updateUsuario(usuario: eUsuario) : Observable<eUsuario>{
+    return this.http.put<eUsuario>(environment.apiBaseUrl + environment.putAlteraUsuario, usuario );
 
   }
 
@@ -97,5 +97,9 @@ export class AuthService {
     let params = new HttpParams();
     params = params.append('login' , this.getUsuarioAutenticado());
     return this.http.get<eUsuario>(environment.getDadosUsuario, {params});
+  }
+
+  getCurrentUserLogado() : Observable<eUsuario>{
+    return this.http.get<eUsuario>(environment.apiBaseUrl + environment.getUserLogado);
   }
 }

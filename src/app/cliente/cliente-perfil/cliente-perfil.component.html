@@ -1,7 +1,7 @@
 <!-- Profile form-->
 <form [formGroup]="formularioCliente" (ngSubmit)="updateUsuario()">
   <div class="bg-secondary rounded-lg p-4 mb-4">
-    <div class="media align-items-center"><img src="../../../assets/imagens/shop/account/dilan.jpg" width="90" alt="Dilan Lima">
+    <div class="media align-items-center"><img src="../../../assets/imagens/avatar.svg" width="90" alt="Dilan Lima">
       <div class="media-body pl-3">
         <button class="btn btn-light btn-shadow btn-sm mb-2" type="button"><i class="fa fa-exchange-alt mr-2"></i>{{ 'cliente.cliente-perfil.mudarfoto' | translate }}</button>
         <div class="p mb-0 font-size-ms text-muted">{{ 'cliente.cliente-perfil.uploadfoto' | translate }}</div>
@@ -11,12 +11,21 @@
   <div class="row">
 
   </div>
+  <div *ngIf="mensagemErro" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Aviso!! </strong>Nem todos os campos estão corretos! Por favor revise
+  </div>
+  <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Boa!! </strong>{{mensagemSucesso}}
+  </div>
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.nome' | translate }}</mat-label>
           <input formControlName="nome" matInput placeholder="{{ 'campos.label.placeholdernome' | translate }}">
+          <mat-error *ngIf="formularioCliente.controls.nome.errors && formularioCliente.controls.nome.errors.required">
+            Você precisa preencher o nome
+          </mat-error>
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
@@ -25,9 +34,8 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>CPF</mat-label>
-          <input formControlName="cpf" matInput placeholder="123.456.789-01">
-          <mat-hint align="start"><strong>{{ 'campos.label.pontostracos' | translate }}</strong> </mat-hint>
-        <mat-hint align="end">max 11</mat-hint>
+          <input  formControlName="cpf" matInput placeholder="123.456.789-01">
+        <mat-hint align="end">11 Digitos</mat-hint>
           <mat-icon class="text-primary" matSuffix >lock</mat-icon>
         </mat-form-field>
       </div>
@@ -37,8 +45,35 @@
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.email' | translate }}</mat-label>
           <input  formControlName="email" matInput placeholder="{{ 'campos.label.placeholderemail' | translate }}">
-          <mat-hint align="start"><strong>{{ 'campos.label.seulogin' | translate }}</strong> </mat-hint>
-          <mat-icon class="text-primary"  matSuffix>person_pin</mat-icon>
+          <mat-error *ngIf="formularioCliente.controls.email.errors && formularioCliente.controls.email.errors.required">
+            Você precisa preencher o email
+          </mat-error>
+          <mat-error *ngIf="formularioCliente.controls.email.errors && formularioCliente.controls.email.errors.email">
+            o email precisa ser válido
+          </mat-error>
+          <mat-icon class="text-primary"  matSuffix>email</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <mat-form-field  class="full-width">
+          <mat-label>Login</mat-label>
+          <input  formControlName="login" matInput placeholder="joaosilva">
+          <mat-error *ngIf="formularioCliente.controls.login.errors && formularioCliente.controls.login.errors.required">
+            Vocë precisa ter um login
+          </mat-error>
+          <mat-icon class="text-primary"  matSuffix>pin_user</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <mat-form-field class="full-width">
+          <mat-label>Selecione uma Data##</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>
     </div>
@@ -46,7 +81,7 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.telefone' | translate }}</mat-label>
-          <input formControlName="telefone" matInput placeholder="(11) 98838-9393">
+          <input  formControlName="telefone" matInput placeholder="(11) 98838-9393##">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
@@ -54,9 +89,8 @@
     <div class="col-sm-6">
       <div class="form-group">
         <mat-form-field  class="full-width">
-          <mat-label>CEP</mat-label>
-          <input  formControlName="cep" matInput placeholder="08664967">
-          <mat-hint align="start"><strong>{{ 'campos.label.pontostracos' | translate }}</strong> </mat-hint>
+          <mat-label>CEP##</mat-label>
+          <input  formControlName="cep" matInput placeholder="08664967##">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
@@ -74,7 +108,7 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.numero' | translate }}</mat-label>
-          <input  formControlName="numero" matInput placeholder="321">
+          <input  formControlName="numero" matInput placeholder="321##">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
@@ -83,7 +117,16 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.complemento' | translate }}</mat-label>
-          <input  formControlName="complemento" matInput placeholder="apt 91">
+          <input  formControlName="complemento" matInput placeholder="apt 91##">
+          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <mat-form-field  class="full-width">
+          <mat-label>Bairro##</mat-label>
+          <input  formControlName="complemento" matInput placeholder="Barcelona##">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>

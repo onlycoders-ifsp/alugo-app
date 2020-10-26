@@ -4,19 +4,8 @@
       <div class="col-sm-6">
           <div class="form-group">
               <mat-form-field  class="full-width">
-                  <mat-label>{{ 'cliente.cliente-credenciais.login' | translate }}</mat-label>
-                  <input name="login" matInput placeholder="{{ 'cliente.cliente-credenciais.placeholderlogin' | translate }}">
-                  <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
-              </mat-form-field>
-          </div>
-      </div>
-      <div class="col-sm-6">
-          <div class="form-group">
-              <mat-form-field  class="full-width">
                   <mat-label>{{ 'cliente.cliente-credenciais.senhaantiga' | translate }}</mat-label>
                   <input name="senha" matInput type="password">
-                  <mat-hint align="start"><strong>{{ 'cliente.cliente-credenciais.infosenha1' | translate }}</strong> </mat-hint>
-                  <mat-hint align="end">{{ 'cliente.cliente-credenciais.infosenha2' | translate }}</mat-hint>
                   <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
               </mat-form-field>
           </div>
@@ -25,7 +14,7 @@
           <div class="form-group">
               <mat-form-field  class="full-width">
                   <mat-label>{{ 'cliente.cliente-credenciais.novasenha' | translate }}</mat-label>
-                  <input name="senha" matInput placeholder="*****">
+                  <input name="senha" matInput type="password" placeholder="*****">
                   <mat-hint align="start"><strong>{{ 'cliente.cliente-credenciais.infosenha1' | translate }}</strong> </mat-hint>
                   <mat-hint align="end">{{ 'cliente.cliente-credenciais.infosenha2' | translate }}</mat-hint>
                   <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
@@ -36,7 +25,7 @@
           <div class="form-group">
               <mat-form-field  class="full-width">
                   <mat-label>{{ 'cliente.cliente-credenciais.confirmesenha' | translate }}</mat-label>
-                  <input name="senha" matInput type="password">
+                  <input name="senha" matInput type="password" placeholder="*****">
                   <mat-hint align="start"><strong>{{ 'cliente.cliente-credenciais.infosenha1' | translate }}</strong> </mat-hint>
                   <mat-hint align="end">{{ 'cliente.cliente-credenciais.infosenha2' | translate }}</mat-hint>
                   <mat-icon class="text-primary"  matSuffix>lock</mat-icon>

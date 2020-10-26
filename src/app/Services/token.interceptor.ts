@@ -21,8 +21,8 @@ export class TokenInterceptor implements HttpInterceptor {
 
     const urlRequest = request.url;
     
-    for(let url in this.urlsDeslogado){
-      if(!urlRequest.endsWith(url)){
+    for(let index in this.urlsDeslogado){
+      if(urlRequest.endsWith(this.urlsDeslogado[index])){
         this.needBearer = false;
       } 
     }

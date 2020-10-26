@@ -10,7 +10,8 @@ export class eUsuario {
     cep: string;
     logradouro: string;
     numero: string;
-    data_nascimento: Date;
+    bairro:string;
+    data_nascimento: string;
     ativo: boolean;
     celular: string;
 }

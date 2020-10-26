@@ -29,5 +29,9 @@ export class PortalService {
     return this.http.get<eProduto>(environment.apiBaseUrl + environment.getOnly1Produto, {params});
   }
 
+  getProdutosUsuarioLogado() : Observable<eProduto[]>{
+    return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getOnlyUserProducts);
+  }
+
   
 }

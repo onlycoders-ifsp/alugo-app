@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms'
 import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 import { ClienteModule } from './cliente/cliente.module';
 import { PortalAlugoModule } from './portal-alugo/portal-alugo.module';
+import {MatNativeDateModule} from '@angular/material/core';
 //import { AdminModule } from './admin/admin.module';
 import { AdminService } from './Services/AdminService';
 
@@ -44,6 +47,8 @@ import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/h
     MatDialogModule,
     FormsModule,
     MatStepperModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     AppRoutingModule,
     MatToolbarModule,
     MatInputModule,
@@ -70,6 +75,7 @@ import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/h
   providers: [
     AdminService,
     idiomaService,
+    DatePipe,
     PortalService,
     AuthService,
     {

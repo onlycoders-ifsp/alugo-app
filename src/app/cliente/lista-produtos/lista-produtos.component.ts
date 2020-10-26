@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
+import { PortalService } from 'src/app/Services/PortalService';
 
 @Component({
   selector: 'app-lista-produtos',
@@ -12,9 +13,6 @@ import { idiomaService } from 'src/app/Services/idiomaService';
 export class ListaProdutosComponent implements OnInit {
 
   Produtos: eProduto[] = [];
-  produto1: eProduto;
-  produto2: eProduto;
-  produto3: eProduto;
 
   idiomas: iIdioma[];
   currentBandeira: string;
@@ -23,36 +21,27 @@ export class ListaProdutosComponent implements OnInit {
   constructor(
     private router: Router,
     private idiService: idiomaService,
+    private portalService: PortalService
   ) {
-    this.produto1 = new eProduto();
-    this.produto2 = new eProduto();
-    this.produto3 = new eProduto();
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
    }
 
   ngOnInit(): void {
-    this.produto1.id_produto = "1";
-    this.produto1.nome = 'Fuzil de assalto';
-    this.produto1.ganhos = 28;
-    this.produto1.qtd_alugueis = 7;
-    this.produto1.valorAluguel = 10;
+    this.getListaProdutosUsuario()
 
-    this.produto2.id_produto = "2";
-    this.produto2.nome = 'Banheira';
-    this.produto2.ganhos = 10;
-    this.produto2.qtd_alugueis = 3;
-    this.produto2.valorAluguel = 1967;
 
-    this.produto3.id_produto = "3";
-    this.produto3.nome = 'Mochila';
-    this.produto3.ganhos = 5;
-    this.produto3.qtd_alugueis = 1;
-    this.produto3.valorAluguel = 123;
+  }
 
-    this.Produtos.push(this.produto1);
-    this.Produtos.push(this.produto2);
-    this.Produtos.push(this.produto3);
+  getListaProdutosUsuario(){
+    this.portalService.getProdutosUsuarioLogado().subscribe(resposta => {
+      this.Produtos = resposta;
+      console.log(this.Produtos)
+      errorResponse => {
+        console.log(errorResponse)
+      }
+    });
+    this.portalService.getProdutosUsuarioLogado()
   }
 
   clickMudaIdioma() {
@@ -70,7 +59,7 @@ export class ListaProdutosComponent implements OnInit {
     this.router.navigate(['/cliente/perfil']);
   }
   verMeuProduto(){
-    this.router.navigate(['/cliente/produto']);
+    this.router.navigate(['cliente/perfil/produto']);
   }
   voltaHome(){
     this.router.navigate(['']);
