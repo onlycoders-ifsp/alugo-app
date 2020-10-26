@@ -23,6 +23,7 @@ import { ClienteLayoutComponent } from './cliente-layout/cliente-layout.componen
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReactiveFormsModule } from '@angular/forms'
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
@@ -39,6 +40,7 @@ import { ReactiveFormsModule } from '@angular/forms'
     BrowserModule,
     MatDialogModule,
     MatDatepickerModule,
+    MatCheckboxModule,
     FormsModule,
     MatTableModule,
     MatStepperModule,

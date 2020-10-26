@@ -28,7 +28,7 @@ import { LoaderModule } from './loader/loader.module';
 import { idiomaService } from './Services/idiomaService';
 import { PortalService } from './Services/PortalService';
 import { AuthService } from './Services/auth.service';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from './Services/token.interceptor';
 
 // import ngx-translate and the http loader

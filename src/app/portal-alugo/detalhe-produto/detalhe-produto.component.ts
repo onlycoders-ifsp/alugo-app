@@ -33,7 +33,7 @@ export class DetalheProdutoComponent implements OnInit {
     window.sessionStorage.removeItem('idUsuario'),
 
     this.portalService
-    .getProdutoById(this.id_produto, "0")
+    .getProdutoById(this.id_produto)
     .subscribe( 
       response => {
         this.responseProduto = response;

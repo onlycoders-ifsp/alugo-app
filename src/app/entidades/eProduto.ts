@@ -6,10 +6,10 @@ export class eProduto {
     valorAluguel: number;
     descricao: string;
     descricao_curta: string;
-    valor_base_diario: number;
+    valor_base_diaria: number;
     valor_base_mensal: number;
     valor_produto: number;
-    data_compra: Date;
+    data_compra: string;
     qtd_alugueis: number;
     total_ganhos: number;
     media_avaliacao: number;

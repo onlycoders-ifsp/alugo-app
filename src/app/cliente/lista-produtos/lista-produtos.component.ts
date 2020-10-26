@@ -17,6 +17,7 @@ export class ListaProdutosComponent implements OnInit {
   idiomas: iIdioma[];
   currentBandeira: string;
   currentIdioma: string;
+  mensagemSucessoProduto: string = null;
 
   constructor(
     private router: Router,
@@ -29,6 +30,10 @@ export class ListaProdutosComponent implements OnInit {
 
   ngOnInit(): void {
     this.getListaProdutosUsuario()
+    if(localStorage.getItem("produtoInputadoSucesso")){
+      this.mensagemSucessoProduto = localStorage.getItem("produtoInputadoSucesso");
+      localStorage.removeItem("produtoInputadoSucesso");
+    }
 
 
   }
@@ -58,7 +63,12 @@ export class ListaProdutosComponent implements OnInit {
   VerPerfil(){
     this.router.navigate(['/cliente/perfil']);
   }
-  verMeuProduto(){
+  verMeuProduto(idProduto: string){
+    localStorage.setItem("idProdutoMudanca", idProduto)
+    this.router.navigate(['cliente/perfil/produto']);
+  }
+  novoProduto(){
+    localStorage.removeItem("idProdutoMudanca")
     this.router.navigate(['cliente/perfil/produto']);
   }
   voltaHome(){
