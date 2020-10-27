@@ -25,10 +25,12 @@ export class DetalheProdutoComponent implements OnInit {
   constructor(
     private portalService : PortalService,
     private idiService: idiomaService,
+    private router: Router
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas(),
-    this.id_produto = window.sessionStorage.getItem('idProduto');
+    this.id_produto = sessionStorage.getItem('idProduto');
+    sessionStorage.removeItem('idProduto');
 
     this.portalService.getProdutoById(this.id_produto)
     .subscribe( 
@@ -47,6 +49,11 @@ export class DetalheProdutoComponent implements OnInit {
   }
   clickMudaIdioma() {
     this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
+  }
+
+  aluga(idProduto: string){
+    localStorage.setItem('idProdutoAluguel', idProduto);
+    this.router.navigate(['/aluguel']);
   }
 
 }

@@ -93,10 +93,16 @@ export class AuthService {
 
   }
 
-  getUserByLogin() : Observable<eUsuario>{
+  // getUserByLogin() : Observable<eUsuario>{
+  //   let params = new HttpParams();
+  //   params = params.append('login' , this.getUsuarioAutenticado());
+  //   return this.http.get<eUsuario>(environment.getDadosUsuario, {params});
+  // }
+
+  getUserById(idUsuario: string) : Observable<eUsuario>{
     let params = new HttpParams();
-    params = params.append('login' , this.getUsuarioAutenticado());
-    return this.http.get<eUsuario>(environment.getDadosUsuario, {params});
+    params = params.append('id_usuario' , idUsuario);
+    return this.http.get<eUsuario>(environment.apiBaseUrl + environment.getDadosUsuario, {params});
   }
 
   getCurrentUserLogado() : Observable<eUsuario>{

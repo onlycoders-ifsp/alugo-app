@@ -12,6 +12,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { RealizaAluguelComponent } from './realiza-aluguel/realiza-aluguel.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
@@ -26,6 +29,9 @@ import { RealizaAluguelComponent } from './realiza-aluguel/realiza-aluguel.compo
   ],
   imports: [
     CommonModule,
+    MatIconModule,
+    MatInputModule,
+    MatDatepickerModule,
     PortalAlugoRoutingModule,
     BrowserModule,
     MatSelectModule,
