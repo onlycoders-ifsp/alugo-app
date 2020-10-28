@@ -5,6 +5,7 @@ import { eResponseProdutos } from 'src/app/entidades/eResponseProdutos';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { PortalService } from 'src/app/Services/PortalService';
+import { produtoService } from 'src/app/Services/produtoService';
 
 @Component({
   selector: 'app-todos-produtos',
@@ -24,6 +25,7 @@ export class TodosProdutosComponent implements OnInit {
     private router: Router,
     private portalService: PortalService,
     private idiService: idiomaService,
+    private produtoS: produtoService
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
@@ -31,15 +33,23 @@ export class TodosProdutosComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentProduto = new eProduto();
-    this.portalService.getProdutos().subscribe(resposta => {
-      this.produtos = resposta;
-      console.log(this.produtos)},
-      errorResponse => {
-        console.log(errorResponse)
-      });
+    if (localStorage.getItem("txtPesquisaProduto")) {
+      this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto")).subscribe(response => {
+        this.produtos = response;
+        localStorage.removeItem("txtPesquisaProduto");
+      }, errorResponse => {
+        console.log(errorResponse);
+      })
+    } else {
+      this.portalService.getProdutos().subscribe(resposta => {
+        this.produtos = resposta;
+        console.log(this.produtos)
+      },
+        errorResponse => {
+          console.log(errorResponse)
+        });
+    }
   }
-
-  
 
   clickMudaIdioma() {
     this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)

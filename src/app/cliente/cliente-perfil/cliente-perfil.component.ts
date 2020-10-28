@@ -5,7 +5,6 @@ import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { AuthService } from 'src/app/Services/auth.service';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { DatePipe } from '@angular/common'
-import { last } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,6 +23,7 @@ mensagemErro: string;
 mensagemSucesso: string;
 currentUsuarioLogado: eUsuario = new eUsuario();
 userAlterado: eUsuario = new eUsuario();
+novaFoto: string;
 
   constructor(private idiService: idiomaService,
     private fb: FormBuilder,
@@ -33,12 +33,11 @@ userAlterado: eUsuario = new eUsuario();
     ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
-    this.loadCurrentUser();
       
    }
 
   ngOnInit(): void {
-    
+    this.loadCurrentUser();
   }
 
   loadCurrentUser(){
@@ -46,7 +45,6 @@ userAlterado: eUsuario = new eUsuario();
       this.currentUsuarioLogado = resposta;
       let dataFormatada = this.datepipe.transform(this.currentUsuarioLogado.data_nascimento, 'MM-dd-yyyy');
       let date: Date = new Date(dataFormatada);
-    
       this.formularioCliente.patchValue({
         nome: this.currentUsuarioLogado.nome,
         email: this.currentUsuarioLogado.email,
@@ -73,7 +71,7 @@ userAlterado: eUsuario = new eUsuario();
       cpf:['',[Validators.required,Validators.maxLength(11), Validators.minLength(11)]],
       email:['',[Validators.required, Validators.email]],
       login: ['', [Validators.required]],
-      telefone:[''],
+      celular:[''],
       dataNascimento:['',[]],
       bairro:[''],
       cep:[''],
@@ -122,17 +120,21 @@ userAlterado: eUsuario = new eUsuario();
     }
     this.userAlterado.complemento = formCadValues.complemento;
 
+    //precisa passar foto em branco pq não chamou o método de foto ainda
+    this.userAlterado.capa_foto = "";
+
+
     if(this.formularioCliente.valid){
       this.auth.updateUsuario(this.userAlterado).subscribe(response =>{
-        this.mensagemSucesso = "Usuário " + formCadValues.nome + " atualizado com sucesso!",
+        this.mensagemSucesso = "Usuário " + formCadValues.nome + " atualizado com sucesso!##",
           this.mensagemErro = null;
-          this.router.navigate(['/cliente/perfil/dados']);
+          this.uploadFotoUser();
       }, errorResponse => {
         this.mensagemSucesso = null,
-          this.mensagemErro = "Erro ao realizar a atualização de " + formCadValues.nome;
+          this.mensagemErro = "##Erro ao realizar a atualização de " + formCadValues.nome;
       });
     }else{
-      this.mensagemErro = "O formulário ainda não está valido"
+      this.mensagemErro = "O formulário ainda não está valido##"
     }
   }
 
@@ -140,13 +142,33 @@ userAlterado: eUsuario = new eUsuario();
     this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
   }
 
-  uploadFotoUser(event){
+  
+  fileAtual: string;
+  setNovaFotoUser(event) {
     const files = event.target.files;
+    this.fileAtual = event.target.files;
+
+    if (files) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0])
+      reader.onload = (_event) => {
+        this.novaFoto = reader.result.toString();
+        console.log(this.novaFoto);
+      }
+    }
+  }
+
+  uploadFotoUser(){
+    const files = this.fileAtual;
     if(files){
       const foto = files[0];
       const formData: FormData = new FormData();
       formData.append("capa_foto", foto);
-      this.auth.uploadFotoUsuario(formData).subscribe(response => console.log(response));
+      this.auth.uploadFotoUsuario(formData).subscribe(response => {
+        this.novaFoto = null;
+        this.fileAtual = null;
+        this.ngOnInit()
+      });
     }
   }
 }

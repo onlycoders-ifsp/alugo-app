@@ -15,6 +15,7 @@ import { RealizaAluguelComponent } from './realiza-aluguel/realiza-aluguel.compo
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { FormsModule }   from '@angular/forms';
 
 
 
@@ -30,6 +31,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
   imports: [
     CommonModule,
     MatIconModule,
+    FormsModule,
     MatInputModule,
     MatDatepickerModule,
     PortalAlugoRoutingModule,

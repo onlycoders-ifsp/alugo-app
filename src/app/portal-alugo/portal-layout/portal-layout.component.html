@@ -95,10 +95,11 @@
           <img width="60" src="../../assets/imagens/alugoIcon.PNG" alt="aluGO" />
         </a>
         <div class="input-group-overlay d-none d-lg-flex mx-4">
-          <input class="form-control appended-form-control" type="text" placeholder="
+          <input [(ngModel)]="txtPesquisa" class="form-control appended-form-control" type="text" placeholder="
           {{ 'portal-alugo.portal-layout.procuraProdutos' | translate }}">
+          
           <div class="input-group-append-overlay">
-            <span class="input-group-text">
+            <span class="input-group-text" (click)="pesquisaProduto()">
               <i class="fa fa-search"></i>
             </span>
           </div>

@@ -18,6 +18,7 @@ export const environment = {
   getOnly1Produto: '/produtos/produto',
   getOnlyUserProducts: "/produtos/lista-produto-logado",
   putFotoCapa: "/produtos/upload-foto", 
+  getProdutosByPesquisa: "/produtos/produto-pesquisa",
 
   putAlteraUsuario: "/usuarios/altera-dados",
   putAlteraSenha: "/usuarios/altera-senha",

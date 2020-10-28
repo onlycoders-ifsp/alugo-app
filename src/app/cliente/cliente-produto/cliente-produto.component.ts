@@ -139,7 +139,7 @@ export class ClienteProdutoComponent implements OnInit {
         this.mensagemErro = null;
       localStorage.setItem("produtoInputadoSucesso", this.mensagemSucesso);
       localStorage.removeItem("idProdutoMudanca");
-      this.router.navigate(['/cliente/perfil/meusprodutos']);
+      this.uploadFotoDeCapa();
     }, errorResponse => {
       this.mensagemSucesso = null,
         this.mensagemErro = "Erro ao realizar a atualização do produto " + this.produtoAlterado.nome;
@@ -149,13 +149,15 @@ export class ClienteProdutoComponent implements OnInit {
   cadProduto() {
     this.produtoAlterado.ativo = false;
     this.produtoService.cadProduto(this.produtoAlterado).subscribe(response => {
-      this.mensagemSucesso = "Produto " + this.produtoAlterado.nome + " cadastrado com sucesso!",
+      this.currentProduto = response;
+      console.log(this.currentProduto);
+      this.mensagemSucesso = "Produto " + this.produtoAlterado.nome + " cadastrado com sucesso!##",
         this.mensagemErro = null;
         localStorage.setItem("produtoInputadoSucesso", this.mensagemSucesso);
-        this.router.navigate(['/cliente/perfil/meusprodutos']);
+        this.uploadFotoDeCapa();
     }, errorResponse => {
       this.mensagemSucesso = null,
-        this.mensagemErro = "Erro ao realizar o cadastro do produto " + this.produtoAlterado.nome;
+        this.mensagemErro = "##Erro ao realizar o cadastro do produto " + this.produtoAlterado.nome;
     });
   }
 
@@ -210,16 +212,41 @@ export class ClienteProdutoComponent implements OnInit {
     
   }
 
-  uploadFotoDeCapa(event){
+  
+
+  novaFoto: string;
+  fileAtual: string;
+  setNovaFotoProduto(event) {
     const files = event.target.files;
+    this.fileAtual = event.target.files;
+
+    if (files) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0])
+      reader.onload = (_event) => {
+        this.novaFoto = reader.result.toString();
+      }
+    }
+  }
+
+
+  uploadFotoDeCapa(){
+    alert("chegou na função")
+    const files = this.fileAtual;
     if(files){
       const foto = files[0];
       const formData: FormData = new FormData();
       formData.append("capa_foto", foto);
+
       if(this.currentProduto.id_produto){
         formData.append("id_produto", this.currentProduto.id_produto);
+        this.produtoService.uploadFotoCapa(formData).subscribe(response => {
+          this.router.navigate(["cliente/perfil/meusprodutos"])
+        }, errorResponse => {
+          console.log(errorResponse)
+            this.mensagemErro = "##Erro ao realizar o cadastro do produto " + this.produtoAlterado.nome;
+        })
       }
-      this.produtoService.uploadFotoCapa(formData).subscribe(response => console.log(response))
     }
 
   }

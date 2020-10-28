@@ -18,8 +18,8 @@ export class produtoService {
     return this.http.put<boolean>(environment.apiBaseUrl + environment.putAlteraProduto, produto);
   }
 
-  cadProduto(produto: eProduto) : Observable<boolean> {
-    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadProduto, produto);
+  cadProduto(produto: eProduto) : Observable<eProduto> {
+    return this.http.post<eProduto>(environment.apiBaseUrl + environment.postCadProduto, produto);
   }
 
   getProdutoById(idProduto: string) : Observable<eProduto> {
@@ -30,6 +30,12 @@ export class produtoService {
 
   getProdutosUsuarioLogado() : Observable<eProduto[]>{
     return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getOnlyUserProducts);
+  }
+
+  getProdutosByPesquisa(txtPesquisa: string) : Observable<eProduto[]>{
+    let params = new HttpParams();
+    params = params.append('produto', txtPesquisa);
+    return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getProdutosByPesquisa, {params});
   }
 
   uploadFotoCapa(formData: FormData) : Observable<any>{
