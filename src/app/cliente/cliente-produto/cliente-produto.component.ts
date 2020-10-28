@@ -231,7 +231,6 @@ export class ClienteProdutoComponent implements OnInit {
 
 
   uploadFotoDeCapa(){
-    alert("chegou na função")
     const files = this.fileAtual;
     if(files){
       const foto = files[0];

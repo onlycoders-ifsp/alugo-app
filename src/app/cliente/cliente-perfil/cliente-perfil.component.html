@@ -21,7 +21,7 @@
 
   </div>
   <div *ngIf="mensagemErro" class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Aviso!! </strong>Nem todos os campos estão corretos! Por favor revise
+    <strong>Aviso!! </strong>Nem todos os campos estão corretos! Por favor revise##
   </div>
   <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Boa!! </strong>{{mensagemSucesso}}
@@ -33,7 +33,7 @@
           <mat-label>{{ 'campos.label.nome' | translate }}</mat-label>
           <input formControlName="nome" matInput placeholder="{{ 'campos.label.placeholdernome' | translate }}">
           <mat-error *ngIf="formularioCliente.controls.nome.errors && formularioCliente.controls.nome.errors.required">
-            Você precisa preencher o nome
+            Você precisa preencher o nome##
           </mat-error>
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
@@ -44,7 +44,7 @@
         <mat-form-field  class="full-width">
           <mat-label>CPF</mat-label>
           <input  formControlName="cpf" mask="000.000.000-00" matInput placeholder="123.456.789-01">
-        <mat-hint align="end">11 Digitos</mat-hint>
+        <mat-hint align="end">11 Digitos##</mat-hint>
           <mat-icon class="text-primary" matSuffix >lock</mat-icon>
         </mat-form-field>
       </div>
@@ -55,10 +55,10 @@
           <mat-label>{{ 'campos.label.email' | translate }}</mat-label>
           <input  formControlName="email" matInput placeholder="{{ 'campos.label.placeholderemail' | translate }}">
           <mat-error *ngIf="formularioCliente.controls.email.errors && formularioCliente.controls.email.errors.required">
-            Você precisa preencher o email
+            Você precisa preencher o email##
           </mat-error>
           <mat-error *ngIf="formularioCliente.controls.email.errors && formularioCliente.controls.email.errors.email">
-            o email precisa ser válido
+            o email precisa ser válido##
           </mat-error>
           <mat-icon class="text-primary"  matSuffix>email</mat-icon>
         </mat-form-field>
@@ -68,9 +68,9 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>Login</mat-label>
-          <input  formControlName="login" matInput placeholder="joaosilva">
+          <input  formControlName="login" matInput placeholder="joaosilva##">
           <mat-error *ngIf="formularioCliente.controls.login.errors && formularioCliente.controls.login.errors.required">
-            Vocë precisa ter um login
+            Vocë precisa ter um login##
           </mat-error>
           <mat-icon class="text-primary"  matSuffix>pin_user</mat-icon>
         </mat-form-field>
