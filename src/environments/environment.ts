@@ -22,6 +22,7 @@ export const environment = {
   getListaProdutos: '/produtos/lista-produto',
   getOnly1Produto: '/produtos/produto',
   getOnlyUserProducts: "/produtos/lista-produto-logado",
+  putFotoCapa: "/produtos/upload-foto", 
 
 
   //ENDPOINTS DE USUARIO
@@ -30,7 +31,9 @@ export const environment = {
   postCadUsuario: "/usuarios/cadastro",
   deleteDeleteUsuario: "/usuarios/inativa",
   getDadosUsuario: "/usuarios/usuario",
-  getUserLogado: "/usuarios/usuario-logado"
+  getUserLogado: "/usuarios/usuario-logado",
+  putFotoUsuario: "/usuarios/upload-foto", 
+
 
 };
 

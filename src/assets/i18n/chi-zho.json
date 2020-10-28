@@ -1,214 +1,231 @@
 {
-    "portal-alugo": {
-        "home": {
-            "modal": {
-                "avaliacoes": "avaliações",
-                "avaliacao": "avaliação",
-                "baixou": "Baixou",
-                "estado": "Estado",
-                "disponivel": "Produto Disponível",
-                "botaoAlugar": "ALUGAR",
-                "infoProduto": "Informações do Produto",
-                "descricao": "Descrição",
-                "numeroIdentificacao": "Número de identificação",
-                "bom": "Bom"
-            },
-            "tituloDestaque": "Você precisa de algum dinheiro extra?",
-            "subTituloDestaque": "Aluguel você sempre ganha dinheiro.",
-            "botaoComece": "Comece",
-            "produtosEmAlta": "Produtos em Alta",
-            "botaoVisualizarDetalhes": "Visualizar detalhes",
-            "botaoMaisProdutos": "Mais Produtos"
-        },
-        "detalhe-produto": {
-            "14avaliacoes":"14 Avalições",
-            "avaliacoes":"Avaliações",
-            "infosgerais":"Informações gerais",
-            "descricao":"Descrição",
-            "produtodisponivel":"Produto Disponível",
-            "estado":"Estado:",
-            "baixou":"Baixou",
-            "acao":"Ação",
-            "alugar":"ALUGAR",
-            "Infoprod":"Informações do Produto",
-            "numeroidentificacao":"Número de identificação",
-            "descricaocompleta":"Descrição completa",
-            "9de14":"9 de 14 (64,28%)",
-            "consumidoresrecomendacao":"Consumidores que recomendam este produto",
-            "28setembro":"28 de Setembro de 2020",
-            "15agosto":"15 de Agosto de 2020",
-            "9marco":"9 de Março de 2020",
-            "pros":"Pros",
-            "cons":"Cons",
-            "carregarmais":"Carregar mais avaliações"
-        },
-        "404": {
-            "mensagem":"Parece que esta página não existe"
-        },
-        "portal-layout": {
-            "registrar": "Registrar-se",
-            "esqueceuSenha": "Esqueceu a Senha?",
-            "login": "Entrar",
-            "cadastrar": "Cadastrar",
-            "mostraSenha": "Mostrar a senha",
-            "expandirMenu": "Expandir Menu",
-            "ola": "Olá",
-            "minhaConta": "Minha Conta",
-            "naoLogado": "Usuário Não Logado",
-            "procuraProdutos": "Procurar Produtos",
-            "categorias": "Categorias",
-            "suporte": "Suporte",
-            "privacidade": "Privacidade",
-            "termosUso": "Termos de Uso",
-            "meuPerfil": "Meu Perfil",
-            "menu": "Menu"
-        },
-        "todos-produtos": {
-            "produtosdisponiveis":"Produtos disponíveis para aluguel",
-            "filtros":"Filtros",
-            "categorias":"Categorias",
-            "procuraartigos":"Procura artigos para lavagem de automóvel?",
-            "deixeseucarrobrilhando":"Deixe seu carro brilhando!",
-            "alugaragora":"Alugar agora",
-            "vocequerganhardinheiro":"Você quer ganhar dinheiro?",
-            "disponibilize":"Disponibilize hoje mesmo!",
-            "locarproduto":"Locar Produto",
-            "anterior":"Anterior",
-            "proximo":"Próximo"
-        },
-        "login" : {
-            "textoLogin" : "Entrar",
-            "registrar" : "Registre-se",
-            "entreEconomize" : "Entre e Economize!",
-            "nome" : "Nome",
-            "usuario" : "Usuário",
-            "exUsuario" : "Ex: pessoa@pessoa.com",
-            "senha" : "Senha",
-            "cpf" : "CPF",
-            "exCpf" : "123.456.789.01",
-            "telefone" : "Telefone",
-            "exTelefone" : "(11) 91234-8675",
-            "confirmaSenha" : "Confirmar Senha",
-            "esqueceuSenha" : "Esqueceu a Senha?",
-            "crieConta" : "Crie sua Conta!",
-            "email" : "Email",
-            "temConta" : "Já possui uma conta? Entre",
-            "txtInfoRecuperarSenha" : "Para recuperar, forneça seu email e enviaremos as instruções para recuperação!",
-            "recuperaSenha" : "Recuperar Senha"
-        }
-    },
-    "cliente": {
-        "cliente-credenciais": {
-            "login" : "Login",
-            "placeholderlogin" : "João das Neves",
-            "senhaantiga" : "Senha Antiga",
-            "infosenha1" : "Uma letra maiúscula e um número",
-            "infosenha2" : "Máximo 8 caracteres",
-            "novasenha" : "Nova Senha",
-            "confirmesenha" : "Confirme nova senha",
-            "atualizarsenha" : "Atualizar Senha"
-        },
-        "cliente-layout": {
-            "suasinfos" : "Suas Informações",
-            "containfos" : "Informações de conta",
-            "perfil" : "Perfil",
-            "credenciais" : "Credenciais",
-            "transacoes" : "Transações",
-            "locador" : "Locador",
-            "locatario" : "Locatário",
-            "seusprodutos" : "Seus Produtos",
-            "ativos" : "Ativos",
-            "inativos" : "Inativos",
-            "pagamentos" : "Pagamentos",
-            "vencimentos" : "Vencimentos",
-            "infospagamento" : "Informações de Pagamento"
-        },
-        "cliente-perfil": {            
-            "atualizarperfil" : "Atualizar Perfil",
-            "mudarfoto" : "Mudar foto",
-            "uploadfoto" : "Upload JPG, GIF ou PNG image. 300 x 300 necessário."
-        },
-        "cliente-produto": {
-            "textSuportado" : "Formatações de texto suportadas:",
-            "tamanhoideal" : "1000 x 800px É o tamanho ideal",
-            "addeditprod" : "Adicionar/Editar o produto",
-            "nomeproduto" : "Nome do Produto",
-            "maxcaracteres" : "Máximo 100 carácteres",
-            "uploadfoto" : "Upload da foto de capa do produto",
-            "selecaoarquivo" : "Ou selecione o arquivo",
-            "Descricao" : "Descrição",
-            "valoraluguel" : "Valor do Aluguel",
-            "taxa" : "aluGO aplica uma taxa de 10% sobre o valor.",
-            "tags" : "Tags do produto",
-            "formattags" : "Minúsculas, separadas por vírgula e uma única palavra"            
-        },
-        "lista-produtos": {            
-            "seusprodutos" : "Seus Produtos",
-            "ordenarpor" : "Ordenar Por",
-            "datacadastro" : "Data cadastro",
-            "nome" : "Nome",
-            "valoraluguel" : "Valor Aluguel",
-            "avaliacao" : "Avaliação",
-            "alugueis" : "Aluguéis",
-            "ganhos" : "Ganhos",
-            "anterior" : "Anterior",
-            "proximo" : "Próximo"
-        }
-    },
-    "admin": {
-        "admin-layout": {
-            "dashboard":"Dashboard",
-            "interface":"Interface"
-        },
-        "lista-usuarios": {
-            "deletadocomsucesso":"Deletado com sucesso!",
-            "editar":"Editar",
-            "excluir":"Excluir",
-            "delecaousuario":"Deleção de Usuários",
-            "deletar":"deletar"
-        }
-    },
-    "campos": {
-        "label": {
-            "nome": "Nome",
-            "email": "Email",
-            "senha": "Senha",
-            "telefone": "Telefone",
-            "endereco" : "Endereço",
-            "numero" : "Número",
-            "complemento" : "Complemento",
-            "placeholdernome" : "João das Neves",
-            "placeholderemail" : "pessoas@pessoa.com",
-            "placeholderendereco" : "Rua Capitão João"
-        },
-        "validacao": {
-            "sucesso": {},
-            "erro": {}
-        }
-    },
-    "categorias": {
-        "cozinha": "Cozinha",
-        "eletrodomestico": "Eletrodomésticos",
-        "recipiente": "Recipientes",
-        "industrial": "Industrial",
-        "objetosProfissionais": "Objetos Profissionais",
-        "cameras": "Câmeras",
-        "filmadoras": "Filmadoras",
-        "microfones": "Microfones",
-        "jardim": "Jardim",
-        "aparelhoCortarGrama": "Aparelhos de cortar grama",
-        "ferramentaJardinagem": "Ferramentas de Jardinagem",
-        "automovel": "Automóvel",
-        "lavagemPressao": "lavagem alta pressão",
-        "aspirador": "Aspirador",
-        "polimento": "Polimento",
-        "acessorios": "Acessórios",
-        "fones": "Fones",
-        "monitores": "Monitores",
-        "mochilas": "Mochilas",
-        "studio": "Stúdio",
-        "luzesProfissionais": "Luzes Profissionais",
-        "aparelhosSonoros": "Aparelhos sonoros",
-        "mixagem": "Mixagem"
-    }
+	"admin": {
+		"admin-layout": {
+			"dashboard": "控制面板",
+			"interface": "接口"
+		},
+		"lista-usuarios": {
+			"delecaousuario": "删除用户",
+			"deletadocomsucesso": "用户已成功删除！",
+			"deletar": "删除",
+			"editar": "编辑",
+			"excluir": "删除"
+		}
+	},
+	"campos": {
+		"label": {
+			"complemento": "地址补充",
+			"email": "电子邮件",
+			"endereco": "地址",
+			"nome": "名称",
+			"numero": "数",
+			"placeholderemail": "人@人.com",
+			"placeholderendereco": "大街",
+			"placeholdernome": "约翰·斯诺",
+			"pontostracos": "没有点或破折号",
+			"senha": "密码",
+			"seulogin": "这将是您的登录名",
+			"telefone": "电话"
+		}
+	},
+	"categorias": {
+		"acessorios": "旅行配件",
+		"aparelhoCortarGrama": "园艺",
+		"aparelhosSonoros": "音响系统",
+		"aspirador": "清洁环境",
+		"automovel": "汽车类",
+		"cameras": "照片和视频",
+		"cozinha": "厨房",
+		"eletrodomestico": "家用电器",
+		"ferramentaJardinagem": "工具类",
+		"fones": "耳机和麦克风",
+		"industrial": "工业工具",
+		"luzesProfissionais": "专业灯",
+		"mixagem": "混音",
+		"mochilas": "箱包和背包",
+		"monitores": "电脑周边",
+		"objetosProfissionais": "专业工具",
+		"polimento": "抛光工具",
+		"studio": "工作室工具"
+	},
+	"cliente": {
+		"cliente-credenciais": {
+			"atualizarsenha": "更新密码",
+			"confirmesenha": "确认新密码",
+			"infosenha1": "它必须包含一个大写字母和一个数字",
+			"infosenha2": "最多8个字符",
+			"login": "登录",
+			"novasenha": "新密码",
+			"placeholderlogin": "约翰·斯诺",
+			"senhaantiga": "输入您的旧密码"
+		},
+		"cliente-layout": {
+			"ativos": "活性产品",
+			"atualize": "在下面更新您的详细信息:",
+			"containfos": "账户信息",
+			"credenciais": "证书",
+			"inativos": "无效产品",
+			"infospagamento": "支付信息",
+			"locador": "定位器",
+			"locatario": "承租人",
+			"pagamentos": "付款方式",
+			"perfil": "Profile",
+			"sair": "出去",
+			"seusprodutos": "您的产品",
+			"suasinfos": "你的资料",
+			"transacoes": "交易次数",
+			"vencimentos": "应收款项"
+		},
+		"cliente-perfil": {
+			"atualizarperfil": "更新个人信息",
+			"mudarfoto": "更改照片",
+			"uploadfoto": "上传JPG，GIF或PNG图片。 需要300 x 300。"
+		},
+		"cliente-produto": {
+			"Descricao": "描述",
+			"addeditprod": "添加/编辑产品",
+			"formattags": "小写，用逗号和单个单词分隔",
+			"maxcaracteres": "最多100个字符",
+			"nomeproduto": "产品名称",
+			"selecaoarquivo": "或选择文件",
+			"selecionecategoria": "选择类别",
+			"tags": "产品标签",
+			"tamanhoideal": "1000 x 800px是理想的尺寸",
+			"taxa": "aluGO对价值征收10％的税。",
+			"textSuportado": "支持的文本格式：",
+			"uploadfoto": "上传产品封面照片",
+			"valoraluguel": "租金价值"
+		},
+		"lista-produtos": {
+			"alugueis": "租金",
+			"anterior": "以前",
+			"avaliacao": "评分",
+			"datacadastro": "登记日期",
+			"ganhos": "收益",
+			"nome": "名称",
+			"ordenarpor": "订购依据",
+			"proximo": "下一个",
+			"seusprodutos": "您的产品",
+			"valoraluguel": "Rent Value"
+		}
+	},
+	"portal-alugo": {
+		"404": {
+			"mensagem": "该页面不存在"
+		},
+		"categorias": {
+			"acessorios": "旅行配件",
+			"aparelhoCortarGrama": "园艺",
+			"aparelhosSonoros": "音响系统",
+			"aspirador": "清洁环境",
+			"automovel": "汽车类",
+			"cameras": "照片和视频",
+			"cozinha": "厨房",
+			"eletrodomestico": "家用电器",
+			"ferramentaJardinagem": "工具类",
+			"fones": "耳机和麦克风",
+			"industrial": "工业工具",
+			"luzesProfissionais": "专业灯",
+			"mixagem": "混音",
+			"mochilas": "箱包和背包",
+			"monitores": "电脑周边",
+			"objetosProfissionais": "专业工具",
+			"polimento": "抛光工具",
+			"studio": "工作室工具"
+		},
+		"detalhe-produto": {
+			"14avaliacoes": "14条评论",
+			"15agosto": "2020年8月15日",
+			"28setembro": "2020年9月28日",
+			"9de14": "14之9（64,28％）",
+			"9marco": "2020年3月9日",
+			"Infoprod": "产品信息",
+			"acao": "行动",
+			"alugar": "出租",
+			"avaliacaogeral": "4.1总体评估",
+			"avaliacoes": "评论",
+			"baixou": "特价中",
+			"carregarmais": "载入更多评论",
+			"cons": "缺点",
+			"consumidoresrecomendacao": "推荐该产品的消费者：",
+			"descricao": "描述",
+			"descricaocompleta": "详细描述",
+			"estado": "产品状态：",
+			"infosgerais": "General information",
+			"numeroidentificacao": "身份证号码",
+			"produtodisponivel": "可用产品",
+			"pros": "优点"
+		},
+		"home": {
+			"botaoComece": "开始",
+			"botaoMaisProdutos": "更多的产品",
+			"botaoVisualizarDetalhes": "查看详情",
+			"modal": {
+				"avaliacao": "评分",
+				"avaliacoes": "评分",
+				"baixou": "特价中",
+				"bom": "好",
+				"botaoAlugar": "好",
+				"descricao": "描述",
+				"disponivel": "可用产品",
+				"estado": "产品状态：",
+				"infoProduto": "产品信息",
+				"numeroIdentificacao": "身份证号码"
+			},
+			"produtosEmAlta": "热门产品",
+			"subTituloDestaque": "通过租用，您总是可以赚钱。 节省或获利。",
+			"tituloDestaque": "您需要额外的钱吗？"
+		},
+		"login": {
+			"confirmaSenha": "确认密码",
+			"cpf": "CPF 文件",
+			"crieConta": "创建您的帐户！",
+			"email": "电子邮件",
+			"entreEconomize": "登录并省钱！",
+			"esqueceuSenha": "忘记密码了吗？",
+			"exCpf": "123.456.789.01",
+			"exTelefone": "(11) 91234-8675",
+			"exUsuario": "Ex: 人@人.com",
+			"nome": "名称",
+			"recuperaSenha": "恢复密码",
+			"registrar": "寄存器",
+			"senha": "密码",
+			"telefone": "电话",
+			"temConta": "已经有帐号了？ 在两者之间",
+			"textoLogin": "登录",
+			"txtInfoRecuperarSenha": "要恢复密码，请提供您的电子邮件，我们将向您发送恢复说明！",
+			"usuario": "用户"
+		},
+		"portal-layout": {
+			"cadastrar": "寄存器",
+			"categorias": "类别",
+			"esqueceuSenha": "忘记密码？",
+			"expandirMenu": "展开选单",
+			"login": "登录",
+			"menu": "主要",
+			"meuPerfil": "个人资料",
+			"minhaConta": "我的帐户",
+			"mostraSenha": "显示密码",
+			"naoLogado": "用户未登录",
+			"ola": "你好",
+			"privacidade": "隐私",
+			"procuraProdutos": "Search Products",
+			"registrar": "寄存器",
+			"suporte": "支持",
+			"termosUso": "使用条款"
+		},
+		"todos-produtos": {
+			"alugaragora": "现在租！",
+			"anterior": "以前",
+			"categorias": "系统类别",
+			"deixeseucarrobrilhando": "查看我们的目录！",
+			"disponibilize": "立即提供产品！",
+			"filtros": "筛选器",
+			"locarproduto": "租用产品",
+			"procuraartigos": "寻找视频和照片工具？",
+			"produtosdisponiveis": "可供出租的产品：",
+			"proximo": "下一个",
+			"vocequerganhardinheiro": "你想赚钱吗？"
+		}
+	}
 }

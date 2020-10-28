@@ -1,0 +1,231 @@
+{
+	"admin": {
+		"admin-layout": {
+			"dashboard": "Panel de Control",
+			"interface": "Interface"
+		},
+		"lista-usuarios": {
+			"delecaousuario": "Eliminar Usuarios",
+			"deletadocomsucesso": "Usuario eliminado con éxito!",
+			"deletar": "Eliminar",
+			"editar": "Editar",
+			"excluir": "Eliminar"
+		}
+	},
+	"campos": {
+		"label": {
+			"complemento": "Complemento de Direcciones",
+			"email": "Correo Electrónico",
+			"endereco": "Dirección",
+			"nome": "Nombre",
+			"numero": "Número",
+			"placeholderemail": "personas@personas.com",
+			"placeholderendereco": "Quinta Avenida",
+			"placeholdernome": "Juan das Neves",
+			"pontostracos": "Sin puntos ni guiones",
+			"senha": "Contraseña",
+			"seulogin": "Este será tu nombre de usuario",
+			"telefone": "Teléfono"
+		}
+	},
+	"categorias": {
+		"acessorios": "Accesorios de Viaje",
+		"aparelhoCortarGrama": "Jardinería",
+		"aparelhosSonoros": "Sistema de sonido",
+		"aspirador": "Limpieza de Ambientes",
+		"automovel": "Automóviles",
+		"cameras": "Foto y Video",
+		"cozinha": "Cocina",
+		"eletrodomestico": "Electrodomésticos",
+		"ferramentaJardinagem": "Herramientas",
+		"fones": "Auriculares y Micrófonos",
+		"industrial": "Herramientas Industriales",
+		"luzesProfissionais": "Luces profesionales",
+		"mixagem": "Mezcla de Sonido",
+		"mochilas": "Bolsas y Mochilas",
+		"monitores": "Periféricos de la Computadora",
+		"objetosProfissionais": "Herramientas Profesionales",
+		"polimento": "Herramientas de Pulido",
+		"studio": "Herramientas de Estudio"
+	},
+	"cliente": {
+		"cliente-credenciais": {
+			"atualizarsenha": "Actualizar Contraseña",
+			"confirmesenha": "Confirmar nueva contraseña",
+			"infosenha1": "Debe contener una letra mayúscula y un número",
+			"infosenha2": "Máximo 8 caracteres",
+			"login": "Iniciar sesión",
+			"novasenha": "Nueva Contraseña",
+			"placeholderlogin": "Juan das Neves",
+			"senhaantiga": "Inserta tu contraseña anterior"
+		},
+		"cliente-layout": {
+			"ativos": "Activos",
+			"atualize": "Actualice sus datos a continuación:",
+			"containfos": "Información de Cuenta",
+			"credenciais": "Credenciales",
+			"inativos": "Inactivos",
+			"infospagamento": "Información del Pago",
+			"locador": "El Locador",
+			"locatario": "Inquilino",
+			"pagamentos": "Pagos",
+			"perfil": "El Perfil",
+			"sair": "Sal",
+			"seusprodutos": "Tus Productos",
+			"suasinfos": "Tu Informaciónes",
+			"transacoes": "Actas",
+			"vencimentos": "Cantidades por Cobrar"
+		},
+		"cliente-perfil": {
+			"atualizarperfil": "Actualización del Perfil",
+			"mudarfoto": "Cambiar Foto",
+			"uploadfoto": "Sube una imagen JPG, GIF o PNG. Se requiere 300 x 300."
+		},
+		"cliente-produto": {
+			"Descricao": "Descripción",
+			"addeditprod": "Agregar/Editar el Producto",
+			"formattags": "Minúsculas, separadas por comas y una sola palabra",
+			"maxcaracteres": "Máximo 100 caracteres",
+			"nomeproduto": "Nombre del Producto",
+			"selecaoarquivo": "O seleccione el archivo",
+			"selecionecategoria": "Select category",
+			"tags": "Etiquetas de Productos",
+			"tamanhoideal": "1000 x 800px es el tamaño ideal",
+			"taxa": "aluGO aplica un impuesto del 10% sobre el valor.",
+			"textSuportado": "Formatos de texto admitidos:",
+			"uploadfoto": "Subir foto de portada del producto",
+			"valoraluguel": "Valor de Alquiler"
+		},
+		"lista-produtos": {
+			"alugueis": "Alquileres",
+			"anterior": "Previo",
+			"avaliacao": "Clasificación",
+			"datacadastro": "Fecha de Registro",
+			"ganhos": "Ganancias",
+			"nome": "Nombre",
+			"ordenarpor": "Ordenar Por",
+			"proximo": "Próximo",
+			"seusprodutos": "Tus Productos",
+			"valoraluguel": "Valor de Alquiler"
+		}
+	},
+	"portal-alugo": {
+		"404": {
+			"mensagem": "Esta pagina no existe"
+		},
+		"categorias": {
+			"acessorios": "Accesorios de Viaje",
+			"aparelhoCortarGrama": "Jardinería",
+			"aparelhosSonoros": "Sistema de sonido",
+			"aspirador": "Limpieza de Ambientes",
+			"automovel": "Automóviles",
+			"cameras": "Foto y Video",
+			"cozinha": "Cocina",
+			"eletrodomestico": "Electrodomésticos",
+			"ferramentaJardinagem": "Herramientas",
+			"fones": "Auriculares y Micrófonos",
+			"industrial": "Herramientas Industriales",
+			"luzesProfissionais": "Luces profesionales",
+			"mixagem": "Mezcla de Sonido",
+			"mochilas": "Bolsas y Mochilas",
+			"monitores": "Periféricos de la Computadora",
+			"objetosProfissionais": "Herramientas Profesionales",
+			"polimento": "Herramientas de Pulido",
+			"studio": "Herramientas de Estudio"
+		},
+		"detalhe-produto": {
+			"14avaliacoes": "14 Reseñas",
+			"15agosto": "15 de agosto de 2020",
+			"28setembro": "28 de Setembro de 2020",
+			"9de14": "9 de 14 (64,28%)",
+			"9marco": "9 de Março de 2020",
+			"Infoprod": "Información del Producto",
+			"acao": "Action",
+			"alugar": "ALQUILAR",
+			"avaliacaogeral": "4.1 evaluación general",
+			"avaliacoes": "Reseñas",
+			"baixou": "En Venta",
+			"carregarmais": "Cargar más reseñas",
+			"cons": "Contras",
+			"consumidoresrecomendacao": "Consumidores que recomiendan este producto:",
+			"descricao": "Descripción",
+			"descricaocompleta": "Descripción Completa",
+			"estado": "Estado del Producto:",
+			"infosgerais": "Información General",
+			"numeroidentificacao": "Número de Identificación",
+			"produtodisponivel": "Producto Disponible",
+			"pros": "Pros"
+		},
+		"home": {
+			"botaoComece": "Comienzo",
+			"botaoMaisProdutos": "Más Productos",
+			"botaoVisualizarDetalhes": "Ver Detalles",
+			"modal": {
+				"avaliacao": "Clasificación",
+				"avaliacoes": "Calificaciones",
+				"baixou": "En Venta",
+				"bom": "Bueno",
+				"botaoAlugar": "ALQUILAR",
+				"descricao": "Description",
+				"disponivel": "Producto Disponible",
+				"estado": "Estado del producto:",
+				"infoProduto": "Información del Producto",
+				"numeroIdentificacao": "Número de Identificación"
+			},
+			"produtosEmAlta": "Productos de Tendencia",
+			"subTituloDestaque": "Al alquilar siempre ganas dinero. Ahorro o Beneficio.",
+			"tituloDestaque": "¿Necesitas dinero extra?"
+		},
+		"login": {
+			"confirmaSenha": "Confirmar Contraseña",
+			"cpf": "Documento de CPF",
+			"crieConta": "¡Crea tu cuenta!",
+			"email": "Correo Electrónico",
+			"entreEconomize": "¡Inicie sesión y ahorre dinero!",
+			"esqueceuSenha": "¿Olvidaste tu contraseña?",
+			"exCpf": "123.456.789.01",
+			"exTelefone": "(11) 91234-8675",
+			"exUsuario": "Ex: personas@personas.com",
+			"nome": "Nombre",
+			"recuperaSenha": "Recuperar Contraseña",
+			"registrar": "Registrarse",
+			"senha": "Contraseña",
+			"telefone": "Teléfono",
+			"temConta": "¿Ya tienes una cuenta? Entre.",
+			"textoLogin": "Iniciar Sesión",
+			"txtInfoRecuperarSenha": "Para recuperar su contraseña, proporcione su correo electrónico y le enviaremos instrucciones para la recuperación.",
+			"usuario": "Usuario"
+		},
+		"portal-layout": {
+			"cadastrar": "Registrarse",
+			"categorias": "Categoría",
+			"esqueceuSenha": "¿Se te olvidó tu contraseña?",
+			"expandirMenu": "Expandir Menú",
+			"login": "Iniciar Sesión",
+			"menu": "Menú",
+			"meuPerfil": "Mi Perfil",
+			"minhaConta": "Mi Cuenta",
+			"mostraSenha": "Mostrar Contraseña",
+			"naoLogado": "Usuario no Conectado",
+			"ola": "Hola",
+			"privacidade": "Privacidad",
+			"procuraProdutos": "Buscar Productos",
+			"registrar": "Registrarse",
+			"suporte": "Soporte",
+			"termosUso": "Términos de Uso"
+		},
+		"todos-produtos": {
+			"alugaragora": "¡Alquile ahora!",
+			"anterior": "Anterior",
+			"categorias": "Categorías",
+			"deixeseucarrobrilhando": "¡Consulta nuestro catálogo!",
+			"disponibilize": "¡Haga que un producto esté disponible hoy!",
+			"filtros": "Filtros",
+			"locarproduto": "Alquilar un Producto",
+			"procuraartigos": "¿Busca herramientas para videos y fotos?",
+			"produtosdisponiveis": "Productos disponibles para alquiler:",
+			"proximo": "Próximo",
+			"vocequerganhardinheiro": "¿Quieres hacer dinero?"
+		}
+	}
+}

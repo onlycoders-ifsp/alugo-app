@@ -17,11 +17,13 @@ export const environment = {
   getListaProdutos: '/produtos/lista-produto',
   getOnly1Produto: '/produtos/produto',
   getOnlyUserProducts: "/produtos/lista-produto-logado",
+  putFotoCapa: "/produtos/upload-foto", 
 
   putAlteraUsuario: "/usuarios/altera-dados",
   putAlteraSenha: "/usuarios/altera-senha",
   postCadUsuario: "/usuarios/cadastro",
   deleteDeleteUsuario: "/usuarios/inativa",
   getDadosUsuario: "/usuarios/usuario",
-  getUserLogado: "/usuarios/usuario-logado"
+  getUserLogado: "/usuarios/usuario-logado",
+  putFotoUsuario: "/usuarios/upload-foto", 
 };

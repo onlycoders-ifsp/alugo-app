@@ -32,5 +32,9 @@ export class produtoService {
     return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getOnlyUserProducts);
   }
 
+  uploadFotoCapa(formData: FormData) : Observable<any>{
+    return this.http.put(environment.apiBaseUrl + environment.putFotoCapa, formData)
+
+  }
   
 }

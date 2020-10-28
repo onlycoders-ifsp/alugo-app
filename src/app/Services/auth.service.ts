@@ -108,4 +108,9 @@ export class AuthService {
   getCurrentUserLogado() : Observable<eUsuario>{
     return this.http.get<eUsuario>(environment.apiBaseUrl + environment.getUserLogado);
   }
+
+  uploadFotoUsuario(formData: FormData) : Observable<any>{
+    return this.http.put(environment.apiBaseUrl + environment.putFotoUsuario, formData)
+
+  }
 }

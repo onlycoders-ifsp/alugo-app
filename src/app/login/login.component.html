@@ -53,22 +53,13 @@
                 </div>
                 <div class="card-body tab-content p-0">
                     <div *ngIf="loginErro" class="alert alert-warning alert-dismissible fade show" role="alert">
-                        {{ loginErro }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
+                        Usuário e/ou senha incorretos##  {{ loginErro }}
                       </div>
                     <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ mensagemSucesso }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
+                        Usuário cadastrado com sucesso!! Faça login##
                       </div>
                       <div *ngIf="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
-                        {{ mensagemErro }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
+                        Formulário não está válido## 
                       </div>
                     <div class="text-center mt-1">
                         <mat-form-field>
@@ -131,12 +122,12 @@
                                             <mat-label>{{ 'portal-alugo.login.email' | translate }}</mat-label>
                                             <input formControlName="email" matInput placeholder="{{ 'portal-alugo.login.exUsuario' | translate }}">
                                             <mat-error *ngIf="formularioCadastro.controls.email.errors && formularioCadastro.controls.email.errors.required">
-                                                Você precisa preencher o email
+                                                Você precisa preencher o email##
                                               </mat-error>
                                               <mat-error *ngIf="formularioCadastro.controls.email.errors && formularioCadastro.controls.email.errors.email">
-                                                o email precisa ser válido
+                                                o email precisa ser válido##
                                               </mat-error>
-                                            <mat-icon matSuffix>person_pin</mat-icon>
+                                            <mat-icon matSuffix>email</mat-icon>
                                         </mat-form-field>
                                     </div>
                                     <div class="input-group mb-3">
@@ -144,7 +135,7 @@
                                             <mat-label>{{ 'portal-alugo.login.nome' | translate }}</mat-label>
                                             <input matInput formControlName="nome">
                                             <mat-error *ngIf="formularioCadastro.controls.nome.errors && formularioCadastro.controls.nome.errors.required">
-                                                Você precisa preencher o nome
+                                                Você precisa preencher o nome##
                                               </mat-error>
                                             <mat-icon matSuffix>person_pin</mat-icon>
                                         </mat-form-field>
@@ -154,8 +145,17 @@
                                             <div class="input-group mb-2">
                                                 <mat-form-field class="full-width">
                                                     <mat-label>{{ 'portal-alugo.login.cpf' | translate }}</mat-label>
-                                                    <input matInput formControlName="cpf" placeholder="{{ 'portal-alugo.login.exCpf' | translate }}">
-                                                    <mat-icon matSuffix>lock</mat-icon>
+                                                    <input matInput formControlName="cpf" mask="000.000.000-00" placeholder="{{ 'portal-alugo.login.exCpf' | translate }}">
+                                                    <mat-error *ngIf="formularioCadastro.controls.cpf.errors && formularioCadastro.controls.cpf.errors.required">
+                                                        Você precisa preencher o CPF##
+                                                      </mat-error>
+                                                      <mat-error *ngIf="formularioCadastro.controls.cpf.errors && formularioCadastro.controls.cpf.errors.minlength">
+                                                        O CPF tem menos de 11 digitos##
+                                                      </mat-error>
+                                                      <mat-error *ngIf="formularioCadastro.controls.cpf.errors && formularioCadastro.controls.cpf.errors.maxlength">
+                                                        O CPF tem mais de 11 digitos##
+                                                      </mat-error>
+                                                    <mat-icon matSuffix>local_library</mat-icon>
                                                 </mat-form-field>
                                             </div>
                                         </div>
@@ -164,8 +164,11 @@
                                                 <mat-form-field  class="full-width">
                                                     <mat-label>{{ 'portal-alugo.login.telefone' | translate }}</mat-label>
                                                     <span matPrefix>+55 &nbsp;</span>
-                                                    <input matInput formControlName="celular" placeholder="{{ 'portal-alugo.login.exTelefone' | translate }}">
-                                                    <mat-icon matSuffix>lock</mat-icon>
+                                                    <input matInput formControlName="celular" mask="(00) 0000-0000||(00) 0 0000-0000" placeholder="{{ 'portal-alugo.login.exTelefone' | translate }}">
+                                                    <mat-error *ngIf="formularioCadastro.controls.celular.errors && formularioCadastro.controls.celular.errors.required">
+                                                        Telefone Vazio##
+                                                      </mat-error>
+                                                    <mat-icon matSuffix>local_phone</mat-icon>
                                                 </mat-form-field>
                                             </div>
                                         </div>
@@ -178,10 +181,10 @@
                                                     <input matInput formControlName="senha" type="password" placeholder="*****">
                                                     <mat-icon matSuffix>lock</mat-icon>
                                                     <mat-error *ngIf="formularioCadastro.controls.senha.errors && formularioCadastro.controls.senha.errors.required">
-                                                        A senha está vazia
+                                                        A senha está vazia##
                                                       </mat-error>
                                                       <mat-error *ngIf="formularioCadastro.controls.senha.errors && formularioCadastro.controls.senha.errors.minlength">
-                                                        Deve ter no mínimo 8 caracteres
+                                                        Deve ter no mínimo 8 caracteres##
                                                       </mat-error>
                                                 </mat-form-field>
                                             </div>
@@ -192,10 +195,10 @@
                                                     <mat-label>{{ 'portal-alugo.login.confirmaSenha' | translate }}</mat-label>
                                                     <input matInput formControlName="confirmaSenha" type="password" placeholder="*****">
                                                     <mat-error *ngIf="formularioCadastro.controls.confirmaSenha.errors && formularioCadastro.controls.confirmaSenha.errors.required">
-                                                        A senha está vazia
+                                                        A senha está vazia##
                                                       </mat-error>
                                                       <mat-error *ngIf="formularioCadastro.controls.confirmaSenha.value != formularioCadastro.controls.senha.value">
-                                                        a senha não bate
+                                                        a senha não bate##
                                                       </mat-error>
                                                     <mat-icon matSuffix>lock</mat-icon>
                                                 </mat-form-field>

@@ -12,9 +12,10 @@ export class idiomaService {
   constructor( private translate: TranslateService ) { }
 
   listaIdiomas: iIdioma[] = [
-    {id: 1, name: 'pt-BR', bandeira: 'BR.png', displayNome: "Portuguese"},
-    {id: 2, name: 'en-US', bandeira: 'US.png', displayNome: "English"}
-    // ,{id: 3, name: 'chi-zho', bandeira: 'CN.png', displayNome: "Chinese"},
+    {id: 1, name: 'pt-BR', bandeira: 'BR.png', displayNome: "Português"},
+    {id: 2, name: 'en-US', bandeira: 'US.png', displayNome: "English"},
+    {id: 3, name: 'es-ES', bandeira: 'ES.png', displayNome: "Spañol"},
+    {id: 4, name: 'chi-zho', bandeira: 'CN.png', displayNome: "Chinese"}
   ];
 
   setNewIdioma(idiomaName: string){
@@ -33,12 +34,23 @@ export class idiomaService {
   }
 
   setDefaultLanguage(){
-    this.translate.setDefaultLang(navigator.language);
+    let existLenguage: boolean = false;
+    let bandeira: string;
     for(let idioma in this.listaIdiomas){
       if(this.listaIdiomas[idioma].name == navigator.language){
-        return this.listaIdiomas[idioma].bandeira;
+        existLenguage = true;
+        bandeira = this.listaIdiomas[idioma].bandeira;
       }
     }
+    if(!existLenguage){
+      this.translate.setDefaultLang(this.listaIdiomas[0].name);
+      return this.listaIdiomas[0].bandeira;
+    }else{
+      this.translate.setDefaultLang(navigator.language);
+      return bandeira;
+    }
+    
+    
   }
 
   

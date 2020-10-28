@@ -24,8 +24,9 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 
-
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     BrowserModule,
     MatDialogModule,
     MatDatepickerModule,
+    NgxMaskModule.forRoot(),
     MatCheckboxModule,
     FormsModule,
     MatTableModule,

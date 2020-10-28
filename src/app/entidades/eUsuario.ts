@@ -14,4 +14,5 @@ export class eUsuario {
     data_nascimento: string;
     ativo: boolean;
     celular: string;
+    capa_foto: string;
 }

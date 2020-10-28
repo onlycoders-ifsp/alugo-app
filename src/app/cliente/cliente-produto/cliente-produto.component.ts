@@ -45,6 +45,8 @@ export class ClienteProdutoComponent implements OnInit {
       this.idCurrentProduto = localStorage.getItem("idProdutoMudanca");
 
       this.loadCurrentProduto();
+    }else{
+      this.currentProduto = new eProduto();
     }
 
   }
@@ -202,6 +204,24 @@ export class ClienteProdutoComponent implements OnInit {
   }
   voltaHome() {
     this.router.navigate(['']);
+  }
+
+  setFotoCapa(){
+    
+  }
+
+  uploadFotoDeCapa(event){
+    const files = event.target.files;
+    if(files){
+      const foto = files[0];
+      const formData: FormData = new FormData();
+      formData.append("capa_foto", foto);
+      if(this.currentProduto.id_produto){
+        formData.append("id_produto", this.currentProduto.id_produto);
+      }
+      this.produtoService.uploadFotoCapa(formData).subscribe(response => console.log(response))
+    }
+
   }
 
 }

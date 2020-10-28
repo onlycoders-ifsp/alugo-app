@@ -35,7 +35,9 @@ import { TokenInterceptor } from './Services/token.interceptor';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/h
     MatCardModule,
     ReactiveFormsModule,
     MatButtonModule,
+    NgxMaskModule.forRoot(),
     MatIconModule,
     BrowserAnimationsModule,
     ClienteModule,

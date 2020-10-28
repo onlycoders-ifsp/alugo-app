@@ -434,7 +434,7 @@
       <div class="card product-card">
         <button (click)="verProdutoDeslogado(item)" class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Adicionar aos Favoritos"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" (click)="verProdutoDeslogado(item)">
           <img *ngIf="!item.capa_foto" src="../../assets/imagens/shop/catalog/{{i+1}}.jpg" alt="Produto">
-          <img *ngIf="item.capa_foto" src="../../assets/imagens/shop/catalog/{{item.capa_foto}}" alt="Produto">
+          <img *ngIf="item.capa_foto" src="data:image/jpg;base64,{{item.capa_foto}}" alt="Produto">
         </a>
         <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Men’s Accessories</a>
           <h3 class="product-title font-size-sm"><a routerLink="/detalhe-produto">{{item.nome}}</a></h3>

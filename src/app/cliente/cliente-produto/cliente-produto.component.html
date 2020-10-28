@@ -17,11 +17,15 @@
           
           
         </div>
-        <div class="cz-file-drop-area form-group">
+        <div *ngIf="!currentProduto.capa_foto" class="cz-file-drop-area form-group">
           <div class="cz-file-drop-icon fa fa-file-alt"></div><span class="cz-file-drop-message">{{ 'clientes.cliente-produto.uploadfoto' | translate }}</span>
-          <input class="cz-file-drop-input" type="file">
+          <input class="cz-file-drop-input" (change)="uploadFotoDeCapa($event)" type="file">
           <button class="cz-file-drop-btn btn btn-primary btn-sm mb-2" type="button">{{ 'clientes.cliente-produto.selecaoarquivo' | translate }}</button><small
             class="form-text text-muted">{{ 'clientes.cliente-produto.tamanhoideal' | translate }}</small>
+        </div>
+        <div *ngIf="currentProduto.capa_foto" class="cz-file-drop-area form-group">
+          <div class="cz-file-drop-icon fa fa-file-alt"></div>Teste
+          <span class="cz-file-drop-message"><img src="data:image/jpg;base64,{{currentProduto.capa_foto}}"></span>
         </div>
         <div class="form-group py-2">
           <label class="font-weight-medium">{{ 'clientes.cliente-produto.descricao' | translate }}</label>

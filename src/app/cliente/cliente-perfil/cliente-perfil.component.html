@@ -1,9 +1,12 @@
 <!-- Profile form-->
 <form [formGroup]="formularioCliente" (ngSubmit)="updateUsuario()">
   <div class="bg-secondary rounded-lg p-4 mb-4">
-    <div class="media align-items-center"><img src="../../../assets/imagens/avatar.svg" width="90" alt="Dilan Lima">
+    <div class="media align-items-center">
+      <img *ngIf="!currentUsuarioLogado.capa_foto" src="../../../assets/imagens/avatar.svg" width="90" height="45" alt="##">
+      <img *ngIf="currentUsuarioLogado.capa_foto" src="data:image/jpg;base64,{{currentUsuarioLogado.capa_foto}}" width="90" alt="##">
       <div class="media-body pl-3">
-        <button class="btn btn-light btn-shadow btn-sm mb-2" type="button"><i class="fa fa-exchange-alt mr-2"></i>{{ 'cliente.cliente-perfil.mudarfoto' | translate }}</button>
+        <input class="btn btn-light btn-shadow btn-sm mb-2" (change)="uploadFotoUser($event)" type="file">
+        <!-- <button class="btn btn-light btn-shadow btn-sm mb-2"><i class="fa fa-exchange-alt mr-2"></i>{{ 'cliente.cliente-perfil.mudarfoto' | translate }}</button> -->
         <div class="p mb-0 font-size-ms text-muted">{{ 'cliente.cliente-perfil.uploadfoto' | translate }}</div>
       </div>
     </div>
@@ -34,7 +37,7 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>CPF</mat-label>
-          <input  formControlName="cpf" matInput placeholder="123.456.789-01">
+          <input  formControlName="cpf" mask="000.000.000-00" matInput placeholder="123.456.789-01">
         <mat-hint align="end">11 Digitos</mat-hint>
           <mat-icon class="text-primary" matSuffix >lock</mat-icon>
         </mat-form-field>
@@ -71,9 +74,9 @@
       <div class="form-group">
         <mat-form-field class="full-width">
           <mat-label>Selecione uma Data##</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
+          <input matInput [matDatepicker]="picker" disabled formControlName="dataNascimento">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <mat-datepicker #picker disabled="false"></mat-datepicker>
         </mat-form-field>
       </div>
     </div>
@@ -81,7 +84,7 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.telefone' | translate }}</mat-label>
-          <input  formControlName="telefone" matInput placeholder="(11) 98838-9393##">
+          <input  formControlName="telefone" mask="(00) 0000-0000||(00) 0 0000-0000" matInput placeholder="(11) 98838-9393##">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
@@ -90,7 +93,7 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>CEP##</mat-label>
-          <input  formControlName="cep" matInput placeholder="08664967##">
+          <input  formControlName="cep" mask="00000-000" matInput placeholder="08664967##">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
