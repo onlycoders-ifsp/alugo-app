@@ -123,15 +123,14 @@ userAlterado: eUsuario = new eUsuario();
     this.userAlterado.complemento = formCadValues.complemento;
 
     if(this.formularioCliente.valid){
-      // this.auth.updateUsuario(this.userAlterado).subscribe(response =>{
-      //   this.mensagemSucesso = "Usuário " + formCadValues.nome + " atualizado com sucesso!",
-      //     this.mensagemErro = null;
-      //     this.router.navigate(['/cliente/perfil/dados']);
-      // }, errorResponse => {
-      //   this.mensagemSucesso = null,
-      //     this.mensagemErro = "Erro ao realizar a atualização de " + formCadValues.nome;
-      // });
-      console.log(this.userAlterado);
+      this.auth.updateUsuario(this.userAlterado).subscribe(response =>{
+        this.mensagemSucesso = "Usuário " + formCadValues.nome + " atualizado com sucesso!",
+          this.mensagemErro = null;
+          this.router.navigate(['/cliente/perfil/dados']);
+      }, errorResponse => {
+        this.mensagemSucesso = null,
+          this.mensagemErro = "Erro ao realizar a atualização de " + formCadValues.nome;
+      });
     }else{
       this.mensagemErro = "O formulário ainda não está valido"
     }
@@ -147,9 +146,7 @@ userAlterado: eUsuario = new eUsuario();
       const foto = files[0];
       const formData: FormData = new FormData();
       formData.append("capa_foto", foto);
-      this.auth.uploadFotoUsuario(formData).subscribe(response => console.log(response))
+      this.auth.uploadFotoUsuario(formData).subscribe(response => console.log(response));
     }
-
   }
-
 }
