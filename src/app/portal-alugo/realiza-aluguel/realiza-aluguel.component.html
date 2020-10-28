@@ -12,7 +12,7 @@
       <section class="col-lg-8 pt-2 pt-lg-4 pb-4 mb-lg-3">
         <div class="pt-2 px-4 pr-lg-0 pl-xl-5">
           <!-- Product gallery-->
-          <div class="cz-gallery"><img src="../../../assets/imagens/shop/catalog/{{currentProduto.capa_foto}}" alt="Gallery preview" class="gallery-item rounded-lg mb-grid-gutter" /><span class="gallery-item-caption">
+          <div class="cz-gallery"><img src="data:image/jpg;base64,{{currentProduto.capa_foto}}" alt="Gallery preview" class="gallery-item rounded-lg mb-grid-gutter" /><span class="gallery-item-caption">
                 {{currentProduto.nome}}</span>
           </div>
         </div>
@@ -30,7 +30,7 @@
                     <div class="form-group">
                       <mat-form-field class="full-width">
                         <mat-label>Data Inicial##</mat-label>
-                        <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
+                        <input matInput [matDatepicker]="picker">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                       </mat-form-field>
@@ -40,7 +40,7 @@
                     <div class="form-group">
                       <mat-form-field class="full-width">
                         <mat-label>Data Final##</mat-label>
-                        <input matInput [matDatepicker]="picker2" formControlName="dataNascimento">
+                        <input matInput [matDatepicker]="picker2">
                         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                         <mat-datepicker #picker2></mat-datepicker>
                       </mat-form-field>
@@ -60,8 +60,11 @@
             <hr>
             <button class="btn btn-success btn-shadow btn-block mt-4" type="button" data-toggle="toast"
               data-target="#cart-toast"><i class="fa fa-shopping-cart font-size-lg mr-2"></i>Alugar##</button>
-            <div class="bg-secondary rounded p-3 mt-4 mb-2"><a class="media align-items-center" href="#"><img
-                  class="rounded-circle" width="50" src="../../../assets/imagens/avatar.svg" alt="nomeDono##" />
+            <div class="bg-secondary rounded p-3 mt-4 mb-2"><a class="media align-items-center" href="#">
+              
+              <img *ngIf="currentDono.capa_foto" class="rounded-circle" width="50" src="data:image/jpg;base64,{{currentDono.capa_foto}}" alt="nomeDono##" />
+              <img *ngIf="!currentDono.capa_foto" class="rounded-circle" width="50" src="../../../assets/imagens/avatar.svg" alt="nomeDono##" />
+
                 <div class="media-body pl-2"><span class="font-size-ms text-muted">Locador##</span>
                   <h6 class="font-size-sm mb-0">{{currentDono.nome}}</h6>
                 </div>

@@ -31,7 +31,6 @@ export class RealizaAluguelComponent implements OnInit {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
     this.idProduto = localStorage.getItem('idProdutoAluguel');
-    console.log(this.idProduto)
     
   }
 
@@ -44,6 +43,7 @@ export class RealizaAluguelComponent implements OnInit {
     .subscribe( 
       response => {
         this.currentProduto = response;
+        console.log(this.currentProduto)
         this.idDono = this.currentProduto.id_usuario;
         this.loadInfosDono();
       },
@@ -53,6 +53,7 @@ export class RealizaAluguelComponent implements OnInit {
   }
 
   loadInfosDono(){
+    console.log(this.idDono)
     this.auth.getUserById(this.idDono)
     .subscribe( 
       response => {
