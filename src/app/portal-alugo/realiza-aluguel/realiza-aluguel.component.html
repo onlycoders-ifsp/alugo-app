@@ -29,7 +29,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <mat-form-field class="full-width">
-                        <mat-label>Data Inicial##</mat-label>
+                        <mat-label>{{ 'portal-alugo.realiza-aluguel.dataInicial' | translate }}</mat-label>
                         <input matInput [matDatepicker]="picker">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
@@ -39,7 +39,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <mat-form-field class="full-width">
-                        <mat-label>Data Final##</mat-label>
+                        <mat-label>{{ 'portal-alugo.realiza-aluguel.dataFinal' | translate }}</mat-label>
                         <input matInput [matDatepicker]="picker2">
                         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                         <mat-datepicker #picker2></mat-datepicker>
@@ -51,7 +51,7 @@
               <div class="card border-bottom-0 border-left-0 border-right-0">
                 <div class="card-header d-flex justify-content-between align-items-center py-3 border-0">
                   <div class="custom-control custom-radio">
-                    Valor Base Calculado##
+                    {{ 'portal-alugo.realiza-aluguel.valorBase' | translate }}
                   </div>
                   <h5 class="mb-0 text-accent font-weight-normal">R$ 299,<small>00</small></h5>
                 </div>
@@ -71,17 +71,17 @@
               </a></div>
             <div class="bg-secondary rounded p-3 mb-2">
               <i class="fa fa-shopping-cart text-warning mb-0 mt-n1 mr-2"></i><span
-                class="d-inline-block h6 mb-0 mr-1">715</span><span class="font-size-sm">Alugueis Realizados##</span></div>
+                class="d-inline-block h6 mb-0 mr-1">715</span><span class="font-size-sm">{{ 'portal-alugo.realiza-aluguel.alugueisRealizados' | translate }}</span></div>
             <div class="bg-secondary rounded p-3 mb-4">
               <div class="star-rating"><i class="sr-star fa fa-star active"></i><i
                   class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i
                   class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star"></i>
               </div><span class="font-size-ms ml-2"> 4.8##</span>
-              <div class="font-size-ms text-muted">Avaliação do usuário##</div>
+              <div class="font-size-ms text-muted">{{ 'portal-alugo.realiza-aluguel.avaliacaoUsuario' | translate }}</div>
             </div>
             <ul class="list-unstyled font-size-sm">
               <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span
-                  class="text-dark font-weight-medium">Qtde Vezes alugado##</span><span class="text-muted">{{currentProduto.qtd_alugueis}}</span>
+                  class="text-dark font-weight-medium">{{ 'portal-alugo.realiza-aluguel.qtdAlugueis' | translate }}</span><span class="text-muted">{{currentProduto.qtd_alugueis}}</span>
               </li>
             </ul>
           </form>

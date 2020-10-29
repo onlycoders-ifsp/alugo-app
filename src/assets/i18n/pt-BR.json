@@ -258,6 +258,14 @@
 			"suporte": "Suporte",
 			"termosUso": "Termos de Uso"
 		},
+		"realiza-aluguel": {
+			"alugueisRealizados": "Alugueis Realizados",
+			"avaliacaoUsuario": "Avaliação do usuário",
+			"dataInicial": "Data Inicial",
+			"dataFinal": "Data Final",
+			"qtdAlugueis": "Qtd Vezes alugado",
+			"valorBase": "Valor Base Calculado"
+		},
 		"todos-produtos": {
 			"alugaragora": "Alugar agora!",
 			"anterior": "Anterior",
