@@ -305,7 +305,11 @@
 			"nomeDono": "Dono do Produto:",
 			"ops": "Ops!",
 			"qtdAlugueis": "Quantidade de Vezes Alugado",
-			"valorBase": "Valor Base Calculado"
+			"qtdDias": "Qtd. dias selecionados: ",
+			"qtdMeses": "Qtd. meses contabilizados: ",
+			"valorBase": "Valor Base Calculado",
+			"valorDia": "Valor por dia: ",
+			"valorMes": "Valor por mês: "
 		},
 		"todos-produtos": {
 			"alugaragora": "Alugar agora!",
