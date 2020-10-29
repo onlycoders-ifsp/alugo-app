@@ -8,6 +8,7 @@ import { JwtHelperService } from '@auth0/angular-jwt'
 import { Router } from '@angular/router';
 import { eObjetoUsuario } from '../entidades/eObjetoUsuario';
 import { eUsuarioConstructor } from '../entidades/eUsuarioConstrutor';
+import { eSenha } from '../entidades/eSenha';
 
 @Injectable({
   providedIn: 'root'
@@ -93,11 +94,11 @@ export class AuthService {
 
   }
 
-  // getUserByLogin() : Observable<eUsuario>{
-  //   let params = new HttpParams();
-  //   params = params.append('login' , this.getUsuarioAutenticado());
-  //   return this.http.get<eUsuario>(environment.getDadosUsuario, {params});
-  // }
+  updateSenha(senha: eSenha) : Observable<boolean>{
+    return this.http.put<boolean>(environment.apiBaseUrl + environment.putAlteraSenha, senha );
+
+  }
+
 
   getUserById(idUsuario: string) : Observable<eUsuario>{
     let params = new HttpParams();

@@ -35,7 +35,7 @@
           <mat-error *ngIf="formularioCliente.controls.nome.errors && formularioCliente.controls.nome.errors.required">
             Você precisa preencher o nome##
           </mat-error>
-          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+          <mat-icon class="text-primary"  matSuffix>tag_faces</mat-icon>
         </mat-form-field>
       </div>
     </div>
@@ -45,7 +45,7 @@
           <mat-label>CPF</mat-label>
           <input  formControlName="cpf" mask="000.000.000-00" matInput placeholder="123.456.789-01">
         <mat-hint align="end">11 Digitos##</mat-hint>
-          <mat-icon class="text-primary" matSuffix >lock</mat-icon>
+          <mat-icon class="text-primary" matSuffix >fingerprint</mat-icon>
         </mat-form-field>
       </div>
     </div>
@@ -72,7 +72,7 @@
           <mat-error *ngIf="formularioCliente.controls.login.errors && formularioCliente.controls.login.errors.required">
             Vocë precisa ter um login##
           </mat-error>
-          <mat-icon class="text-primary"  matSuffix>pin_user</mat-icon>
+          <mat-icon class="text-primary"  matSuffix>local_library</mat-icon>
         </mat-form-field>
       </div>
     </div>
@@ -100,7 +100,7 @@
         <mat-form-field  class="full-width">
           <mat-label>CEP##</mat-label>
           <input  formControlName="cep" mask="00000-000" matInput placeholder="08664967##">
-          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+          <mat-icon class="text-primary"  matSuffix>phone</mat-icon>
         </mat-form-field>
       </div>
     </div>
@@ -109,7 +109,7 @@
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.endereco' | translate }}</mat-label>
           <input  formControlName="endereco" matInput placeholder="{{ 'campos.label.placeholderendereco' | translate }}">
-          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+          <mat-icon class="text-primary"  matSuffix>streetview</mat-icon>
         </mat-form-field>
       </div>
     </div>
@@ -118,7 +118,7 @@
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.numero' | translate }}</mat-label>
           <input  formControlName="numero" matInput placeholder="321##">
-          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+          <mat-icon class="text-primary"  matSuffix>edit_road</mat-icon>
         </mat-form-field>
       </div>
     </div>
@@ -127,7 +127,7 @@
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.complemento' | translate }}</mat-label>
           <input  formControlName="complemento" matInput placeholder="apt 91##">
-          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+          <mat-icon class="text-primary"  matSuffix>edit_road</mat-icon>
         </mat-form-field>
       </div>
     </div>
@@ -136,7 +136,7 @@
         <mat-form-field  class="full-width">
           <mat-label>Bairro##</mat-label>
           <input  formControlName="bairro" matInput placeholder="Barcelona##">
-          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
+          <mat-icon class="text-primary" matSuffix>edit_road</mat-icon>
         </mat-form-field>
       </div>
     </div>

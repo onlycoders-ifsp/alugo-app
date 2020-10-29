@@ -1,11 +1,23 @@
 <!-- Profile form-->
-<form>
+<div *ngIf="mensagemSenhaErrada" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Aviso!! </strong>As senhas não bateram##
+  </div>
+  <div *ngIf="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Aviso!! </strong>Senha atual incorreta##
+  </div>
+  <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Aviso!! </strong>senha alterada com sucesso##
+  </div>
+<form [formGroup]="formularioSenha" (ngSubmit)="updateSenha()">
   <div class="row">
       <div class="col-sm-6">
           <div class="form-group">
               <mat-form-field  class="full-width">
                   <mat-label>{{ 'cliente.cliente-credenciais.senhaantiga' | translate }}</mat-label>
-                  <input name="senha" matInput type="password">
+                  <input formControlName="senhaAntiga" matInput type="password">
+                  <mat-error *ngIf="formularioSenha.controls.senhaAntiga.errors && formularioSenha.controls.senhaAntiga.errors.required">
+                    A senha antiga está vazia##
+                  </mat-error>
                   <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
               </mat-form-field>
           </div>
@@ -14,9 +26,10 @@
           <div class="form-group">
               <mat-form-field  class="full-width">
                   <mat-label>{{ 'cliente.cliente-credenciais.novasenha' | translate }}</mat-label>
-                  <input name="senha" matInput type="password" placeholder="*****">
-                  <mat-hint align="start"><strong>{{ 'cliente.cliente-credenciais.infosenha1' | translate }}</strong> </mat-hint>
-                  <mat-hint align="end">{{ 'cliente.cliente-credenciais.infosenha2' | translate }}</mat-hint>
+                  <input formControlName="senhaNova" name="senha" matInput type="password" placeholder="*****">
+                  <mat-error *ngIf="formularioSenha.controls.senhaNova.errors && formularioSenha.controls.senhaNova.errors.required">
+                    A senha nova está vazia##
+                  </mat-error>
                   <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
               </mat-form-field>
           </div>
@@ -25,9 +38,13 @@
           <div class="form-group">
               <mat-form-field  class="full-width">
                   <mat-label>{{ 'cliente.cliente-credenciais.confirmesenha' | translate }}</mat-label>
-                  <input name="senha" matInput type="password" placeholder="*****">
-                  <mat-hint align="start"><strong>{{ 'cliente.cliente-credenciais.infosenha1' | translate }}</strong> </mat-hint>
-                  <mat-hint align="end">{{ 'cliente.cliente-credenciais.infosenha2' | translate }}</mat-hint>
+                  <input formControlName="confirmaSenha" matInput type="password" placeholder="*****">
+                  <mat-error *ngIf="formularioSenha.controls.confirmaSenha.errors && formularioSenha.controls.confirmaSenha.errors.required">
+                    A confirmação de senha está vazia##
+                  </mat-error>
+                  <mat-error *ngIf="formularioSenha.controls.confirmaSenha.value != formularioSenha.controls.senhaNova.value">
+                    a senha não bate##
+                  </mat-error>
                   <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
               </mat-form-field>
           </div>
@@ -35,7 +52,7 @@
       <div class="col-12">
           <hr class="mt-2 mb-3">
           <div class="d-flex flex-wrap justify-content-between align-items-center">
-              <button class="btn btn-primary mt-3 mt-sm-0" type="button">{{ 'cliente.cliente-credenciais.atualizarsenha' | translate }}</button>
+              <button class="btn btn-primary mt-3 mt-sm-0" type="submit">{{ 'cliente.cliente-credenciais.atualizarsenha' | translate }}</button>
           </div>
       </div>
   </div>
