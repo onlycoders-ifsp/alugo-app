@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment'
 import { eProduto } from '../entidades/eProduto';
 import { eAluguel } from '../entidades/eAluguel';
+import { eCadAluguel } from '../entidades/eCadAluguel';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,10 @@ export class AluguelService {
   
   getListAluguelLocatario() : Observable<eAluguel[]> {
     return this.http.get<eAluguel[]>(environment.apiBaseUrl + environment.getListAluguelLocatario);
+  }
+
+  cadNewAluguel(aluguel: eCadAluguel) : Observable<boolean>{
+    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadAluguel, aluguel);
   }
 
 //   getListAluguelLocador() : Observable<eAluguel[]> {

@@ -2,9 +2,9 @@ import { eProduto } from './eProduto';
 import { eUsuario } from './eUsuario';
 
 export class eAluguel{
-    data_saque: Date;
-    data_fim: Date;
-    data_inicio: Date;
+    data_saque: string;
+    data_fim: string;
+    data_inicio: string;
     produto: eProduto;
     valor_aluguel: number;
     locador: eUsuario;

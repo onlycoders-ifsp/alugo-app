@@ -35,5 +35,6 @@ export const environment = {
   //ENDPOINTS DE ALUGUEL
   getListAluguelLocador: "/aluguel/locador",
   getListAluguelLocatario: "/aluguel/locatario",
+  postCadAluguel: "/aluguel/aluguel-efetua"
 
 };

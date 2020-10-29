@@ -298,7 +298,7 @@
 			"locador": "Locador",
 			"nomeDono": "Nome dono do produto",
 			"qtdAlugueis": "Qtd Vezes alugado",
-			"valorBase": "Valor Base Calculado"
+			"valorBase": "Valor Calculado"
 		},
 		"todos-produtos": {
 			"alugaragora": "Alugar agora!",

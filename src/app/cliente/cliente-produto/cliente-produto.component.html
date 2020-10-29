@@ -101,7 +101,7 @@
                 <mat-label>{{ 'clientes.cliente-produto.dataCompra' | translate }}</mat-label>
                 <input matInput [matDatepicker]="picker" formControlName="data_compra">
                 <mat-error *ngIf="formularioProduto.controls.data_compra.errors && formularioProduto.controls.data_compra.errors.required">
-                  { 'clientes.cliente-produto.alertaDataCompra' | translate }}
+                  {{ 'clientes.cliente-produto.alertaDataCompra' | translate }}
                 </mat-error>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
