@@ -22,9 +22,6 @@ import { PortalAlugoModule } from './portal-alugo/portal-alugo.module';
 import {MatNativeDateModule} from '@angular/material/core';
 //import { AdminModule } from './admin/admin.module';
 import { AdminService } from './Services/AdminService';
-
-import { LoaderComponent } from './loader/loader.component';
-import { LoaderModule } from './loader/loader.module';
 import { idiomaService } from './Services/idiomaService';
 import { PortalService } from './Services/PortalService';
 import { AuthService } from './Services/auth.service';
@@ -36,13 +33,17 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { LoadingComponent } from './loading/loading.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { loadingService } from './Services/loadingService';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +56,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     MatToolbarModule,
     MatInputModule,
     MatCardModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatButtonModule,
     NgxMaskModule.forRoot(),
@@ -65,7 +67,6 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     //AdminModule,
     RouterModule,
     MatSelectModule,
-    LoaderModule,
     HttpClientModule,
         TranslateModule.forRoot({
             loader: {
@@ -81,6 +82,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     DatePipe,
     PortalService,
     AuthService,
+    loadingService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

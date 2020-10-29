@@ -6,6 +6,8 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
+import { loadingService } from './loadingService';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -13,11 +15,12 @@ export class TokenInterceptor implements HttpInterceptor {
   urlsDeslogado : string[] = ['/oauth/token', '/usuarios/cadastro', 'produtos/produto', '/usuarios/usuario'];
   needBearer : boolean = true;
 
-  constructor() {}
+  constructor(public loaderService: loadingService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     
     const tokenString = localStorage.getItem('access_token');
+    this.loaderService.show();
 
     const urlRequest = request.url;
     
@@ -36,6 +39,8 @@ export class TokenInterceptor implements HttpInterceptor {
       })
     }
     this.needBearer = true;
-    return next.handle(request);
+    return next.handle(request).pipe(
+      finalize(() => this.loaderService.hide())
+      );
   }
 }
