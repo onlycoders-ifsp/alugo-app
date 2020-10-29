@@ -9,6 +9,7 @@ export const environment = {
   login: "/login",
 
 
+  //ENDPOINTS DE PRODUTO
   putAlteraProduto: "/produtos/altera",
   deleteAtivaInativaProduto: "/produtos/ativa-nativa",
   postCadProduto: "/produtos/cadastro",
@@ -20,6 +21,8 @@ export const environment = {
   putFotoCapa: "/produtos/upload-foto", 
   getProdutosByPesquisa: "/produtos/produto-pesquisa",
 
+
+  //ENDPOINTS DE USUARIO
   putAlteraUsuario: "/usuarios/altera-dados",
   putAlteraSenha: "/usuarios/altera-senha",
   postCadUsuario: "/usuarios/cadastro",
@@ -27,4 +30,10 @@ export const environment = {
   getDadosUsuario: "/usuarios/usuario",
   getUserLogado: "/usuarios/usuario-logado",
   putFotoUsuario: "/usuarios/upload-foto", 
+
+
+  //ENDPOINTS DE ALUGUEL
+  getListAluguelLocador: "/aluguel/locador",
+  getListAluguelLocatario: "/aluguel/locatario",
+
 };

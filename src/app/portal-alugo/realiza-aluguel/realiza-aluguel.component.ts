@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { eUsuario } from 'src/app/entidades/eUsuario';
@@ -21,12 +22,16 @@ export class RealizaAluguelComponent implements OnInit {
   currentDono: eUsuario;
   idProduto: string;
   idDono: string;
+  valorAluguel: number = 10;
+  formularioAluguel: FormGroup;
+  errorData: boolean = false;
 
   constructor(
     private router: Router,
     private idiService: idiomaService,
     private produtoService: produtoService,
-    private auth: AuthService
+    private auth: AuthService,
+    private fb: FormBuilder,
   ) { 
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
@@ -36,6 +41,7 @@ export class RealizaAluguelComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadInfosProduto();
+    this.createForm();
   }
 
   loadInfosProduto(){
@@ -64,6 +70,35 @@ export class RealizaAluguelComponent implements OnInit {
       errorResponse => {
         console.log(errorResponse)
       });
+  }
+
+
+  createForm(){
+    this.formularioAluguel = this.fb.group({
+      data_fim:['',[Validators.required]],
+      data_inicio:['',[Validators.required]],
+    })
+  }
+
+  setNewAluguel(){
+
+  }
+
+  recalculaValorAluguel(){
+    const formCadValues = this.formularioAluguel.value;
+    if(formCadValues.data_inicio && formCadValues.data_fim){
+      if(formCadValues.data_inicio > formCadValues.data_fim){
+        this.errorData = true;
+      }else{
+        let diff = Math.abs(formCadValues.data_inicio.getTime() - formCadValues.data_fim.getTime());
+        let diffDays = Math.ceil(diff / (1000 * 3600 * 24)); 
+        this.valorAluguel = this.currentProduto.valor_base_diaria * diffDays;
+        this.errorData = false;
+      }
+      
+    }
+    
+    
   }
 
   clickMudaIdioma() {

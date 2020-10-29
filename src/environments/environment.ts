@@ -36,6 +36,10 @@ export const environment = {
   putFotoUsuario: "/usuarios/upload-foto", 
 
 
+  //ENDPOINTS DE ALUGUEL
+  getListAluguelLocador: "/aluguel/locador",
+  getListAluguelLocatario: "/aluguel/locatario",
+
 };
 
 /*
