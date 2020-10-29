@@ -68,6 +68,16 @@
 		"studio": "工作室工具"
 	},
 	"cliente": {
+		"aluguel-locador": {
+			"locatario": "房客姓名",
+			"pessoaAluguel": "承租人：",
+			"produtosAlugados": "您租用的产品：",
+			"valorGerado": "租金产生的价值："
+		},
+		"aluguel-locatario": {
+			"alugueisRealizados": "已实现的租金：",
+			"valorPago": "支付的金额："
+		},
 		"cliente-credenciais": {
 			"alertaConfirmacaoSenha": "填写密码确认。",
 			"alertaSenhaAntiga": "输入旧密码。",
@@ -292,6 +302,7 @@
 			"alertaAluguel": "租房问题。",
 			"alertaDataHoje": "失效日期。 输入一个未来值。",
 			"alertaDataInicial": "开始日期大于结束日期。 输入有效的时间范围。",
+			"alertaProprioProduto": "您不能租用自己的产品。",
 			"alugar": "出租",
 			"alugueisRealizados": "已实现租金",
 			"avaliacaoUsuario": "用户评分",

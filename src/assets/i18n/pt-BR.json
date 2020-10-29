@@ -69,14 +69,14 @@
 	},
 	"cliente": {
 		"aluguel-locador": {
-			"locatario": "Locatário",
-			"pessoaAluguel": "Nome que fez o aluguel",
-			"produtosAlugados": "Seus Produtos Alugados",
-			"valorGerado": "Valor Gerado no Aluguel"
+			"locatario": "Locatário:",
+			"pessoaAluguel": "Proponente do Aluguel:",
+			"produtosAlugados": "Seus Produtos Alugados:",
+			"valorGerado": "Valor Gerado no Aluguel:"
 		},
 		"aluguel-locatario": {
-			"alugueisRealizados": "Aluguéis Realizados",
-			"valorPago": "Valor Pago"
+			"alugueisRealizados": "Aluguéis Realizados:",
+			"valorPago": "Valor Pago:"
 		},
 		"cliente-credenciais": {
 			"alertaConfirmacaoSenha": "Preencha a confirmação de senha.",
@@ -302,7 +302,7 @@
 			"alertaAluguel": "Problemas ao realizar aluguel.",
 			"alertaDataHoje": "Data inválida. Insira um valor futuro.",
 			"alertaDataInicial": "A data inicial é maior que a final. Insira um intervalo de tempo válido.",
-			"alertaProprioProduto": "Você não pode alugar o seu próprio produto.",
+			"alertaProprioProduto": "Você não pode alugar seu próprio produto.",
 			"alugar": "Alugar",
 			"alugueisRealizados": "Alugueis Realizados",
 			"avaliacaoUsuario": "Avaliação do Usuário:",
