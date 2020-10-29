@@ -15,7 +15,7 @@ import { RealizaAluguelComponent } from './realiza-aluguel/realiza-aluguel.compo
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 
 
@@ -31,6 +31,7 @@ import { FormsModule }   from '@angular/forms';
   imports: [
     CommonModule,
     MatIconModule,
+    ReactiveFormsModule,
     FormsModule,
     MatInputModule,
     MatDatepickerModule,

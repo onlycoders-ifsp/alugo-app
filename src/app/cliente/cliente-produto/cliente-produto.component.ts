@@ -133,7 +133,6 @@ export class ClienteProdutoComponent implements OnInit {
 
   updateProduto() {
     this.produtoAlterado.id_produto = this.idCurrentProduto;
-    console.log(this.produtoAlterado)
     this.produtoService.updateProduto(this.produtoAlterado).subscribe(response => {
       this.mensagemSucesso = "Produto " + this.produtoAlterado.nome + " atualizado com sucesso!",
         this.mensagemErro = null;
