@@ -58,8 +58,14 @@
                     <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
                         Usuário cadastrado com sucesso!! Faça login##
                       </div>
+                      <div *ngIf="mensagemErroCad" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        Erro ao tentar cadastrar usuário## 
+                      </div>
                       <div *ngIf="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
                         Formulário não está válido## 
+                      </div>
+                      <div *ngIf="mensagemSenhaErrada" class="alert alert-warning alert-dismissible fade show" role="alert">
+                        As senhas não batem## 
                       </div>
                     <div class="text-center mt-1">
                         <mat-form-field>

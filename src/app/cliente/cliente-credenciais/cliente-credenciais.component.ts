@@ -51,8 +51,6 @@ export class ClienteCredenciaisComponent implements OnInit {
         this.mensagemSenhaErrada = false;
         this.senha.senha_antiga = formCadValues.senhaAntiga;
         this.senha.senha_nova = formCadValues.senhaNova;
-
-        console.log(this.senha)
         this.auth.updateSenha(this.senha).subscribe(response =>{
           this.mensagemSucesso = true;
           this.mensagemErro = false;
