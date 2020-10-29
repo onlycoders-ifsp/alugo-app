@@ -115,9 +115,9 @@
               <div class="col-sm-4 px-2 mb-grid-gutter"><a class="d-block text-center text-decoration-none mr-1" routerLink="list-all"><img class="d-block rounded mb-3" src="../../../assets/imagens/shop/widget/11.jpg" alt="Audio">
                   <h3 class="font-size-base pt-1 mb-0">{{ 'portal-alugo.home.audio' | translate }}</h3></a></div>
               <div class="col-sm-4 px-2 mb-grid-gutter"><a class="d-block text-center text-decoration-none mr-1" routerLink="list-all"><img class="d-block rounded mb-3" src="../../../assets/imagens/shop/widget/09.jpg" alt="Pessoal">
-                  <h3 class="font-size-base pt-1 mb-0">Pessoal##</h3></a></div>
+                  <h3 class="font-size-base pt-1 mb-0">Pessoal#</h3></a></div>
               <div class="col-sm-4 px-2 mb-grid-gutter"><a class="d-block text-center text-decoration-none mr-1" routerLink="list-all"><img class="d-block rounded mb-3" src="../../../assets/imagens/shop/widget/13.jpg" alt="Profissional">
-                  <h3 class="font-size-base pt-1 mb-0">Profissional##</h3></a></div>
+                  <h3 class="font-size-base pt-1 mb-0">Profissional#</h3></a></div>
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@
     <div class="row pt-4 mx-n2">
       <div *ngFor="let item of produtos | slice:0:4; index as i" class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
         <div class="card product-card">
-          <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="##"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" (click)="verProdutoDeslogado(item)"><img src="data:image/jpg;base64,{{item.capa_foto}}" alt="Product"></a>
+          <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="#"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" (click)="verProdutoDeslogado(item)"><img src="data:image/jpg;base64,{{item.capa_foto}}" alt="Product"></a>
           <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">{{item.descricao_curta}}</a>
             <h3 class="product-title font-size-sm"><a routerLink="detalhe-produto">{{item.nome}}</a></h3>
             <div class="d-flex justify-content-between">

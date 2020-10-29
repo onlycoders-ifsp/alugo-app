@@ -69,7 +69,14 @@
 	},
 	"cliente": {
 		"cliente-credenciais": {
+			"alertaConfirmacaoSenha": "A confirmação de senha está vazia",
+			"alertaSenhasDivergentes": "As senhas estão divergentes",
+			"alertaSenhaAntiga": "Senha antiga está vazia",
+			"alertaSenhaAtual": "Senha atual incorreta",
+			"alertaSenhaNova": "Senha nova está vazia",
+			"alterarSenhaSucesso": "Senha alterada com sucesso",
 			"atualizarsenha": "Atualizar Senha",
+			"aviso": "Aviso !!",
 			"confirmesenha": "Confirme a nova senha",
 			"infosenha1": "É necessário conter uma letra maiúscula e um número",
 			"infosenha2": "Máximo 8 caracteres",
@@ -94,6 +101,7 @@
 			"seusprodutos": "Seus Produtos",
 			"suasinfos": "Suas Informações",
 			"transacoes": "Transações",
+			"usuarioLogado": "Usuário logado",
 			"vencimentos": "Valores a Receber"
 		},
 		"cliente-perfil": {
@@ -105,11 +113,27 @@
 			"uploadfoto": "Upload de imagem JPG, GIF ou PNG. 300 x 300 necessário."
 		},
 		"cliente-produto": {
+			"alertaDataCompra": "Data de compra não definida!",
+			"alertaDescricaoProduto": "Descrição do produto é necessária!",
+			"alertaDescricaoCurta": "Descrição curta do produto é necessária!",
+			"alertaNomeProduto": "Você precisa dar um nome para o produto!",
+			"alertaValorBaseDiaria": "Valor base diaria não definido!",
+			"alertaValorBaseMensal": "Valor base mensal não definido!",
+			"alertaValorProduto": "Valor do produto não informado!",
+			"ativo": "Ativo?",
+			"dataCompra": "Data Compra",
 			"Descricao": "Descrição",
+			"descricaoCurta": "Descrição Curta",
+			"dicaDescricao": "Completa com o maior número de detalhes que puder",
+			"dicaNomeProduto": "Insira o nome do produto cadastrado",
+			"dicaProduto": "Necessário para atrair o locador",
+			"dicaValorProduto": "Valor Pago no produto",
+			"dicaValorBase": "Valor Calculado aproximado",
 			"addeditprod": "Adicionar/Editar o Produto",
 			"formattags": "Minúsculas, separadas por vírgula e uma única palavra",
 			"maxcaracteres": "Máximo 100 carácteres",
 			"nomeproduto": "Nome do Produto",
+			"placeholderNomeProduto": "Aspirador de pó",
 			"selecaoarquivo": "Ou selecione o arquivo",
 			"selecionecategoria": "Selecione a Categoria",
 			"tags": "Tags do Produto",
@@ -117,6 +141,9 @@
 			"taxa": "aluGO aplica uma taxa de 10% sobre o valor.",
 			"textSuportado": "Formatações de texto suportadas:",
 			"uploadfoto": "Carregar foto de capa do produto",
+			"valorBaseDiaria": "Valor Base Diaria",
+			"valorBaseMensal": "Valor Base Mensal",
+			"valorProduto": "Valor do produto",
 			"valoraluguel": "Valor do Aluguel"
 		},
 		"lista-produtos": {
@@ -209,6 +236,7 @@
 			"tituloDestaque": "Você precisa de dinheiro extra?"
 		},
 		"login": {
+			"alertaCadastro": "Erro ao tentar cadastrar usuário",
 			"confirmaSenha": "Confirmar Senha",
 			"cpf": "CPF",
 			"cpfMenosDigitos": "O CPF tem menos de 11 digitos",
@@ -260,10 +288,13 @@
 			"termosUso": "Termos de Uso"
 		},
 		"realiza-aluguel": {
+			"alugar": "Alugar",
 			"alugueisRealizados": "Alugueis Realizados",
 			"avaliacaoUsuario": "Avaliação do usuário",
 			"dataInicial": "Data Inicial",
 			"dataFinal": "Data Final",
+			"locador": "Locador",
+			"nomeDono": "Nome dono do produto",
 			"qtdAlugueis": "Qtd Vezes alugado",
 			"valorBase": "Valor Base Calculado"
 		},
@@ -278,7 +309,8 @@
 			"procuraartigos": "Procura ferramentas para vídeo e fotos?",
 			"produtosdisponiveis": "Produtos disponíveis para aluguel:",
 			"proximo": "Próximo",
-			"vocequerganhardinheiro": "Você quer ganhar dinheiro?"
+			"vocequerganhardinheiro": "Você quer ganhar dinheiro?",
+			"visualizarDetalhes": "Visualizar Detalhes"
 		}
 	}
 }
