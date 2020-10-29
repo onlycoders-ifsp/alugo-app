@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import { eCurrentUsuario } from 'src/app/entidades/eCurrentUsuario';
@@ -6,6 +6,7 @@ import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { AuthService } from 'src/app/Services/auth.service';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { produtoService } from 'src/app/Services/produtoService';
+import { TodosProdutosComponent } from '../todos-produtos/todos-produtos.component';
 
 @Component({
   selector: 'app-portal-layout',
@@ -20,6 +21,7 @@ export class PortalLayoutComponent implements OnInit {
   currentBandeira: string;
   currentIdioma: string;
   txtPesquisa: string = "";
+  @ViewChild('TodosProdutosComponent') childComponent: TodosProdutosComponent
   
 
   constructor(
@@ -44,7 +46,13 @@ export class PortalLayoutComponent implements OnInit {
   }
 
   pesquisaProduto(){
+
     localStorage.setItem("txtPesquisaProduto", this.txtPesquisa)
+    //this.refreshChild();
     this.router.navigate(["/list-all"])
+  }
+
+  refreshChild() { 
+    this.childComponent.ngOnInit(); 
   }
 }

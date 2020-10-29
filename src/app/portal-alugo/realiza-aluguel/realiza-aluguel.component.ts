@@ -30,6 +30,7 @@ export class RealizaAluguelComponent implements OnInit {
   errorData: boolean = false;
   errorCad: boolean = false;
   errorDataMenorHoje: boolean = false;
+  errorDonoProduto: boolean = false;
 
   constructor(
     private router: Router,
@@ -136,26 +137,31 @@ export class RealizaAluguelComponent implements OnInit {
   setNewAluguel() {
     if (this.formularioAluguel.valid) {
       if (!this.errorDataMenorHoje && !this.errorData) {
-        const formCadValues = this.formularioAluguel.value;
-        let date_fim: Date = formCadValues.data_fim;
-        let dataFormat_fim = this.datepipe.transform(date_fim, 'yyyy-MM-dd');
-        this.cadAluguel.data_fim = dataFormat_fim;
+        if (this.currentDono.id_usuario != this.currentProduto.id_usuario) {
+          this.errorDonoProduto = false;
+          const formCadValues = this.formularioAluguel.value;
+          let date_fim: Date = formCadValues.data_fim;
+          let dataFormat_fim = this.datepipe.transform(date_fim, 'yyyy-MM-dd');
+          this.cadAluguel.data_fim = dataFormat_fim;
 
-        let date_inicio: Date = formCadValues.data_fim;
-        let dataFormat_inicio = this.datepipe.transform(date_inicio, 'yyyy-MM-dd');
-        this.cadAluguel.data_inicio = dataFormat_inicio;
+          let date_inicio: Date = formCadValues.data_fim;
+          let dataFormat_inicio = this.datepipe.transform(date_inicio, 'yyyy-MM-dd');
+          this.cadAluguel.data_inicio = dataFormat_inicio;
 
-        this.cadAluguel.valor_aluguel = this.valorAluguel;
-        this.cadAluguel.id_produto = this.currentProduto.id_produto;
+          this.cadAluguel.valor_aluguel = this.valorAluguel;
+          this.cadAluguel.id_produto = this.currentProduto.id_produto;
 
 
-        this.aluguelService.cadNewAluguel(this.cadAluguel).subscribe(response => {
-          this.errorCad = false;
-          this.router.navigate(["cliente/perfil/alugueis-locatario"])
-        }, errorResponse => {
-          console.log(errorResponse)
-          this.errorCad = true;
-        })
+          this.aluguelService.cadNewAluguel(this.cadAluguel).subscribe(response => {
+            this.errorCad = false;
+            this.router.navigate(["cliente/perfil/alugueis-locatario"])
+          }, errorResponse => {
+            console.log(errorResponse)
+            this.errorCad = true;
+          })
+        } else {
+          this.errorDonoProduto = true;
+        }
       }
     }
   }

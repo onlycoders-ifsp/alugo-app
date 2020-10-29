@@ -15,7 +15,7 @@
           <input [(ngModel)]="txtPesquisa" class="form-control appended-form-control" type="text" placeholder="
           {{ 'portal-alugo.portal-layout.procuraProdutos' | translate }}">
           
-          <div class="input-group-append-overlay">
+          <div class="input-group-append-overlay" style="cursor: pointer;">
             <span class="input-group-text" (click)="pesquisaProduto()">
               <i class="fa fa-search"></i>
             </span>
@@ -60,9 +60,9 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <!-- Search-->
           <div class="input-group-overlay d-lg-none my-3">
-            <div class="input-group-prepend-overlay"><span class="input-group-text"><i class="fa fa-search"></i></span>
+            <div (click)="pesquisaProduto()" style="cursor: pointer;" class="input-group-prepend-overlay"><span class="input-group-text"><i class="fa fa-search"></i></span>
             </div>
-            <input class="form-control prepended-form-control" type="text" placeholder="Procurar produtos">
+            <input [(ngModel)]="txtPesquisa" class="form-control prepended-form-control" type="text" placeholder="Procurar produtos">
           </div>
           <!-- <ul class="navbar-nav mega-nav pr-lg-2 mr-lg-2">
             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle pl-0" href="#" data-toggle="dropdown"><i

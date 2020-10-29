@@ -30,6 +30,9 @@
           <div *ngIf="errorCad" class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>{{ 'portal-alugo.realiza-aluguel.ops' | translate }}</strong> {{ 'portal-alugo.realiza-aluguel.alertaAluguel' | translate }}
           </div>
+          <div *ngIf="errorDonoProduto" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{ 'portal-alugo.realiza-aluguel.ops' | translate }}</strong> Você não pode alugar o seu próprio produto##
+          </div>
           <form [formGroup]="formularioAluguel" (ngSubmit)="setNewAluguel()">
             <div class="accordion" id="licenses">
               <div class="card border-top-0 border-left-0 border-right-0">
