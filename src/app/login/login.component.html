@@ -206,6 +206,9 @@
                                                       <mat-error *ngIf="formularioCadastro.controls.confirmaSenha.value != formularioCadastro.controls.senha.value">
                                                         {{ 'portal-alugo.login.senhaNConfere' | translate }}
                                                       </mat-error>
+                                                      <mat-error *ngIf="formularioCadastro.controls.confirmaSenha.errors && formularioCadastro.controls.confirmaSenha.errors.minlength">
+                                                        Deve ter no mínimo 8 caracteres##
+                                                      </mat-error>
                                                     <mat-icon matSuffix>lock</mat-icon>
                                                 </mat-form-field>
                                             </div>

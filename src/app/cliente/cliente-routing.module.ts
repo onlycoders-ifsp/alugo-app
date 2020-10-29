@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth.guard';
 import { PaginaNaoExisteComponent } from '../portal-alugo/pagina-nao-existe/pagina-nao-existe.component';
 import { PortalLayoutComponent } from '../portal-alugo/portal-layout/portal-layout.component';
+import { AluguelLocadorComponent } from './aluguel-locador/aluguel-locador.component';
+import { AluguelLocatarioComponent } from './aluguel-locatario/aluguel-locatario.component';
 import { ClienteCredenciaisComponent } from './cliente-credenciais/cliente-credenciais.component';
 import { ClienteLayoutComponent } from './cliente-layout/cliente-layout.component';
 import { ClientePerfilComponent } from './cliente-perfil/cliente-perfil.component';
@@ -16,7 +18,9 @@ const routes: Routes = [
       { path: 'dados', component: ClientePerfilComponent },
       { path: 'credenciais', component: ClienteCredenciaisComponent },
       { path: 'produto', component: ClienteProdutoComponent },
-      { path: 'meusprodutos', component: ListaProdutosComponent }
+      { path: 'meusprodutos', component: ListaProdutosComponent },
+      { path: 'alugueis-locador', component: AluguelLocadorComponent },
+      { path: 'alugueis-locatario', component: AluguelLocatarioComponent }
     ] }    
   ]}
 ];
