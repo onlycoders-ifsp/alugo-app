@@ -3,11 +3,11 @@
   <div class="bg-secondary rounded-lg p-4 mb-4">
     <div class="media align-items-center">
       <div *ngIf="!novaFoto">
-        <img *ngIf="!currentUsuarioLogado.capa_foto" src="../../../assets/imagens/avatar.svg" width="90" height="45" alt="##">
-        <img *ngIf="currentUsuarioLogado.capa_foto" src="data:image/jpg;base64,{{currentUsuarioLogado.capa_foto}}" width="90" alt="##">
+        <img *ngIf="!currentUsuarioLogado.capa_foto" src="../../../assets/imagens/avatar.svg" width="90" height="45" alt="{{ 'cliente.cliente-perfil.altUsuarioLogado' | translate }}">
+        <img *ngIf="currentUsuarioLogado.capa_foto" src="data:image/jpg;base64,{{currentUsuarioLogado.capa_foto}}" width="90" alt="{{ 'cliente.cliente-perfil.altUsuarioLogado' | translate }}">
       </div>
       <div *ngIf="novaFoto">
-        <img [src]="novaFoto" width="90" alt="##">
+        <img [src]="novaFoto" width="90" alt="{{ 'cliente.cliente-perfil.altNovaFoto' | translate }}">
       </div>
       
       <div class="media-body pl-3">
@@ -117,7 +117,7 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.numero' | translate }}</mat-label>
-          <input  formControlName="numero" matInput placeholder="321##">
+          <input  formControlName="numero" matInput placeholder="321">
           <mat-icon class="text-primary"  matSuffix>edit_road</mat-icon>
         </mat-form-field>
       </div>

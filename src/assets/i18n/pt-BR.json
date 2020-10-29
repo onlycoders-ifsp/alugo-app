@@ -105,6 +105,8 @@
 			"vencimentos": "Valores a Receber"
 		},
 		"cliente-perfil": {
+			"altNovaFoto": "Nova foto",
+			"altUsuarioLogado": "Usuário logado",
 			"atualizarperfil": "Atualizar Perfil",
 			"aviso": "Aviso!!",
 			"cadastroFeito": "Boa!!",
