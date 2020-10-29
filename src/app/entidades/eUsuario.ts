@@ -1,5 +1,5 @@
 export class eUsuario {
-    id_usuario: number;
+    id_usuario: string;
     nome: string;
     cpf: string;
     email: string;

@@ -405,7 +405,7 @@
         <div class="py-4 my-2 my-md-0 py-md-5 px-4 ml-md-3 text-center text-sm-left">
           <h4 class="font-size-lg font-weight-light mb-2">{{ 'portal-alugo.todos-produtos.procuraartigos' | translate }}</h4>
           <h3 class="mb-4">{{ 'portal-alugo.todos-produtos.deixeseucarrobrilhando' | translate }}</h3><a class="btn btn-primary btn-shadow btn-sm" href="#">{{ 'portal-alugo.todos-produtos.alugaragora' | translate }}</a>
-        </div><img class="d-block ml-auto" src="../../assets/imagens/shop/catalog/bannerCarro.png" alt="Shop Converse">
+        </div><img class="d-block ml-auto" src="../../assets/imagens/shop/catalog/camera2.jpg" alt="Shop Converse">
       </div>
     </div>
     <div class="col-md-4 mb-4">
@@ -422,7 +422,7 @@
     <div *ngFor="let item of produtos; let i = index" class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
       <div class="card product-card">
         <button (click)="verProdutoDeslogado(item)" class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Adicionar aos Favoritos"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" (click)="verProdutoDeslogado(item)">
-          <img *ngIf="!item.capa_foto" src="../../assets/imagens/shop/catalog/{{i+1}}.jpg" alt="Produto">
+          <!-- <img *ngIf="!item.capa_foto" src="../../assets/imagens/shop/catalog/{{i+1}}.jpg" alt="Produto"> -->
           <img *ngIf="item.capa_foto" src="data:image/jpg;base64,{{item.capa_foto}}" alt="Produto">
         </a>
         <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">{{item.descricao_curta}}</a>

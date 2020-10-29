@@ -19,6 +19,7 @@ export class TodosProdutosComponent implements OnInit {
   idiomas: iIdioma[];
   currentBandeira: string;
   currentIdioma: string;
+  txtPesquisaproduto: string;
   
   constructor(
     private router: Router,
@@ -32,7 +33,9 @@ export class TodosProdutosComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentProduto = new eProduto();
+    
     if (localStorage.getItem("txtPesquisaProduto")) {
+      console.log("chamou especifico")
       this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto")).subscribe(response => {
         this.produtos = response;
         localStorage.removeItem("txtPesquisaProduto");
@@ -40,6 +43,7 @@ export class TodosProdutosComponent implements OnInit {
         console.log(errorResponse);
       })
     } else {
+      console.log("chamou geral")
       this.portalService.getProdutos().subscribe(resposta => {
         this.produtos = resposta;
         console.log(this.produtos)
