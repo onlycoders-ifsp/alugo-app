@@ -21,10 +21,10 @@
 
   </div>
   <div *ngIf="mensagemErro" class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Aviso!! </strong>Nem todos os campos estão corretos! Por favor revise##
+    <strong>{{ 'cliente.cliente-perfil.aviso' | translate }}</strong>{{ 'cliente.cliente-perfil.camposIncorretos' | translate }}
   </div>
   <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Boa!! </strong>{{mensagemSucesso}}
+    <strong>{{ 'cliente.cliente-perfil.cadastroFeito' | translate }}</strong>{{mensagemSucesso}}
   </div>
   <div class="row">
     <div class="col-sm-6">
@@ -33,7 +33,7 @@
           <mat-label>{{ 'campos.label.nome' | translate }}</mat-label>
           <input formControlName="nome" matInput placeholder="{{ 'campos.label.placeholdernome' | translate }}">
           <mat-error *ngIf="formularioCliente.controls.nome.errors && formularioCliente.controls.nome.errors.required">
-            Você precisa preencher o nome##
+            {{ 'campos.label.nomePreenchimento' | translate }}
           </mat-error>
           <mat-icon class="text-primary"  matSuffix>tag_faces</mat-icon>
         </mat-form-field>
@@ -42,10 +42,10 @@
     <div class="col-sm-6">
       <div class="form-group">
         <mat-form-field  class="full-width">
-          <mat-label>CPF</mat-label>
-          <input  formControlName="cpf" mask="000.000.000-00" matInput placeholder="123.456.789-01">
-        <mat-hint align="end">11 Digitos##</mat-hint>
-          <mat-icon class="text-primary" matSuffix >fingerprint</mat-icon>
+          <mat-label>{{ 'campos.label.cpf' | translate }}</mat-label>
+          <input  formControlName="cpf" mask="000.000.000-00" matInput placeholder="{{ 'campos.label.placeholdercpf' | translate }}">
+        <mat-hint align="end">{{ 'campos.label.cpfPreenchimento' | translate }}</mat-hint>
+          <mat-icon class="text-primary" matSuffix >lock</mat-icon>
         </mat-form-field>
       </div>
     </div>
@@ -55,22 +55,22 @@
           <mat-label>{{ 'campos.label.email' | translate }}</mat-label>
           <input  formControlName="email" matInput placeholder="{{ 'campos.label.placeholderemail' | translate }}">
           <mat-error *ngIf="formularioCliente.controls.email.errors && formularioCliente.controls.email.errors.required">
-            Você precisa preencher o email##
+            {{ 'campos.label.emailPreenchimento' | translate }}
           </mat-error>
           <mat-error *ngIf="formularioCliente.controls.email.errors && formularioCliente.controls.email.errors.email">
-            o email precisa ser válido##
+            {{ 'campos.label.emailValido' | translate }}
           </mat-error>
-          <mat-icon class="text-primary"  matSuffix>email</mat-icon>
+          <mat-icon class="text-primary"  matSuffix>{{ 'campos.label.email' | translate }}</mat-icon>
         </mat-form-field>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="form-group">
         <mat-form-field  class="full-width">
-          <mat-label>Login</mat-label>
-          <input  formControlName="login" matInput placeholder="joaosilva##">
+          <mat-label>{{ 'campos.label.login' | translate }}</mat-label>
+          <input  formControlName="login" matInput placeholder="{{ 'campos.label.placeholdernome' | translate }}">
           <mat-error *ngIf="formularioCliente.controls.login.errors && formularioCliente.controls.login.errors.required">
-            Vocë precisa ter um login##
+            {{ 'campos.label.loginNecessario' | translate }}
           </mat-error>
           <mat-icon class="text-primary"  matSuffix>local_library</mat-icon>
         </mat-form-field>
@@ -79,7 +79,7 @@
     <div class="col-sm-6">
       <div class="form-group">
         <mat-form-field class="full-width">
-          <mat-label>Selecione uma Data##</mat-label>
+          <mat-label>{{ 'campos.label.selecaoData' | translate }}</mat-label>
           <input matInput [matDatepicker]="picker" disabled formControlName="dataNascimento">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker disabled="false"></mat-datepicker>
@@ -90,7 +90,7 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.telefone' | translate }}</mat-label>
-          <input  formControlName="celular" mask="(00) 0 0000-0000" matInput placeholder="(11) 9 8838-9393##">
+          <input  formControlName="celular" mask="(00) 0 0000-0000" matInput placeholder="{{ 'campos.label.placeholdertelefone' | translate }}">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
@@ -98,9 +98,9 @@
     <div class="col-sm-6">
       <div class="form-group">
         <mat-form-field  class="full-width">
-          <mat-label>CEP##</mat-label>
-          <input  formControlName="cep" mask="00000-000" matInput placeholder="08664967##">
-          <mat-icon class="text-primary"  matSuffix>phone</mat-icon>
+          <mat-label>{{ 'campos.label.cep' | translate }}</mat-label>
+          <input  formControlName="cep" mask="00000-000" matInput placeholder="{{ 'campos.label.placeholdercep' | translate }}">
+          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
     </div>
@@ -126,17 +126,17 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.complemento' | translate }}</mat-label>
-          <input  formControlName="complemento" matInput placeholder="apt 91##">
-          <mat-icon class="text-primary"  matSuffix>edit_road</mat-icon>
+          <input  formControlName="complemento" matInput placeholder="{{ 'campos.label.placeholdercomplemento' | translate }}">
+          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="form-group">
         <mat-form-field  class="full-width">
-          <mat-label>Bairro##</mat-label>
-          <input  formControlName="bairro" matInput placeholder="Barcelona##">
-          <mat-icon class="text-primary" matSuffix>edit_road</mat-icon>
+          <mat-label>{{ 'campos.label.bairro' | translate }}</mat-label>
+          <input  formControlName="bairro" matInput placeholder="{{ 'campos.label.placeholderbairro' | translate }}">
+          <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
     </div>
