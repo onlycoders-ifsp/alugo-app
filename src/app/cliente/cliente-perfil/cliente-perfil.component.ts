@@ -135,6 +135,7 @@ novaFoto: string;
       });
     }else{
       this.mensagemErro = "O formulário ainda não está valido##"
+      this.mensagemSucesso = null;
     }
   }
 
