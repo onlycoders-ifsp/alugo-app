@@ -229,6 +229,7 @@
 			"recuperaSenha": "Recuperar Senha",
 			"registrar": "Registre-se",
 			"senha": "Senha",
+			"senhaValidacao": "Deve ter no mínimo 8 caracteres",
 			"senhaVazia": "A senha está vazia",
 			"senhaNConfere": "A senha não confere",
 			"telefone": "Telefone",
