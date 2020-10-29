@@ -3,25 +3,25 @@
     <div class="pt-2 px-4 pl-lg-0 pr-xl-5">
       <!-- Title-->
       <div *ngIf="mensagemSucessoProduto" class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Boa!! </strong> {{mensagemSucessoProduto}} ##
+        <strong>{{ 'cliente.lista-produtos.cadastroFeito' | translate }} </strong> {{mensagemSucessoProduto}} ##
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="d-sm-flex flex-wrap justify-content-between align-items-center border-bottom">
-        <h2 class="h3 py-2 mr-2 text-center text-sm-left">{{ 'clientes.lista-produto.seusprodutos' | translate }}<span class="badge badge-secondary font-size-sm text-body align-middle ml-2">{{ Produtos.length }}</span></h2>
+        <h2 class="h3 py-2 mr-2 text-center text-sm-left">{{ 'cliente.lista-produtos.seusprodutos' | translate }}<span class="badge badge-secondary font-size-sm text-body align-middle ml-2">{{ Produtos.length }}</span></h2>
         <div class="py-2">
           <div class="form-inline flex-nowrap pb-3">
-            <label class="text-nowrap mr-2" for="sorting">{{ 'clientes.lista-produto.ordernarpor' | translate }}:</label>
+            <label class="text-nowrap mr-2" for="sorting">{{ 'cliente.lista-produtos.ordenarpor' | translate }}:</label>
             <select class="custom-select custom-select-sm mr-2" id="sorting">
-              <option>{{ 'clientes.lista-produto.datacadastro' | translate }}</option>
-              <option>{{ 'clientes.lista-produto.nome' | translate }}</option>
-              <option>{{ 'clientes.lista-produto.valoraluguel' | translate }}</option>
-              <option>{{ 'clientes.lista-produto.avaliacao' | translate }}</option>
+              <option>{{ 'cliente.lista-produtos.datacadastro' | translate }}</option>
+              <option>{{ 'cliente.lista-produtos.nome' | translate }}</option>
+              <option>{{ 'cliente.lista-produtos.valoraluguel' | translate }}</option>
+              <option>{{ 'cliente.lista-produtos.avaliacao' | translate }}</option>
             </select>
             <button class="btn btn-outline-secondary btn-sm px-2" type="button"><i class="fa fa-arrow-up"></i></button>
           </div>
-          <button class="btn bg-faded-success btn-icon mr-2" (click)="novoProduto()" type="button" data-toggle="tooltip" title="Editar##"><i class="fa fa-plus text-success"></i> Novo Produto##</button>
+          <button class="btn bg-faded-success btn-icon mr-2" (click)="novoProduto()" type="button" data-toggle="tooltip" title="{{ 'cliente.lista-produtos.titleBotaoEditar' | translate }}"><i class="fa fa-plus text-success"></i> {{ 'cliente.lista-produtos.novoProduto' | translate }}</button>
         </div>
       </div>
       <!-- LISTA DE PRODUTOS DO USUÁRIO EM QUESTÃO-->
@@ -33,8 +33,8 @@
           <div class="d-inline-block text-muted font-size-ms border-left ml-2 pl-2">{{ 'clientes.lista-produto.ganhos' | translate }}: <span class="font-weight-medium">R$ {{produto.total_ganhos}}<small></small></span></div>
           <div class="d-flex justify-content-center justify-content-sm-start pt-3">
             <!-- <button class="btn bg-faded-accent btn-icon mr-2" type="button" data-toggle="tooltip" title="Inativar"><i class="fa fa-lock text-accent"></i></button> -->
-            <button class="btn bg-faded-info btn-icon mr-2" (click)="verMeuProduto(produto.id_produto)" type="button" data-toggle="tooltip" title="Editar##"><i class="fa fa-edit text-info"></i></button>
-            <button class="btn bg-faded-danger btn-icon" type="button" data-toggle="tooltip" title="Inativar##"><i class="fa fa-trash text-danger"></i></button>
+            <button class="btn bg-faded-info btn-icon mr-2" (click)="verMeuProduto(produto.id_produto)" type="button" data-toggle="tooltip" title="{{ 'cliente.lista-produtos.titleBotaoEditar' | translate }}"><i class="fa fa-edit text-info"></i></button>
+            <button class="btn bg-faded-danger btn-icon" type="button" data-toggle="tooltip" title="{{ 'cliente.lista-produtos.titleBotaoInativar' | translate }}"><i class="fa fa-trash text-danger"></i></button>
           </div>
         </div>
       </div>
