@@ -25,9 +25,11 @@ export class LoginComponent implements OnInit {
   loginError: boolean;
   idiomas: iIdioma[];
 
-  mensagemErro: string;
-  mensagemSucesso: string;
-  loginErro: string;
+  mensagemErro: boolean;
+  mensagemSucesso: boolean;
+  mensagemErroCad: boolean;
+  mensagemSenhaErrada: boolean;
+  loginErro: boolean;
 
 
   constructor(
@@ -80,10 +82,10 @@ export class LoginComponent implements OnInit {
                                                     const access_token = JSON.stringify(response);
                                                     localStorage.setItem("access_token", access_token)
                                                     this.router.navigate(['/cliente/perfil/dados']),
-                                                    this.loginErro = null;
+                                                    this.loginErro = false;
                                                   }, errorResponse =>{
                                                     //this.loginErro = formLoginValues.username + ' Usuário e/ou senha inválidos'
-                                                    this.loginErro = 'Usuário e/ou senha inválidos';                                                    
+                                                    this.loginErro = true;                                                    
                                                   })
     }
     
@@ -91,6 +93,7 @@ export class LoginComponent implements OnInit {
   }
 
   cadastrar() {
+    
     const formCadValues = this.formularioCadastro.value;
     const user : eUsuarioConstructor = new eUsuarioConstructor(formCadValues.nome, 
       formCadValues.email, 
@@ -101,30 +104,32 @@ export class LoginComponent implements OnInit {
       "",
       "",
       "")
-    if(this.formularioCadastro.valid){
-      this.authService.cadastrarNovoUsuario(user).subscribe(response =>{
-        this.mensagemSucesso = "Cadastro Efetuado com sucesso! Faça Login",
-          this.mensagemErro = null
-      }, errorResponse => {
-        this.mensagemSucesso = null,
-          this.mensagemErro = "Erro ao realizar o cadastro" + errorResponse
-      });
-    }else{
-      this.mensagemErro = "O formulário ainda não está valido"
+    if (this.formularioCadastro.valid) {
+      if (formCadValues.senha == formCadValues.confirmaSenha) {
+        this.mensagemSenhaErrada = false;
+        this.authService.cadastrarNovoUsuario(user).subscribe(response => {
+          this.mensagemSucesso = true;
+          this.mensagemErro = false;
+          this.mensagemErroCad = false
+        }, errorResponse => {
+          this.mensagemSucesso = false;
+          this.mensagemErroCad = true;
+          this.mensagemErro = false;
+        });
+      } else {
+        this.mensagemSenhaErrada = true;
+      this.mensagemErro = false;
+      this.mensagemSucesso = false;
+      this.mensagemErroCad = false;
+        
+      }
+    } else {
+      this.mensagemErro = true;
+        this.mensagemSucesso = false;
+        this.mensagemErroCad = false;
     }
-    
 
-
-    // const usuario: eUserLogin = new eUserLogin();
-    // usuario.username = this.username;
-    // usuario.password = this.password;
-    // this.authService.salvar(usuario).subscribe(response => {
-    //   this.mensagemSucesso = "Cadastro Efetuado com sucesso! Faça Login",
-    //     this.mensagemErro = null
-    // }, errorResponse => {
-    //   this.mensagemSucesso = null,
-    //     this.mensagemErro = "Erro ao realizar o cadastro"
-    // })
+      
   }
 
   clickMudaIdioma() {

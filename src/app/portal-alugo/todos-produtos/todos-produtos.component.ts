@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { eProduto } from 'src/app/entidades/eProduto';
-import { eResponseProdutos } from 'src/app/entidades/eResponseProdutos';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { PortalService } from 'src/app/Services/PortalService';
@@ -55,9 +54,9 @@ export class TodosProdutosComponent implements OnInit {
     this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
   }
 
-  verProdutoDeslogado(itemSelecionado: eResponseProdutos){
-    console.log(itemSelecionado.produto.id_produto)
-    window.sessionStorage.setItem('idProduto', itemSelecionado.produto.id_produto)
+  verProdutoDeslogado(itemSelecionado: eProduto){
+    console.log(itemSelecionado.id_produto)
+    window.sessionStorage.setItem('idProduto', itemSelecionado.id_produto)
     this.router.navigate(['/detalhe-produto']);
   }
 

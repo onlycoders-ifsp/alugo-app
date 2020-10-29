@@ -425,16 +425,16 @@
           <img *ngIf="!item.capa_foto" src="../../assets/imagens/shop/catalog/{{i+1}}.jpg" alt="Produto">
           <img *ngIf="item.capa_foto" src="data:image/jpg;base64,{{item.capa_foto}}" alt="Produto">
         </a>
-        <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">Men’s Accessories</a>
+        <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">{{item.descricao_curta}}</a>
           <h3 class="product-title font-size-sm"><a routerLink="/detalhe-produto">{{item.nome}}</a></h3>
           <div class="d-flex justify-content-between">
-            <div class="product-price"><span class="text-accent">R$ 7.<small>99</small></span></div>
+            <div class="product-price"><span class="text-accent">R$ {{item.valor_base_diaria}}<small></small></span></div>
             <div class="star-rating"><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i>
             </div>
           </div>
         </div>
         <div class="card-body card-body-hidden">
-          <button class="btn btn-primary btn-sm btn-block mb-2" type="button" href="#quick-view" data-toggle="modal"><i class="fa fa-cart font-size-sm mr-1"></i>Visualizar Detalhes</button>
+          <button class="btn btn-primary btn-sm btn-block mb-2" type="button" (click)="verProdutoDeslogado(item)"><i class="fa fa-cart font-size-sm mr-1"></i>Visualizar Detalhes##</button>
         </div>
       </div>
       <hr class="d-sm-none">

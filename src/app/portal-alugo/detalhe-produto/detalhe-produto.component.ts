@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { eProduto } from 'src/app/entidades/eProduto';
-import { eResponseProdutos } from 'src/app/entidades/eResponseProdutos';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { PortalService } from 'src/app/Services/PortalService';
@@ -30,7 +29,7 @@ export class DetalheProdutoComponent implements OnInit {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas(),
     this.id_produto = sessionStorage.getItem('idProduto');
-    sessionStorage.removeItem('idProduto');
+    //sessionStorage.removeItem('idProduto');
 
     this.portalService.getProdutoById(this.id_produto)
     .subscribe( 

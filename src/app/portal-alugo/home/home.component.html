@@ -128,10 +128,10 @@
   <section class="container pt-md-3 pb-5 mb-md-3">
     <h2 class="h3 text-center">{{ 'portal-alugo.home.produtosEmAlta' | translate }}</h2>
     <div class="row pt-4 mx-n2">
-      <div *ngFor="let item of produtos; index as i" class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
+      <div *ngFor="let item of produtos | slice:0:4; index as i" class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
         <div class="card product-card">
-          <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="Add to wishlist"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" (click)="verProdutoDeslogado(item)"><img src="data:image/jpg;base64,{{item.capa_foto}}" alt="Product"></a>
-          <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">{{item.descricao}}</a>
+          <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="##"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" (click)="verProdutoDeslogado(item)"><img src="data:image/jpg;base64,{{item.capa_foto}}" alt="Product"></a>
+          <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">{{item.descricao_curta}}</a>
             <h3 class="product-title font-size-sm"><a routerLink="detalhe-produto">{{item.nome}}</a></h3>
             <div class="d-flex justify-content-between">
               <div class="product-price"><span class="text-accent">R$ {{item.valor_base_diaria}}<small></small></span></div>
@@ -145,7 +145,7 @@
             </div>
           </div>
           <div class="card-body card-body-hidden">
-            <button class="btn btn-primary btn-sm btn-block mb-2" (click)="exibeDetalhesModal(item)"  type="button" data-target="#quick-view" data-toggle="modal"><i class="fa fa-cart font-size-sm mr-1"></i>{{ 'portal-alugo.home.botaoVisualizarDetalhes' | translate }}</button>
+            <button class="btn btn-primary btn-sm btn-block mb-2" (click)="verProdutoDeslogado(item)"  type="button"><i class="fa fa-cart font-size-sm mr-1"></i>{{ 'portal-alugo.home.botaoVisualizarDetalhes' | translate }}</button>
           </div>
         </div>
         <hr class="d-sm-none">
