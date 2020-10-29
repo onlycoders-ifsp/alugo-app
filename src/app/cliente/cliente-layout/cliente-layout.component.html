@@ -32,8 +32,8 @@
             <h3 class="font-size-sm mb-0 text-muted">{{ 'cliente.cliente-layout.transacoes' | translate }}</h3>
           </div>
           <ul class="list-unstyled mb-0">
-            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="#"><i class="fa fa-user-check opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.locador' | translate }}<span class="font-size-sm text-muted ml-auto">1</span></a></li>
-            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="#"><i class="fa fa-user-check opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.locatario' | translate }}<span class="font-size-sm text-muted ml-auto">5</span></a></li>
+            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" routerLink="/cliente/perfil/alugueis-locador"><i class="fa fa-user-check opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.locador' | translate }}<span class="font-size-sm text-muted ml-auto">1</span></a></li>
+            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" routerLink="/cliente/perfil/alugueis-locatario"><i class="fa fa-user-check opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.locatario' | translate }}<span class="font-size-sm text-muted ml-auto">5</span></a></li>
           </ul>
           <div class="bg-secondary px-4 py-3">
             <h3 class="font-size-sm mb-0 text-muted">{{ 'cliente.cliente-layout.seusprodutos' | translate }}</h3>
@@ -46,15 +46,16 @@
             <h3 class="font-size-sm mb-0 text-muted">{{ 'cliente.cliente-layout.pagamentos' | translate }}</h3>
           </div>
           <ul class="list-unstyled mb-0">
-            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="#"><i class="fa fa-money-bill-alt opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.vencimentos' | translate }}<span class="font-size-sm text-muted ml-auto">1</span></a></li>
-            <li class="mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="#"><i class="fa fa-credit-card opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.infospagamento' | translate }}</a></li>
+            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href=""><i class="fa fa-money-bill-alt opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.vencimentos' | translate }}<span class="font-size-sm text-muted ml-auto">1</span></a></li>
+            <li class="mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href=""><i class="fa fa-credit-card opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.infospagamento' | translate }}</a></li>
           </ul>
           
         </div>
       </aside>
       <section class="col-lg-8">
         <div class="d-none d-lg-flex justify-content-between align-items-center pt-lg-3 pb-4 pb-lg-5 mb-lg-3">
-          <h6 class="font-size-base text-light mb-0">{{ 'cliente.cliente-layout.atualize' | translate }}</h6><a class="btn btn-primary btn-sm" (click)="logout()"><i class="fa fa-sign-out mr-2"></i>{{ 'cliente.cliente-layout.sair' | translate }}</a>
+          <h6 class="font-size-base text-light mb-0"></h6>
+          <a class="btn btn-primary btn-sm" (click)="logout()"><i class="fa fa-sign-out mr-2"></i>{{ 'cliente.cliente-layout.sair' | translate }}</a>
         </div>
         <router-outlet></router-outlet>
       </section>

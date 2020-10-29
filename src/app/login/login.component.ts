@@ -56,7 +56,8 @@ export class LoginComponent implements OnInit {
         Validators.minLength(8)
       ], ],
       confirmaSenha:['', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(8)
       ], ],
       cpf:['', [
         Validators.required,

@@ -25,6 +25,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { AluguelLocadorComponent } from './aluguel-locador/aluguel-locador.component';
+import { AluguelLocatarioComponent } from './aluguel-locatario/aluguel-locatario.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -34,7 +36,9 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     ClientePerfilComponent,
     ClienteProdutoComponent,
     ListaProdutosComponent,
-    ClienteCredenciaisComponent
+    ClienteCredenciaisComponent,
+    AluguelLocadorComponent,
+    AluguelLocatarioComponent
   ],
   imports: [
     CommonModule,
