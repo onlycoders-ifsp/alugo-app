@@ -68,6 +68,16 @@
 		"studio": "Herramientas de Estudio"
 	},
 	"cliente": {
+		"aluguel-locador": {
+			"locatario": "Arrendatario:",
+			"pessoaAluguel": "Inquilino:",
+			"produtosAlugados": "Sus productos Alquilados:",
+			"valorGerado": "Valor generado en el alquiler:"
+		},
+		"aluguel-locatario": {
+			"alugueisRealizados": "Alquileres Realizados:",
+			"valorPago": "Cantidad Pagada:"
+		},
 		"cliente-credenciais": {
 			"alertaConfirmacaoSenha": "Complete la confirmación de la contraseña.",
 			"alertaSenhaAntiga": "Ingrese la contraseña anterior.",
@@ -292,6 +302,7 @@
 			"alertaAluguel": "Problemas con el alquiler.",
 			"alertaDataHoje": "Fecha invalida. Ingrese un valor futuro.",
 			"alertaDataInicial": "La fecha de inicio es mayor que la fecha de finalización. Ingrese un rango de tiempo válido.",
+			"alertaProprioProduto": "No puede alquilar su propio producto.",
 			"alugar": "Alquilar",
 			"alugueisRealizados": "Alquileres Realizados",
 			"avaliacaoUsuario": "Opiniones de los usuarios:",

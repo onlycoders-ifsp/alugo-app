@@ -68,6 +68,16 @@
 		"studio": "Studio Tools"
 	},
 	"cliente": {
+		"aluguel-locador": {
+			"locatario": "Renter:",
+			"pessoaAluguel": "Renter:",
+			"produtosAlugados": "Your Rented Products:",
+			"valorGerado": "Value Generated on Rent:"
+		},
+		"aluguel-locatario": {
+			"alugueisRealizados": "Realized Rentals:",
+			"valorPago": "Amount Paid:"
+		},
 		"cliente-credenciais": {
 			"alertaConfirmacaoSenha": "Fill in the password confirmation.",
 			"alertaSenhaAntiga": "Enter the old password.",
@@ -292,6 +302,7 @@
 			"alertaAluguel": "Problems with renting.",
 			"alertaDataHoje": "Invalid date. Enter a future value.",
 			"alertaDataInicial": "The start date is greater than the end date. Enter a valid time range.",
+			"alertaProprioProduto": "You cannot rent your own product.",
 			"alugar": "Rent",
 			"alugueisRealizados": "Realized Rents",
 			"avaliacaoUsuario": "User Rating:",
