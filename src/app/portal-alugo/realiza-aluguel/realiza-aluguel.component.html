@@ -31,7 +31,7 @@
             <strong>{{ 'portal-alugo.realiza-aluguel.ops' | translate }}</strong> {{ 'portal-alugo.realiza-aluguel.alertaAluguel' | translate }}
           </div>
           <div *ngIf="errorDonoProduto" class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>{{ 'portal-alugo.realiza-aluguel.ops' | translate }}</strong> Você não pode alugar o seu próprio produto##
+            <strong>{{ 'portal-alugo.realiza-aluguel.ops' | translate }}</strong> {{ 'portal-alugo.realiza-aluguel.alertaProprioProduto' | translate }}
           </div>
           <form [formGroup]="formularioAluguel" (ngSubmit)="setNewAluguel()">
             <div class="accordion" id="licenses">

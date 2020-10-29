@@ -2,7 +2,7 @@
   <div class="pt-2 px-4 pl-lg-0 pr-xl-5">
     
     <div class="d-sm-flex flex-wrap justify-content-between align-items-center border-bottom">
-      <h2 class="h3 py-2 mr-2 text-center text-sm-left">Seus Produtos Alugados##</h2>
+      <h2 class="h3 py-2 mr-2 text-center text-sm-left">{{ 'cliente.aluguel-locador.produtosAlugados' | translate }}</h2>
       <div class="py-2">
         <!-- <div class="form-inline flex-nowrap pb-3">
           <label class="text-nowrap mr-2" for="sorting">Sort by:</label>
@@ -32,10 +32,10 @@
           <div class="my-2">
             <div class="bg-secondary rounded p-3 mt-4 mb-2"><a class="media align-items-center">
             
-              <img *ngIf="item.locatario.capa_foto" class="rounded-circle" width="50" src="data:image/jpg;base64,{{item.locatario.capa_foto}}" alt="NomeQueFezAluguel##" />
-              <img *ngIf="!item.locatario.capa_foto" class="rounded-circle" width="50" src="../../../assets/imagens/avatar.svg" alt="NomeQueFezAluguel##" />
+              <img *ngIf="item.locatario.capa_foto" class="rounded-circle" width="50" src="data:image/jpg;base64,{{item.locatario.capa_foto}}" alt="{{ 'cliente.aluguel-locador.pessoaAluguel' | translate }}" />
+              <img *ngIf="!item.locatario.capa_foto" class="rounded-circle" width="50" src="../../../assets/imagens/avatar.svg" alt="{{ 'cliente.aluguel-locador.pessoaAluguel' | translate }}" />
 
-                <div class="media-body pl-2"><span class="font-size-ms text-muted">Locatário##</span>
+                <div class="media-body pl-2"><span class="font-size-ms text-muted">{{ 'cliente.aluguel-locador.locatario' | translate }}</span>
                   <h6 class="font-size-sm mb-0">{{item.locatario.nome}}</h6>
                 </div>
               </a></div>
@@ -44,7 +44,7 @@
         <div class="card border-bottom-0 border-left-0 border-right-0">
           <div class="card-header d-flex justify-content-between align-items-center py-3 border-0">
             <div class="custom-control custom-radio">
-              Valor Gerado no Aluguel##
+              {{ 'cliente.aluguel-locador.valorGerado' | translate }}
             </div>
             <h5 class="mb-0 text-accent font-weight-normal">R$ {{item.valor_aluguel}}<small></small></h5>
           </div>
