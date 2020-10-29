@@ -59,13 +59,13 @@
                         {{ 'portal-alugo.login.usuarioCadastrado' | translate }}
                       </div>
                       <div *ngIf="mensagemErroCad" class="alert alert-danger alert-dismissible fade show" role="alert">
-                        Erro ao tentar cadastrar usuário## 
+                        {{ 'portal-alugo.login.alertaCadastro' | translate }}
                       </div>
                       <div *ngIf="mensagemErro" class="alert alert-danger alert-dismissible fade show" role="alert">
                         {{ 'portal-alugo.login.formularioInvalido' | translate }}
                       </div>
                       <div *ngIf="mensagemSenhaErrada" class="alert alert-warning alert-dismissible fade show" role="alert">
-                        As senhas não batem## 
+                        {{ 'cliente.cliente-credenciais.senhasDivergentes' | translate }}
                       </div>
                     <div class="text-center mt-1">
                         <mat-form-field>
@@ -190,7 +190,7 @@
                                                         {{ 'portal-alugo.login.senhaVazia' | translate }}
                                                       </mat-error>
                                                       <mat-error *ngIf="formularioCadastro.controls.senha.errors && formularioCadastro.controls.senha.errors.minlength">
-                                                        Deve ter no mínimo 8 caracteres##
+                                                        {{ 'portal-alugo.login.senhaValidacao' | translate }}
                                                       </mat-error>
                                                 </mat-form-field>
                                             </div>
@@ -207,7 +207,7 @@
                                                         {{ 'portal-alugo.login.senhaNConfere' | translate }}
                                                       </mat-error>
                                                       <mat-error *ngIf="formularioCadastro.controls.confirmaSenha.errors && formularioCadastro.controls.confirmaSenha.errors.minlength">
-                                                        Deve ter no mínimo 8 caracteres##
+                                                        {{ 'portal-alugo.login.senhaValidacao' | translate }}
                                                       </mat-error>
                                                     <mat-icon matSuffix>lock</mat-icon>
                                                 </mat-form-field>

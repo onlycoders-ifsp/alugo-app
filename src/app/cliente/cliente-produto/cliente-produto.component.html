@@ -2,16 +2,16 @@
   <section class="col-lg-12 pt-lg-8 pb-4 mb-3">
     <div class="pt-2 px-4 pl-lg-0 pr-xl-5">
       <form [formGroup]="formularioProduto" (ngSubmit)="inputaProduto()">
-        <mat-checkbox class="ins-invalid" formControlName="ativo">Ativo?##</mat-checkbox>
+        <mat-checkbox class="ins-invalid" formControlName="ativo">{{ 'clientes.cliente-produto.ativo' | translate }}</mat-checkbox>
         <div class="form-group pb-2">
           <label class="font-weight-medium" for="unp-product-name">{{ 'clientes.cliente-produto.nomeproduto' | translate }}</label>
           <mat-form-field  class="full-width">
-            <mat-label>Nome do Produto##</mat-label>
-            <input  formControlName="nome" matInput placeholder="##">
+            <mat-label>{{ 'clientes.cliente-produto.nomeproduto' | translate }}</mat-label>
+            <input  formControlName="nome" matInput placeholder="{{ 'clientes.cliente-produto.placeholderNomeProduto' | translate }}">
             <mat-error *ngIf="formularioProduto.controls.nome.errors && formularioProduto.controls.nome.errors.required">
-              Você precisa dar um nome para o produto##
+              {{ 'clientes.cliente-produto.alertaNomeProduto' | translate }}
             </mat-error>
-          <mat-hint align="end">##</mat-hint>
+          <mat-hint align="end">{{ 'clientes.cliente-produto.dicaNomeProduto' | translate }}</mat-hint>
             <mat-icon class="text-primary" matSuffix >lock</mat-icon>
           </mat-form-field>
           
@@ -42,29 +42,29 @@
           <label class="font-weight-medium">{{ 'clientes.cliente-produto.descricao' | translate }}</label>
           <textarea formControlName="descricao" [ngClass]="{'is-invalid': erroDescricao}" class="form-control" rows="6"></textarea>
           <div class="invalid-feedback">
-            Descrição do produto é necessária!##
+            {{ 'clientes.cliente-produto.alertaDescricaoProduto' | translate }}
           </div>
-          <small class="form-text text-muted">Completa com o maior número de detalhes que puder##</small>
+          <small class="form-text text-muted">{{ 'clientes.cliente-produto.dicaDescricao' | translate }}</small>
         </div>
         <div class="form-group py-2">
-          <label class="font-weight-medium">Descricão Curta##</label>
+          <label class="font-weight-medium">{{ 'clientes.cliente-produto.descricaoCurta' | translate }}</label>
           <textarea formControlName="descricao_curta" [ngClass]="{'is-invalid': erroDescricaoCurta}" class="form-control " rows="3"></textarea>
           <div class="invalid-feedback">
-            Descrição curta do produto é necessária!##
+            {{ 'clientes.cliente-produto.alertaDescricaoCurta' | translate }}
           </div>
-          <small class="form-text text-muted">Necessário para atrair o locador##</small>
+          <small class="form-text text-muted">{{ 'clientes.cliente-produto.dicaProduto' | translate }}</small>
           
         </div>
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
               <mat-form-field  class="full-width">
-                <mat-label>Valor Produto##</mat-label>
-                <input  formControlName="valor_produto" matInput placeholder="##">
+                <mat-label>{{ 'clientes.cliente-produto.valorProduto' | translate }}</mat-label>
+                <input  formControlName="valor_produto" matInput placeholder="1000,00">
                 <mat-error *ngIf="formularioProduto.controls.valor_produto.errors && formularioProduto.controls.valor_produto.errors.required">
-                  Valor do produto não informado##
+                  {{ 'clientes.cliente-produto.alertaValorProduto' | translate }}
                 </mat-error>
-              <mat-hint align="end">Valor Pago no produto##</mat-hint>
+              <mat-hint align="end">{{ 'clientes.cliente-produto.dicaValorProduto' | translate }}</mat-hint>
                 <mat-icon class="text-primary" matSuffix >lock</mat-icon>
               </mat-form-field>
             </div>
@@ -72,12 +72,12 @@
           <div class="col-sm-6">
             <div class="form-group">
               <mat-form-field  class="full-width">
-                <mat-label>Valor Base Mensal##</mat-label>
-                <input  formControlName="valor_base_mensal" matInput placeholder="##">
+                <mat-label>{{ 'clientes.cliente-produto.valorBaseMensal' | translate }}</mat-label>
+                <input  formControlName="valor_base_mensal" matInput placeholder="100,00">
                 <mat-error *ngIf="formularioProduto.controls.valor_base_mensal.errors && formularioProduto.controls.valor_base_mensal.errors.required">
-                  Valor base mensal não definido##
+                  {{ 'clientes.cliente-produto.alertaValorBaseMensal' | translate }}
                 </mat-error>
-              <mat-hint align="end">Valor Calculado aproximado##</mat-hint>
+              <mat-hint align="end">{{ 'clientes.cliente-produto.dicaValorBase' | translate }}</mat-hint>
                 <mat-icon class="text-primary" matSuffix >lock</mat-icon>
               </mat-form-field>
             </div>
@@ -85,12 +85,12 @@
           <div class="col-sm-6">
             <div class="form-group">
               <mat-form-field  class="full-width">
-                <mat-label>Valor Base Diario##</mat-label>
-                <input  formControlName="valor_base_diaria" matInput placeholder="##">
+                <mat-label>{{ 'clientes.cliente-produto.valorBaseDiaria' | translate }}</mat-label>
+                <input  formControlName="valor_base_diaria" matInput placeholder="10,00">
                 <mat-error *ngIf="formularioProduto.controls.valor_base_diaria.errors && formularioProduto.controls.valor_base_diaria.errors.required">
-                  Valor base diaria não definido##
+                  {{ 'clientes.cliente-produto.alertaValorBaseDiaria' | translate }}
                 </mat-error>
-              <mat-hint align="end">valor Calculado Aproximado</mat-hint>
+              <mat-hint align="end">{{ 'clientes.cliente-produto.dicaValorBase' | translate }}</mat-hint>
                 <mat-icon class="text-primary" matSuffix >lock</mat-icon>
               </mat-form-field>
             </div>
@@ -98,10 +98,10 @@
           <div class="col-sm-6">
             <div class="form-group">
               <mat-form-field>
-                <mat-label>Data Compra##</mat-label>
+                <mat-label>{{ 'clientes.cliente-produto.dataCompra' | translate }}</mat-label>
                 <input matInput [matDatepicker]="picker" formControlName="data_compra">
                 <mat-error *ngIf="formularioProduto.controls.data_compra.errors && formularioProduto.controls.data_compra.errors.required">
-                  Data de compra não definida##
+                  { 'clientes.cliente-produto.alertaDataCompra' | translate }}
                 </mat-error>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
