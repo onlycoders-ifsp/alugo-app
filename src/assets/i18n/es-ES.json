@@ -289,15 +289,27 @@
 			"termosUso": "Términos de Uso"
 		},
 		"realiza-aluguel": {
+			"alertaAluguel": "Problemas con el alquiler.",
+			"alertaDataHoje": "Fecha invalida. Ingrese un valor futuro.",
+			"alertaDataInicial": "La fecha de inicio es mayor que la fecha de finalización. Ingrese un rango de tiempo válido.",
 			"alugar": "Alquilar",
 			"alugueisRealizados": "Alquileres Realizados",
 			"avaliacaoUsuario": "Opiniones de los usuarios:",
+			"cuidado": "¡Precaución!",
 			"dataFinal": "Fecha Final",
+			"dataFinalVazia": "Ingrese una fecha de finalización.",
 			"dataInicial": "Fecha Inicial",
+			"dataInicialVazia": "Ingrese una fecha de inicio.",
+			"descricaoValor": "Descripción del Valor",
 			"locador": "Locador:",
 			"nomeDono": "Dueño del Producto:",
+			"ops": "¡Ups!",
 			"qtdAlugueis": "Número de veces alquilado",
-			"valorBase": "Valor Base Calculado"
+			"qtdDias": "Número de días seleccionados:",
+			"qtdMeses": "Número de meses contados:",
+			"valorBase": "Valor Base Calculado",
+			"valorDia": "Valor por día:",
+			"valorMes": "Cantidad por mes:"
 		},
 		"todos-produtos": {
 			"alugaragora": "¡Alquile ahora!",
