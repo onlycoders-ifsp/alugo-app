@@ -289,15 +289,27 @@
 			"termosUso": "Terms of use"
 		},
 		"realiza-aluguel": {
+			"alertaAluguel": "Problems with renting.",
+			"alertaDataHoje": "Invalid date. Enter a future value.",
+			"alertaDataInicial": "The start date is greater than the end date. Enter a valid time range.",
 			"alugar": "Rent",
 			"alugueisRealizados": "Realized Rents",
 			"avaliacaoUsuario": "User Rating:",
+			"cuidado": "Caution!",
 			"dataFinal": "Final Date",
+			"dataFinalVazia": "Please enter an end date.",
 			"dataInicial": "Initial Date",
+			"dataInicialVazia": "Enter a start date.",
+			"descricaoValor": "Value Description",
 			"locador": "Locator:",
 			"nomeDono": "Owner of the product:",
+			"ops": "Oops!",
 			"qtdAlugueis": "Number of Times Rented",
-			"valorBase": "Calculated Base Value"
+			"qtdDias": "Number of days selected:",
+			"qtdMeses": "Number of months counted:",
+			"valorBase": "Calculated Base Value",
+			"valorDia": "Value per day:",
+			"valorMes": "Amount per month:"
 		},
 		"todos-produtos": {
 			"alugaragora": "Rent now!",

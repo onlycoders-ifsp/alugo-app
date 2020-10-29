@@ -22,13 +22,13 @@
         <hr class="d-lg-none">
         <div class="cz-sidebar-static h-100 ml-auto border-left">
           <div *ngIf="errorData" class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Cuidado!</strong> A data inicial é maior que a final##
+            <strong>{{ 'portal-alugo.realiza-aluguel.cuidado' | translate }}</strong> {{ 'portal-alugo.realiza-aluguel.alertaDataInicial' | translate }}
           </div>
           <div *ngIf="errorDataMenorHoje" class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Cuidado!</strong> A data é menor que hoje##
+            <strong>{{ 'portal-alugo.realiza-aluguel.cuidado' | translate }}</strong> {{ 'portal-alugo.realiza-aluguel.alertaDataHoje' | translate }}
           </div>
           <div *ngIf="errorCad" class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Ops!</strong> Problemas ao realizar aluguel##
+            <strong>{{ 'portal-alugo.realiza-aluguel.ops' | translate }}</strong> {{ 'portal-alugo.realiza-aluguel.alertaAluguel' | translate }}
           </div>
           <form [formGroup]="formularioAluguel" (ngSubmit)="setNewAluguel()">
             <div class="accordion" id="licenses">
@@ -42,7 +42,7 @@
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                         <mat-error *ngIf="formularioAluguel.controls.data_inicio.errors && formularioAluguel.controls.data_inicio.errors.required">
-                          Data Inicial Vazia##
+                          {{ 'portal-alugo.realiza-aluguel.dataInicialVazia' | translate }}
                         </mat-error>
                       </mat-form-field>
                     </div>
@@ -55,7 +55,7 @@
                         <mat-datepicker-toggle  matSuffix [for]="picker2"></mat-datepicker-toggle>
                         <mat-datepicker #picker2></mat-datepicker>
                         <mat-error *ngIf="formularioAluguel.controls.data_fim.errors && formularioAluguel.controls.data_fim.errors.required">
-                          Data Final Vazia##
+                          {{ 'portal-alugo.realiza-aluguel.dataFinalVazia' | translate }}
                         </mat-error>
                       </mat-form-field>
                     </div>
@@ -64,12 +64,12 @@
               </div>
               <div class="bg-secondary rounded p-3 mb-4">
                 <div class="star-rating">
-                  Descrição do valor##
+                  {{ 'portal-alugo.realiza-aluguel.descricaoValor' | translate }}
                 </div>
-                <div class="font-size-ms text-muted">Qtde dias selecionados: {{qtdeDifDias}} </div>
-                <div class="font-size-ms text-muted">Valor Por dia: R$ {{currentProduto.valor_base_diaria}}</div>
-                <div class="font-size-ms text-muted">Qtde Meses contabilizados: {{qtdeMeses}}</div>
-                <div class="font-size-ms text-muted">valor por mês: R$ {{currentProduto.valor_base_mensal}}</div>
+                <div class="font-size-ms text-muted">{{ 'portal-alugo.realiza-aluguel.qtdDias' | translate }} {{qtdeDifDias}} </div>
+                <div class="font-size-ms text-muted">{{ 'portal-alugo.realiza-aluguel.valorDia' | translate }} R$ {{currentProduto.valor_base_diaria}}</div>
+                <div class="font-size-ms text-muted">{{ 'portal-alugo.realiza-aluguel.qtdMeses' | translate }} {{qtdeMeses}}</div>
+                <div class="font-size-ms text-muted">{{ 'portal-alugo.realiza-aluguel.valorMes' | translate }} R$ {{currentProduto.valor_base_mensal}}</div>
               </div>
               <div class="card border-bottom-0 border-left-0 border-right-0">
                 <div class="card-header d-flex justify-content-between align-items-center py-3 border-0">

@@ -289,15 +289,27 @@
 			"termosUso": "使用条款"
 		},
 		"realiza-aluguel": {
+			"alertaAluguel": "租房问题。",
+			"alertaDataHoje": "失效日期。 输入一个未来值。",
+			"alertaDataInicial": "开始日期大于结束日期。 输入有效的时间范围。",
 			"alugar": "出租",
 			"alugueisRealizados": "已实现租金",
 			"avaliacaoUsuario": "用户评分",
+			"cuidado": "警告！",
 			"dataFinal": "最后日期",
+			"dataFinalVazia": "请输入结束日期。",
 			"dataInicial": "初始日期",
+			"dataInicialVazia": "输入开始日期。",
+			"descricaoValor": "值说明",
 			"locador": "定位器：",
 			"nomeDono": "产品所有者：",
+			"ops": "糟糕！",
 			"qtdAlugueis": "出租次数",
-			"valorBase": "计算基值"
+			"qtdDias": "选择的天数：",
+			"qtdMeses": "计算的月数：",
+			"valorBase": "计算基值",
+			"valorDia": "每日价值：",
+			"valorMes": "每月金额："
 		},
 		"todos-produtos": {
 			"alugaragora": "现在租！",
