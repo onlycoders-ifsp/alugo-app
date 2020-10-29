@@ -20,6 +20,7 @@ export class TodosProdutosComponent implements OnInit {
   currentBandeira: string;
   currentIdioma: string;
   txtPesquisaproduto: string;
+  semProduto: boolean = false;
   
   constructor(
     private router: Router,
@@ -35,15 +36,19 @@ export class TodosProdutosComponent implements OnInit {
     this.currentProduto = new eProduto();
     
     if (localStorage.getItem("txtPesquisaProduto")) {
-      console.log("chamou especifico")
+      this.txtPesquisaproduto = localStorage.getItem("txtPesquisaProduto");
       this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto")).subscribe(response => {
         this.produtos = response;
+        if(this.produtos.length == 0){
+          this.semProduto = true;
+        }else{
+          this.semProduto = false;
+        }
         localStorage.removeItem("txtPesquisaProduto");
       }, errorResponse => {
         console.log(errorResponse);
       })
     } else {
-      console.log("chamou geral")
       this.portalService.getProdutos().subscribe(resposta => {
         this.produtos = resposta;
         console.log(this.produtos)
@@ -59,7 +64,6 @@ export class TodosProdutosComponent implements OnInit {
   }
 
   verProdutoDeslogado(itemSelecionado: eProduto){
-    console.log(itemSelecionado.id_produto)
     window.sessionStorage.setItem('idProduto', itemSelecionado.id_produto)
     this.router.navigate(['/detalhe-produto']);
   }

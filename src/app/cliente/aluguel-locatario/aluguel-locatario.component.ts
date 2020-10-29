@@ -34,7 +34,6 @@ export class AluguelLocatarioComponent implements OnInit {
   getListaAlugueisLocatario(){
     this.aluguelService.getListAluguelLocatario().subscribe(resposta => {
       this.alugueisLocatario = resposta;
-      console.log(this.alugueisLocatario)
       errorResponse => {
         console.log(errorResponse)
       }

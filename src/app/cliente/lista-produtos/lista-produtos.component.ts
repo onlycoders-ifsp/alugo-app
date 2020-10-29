@@ -41,7 +41,6 @@ export class ListaProdutosComponent implements OnInit {
   getListaProdutosUsuario(){
     this.portalService.getProdutosUsuarioLogado().subscribe(resposta => {
       this.Produtos = resposta;
-      console.log(this.Produtos)
       errorResponse => {
         console.log(errorResponse)
       }

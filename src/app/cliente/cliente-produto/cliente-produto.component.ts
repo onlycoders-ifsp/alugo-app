@@ -149,7 +149,6 @@ export class ClienteProdutoComponent implements OnInit {
     this.produtoAlterado.ativo = false;
     this.produtoService.cadProduto(this.produtoAlterado).subscribe(response => {
       this.currentProduto = response;
-      console.log(this.currentProduto);
       this.mensagemSucesso = "Produto " + this.produtoAlterado.nome + " cadastrado com sucesso!##",
         this.mensagemErro = null;
         localStorage.setItem("produtoInputadoSucesso", this.mensagemSucesso);

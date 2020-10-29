@@ -57,7 +57,6 @@ export class RealizaAluguelComponent implements OnInit {
     .subscribe( 
       response => {
         this.currentProduto = response;
-        console.log(this.currentProduto)
         this.idDono = this.currentProduto.id_usuario;
         this.loadInfosDono();
       },
@@ -67,13 +66,10 @@ export class RealizaAluguelComponent implements OnInit {
   }
 
   loadInfosDono(){
-    console.log(this.idDono)
     this.auth.getUserById(this.idDono)
     .subscribe( 
       response => {
         this.currentDono = response;
-        console.log(this.currentProduto);
-        console.log(this.currentDono);
       },
       errorResponse => {
         console.log(errorResponse)
@@ -95,7 +91,6 @@ export class RealizaAluguelComponent implements OnInit {
     const formCadValues = this.formularioAluguel.value;
     if (formCadValues.data_inicio && formCadValues.data_fim) {
       let dataAtual = new Date();
-      console.log(dataAtual)
       if (formCadValues.data_inicio < dataAtual) {
         this.errorDataMenorHoje = true;
       } else {

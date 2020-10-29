@@ -154,7 +154,6 @@ novaFoto: string;
       reader.readAsDataURL(event.target.files[0])
       reader.onload = (_event) => {
         this.novaFoto = reader.result.toString();
-        console.log(this.novaFoto);
       }
     }
   }
