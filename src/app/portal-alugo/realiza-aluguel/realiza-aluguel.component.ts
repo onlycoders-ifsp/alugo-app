@@ -155,7 +155,7 @@ export class RealizaAluguelComponent implements OnInit {
           let dataFormat_fim = this.datepipe.transform(date_fim, 'yyyy-MM-dd');
           this.cadAluguel.data_fim = dataFormat_fim;
 
-          let date_inicio: Date = formCadValues.data_fim;
+          let date_inicio: Date = formCadValues.data_inicio;
           let dataFormat_inicio = this.datepipe.transform(date_inicio, 'yyyy-MM-dd');
           this.cadAluguel.data_inicio = dataFormat_inicio;
 
