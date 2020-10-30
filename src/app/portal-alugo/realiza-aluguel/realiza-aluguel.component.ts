@@ -118,7 +118,7 @@ export class RealizaAluguelComponent implements OnInit {
             this.errorDataMenorHoje = false;
             let diff = Math.abs(formCadValues.data_inicio.getTime() - formCadValues.data_fim.getTime());
             let diffDays = Math.ceil(diff / (1000 * 3600 * 24));
-            if (diffDays > 30) {
+            if (diffDays >= 30) {
               let meses = 0;
               let diasCount = diffDays;
               while (diasCount > 30) {
