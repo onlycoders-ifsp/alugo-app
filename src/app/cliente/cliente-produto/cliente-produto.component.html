@@ -2,16 +2,16 @@
   <section class="col-lg-12 pt-lg-8 pb-4 mb-3">
     <div class="pt-2 px-4 pl-lg-0 pr-xl-5">
       <form [formGroup]="formularioProduto" (ngSubmit)="inputaProduto()">
-        <mat-checkbox class="ins-invalid" formControlName="ativo">{{ 'clientes.cliente-produto.ativo' | translate }}</mat-checkbox>
+        <mat-checkbox class="ins-invalid" formControlName="ativo">{{ 'cliente.cliente-produto.ativo' | translate }}</mat-checkbox>
         <div class="form-group pb-2">
-          <label class="font-weight-medium" for="unp-product-name">{{ 'clientes.cliente-produto.nomeproduto' | translate }}</label>
+          <label class="font-weight-medium" for="unp-product-name">{{ 'cliente.cliente-produto.nomeproduto' | translate }}</label>
           <mat-form-field  class="full-width">
-            <mat-label>{{ 'clientes.cliente-produto.nomeproduto' | translate }}</mat-label>
-            <input  formControlName="nome" matInput placeholder="{{ 'clientes.cliente-produto.placeholderNomeProduto' | translate }}">
+            <mat-label>{{ 'cliente.cliente-produto.nomeproduto' | translate }}</mat-label>
+            <input  formControlName="nome" matInput placeholder="{{ 'cliente.cliente-produto.placeholderNomeProduto' | translate }}">
             <mat-error *ngIf="formularioProduto.controls.nome.errors && formularioProduto.controls.nome.errors.required">
-              {{ 'clientes.cliente-produto.alertaNomeProduto' | translate }}
+              {{ 'cliente.cliente-produto.alertaNomeProduto' | translate }}
             </mat-error>
-          <mat-hint align="end">{{ 'clientes.cliente-produto.dicaNomeProduto' | translate }}</mat-hint>
+          <mat-hint align="end">{{ 'cliente.cliente-produto.dicaNomeProduto' | translate }}</mat-hint>
             <mat-icon class="text-primary" matSuffix >lock</mat-icon>
           </mat-form-field>
           
@@ -19,10 +19,10 @@
         </div>
         <div *ngIf="!novaFoto">
           <div *ngIf="!currentProduto.capa_foto" class="cz-file-drop-area form-group">
-            <div class="cz-file-drop-icon fa fa-image"></div><span class="cz-file-drop-message">{{ 'clientes.cliente-produto.uploadfoto' | translate }}</span>
+            <div class="cz-file-drop-icon fa fa-image"></div><span class="cz-file-drop-message">{{ 'cliente.cliente-produto.uploadfoto' | translate }}</span>
             <input class="cz-file-drop-input" (change)="setNovaFotoProduto($event)" type="file">
             <small
-              class="form-text text-muted">{{ 'clientes.cliente-produto.tamanhoideal' | translate }}</small>
+              class="form-text text-muted">{{ 'cliente.cliente-produto.tamanhoideal' | translate }}</small>
           </div>
           <div *ngIf="currentProduto.capa_foto" class="cz-file-drop-area form-group">
             <input class="cz-file-drop-input" (change)="setNovaFotoProduto($event)" type="file">
@@ -39,32 +39,32 @@
         </div>
         
         <div class="form-group py-2">
-          <label class="font-weight-medium">{{ 'clientes.cliente-produto.descricao' | translate }}</label>
+          <label class="font-weight-medium">{{ 'cliente.cliente-produto.descricao' | translate }}</label>
           <textarea formControlName="descricao" [ngClass]="{'is-invalid': erroDescricao}" class="form-control" rows="6"></textarea>
           <div class="invalid-feedback">
-            {{ 'clientes.cliente-produto.alertaDescricaoProduto' | translate }}
+            {{ 'cliente.cliente-produto.alertaDescricaoProduto' | translate }}
           </div>
-          <small class="form-text text-muted">{{ 'clientes.cliente-produto.dicaDescricao' | translate }}</small>
+          <small class="form-text text-muted">{{ 'cliente.cliente-produto.dicaDescricao' | translate }}</small>
         </div>
         <div class="form-group py-2">
-          <label class="font-weight-medium">{{ 'clientes.cliente-produto.descricaoCurta' | translate }}</label>
+          <label class="font-weight-medium">{{ 'cliente.cliente-produto.descricaoCurta' | translate }}</label>
           <textarea formControlName="descricao_curta" [ngClass]="{'is-invalid': erroDescricaoCurta}" class="form-control " rows="3"></textarea>
           <div class="invalid-feedback">
-            {{ 'clientes.cliente-produto.alertaDescricaoCurta' | translate }}
+            {{ 'cliente.cliente-produto.alertaDescricaoCurta' | translate }}
           </div>
-          <small class="form-text text-muted">{{ 'clientes.cliente-produto.dicaProduto' | translate }}</small>
+          <small class="form-text text-muted">{{ 'cliente.cliente-produto.dicaProduto' | translate }}</small>
           
         </div>
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
               <mat-form-field  class="full-width">
-                <mat-label>{{ 'clientes.cliente-produto.valorProduto' | translate }}</mat-label>
+                <mat-label>{{ 'cliente.cliente-produto.valorProduto' | translate }}</mat-label>
                 <input  formControlName="valor_produto" matInput placeholder="1000,00">
                 <mat-error *ngIf="formularioProduto.controls.valor_produto.errors && formularioProduto.controls.valor_produto.errors.required">
-                  {{ 'clientes.cliente-produto.alertaValorProduto' | translate }}
+                  {{ 'cliente.cliente-produto.alertaValorProduto' | translate }}
                 </mat-error>
-              <mat-hint align="end">{{ 'clientes.cliente-produto.dicaValorProduto' | translate }}</mat-hint>
+              <mat-hint align="end">{{ 'cliente.cliente-produto.dicaValorProduto' | translate }}</mat-hint>
                 <mat-icon class="text-primary" matSuffix >lock</mat-icon>
               </mat-form-field>
             </div>
@@ -72,12 +72,12 @@
           <div class="col-sm-6">
             <div class="form-group">
               <mat-form-field  class="full-width">
-                <mat-label>{{ 'clientes.cliente-produto.valorBaseMensal' | translate }}</mat-label>
+                <mat-label>{{ 'cliente.cliente-produto.valorBaseMensal' | translate }}</mat-label>
                 <input  formControlName="valor_base_mensal" matInput placeholder="100,00">
                 <mat-error *ngIf="formularioProduto.controls.valor_base_mensal.errors && formularioProduto.controls.valor_base_mensal.errors.required">
-                  {{ 'clientes.cliente-produto.alertaValorBaseMensal' | translate }}
+                  {{ 'cliente.cliente-produto.alertaValorBaseMensal' | translate }}
                 </mat-error>
-              <mat-hint align="end">{{ 'clientes.cliente-produto.dicaValorBase' | translate }}</mat-hint>
+              <mat-hint align="end">{{ 'cliente.cliente-produto.dicaValorBase' | translate }}</mat-hint>
                 <mat-icon class="text-primary" matSuffix >lock</mat-icon>
               </mat-form-field>
             </div>
@@ -85,12 +85,12 @@
           <div class="col-sm-6">
             <div class="form-group">
               <mat-form-field  class="full-width">
-                <mat-label>{{ 'clientes.cliente-produto.valorBaseDiaria' | translate }}</mat-label>
+                <mat-label>{{ 'cliente.cliente-produto.valorBaseDiaria' | translate }}</mat-label>
                 <input  formControlName="valor_base_diaria" matInput placeholder="10,00">
                 <mat-error *ngIf="formularioProduto.controls.valor_base_diaria.errors && formularioProduto.controls.valor_base_diaria.errors.required">
-                  {{ 'clientes.cliente-produto.alertaValorBaseDiaria' | translate }}
+                  {{ 'cliente.cliente-produto.alertaValorBaseDiaria' | translate }}
                 </mat-error>
-              <mat-hint align="end">{{ 'clientes.cliente-produto.dicaValorBase' | translate }}</mat-hint>
+              <mat-hint align="end">{{ 'cliente.cliente-produto.dicaValorBase' | translate }}</mat-hint>
                 <mat-icon class="text-primary" matSuffix >lock</mat-icon>
               </mat-form-field>
             </div>
@@ -98,10 +98,10 @@
           <div class="col-sm-6">
             <div class="form-group">
               <mat-form-field>
-                <mat-label>{{ 'clientes.cliente-produto.dataCompra' | translate }}</mat-label>
+                <mat-label>{{ 'cliente.cliente-produto.dataCompra' | translate }}</mat-label>
                 <input matInput [matDatepicker]="picker" formControlName="data_compra">
                 <mat-error *ngIf="formularioProduto.controls.data_compra.errors && formularioProduto.controls.data_compra.errors.required">
-                  {{ 'clientes.cliente-produto.alertaDataCompra' | translate }}
+                  {{ 'cliente.cliente-produto.alertaDataCompra' | translate }}
                 </mat-error>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
@@ -110,7 +110,7 @@
           </div>
         </div>
         <button class="btn btn-primary btn-block" type="submit"><i
-            class="fa fa-edit font-size-lg mr-2"></i>{{ 'clientes.cliente-produto.addeditprod' | translate }}</button>
+            class="fa fa-edit font-size-lg mr-2"></i>{{ 'cliente.cliente-produto.addeditprod' | translate }}</button>
       </form>
     </div>
   </section>
