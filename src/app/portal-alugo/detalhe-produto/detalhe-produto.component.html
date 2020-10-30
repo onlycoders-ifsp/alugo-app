@@ -63,16 +63,17 @@
                     </div><span class="d-inline-block font-size-sm text-body align-middle mt-1 ml-1">{{ 'portal-alugo.detalhe-produto.14avaliacoes' | translate }}</span></a>
                   <button class="btn-wishlist" type="button" data-toggle="tooltip" title="Add to wishlist"><i class="fa fa-heart"></i></button>
                 </div>
+                <h5 class="h6 mb-3 pb-2">{{ 'cliente.cliente-produto.valorBaseDiaria' | translate }}</h5>
                 <div class="mb-3"><span class="h3 font-weight-normal text-accent mr-1">R$ {{responseProduto.valor_base_diaria}}<small></small></span>
                   <!-- <del class="text-muted font-size-lg mr-3">R$ {{responseProduto.valor_base_mensal}}<small></small></del><span class="badge badge-danger badge-shadow align-middle mt-n2">{{ 'portal-alugo.detalhe-produto.baixou' | translate }}</span> -->
                 </div>
-                <div class="font-size-sm mb-4"><span class="text-heading font-weight-medium mr-1">{{ 'portal-alugo.detalhe-produto.estado' | translate }}:</span><span class="text-muted">Bom</span></div>
+                <!-- <div class="font-size-sm mb-4"><span class="text-heading font-weight-medium mr-1">{{ 'portal-alugo.detalhe-produto.estado' | translate }}:</span><span class="text-muted">Bom</span></div> -->
                 <div class="position-relative mr-n4 mb-3">
                   <div class="product-badge product-available mt-n1"><i class="fa fa-check"></i>{{ 'portal-alugo.detalhe-produto.produtodisponivel' | translate }}</div>
                 </div>
                 <form class="mb-grid-gutter">
                   <div class="form-group">
-                    <label class="font-weight-medium pb-1" for="product-size">{{ 'portal-alugo.detalhe-produto.acao' | translate }}:</label>
+                    <label class="font-weight-medium pb-1" for="product-size">.</label>
                     
                   </div>
                   <div class="form-group d-flex align-items-center">
@@ -83,10 +84,11 @@
                 <h5 class="h6 mb-3 pb-2 border-bottom"><i class="fa fa-bullhorn text-muted font-size-lg align-middle mt-n1 mr-2"></i>{{ 'portal-alugo.detalhe-produto.Infoprod' | translate }}</h5>
                 
                 
-                <h6 class="font-size-sm mb-2">{{ 'portal-alugo.detalhe-produto.numeroidentificacao' | translate }}</h6>
+                <h6 class="font-size-sm mb-2">{{ 'cliente.cliente-produto.descricaoCurta' | translate }}</h6>
                 <ul class="font-size-sm pl-4 mb-0">
-                  <li>{{responseProduto.id_produto}}</li>
+                  <li>{{responseProduto.descricao_curta}}</li>
                 </ul>
+                
               </div>
             </div>
           </div>
