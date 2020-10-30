@@ -121,7 +121,7 @@ export class RealizaAluguelComponent implements OnInit {
             if (diffDays >= 30) {
               let meses = 0;
               let diasCount = diffDays;
-              while (diasCount > 30) {
+              while (diasCount >= 30) {
                 diasCount = diasCount - 30;
                 meses++;
               }
