@@ -32,6 +32,7 @@ export class RealizaAluguelComponent implements OnInit {
   errorCad: boolean = false;
   errorDataMenorHoje: boolean = false;
   errorDonoProduto: boolean = false;
+  errorAluguelExistente: string = null;
 
   constructor(
     private router: Router,
@@ -165,10 +166,12 @@ export class RealizaAluguelComponent implements OnInit {
 
           this.aluguelService.cadNewAluguel(this.cadAluguel).subscribe(response => {
             this.errorCad = false;
+            this.errorAluguelExistente = null;
             this.router.navigate(["cliente/perfil/alugueis-locatario"])
           }, errorResponse => {
             console.log(errorResponse)
             this.errorCad = true;
+            this.errorAluguelExistente = errorResponse.error.message;
           })
         } else {
           this.errorDonoProduto = true;

@@ -33,6 +33,10 @@
           <div *ngIf="errorDonoProduto" class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>{{ 'portal-alugo.realiza-aluguel.ops' | translate }}</strong> {{ 'portal-alugo.realiza-aluguel.alertaProprioProduto' | translate }}
           </div>
+          <div *ngIf="errorAluguelExistente" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Ops! </strong> {{errorAluguelExistente}}
+          </div>
+          
           <form [formGroup]="formularioAluguel" (ngSubmit)="setNewAluguel()">
             <div class="accordion" id="licenses">
               <div class="card border-top-0 border-left-0 border-right-0">
