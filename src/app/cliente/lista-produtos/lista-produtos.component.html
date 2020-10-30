@@ -11,7 +11,7 @@
       <div class="d-sm-flex flex-wrap justify-content-between align-items-center border-bottom">
         <h2 class="h3 py-2 mr-2 text-center text-sm-left">{{ 'cliente.lista-produtos.seusprodutos' | translate }}<span class="badge badge-secondary font-size-sm text-body align-middle ml-2">{{ Produtos.length }}</span></h2>
         <div class="py-2">
-          <div class="form-inline flex-nowrap pb-3">
+          <!-- <div class="form-inline flex-nowrap pb-3">
             <label class="text-nowrap mr-2" for="sorting">{{ 'cliente.lista-produtos.ordenarpor' | translate }}:</label>
             <select class="custom-select custom-select-sm mr-2" id="sorting">
               <option>{{ 'cliente.lista-produtos.datacadastro' | translate }}</option>
@@ -20,7 +20,7 @@
               <option>{{ 'cliente.lista-produtos.avaliacao' | translate }}</option>
             </select>
             <button class="btn btn-outline-secondary btn-sm px-2" type="button"><i class="fa fa-arrow-up"></i></button>
-          </div>
+          </div> -->
           <button class="btn bg-faded-success btn-icon mr-2" (click)="novoProduto()" type="button" data-toggle="tooltip" title="{{ 'cliente.lista-produtos.titleBotaoEditar' | translate }}"><i class="fa fa-plus text-success"></i> {{ 'cliente.lista-produtos.novoProduto' | translate }}</button>
         </div>
       </div>
@@ -29,12 +29,12 @@
         <div class="media-body text-center text-sm-left">
           <h3 class="h6 product-title mb-2"><a routerLink="/cliente/produto">{{produto.nome}}</a></h3>
           <div class="d-inline-block text-accent">R$ {{produto.valor_produto}}.<small></small></div>
-          <div class="d-inline-block text-muted font-size-ms border-left ml-2 pl-2">{{ 'cliente.lista-produto.alugueis' | translate }}: <span class="font-weight-medium">{{produto.qtd_alugueis}}</span></div>
-          <div class="d-inline-block text-muted font-size-ms border-left ml-2 pl-2">{{ 'cliente.lista-produto.ganhos' | translate }}: <span class="font-weight-medium">R$ {{produto.total_ganhos}}<small></small></span></div>
+          <div class="d-inline-block text-muted font-size-ms border-left ml-2 pl-2">{{ 'cliente.lista-produtos.alugueis' | translate }}: <span class="font-weight-medium">{{produto.qtd_alugueis}}</span></div>
+          <div class="d-inline-block text-muted font-size-ms border-left ml-2 pl-2">{{ 'cliente.lista-produtos.ganhos' | translate }}: <span class="font-weight-medium">R$ {{produto.total_ganhos}}<small></small></span></div>
           <div class="d-flex justify-content-center justify-content-sm-start pt-3">
             <!-- <button class="btn bg-faded-accent btn-icon mr-2" type="button" data-toggle="tooltip" title="Inativar"><i class="fa fa-lock text-accent"></i></button> -->
             <button class="btn bg-faded-info btn-icon mr-2" (click)="verMeuProduto(produto.id_produto)" type="button" data-toggle="tooltip" title="{{ 'cliente.lista-produtos.titleBotaoEditar' | translate }}"><i class="fa fa-edit text-info"></i></button>
-            <button class="btn bg-faded-danger btn-icon" type="button" data-toggle="tooltip" title="{{ 'cliente.lista-produtos.titleBotaoInativar' | translate }}"><i class="fa fa-trash text-danger"></i></button>
+            <!-- <button class="btn bg-faded-danger btn-icon" type="button" data-toggle="tooltip" title="{{ 'cliente.lista-produtos.titleBotaoInativar' | translate }}"><i class="fa fa-trash text-danger"></i></button> -->
           </div>
         </div>
       </div>

@@ -23,6 +23,7 @@ export class RealizaAluguelComponent implements OnInit {
   currentIdioma: string;
   currentProduto: eProduto;
   currentDono: eUsuario;
+  currentLogado: eUsuario;
   idProduto: string;
   idDono: string;
   valorAluguel: number = 0;
@@ -70,6 +71,18 @@ export class RealizaAluguelComponent implements OnInit {
     .subscribe( 
       response => {
         this.currentDono = response;
+        this.loadInfosLogado();
+      },
+      errorResponse => {
+        console.log(errorResponse)
+      });
+  }
+
+  loadInfosLogado(){
+    this.auth.getCurrentUserLogado()
+    .subscribe( 
+      response => {
+        this.currentLogado = response;
       },
       errorResponse => {
         console.log(errorResponse)
@@ -134,7 +147,7 @@ export class RealizaAluguelComponent implements OnInit {
       if (!this.errorDataMenorHoje && !this.errorData) {
         console.log(this.currentProduto)
         console.log(this.currentDono)
-        if (this.currentDono.id_usuario != this.currentProduto.id_usuario) {
+        if (this.currentLogado.id_usuario != this.currentProduto.id_usuario) {
           
           this.errorDonoProduto = false;
           const formCadValues = this.formularioAluguel.value;
