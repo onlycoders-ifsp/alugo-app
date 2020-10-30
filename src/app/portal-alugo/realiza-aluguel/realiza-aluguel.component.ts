@@ -132,7 +132,10 @@ export class RealizaAluguelComponent implements OnInit {
   setNewAluguel() {
     if (this.formularioAluguel.valid) {
       if (!this.errorDataMenorHoje && !this.errorData) {
+        console.log(this.currentProduto)
+        console.log(this.currentDono)
         if (this.currentDono.id_usuario != this.currentProduto.id_usuario) {
+          
           this.errorDonoProduto = false;
           const formCadValues = this.formularioAluguel.value;
           let date_fim: Date = formCadValues.data_fim;
