@@ -17,7 +17,7 @@ export class ListaUsuariosComponent implements OnInit {
   success: boolean;
   error: boolean;
 
-  
+
   idiomas: iIdioma[];
   currentBandeira: string;
   currentIdioma: string;
@@ -26,23 +26,23 @@ export class ListaUsuariosComponent implements OnInit {
     private adminService: AdminService,
     private router : Router,
     private idiService: idiomaService,
-    ) { 
+    ) {
       this.currentBandeira = idiService.setDefaultLanguage(),
       this.idiomas = idiService.getListIdiomas()
     }
 
   ngOnInit(): void {
     this.adminService.getUsuarios().subscribe(resposta => {
-      this.listaUsuarios = resposta;
+      this.listaUsuarios = resposta;},
       errorResponse => {
-        console.log(errorResponse)
+        console.log(errorResponse);
       });
   }
 
   clickMudaIdioma() {
     this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
   }
-  
+
   novoUsuario(){
     this.router.navigate(['/usuarios/cad']);
   }
