@@ -13,11 +13,14 @@ url: string = environment.apiBaseUrl + '/usuarios';
 
   constructor( private http: HttpClient ) { }
 
+  nome: boolean = false;
+
 
   getUsuarios() : Observable<eUsuario[]> {
     let params = new HttpParams();
     params = params.append('id_usuario' , "0");
     return this.http.get<eUsuario[]>(this.url, {params});
+
   }
 
   // salvar(Usuario: Usuario) : Observable<Usuario> {
