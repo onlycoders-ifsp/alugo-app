@@ -5,7 +5,7 @@ export const environment = {
   secret: 'aluGo@123!321',
   authorizedGrantTypes: 'password',
   obterToken: "/oauth/token",
-
+  cepUrl: "https://viacep.com.br/ws",
   login: "/login",
 
 
@@ -18,7 +18,7 @@ export const environment = {
   getListaProdutos: '/produtos/lista-produto',
   getOnly1Produto: '/produtos/produto',
   getOnlyUserProducts: "/produtos/lista-produto-logado",
-  putFotoCapa: "/produtos/upload-foto", 
+  putFotoCapa: "/produtos/upload-foto",
   getProdutosByPesquisa: "/produtos/produto-pesquisa",
 
 
@@ -29,7 +29,7 @@ export const environment = {
   deleteDeleteUsuario: "/usuarios/inativa",
   getDadosUsuario: "/usuarios/usuario",
   getUserLogado: "/usuarios/usuario-logado",
-  putFotoUsuario: "/usuarios/upload-foto", 
+  putFotoUsuario: "/usuarios/upload-foto",
 
 
   //ENDPOINTS DE ALUGUEL
