@@ -1,6 +1,6 @@
 {
   "name": "alugo-app",
-  "version": "0.0.0",
+  "version": "0.0.1-SNAPSHOT",
   "scripts": {
     "ng": "ng",
     "start": "node server",
@@ -28,6 +28,7 @@
     "@auth0/angular-jwt": "^5.0.1",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
+    "@syncfusion/ej2-angular-schedule": "^18.3.51",
     "bootstrap": "^4.5.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -36,7 +37,8 @@
     "ngx-mask": "^10.0.4",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
-    "zone.js": "~0.11.1"
+    "zone.js": "~0.11.1",
+    "@syncfusion/ej2-material-theme": "~18.3.50"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1002.0",

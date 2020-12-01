@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeek, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 
 
 
@@ -45,9 +46,12 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
             }
-        })
+        }),
+        ScheduleModule, RecurrenceEditorModule
     
-  ], exports: [
+  ],
+  providers: [DayService, WeekService, MonthService, MonthAgendaService],
+  exports: [
     HomeComponent,
     PortalLayoutComponent,
     TodosProdutosComponent,

@@ -37,6 +37,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { loadingService } from './Services/loadingService';
 
+
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({

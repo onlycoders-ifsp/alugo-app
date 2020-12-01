@@ -10,6 +10,7 @@ import { AluguelService } from 'src/app/Services/AluguelService';
 import { AuthService } from 'src/app/Services/auth.service';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { produtoService } from 'src/app/Services/produtoService';
+import { View, EventSettingsModel,  } from '@syncfusion/ej2-angular-schedule'
 
 @Component({
   selector: 'app-realiza-aluguel',
@@ -17,6 +18,39 @@ import { produtoService } from 'src/app/Services/produtoService';
   styleUrls: ['./realiza-aluguel.component.css']
 })
 export class RealizaAluguelComponent implements OnInit {
+
+  public setView: View = 'Month';
+  public views: View[] = ['Month'];
+  public setDate: Date = new Date(2020,12,1);
+  public showHeaderBar: boolean = true;
+  public readonly: boolean = true;
+  public eventObject: EventSettingsModel = {
+    dataSource: [{
+      Subject: 'Augado',
+      IsReadonly: true,
+      Description: 'Produto Alugado nesta data',
+      StartTime: new Date(2021,0,17,0,0),
+      //ano, mes, dia, hora, minuto
+      EndTime: new Date(2021,0,18,12,0),
+      CategoryColor: "#357cd2"
+    },
+    {
+      Subject: 'Alugado',
+      IsReadonly: true,
+      Description: 'Produto Alugado nesta data',
+      StartTime: new Date(2021,0,20,0,0),
+      //ano, mes, dia, hora, minuto
+      EndTime: new Date(2021,0,26,12,0)
+    },
+    {
+      Subject: 'Alugado',
+      IsReadonly: true,
+      Description: 'Produto Alugado nesta data',
+      StartTime: new Date(2021,0,8,0,0),
+      //ano, mes, dia, hora, minuto
+      EndTime: new Date(2021,0,12,12,0)
+    }]
+  }
 
   idiomas: iIdioma[];
   currentBandeira: string;
