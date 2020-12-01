@@ -76,6 +76,7 @@
 		},
 		"aluguel-locatario": {
 			"alugueisRealizados": "已实现的租金：",
+			"ate": "至",
 			"valorPago": "支付的金额："
 		},
 		"cliente-credenciais": {
@@ -117,16 +118,20 @@
 		"cliente-perfil": {
 			"altNovaFoto": "新照片",
 			"altUsuarioLogado": "用户登录",
+			"atualizadoSucesso": "更新成功！",
 			"atualizarperfil": "更新个人信息",
 			"aviso": "警告",
 			"cadastroFeito": "成功注册",
 			"camposIncorretos": "并非所有字段都是正确的！ 请查阅。",
+			"erroAtualizacao": "更新时出错",
 			"mudarfoto": "更改照片",
-			"uploadfoto": "上传JPG，GIF或PNG图片。 需要300 x 300。"
+			"uploadfoto": "上传JPG，GIF或PNG图片。 需要300 x 300。",
+			"usuario": ""
 		},
 		"cliente-produto": {
 			"Descricao": "描述",
 			"addeditprod": "添加/编辑产品",
+			"alertaCentavos": "对于分，使用点。",
 			"alertaDataCompra": "设置购买日期。",
 			"alertaDescricaoCurta": "需要简短的产品说",
 			"alertaDescricaoProduto": "必须提供产品说明",
@@ -135,6 +140,10 @@
 			"alertaValorBaseMensal": "设置每月金额。",
 			"alertaValorProduto": "产品价值未告知",
 			"ativo": "产品活跃吗",
+			"atualizaErro": "",
+			"atualizaSucesso": "",
+			"cadastroErro": "",
+			"cadastroSucesso": "",
 			"dataCompra": "购买日期",
 			"descricaoCurta": "简短的产品说明",
 			"dicaDescricao": "输入尽可能多的详细信息。",
@@ -142,10 +151,12 @@
 			"dicaProduto": "想一些浮华的东西来吸引顾客。",
 			"dicaValorBase": "计算的近似值",
 			"dicaValorProduto": "产品中支付的金额",
+			"formInvalido": "",
 			"formattags": "小写，用逗号和单个单词分隔",
 			"maxcaracteres": "最多100个字符",
 			"nomeproduto": "产品名称",
 			"placeholderNomeProduto": "输入产品名称。",
+			"produto": "",
 			"selecaoarquivo": "或选择文件",
 			"selecionecategoria": "选择类别",
 			"tags": "产品标签",
@@ -330,6 +341,7 @@
 			"disponibilize": "立即提供产品！",
 			"filtros": "筛选器",
 			"locarproduto": "租用产品",
+			"nenhumProduto": "过滤器未找到产品",
 			"procuraartigos": "寻找视频和照片工具？",
 			"produtosdisponiveis": "可供出租的产品：",
 			"proximo": "下一个",

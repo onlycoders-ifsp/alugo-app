@@ -20,11 +20,14 @@
   <div class="row">
 
   </div>
-  <div *ngIf="mensagemErro" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <div *ngIf="mensagemErro === 'Invalido'" class="alert alert-warning alert-dismissible fade show" role="alert">
     <strong>{{ 'cliente.cliente-perfil.aviso' | translate }}</strong>{{ 'cliente.cliente-perfil.camposIncorretos' | translate }}
   </div>
-  <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>{{ 'cliente.cliente-perfil.cadastroFeito' | translate }}</strong>{{mensagemSucesso}}
+  <div *ngIf="mensagemErro === 'Erro'" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{ 'cliente.cliente-perfil.aviso' | translate }}</strong>{{ 'cliente.cliente-perfil.erroAtualizacao' | translate }} {{nomeUsuario}}
+  </div>
+  <div *ngIf="mensagemSucesso === 'Sucesso'" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{ 'cliente.cliente-perfil.cadastroFeito' | translate }}</strong>{{ 'cliente.cliente-perfil.usuario' | translate }} {{nomeUsuario}} {{ 'cliente.cliente-perfil.atualizadoSucesso' | translate }}
   </div>
   <div class="row">
     <div class="col-sm-6">

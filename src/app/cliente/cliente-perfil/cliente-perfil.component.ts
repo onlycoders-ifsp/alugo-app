@@ -21,6 +21,7 @@ currentIdioma: string;
 formularioCliente: FormGroup;
 mensagemErro: string;
 mensagemSucesso: string;
+nomeUsuario: string;
 currentUsuarioLogado: eUsuario = new eUsuario();
 userAlterado: eUsuario = new eUsuario();
 novaFoto: string;
@@ -123,20 +124,22 @@ novaFoto: string;
     //precisa passar foto em branco pq não chamou o método de foto ainda
     this.userAlterado.capa_foto = "";
 
-
     if(this.formularioCliente.valid){
       this.auth.updateUsuario(this.userAlterado).subscribe(response =>{
-        this.mensagemSucesso = "Usuário " + formCadValues.nome + " atualizado com sucesso!##",
+        this.mensagemSucesso = "Sucesso"
+        this.nomeUsuario = formCadValues.nome;
           this.mensagemErro = null;
           this.uploadFotoUser();
       }, errorResponse => {
         this.mensagemSucesso = null,
-          this.mensagemErro = "##Erro ao realizar a atualização de " + formCadValues.nome;
+          this.mensagemErro = "Erro" + formCadValues.nome;
+          this.nomeUsuario = formCadValues.nome;
       });
     }else{
-      this.mensagemErro = "O formulário ainda não está valido##"
+      this.mensagemErro = "Invalido"
       this.mensagemSucesso = null;
     }
+
   }
 
   clickMudaIdioma() {
