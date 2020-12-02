@@ -27,7 +27,7 @@
     <strong>{{ 'cliente.cliente-perfil.aviso' | translate }}</strong>{{ 'cliente.cliente-perfil.erroAtualizacao' | translate }} {{nomeUsuario}}
   </div>
   <div *ngIf="mensagemSucesso === 'Sucesso'" class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>{{ 'cliente.cliente-perfil.cadastroFeito' | translate }}</strong>{{ 'cliente.cliente-perfil.usuario' | translate }} {{nomeUsuario}} {{ 'cliente.cliente-perfil.atualizadoSucesso' | translate }}
+    <strong>{{ 'cliente.cliente-perfil.cadastroFeito' | translate }}</strong> {{ 'cliente.cliente-perfil.usuario' | translate }} {{nomeUsuario}} {{ 'cliente.cliente-perfil.atualizadoSucesso' | translate }}
   </div>
   <div class="row">
     <div class="col-sm-6">
@@ -83,7 +83,7 @@
       <div class="form-group">
         <mat-form-field class="full-width">
           <mat-label>{{ 'campos.label.selecaoData' | translate }}</mat-label>
-          <input matInput [matDatepicker]="picker" disabled formControlName="dataNascimento">
+          <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker disabled="false"></mat-datepicker>
         </mat-form-field>
