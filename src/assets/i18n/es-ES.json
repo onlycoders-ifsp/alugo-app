@@ -76,6 +76,7 @@
 		},
 		"aluguel-locatario": {
 			"alugueisRealizados": "Alquileres Realizados:",
+			"ate": "a",
 			"valorPago": "Cantidad Pagada:"
 		},
 		"cliente-credenciais": {
@@ -117,16 +118,20 @@
 		"cliente-perfil": {
 			"altNovaFoto": "Nueva Foto",
 			"altUsuarioLogado": "Usuário Conectado",
+			"atualizadoSucesso": "actualizado con éxito!",
 			"atualizarperfil": "Actualización del Perfil",
 			"aviso": "Advertencia !!",
 			"cadastroFeito": "Registro Exitoso.",
 			"camposIncorretos": "¡No todos los campos son correctos! Por favor revise.",
+			"erroAtualizacao": "Error al actualizar",
 			"mudarfoto": "Cambiar Foto",
-			"uploadfoto": "Sube una imagen JPG, GIF o PNG. Se requiere 300 x 300."
+			"uploadfoto": "Sube una imagen JPG, GIF o PNG. Se requiere 300 x 300.",
+			"usuario": "Usuario"
 		},
 		"cliente-produto": {
 			"Descricao": "Descripción",
 			"addeditprod": "Agregar/Editar el Producto",
+			"alertaCentavos": "Para centavos, use puntos.",
 			"alertaDataCompra": "Establezca la fecha de compra.",
 			"alertaDescricaoCurta": "Se requiere una breve descripción del producto!",
 			"alertaDescricaoProduto": "¡Se requiere una descripción del producto!",
@@ -135,6 +140,10 @@
 			"alertaValorBaseMensal": "Establezca una cantidad mensual.",
 			"alertaValorProduto": "¡Valor del producto no informado!",
 			"ativo": "¿Está activo el producto?",
+			"atualizaErro": "Error al realizar la actualización del producto",
+			"atualizaSucesso": "actualizado con éxito!",
+			"cadastroErro": "Error al realizar el registro del producto",
+			"cadastroSucesso": "¡Registrado correctamente!",
 			"dataCompra": "Fecha de Compra",
 			"descricaoCurta": "Descripción Breve del Producto",
 			"dicaDescricao": "Ingrese tantos detalles como sea posible.",
@@ -142,10 +151,12 @@
 			"dicaProduto": "Piense en algo llamativo para atraer al cliente.",
 			"dicaValorBase": "Valor Aproximado Calculado",
 			"dicaValorProduto": "Monto pagado en el producto:",
+			"formInvalido": "El formulario aún no es válido",
 			"formattags": "Minúsculas, separadas por comas y una sola palabra",
 			"maxcaracteres": "Máximo 100 caracteres",
 			"nomeproduto": "Nombre del Producto",
 			"placeholderNomeProduto": "Ingrese el nombre del producto.",
+			"produto": "Producto",
 			"selecaoarquivo": "O seleccione el archivo",
 			"selecionecategoria": "Select category",
 			"tags": "Etiquetas de Productos",
@@ -330,6 +341,7 @@
 			"disponibilize": "¡Haga que un producto esté disponible hoy!",
 			"filtros": "Filtros",
 			"locarproduto": "Alquilar un Producto",
+			"nenhumProduto": "No se encontraron productos con el filtro",
 			"procuraartigos": "¿Busca herramientas para videos y fotos?",
 			"produtosdisponiveis": "Productos disponibles para alquiler:",
 			"proximo": "Próximo",

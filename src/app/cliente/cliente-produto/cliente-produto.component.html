@@ -1,6 +1,23 @@
-<div *ngIf="mensagemErro" class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Ops! </strong>{{ mensagemErro }}
+<div *ngIf="mensagemErro === 'AtualizadoErro'" class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ 'cliente.cliente-produto.atualizaErro' | translate }} {{ nomeProduto }}
 </div>
+
+<div *ngIf="mensagemErro === 'CadastroErro'" class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ 'cliente.cliente-produto.cadastroErro' | translate }} {{ nomeProduto }}
+</div>
+
+<div *ngIf="mensagemErro === 'formInvalido'" class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ 'cliente.cliente-produto.formInvalido' | translate }}
+</div>
+
+<div *ngIf="mensagemSucesso === 'AtualizadoSucesso'" class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ 'cliente.cliente-produto.produto' | translate }} {{ nomeProduto }} {{ 'cliente.cliente-produto.atualizaSucesso' | translate }}
+</div>
+
+<div *ngIf="mensagemSucesso === 'CadastroSucesso'" class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ 'cliente.cliente-produto.produto' | translate }} {{ nomeProduto }} {{ 'cliente.cliente-produto.cadastroSucesso' | translate }}
+</div>
+
 <div class="bg-light box-shadow-lg rounded-lg overflow-hidden">
   <section class="col-lg-12 pt-lg-8 pb-4 mb-3">
     <div class="pt-2 px-4 pl-lg-0 pr-xl-5">
@@ -64,7 +81,7 @@
               <mat-form-field  class="full-width">
                 <mat-label>{{ 'cliente.cliente-produto.valorProduto' | translate }}</mat-label>
                 <input  formControlName="valor_produto" matInput placeholder="1000.00">
-                <mat-hint>Para centavos, utilize pontos##</mat-hint>
+                <mat-hint>{{ 'cliente.cliente-produto.alertaCentavos' | translate }}</mat-hint>
                 <mat-error *ngIf="formularioProduto.controls.valor_produto.errors && formularioProduto.controls.valor_produto.errors.required">
                   {{ 'cliente.cliente-produto.alertaValorProduto' | translate }}
                 </mat-error>
@@ -78,7 +95,7 @@
               <mat-form-field  class="full-width">
                 <mat-label>{{ 'cliente.cliente-produto.valorBaseMensal' | translate }}</mat-label>
                 <input  formControlName="valor_base_mensal" matInput placeholder="100.00">
-                <mat-hint>Para centavos, utilize pontos##</mat-hint>
+                <mat-hint>{{ 'cliente.cliente-produto.alertaCentavos' | translate }}</mat-hint>
                 <mat-error *ngIf="formularioProduto.controls.valor_base_mensal.errors && formularioProduto.controls.valor_base_mensal.errors.required">
                   {{ 'cliente.cliente-produto.alertaValorBaseMensal' | translate }}
                 </mat-error>
@@ -92,7 +109,7 @@
               <mat-form-field  class="full-width">
                 <mat-label>{{ 'cliente.cliente-produto.valorBaseDiaria' | translate }}</mat-label>
                 <input  formControlName="valor_base_diaria" matInput placeholder="10.00">
-                <mat-hint>Para centavos, utilize pontos##</mat-hint>
+                <mat-hint>{{ 'cliente.cliente-produto.alertaCentavos' | translate }}</mat-hint>
                 <mat-error *ngIf="formularioProduto.controls.valor_base_diaria.errors && formularioProduto.controls.valor_base_diaria.errors.required">
                   {{ 'cliente.cliente-produto.alertaValorBaseDiaria' | translate }}
                 </mat-error>

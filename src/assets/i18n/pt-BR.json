@@ -76,6 +76,7 @@
 		},
 		"aluguel-locatario": {
 			"alugueisRealizados": "Aluguéis Realizados:",
+			"ate": "até",
 			"valorPago": "Valor Pago:"
 		},
 		"cliente-credenciais": {
@@ -117,16 +118,20 @@
 		"cliente-perfil": {
 			"altNovaFoto": "Nova Foto",
 			"altUsuarioLogado": "Usuário Logado",
+			"atualizadoSucesso": "atualizado com sucesso!",
 			"atualizarperfil": "Atualizar Perfil",
 			"aviso": "Aviso !!",
 			"cadastroFeito": "Cadastro Realizado.",
 			"camposIncorretos": "Nem todos os campos estão corretos! Por favor revise.",
+			"erroAtualizacao": "Erro ao realizar a atualização de",
 			"mudarfoto": "Mudar Foto",
-			"uploadfoto": "Upload de imagem JPG, GIF ou PNG. 300 x 300 necessário."
+			"uploadfoto": "Upload de imagem JPG, GIF ou PNG. 300 x 300 necessário.",
+			"usuario": "Usuário"
 		},
 		"cliente-produto": {
 			"Descricao": "Descrição",
 			"addeditprod": "Adicionar/Editar o Produto",
+			"alertaCentavos": "Para centavos, utilize pontos.",
 			"alertaDataCompra": "Defina a data de compra.",
 			"alertaDescricaoCurta": "Descrição curta do produto é necessária!",
 			"alertaDescricaoProduto": "Descrição do produto é necessária!",
@@ -135,6 +140,10 @@
 			"alertaValorBaseMensal": "Defina um valor mensal.",
 			"alertaValorProduto": "Valor do produto não informado!",
 			"ativo": "Produto Ativo?",
+			"atualizaErro": "Erro ao realizar a atualização do produto",
+			"atualizaSucesso": "atualizado com sucesso!",
+			"cadastroErro": "Erro ao realizar o cadastro do produto",
+			"cadastroSucesso": "cadastrado com sucesso!",
 			"dataCompra": "Data de Compra",
 			"descricaoCurta": "Descrição Curta do Produto",
 			"dicaDescricao": "Insira o maior número de detalhes possível.",
@@ -142,10 +151,12 @@
 			"dicaProduto": "Pense em algo chamativo para atrair o lacador.",
 			"dicaValorBase": "Valor Aproximado Calculado",
 			"dicaValorProduto": "Valor Pago no Produto:",
+			"formInvalido": "O formulário ainda não está valido",
 			"formattags": "Minúsculas, separadas por vírgula e uma única palavra",
 			"maxcaracteres": "Máximo 100 carácteres",
 			"nomeproduto": "Nome do Produto",
 			"placeholderNomeProduto": "Insira o nome do produto.",
+			"produto": "Produto",
 			"selecaoarquivo": "Ou selecione o arquivo",
 			"selecionecategoria": "Selecione a Categoria",
 			"tags": "Tags do Produto",
@@ -330,6 +341,7 @@
 			"disponibilize": "Disponibilize um produto hoje mesmo!",
 			"filtros": "Filtros",
 			"locarproduto": "Locar um Produto",
+			"nenhumProduto": "Nenhum produto encontrado com o filtro",
 			"procuraartigos": "Procura ferramentas para vídeo e fotos?",
 			"produtosdisponiveis": "Produtos disponíveis para aluguel:",
 			"proximo": "Próximo",

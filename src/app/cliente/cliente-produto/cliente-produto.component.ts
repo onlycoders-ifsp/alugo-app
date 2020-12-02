@@ -24,6 +24,7 @@ export class ClienteProdutoComponent implements OnInit {
   idCurrentProduto: string;
   mensagemSucesso: string;
   mensagemErro: string;
+  nomeProduto: string;
   erroDescricao: boolean = false;
   erroDescricaoCurta: boolean = false;
 
@@ -129,7 +130,7 @@ export class ClienteProdutoComponent implements OnInit {
       }else{
         this.erroDescricaoCurta = false;
       }
-      this.mensagemErro = "O formulário ainda não está valido"
+      this.mensagemErro = "formInvalido"
     }
   }
 
@@ -138,17 +139,20 @@ export class ClienteProdutoComponent implements OnInit {
     console.log(this.idCurrentProduto)
     this.produtoService.updateProduto(this.produtoAlterado).subscribe(response => {
       if(response){
-        this.mensagemSucesso = "Produto " + this.produtoAlterado.nome + " atualizado com sucesso!";
+        this.nomeProduto = this.produtoAlterado.nome;
+        this.mensagemSucesso = "AtualizadoSucesso";
         this.mensagemErro = null;
         localStorage.setItem("produtoInputadoSucesso", this.mensagemSucesso);
       localStorage.removeItem("idProdutoMudanca");
       this.uploadFotoDeCapa();
       }else{
-        this.mensagemErro = "Erro ao realizar a atualização do produto " + this.produtoAlterado.nome;
+        this.nomeProduto = this.produtoAlterado.nome;
+        this.mensagemErro = "AtualizadoErro";
       }
     }, errorResponse => {
       this.mensagemSucesso = null,
-        this.mensagemErro = "Erro ao realizar a atualização do produto " + this.produtoAlterado.nome;
+        this.nomeProduto = this.produtoAlterado.nome;
+        this.mensagemErro = "AtualizadoErro";
     });
   }
 
@@ -156,13 +160,15 @@ export class ClienteProdutoComponent implements OnInit {
     this.produtoAlterado.ativo = false;
     this.produtoService.cadProduto(this.produtoAlterado).subscribe(response => {
       this.currentProduto = response;
-      this.mensagemSucesso = "Produto " + this.currentProduto.nome + " cadastrado com sucesso!##",
+      this.nomeProduto = this.produtoAlterado.nome;
+      this.mensagemSucesso = "CadastroSucesso",
         this.mensagemErro = null;
         localStorage.setItem("produtoInputadoSucesso", this.mensagemSucesso);
         this.uploadFotoDeCapa();
     }, errorResponse => {
       this.mensagemSucesso = null,
-        this.mensagemErro = "##Erro ao realizar o cadastro do produto " + this.produtoAlterado.nome;
+      this.nomeProduto = this.produtoAlterado.nome;
+        this.mensagemErro = "CadastroErro";
     });
   }
 
@@ -248,7 +254,8 @@ export class ClienteProdutoComponent implements OnInit {
           this.router.navigate(["cliente/perfil/meusprodutos"])
         }, errorResponse => {
           console.log(errorResponse)
-            this.mensagemErro = "##Erro ao realizar o cadastro do produto " + this.produtoAlterado.nome;
+          this.nomeProduto = this.produtoAlterado.nome;
+            this.mensagemErro = "CadastroErro";
         })
     }else{
       this.router.navigate(["cliente/perfil/meusprodutos"])
