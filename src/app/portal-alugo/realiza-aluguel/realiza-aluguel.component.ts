@@ -24,33 +24,8 @@ export class RealizaAluguelComponent implements OnInit {
   public setDate: Date = new Date(2020,12,1);
   public showHeaderBar: boolean = true;
   public readonly: boolean = true;
-  public eventObject: EventSettingsModel = {
-    dataSource: [{
-      Subject: 'Augado',
-      IsReadonly: true,
-      Description: 'Produto Alugado nesta data',
-      StartTime: new Date(2021,0,17,0,0),
-      //ano, mes, dia, hora, minuto
-      EndTime: new Date(2021,0,18,12,0),
-      CategoryColor: "#357cd2"
-    },
-    {
-      Subject: 'Alugado',
-      IsReadonly: true,
-      Description: 'Produto Alugado nesta data',
-      StartTime: new Date(2021,0,20,0,0),
-      //ano, mes, dia, hora, minuto
-      EndTime: new Date(2021,0,26,12,0)
-    },
-    {
-      Subject: 'Alugado',
-      IsReadonly: true,
-      Description: 'Produto Alugado nesta data',
-      StartTime: new Date(2021,0,8,0,0),
-      //ano, mes, dia, hora, minuto
-      EndTime: new Date(2021,0,12,12,0)
-    }]
-  }
+  public eventObject: EventSettingsModel;
+  
 
   idiomas: iIdioma[];
   currentBandeira: string;
@@ -92,8 +67,33 @@ export class RealizaAluguelComponent implements OnInit {
     this.produtoService.getProdutoById(this.idProduto)
     .subscribe( 
       response => {
+        console.log(response);
         this.currentProduto = response;
         this.idDono = this.currentProduto.id_usuario;
+
+        let alugueis = [];
+        this.currentProduto.dt_alugadas.forEach(item => {
+          let dateIni: Date = new Date(item.dt_inicio);
+          let dataFormatada = this.datepipe.transform(item.dt_fim, 'MM-dd-yyyy');
+          let dateFim: Date = new Date(dataFormatada);
+          let evento = {
+            Subject: 'Augado',
+            IsReadonly: true,
+            Description: 'Produto Alugado nesta data',
+            StartTime: dateIni,
+            //ano, mes, dia, hora, minuto
+            EndTime: dateFim,
+            CategoryColor: "#357cd2"
+          }
+          console.log(evento)
+          
+          alugueis.push(evento);
+          
+      });
+      this.eventObject = {
+        dataSource: alugueis
+      }
+        console.log(alugueis)
         this.loadInfosDono();
       },
       errorResponse => {
