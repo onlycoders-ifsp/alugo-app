@@ -15,7 +15,7 @@ import {environment} from "../../../environments/environment";
 })
 export class PortalLayoutComponent implements OnInit {
 
-
+  location = Location;
   currentUser: eCurrentUsuario;
   idiomas: iIdioma[];
   currentBandeira: string;

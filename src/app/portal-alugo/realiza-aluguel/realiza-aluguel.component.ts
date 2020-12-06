@@ -10,6 +10,7 @@ import { AluguelService } from 'src/app/Services/AluguelService';
 import { AuthService } from 'src/app/Services/auth.service';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { produtoService } from 'src/app/Services/produtoService';
+import { View, EventSettingsModel,  } from '@syncfusion/ej2-angular-schedule'
 
 @Component({
   selector: 'app-realiza-aluguel',
@@ -17,6 +18,14 @@ import { produtoService } from 'src/app/Services/produtoService';
   styleUrls: ['./realiza-aluguel.component.css']
 })
 export class RealizaAluguelComponent implements OnInit {
+
+  public setView: View = 'Month';
+  public views: View[] = ['Month'];
+  public setDate: Date = new Date(2020,12,1);
+  public showHeaderBar: boolean = true;
+  public readonly: boolean = true;
+  public eventObject: EventSettingsModel;
+  
 
   idiomas: iIdioma[];
   currentBandeira: string;
@@ -58,8 +67,33 @@ export class RealizaAluguelComponent implements OnInit {
     this.produtoService.getProdutoById(this.idProduto)
     .subscribe( 
       response => {
+        console.log(response);
         this.currentProduto = response;
         this.idDono = this.currentProduto.id_usuario;
+
+        let alugueis = [];
+        this.currentProduto.dt_alugadas.forEach(item => {
+          let dateIni: Date = new Date(item.dt_inicio);
+          let dataFormatada = this.datepipe.transform(item.dt_fim, 'MM-dd-yyyy');
+          let dateFim: Date = new Date(dataFormatada);
+          let evento = {
+            Subject: 'Augado',
+            IsReadonly: true,
+            Description: 'Produto Alugado nesta data',
+            StartTime: dateIni,
+            //ano, mes, dia, hora, minuto
+            EndTime: dateFim,
+            CategoryColor: "#357cd2"
+          }
+          console.log(evento)
+          
+          alugueis.push(evento);
+          
+      });
+      this.eventObject = {
+        dataSource: alugueis
+      }
+        console.log(alugueis)
         this.loadInfosDono();
       },
       errorResponse => {
