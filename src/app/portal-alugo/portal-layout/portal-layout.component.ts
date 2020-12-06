@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import * as $ from 'jquery';
 import { eCurrentUsuario } from 'src/app/entidades/eCurrentUsuario';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { AuthService } from 'src/app/Services/auth.service';
