@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
   apiBaseUrl: 'https://backend-alugo.herokuapp.com',
   clientId: 'front-alugo',
   secret: 'aluGo@123!321',
