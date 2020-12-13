@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { DatePipe } from '@angular/common'
 import { Router } from '@angular/router';
+import { Validacoes } from 'src/app/Classes/Validacoes';
 
 @Component({
   selector: 'app-cliente-perfil',
@@ -69,7 +70,7 @@ novaFoto: string;
   createForm(){
     this.formularioCliente = this.fb.group({
       nome:['',[Validators.required]],
-      cpf:['',[Validators.required,Validators.maxLength(11), Validators.minLength(11)]],
+      cpf:['',[Validators.required,Validators.maxLength(11), Validators.minLength(11), Validacoes.ValidaCpf]],
       email:['',[Validators.required, Validators.email]],
       login: ['', [Validators.required]],
       celular:[''],

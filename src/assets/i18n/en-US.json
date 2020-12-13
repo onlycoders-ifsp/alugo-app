@@ -18,6 +18,7 @@
 			"cep": "Zip Code",
 			"complemento": "Address Complement",
 			"cpf": "CPF Document",
+			"cpfInvalido": "Invalid CPF Document",
 			"cpfPreenchimento": "11 Digits",
 			"email": "Email",
 			"emailPreenchimento": "You need to fill in the email!",

@@ -18,6 +18,7 @@
 			"cep": "邮政编码",
 			"complemento": "地址补充",
 			"cpf": "公积金文件",
+			"cpfInvalido": "无效的社会保险号",
 			"cpfPreenchimento": "11位数",
 			"email": "电子邮件",
 			"emailPreenchimento": "您需要填写电子邮件！",

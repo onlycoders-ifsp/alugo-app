@@ -18,6 +18,7 @@
 			"cep": "Código Postal",
 			"complemento": "Complemento de Direcciones",
 			"cpf": "Documento CPF",
+			"cpfInvalido": "Documento CPF inválido",
 			"cpfPreenchimento": "11 Dígitos",
 			"email": "Correo Electrónico",
 			"emailPreenchimento": "¡Necesitas completar el correo electrónico!",

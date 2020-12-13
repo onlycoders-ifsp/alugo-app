@@ -18,6 +18,7 @@
 			"cep": "CEP",
 			"complemento": "Complemento",
 			"cpf": "CPF",
+			"cpfInvalido": "CPF Inválido",
 			"cpfPreenchimento": "11 Digitos",
 			"email": "E-mail",
 			"emailPreenchimento": "Você precisa preencher o email!",

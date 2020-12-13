@@ -7,6 +7,7 @@ import { AuthService } from '../Services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { eUsuario } from '../entidades/eUsuario';
 import { eUsuarioConstructor } from '../entidades/eUsuarioConstrutor';
+import { Validacoes } from 'src/app/Classes/Validacoes';
 
 @Component({
   selector: 'app-login',
@@ -62,7 +63,8 @@ export class LoginComponent implements OnInit {
       cpf:['', [
         Validators.required,
         Validators.minLength(11),
-        Validators.maxLength(11)
+        Validators.maxLength(11), 
+        Validacoes.ValidaCpf
       ], ],
       celular:['', [
         Validators.required

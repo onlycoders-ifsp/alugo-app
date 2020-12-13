@@ -152,7 +152,11 @@
                                                 <mat-form-field class="full-width">
                                                     <mat-label>{{ 'portal-alugo.login.cpf' | translate }}</mat-label>
                                                     <input matInput formControlName="cpf" mask="000.000.000-00" placeholder="{{ 'portal-alugo.login.exCpf' | translate }}">
-                                                    <mat-error *ngIf="formularioCadastro.controls.cpf.errors && formularioCadastro.controls.cpf.errors.required">
+                                                      <mat-error *ngIf="formularioCadastro.controls.cpf.errors && formularioCadastro.controls.cpf.errors.cpfInvalido && 
+                                                      !formularioCadastro.controls.cpf.errors.required && !formularioCadastro.controls.cpf.errors.minlength && !formularioCadastro.controls.cpf.errors.maxlength">
+                                                        {{ 'campos.label.cpfInvalido' | translate }}
+                                                      </mat-error>
+                                                      <mat-error *ngIf="formularioCadastro.controls.cpf.errors && formularioCadastro.controls.cpf.errors.required">
                                                         {{ 'portal-alugo.login.cpfPreenchimento' | translate }}
                                                       </mat-error>
                                                       <mat-error *ngIf="formularioCadastro.controls.cpf.errors && formularioCadastro.controls.cpf.errors.minlength">
