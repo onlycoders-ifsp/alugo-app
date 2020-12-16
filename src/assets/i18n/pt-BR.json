@@ -289,7 +289,7 @@
 			"temConta": "Já possui uma conta? Entre.",
 			"textoLogin": "Entrar",
 			"txtInfoRecuperarSenha": "Para recuperar sua senha, forneça seu email e enviaremos as instruções para recuperação!",
-			"usuario": "Usuário",
+			"usuario": "Usuário ou email",
 			"usuarioCadastrado": "Usuário cadastrado com sucesso!! Faça login.",
 			"usuarioSenhaIncorreto": "Usuário e/ou senha incorretos."
 		},

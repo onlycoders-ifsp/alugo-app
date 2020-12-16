@@ -289,7 +289,7 @@
 			"temConta": "已经有帐号了？ 在两者之间",
 			"textoLogin": "登录",
 			"txtInfoRecuperarSenha": "要恢复密码，请提供您的电子邮件，我们将向您发送恢复说明！",
-			"usuario": "用户",
+			"usuario": "用户或电子邮件",
 			"usuarioCadastrado": "用户成功注册！ 登入。",
 			"usuarioSenhaIncorreto": "用户名和/或密码不正确。"
 		},

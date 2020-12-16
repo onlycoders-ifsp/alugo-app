@@ -289,7 +289,7 @@
 			"temConta": "¿Ya tienes una cuenta? Entre.",
 			"textoLogin": "Iniciar Sesión",
 			"txtInfoRecuperarSenha": "Para recuperar su contraseña, proporcione su correo electrónico y le enviaremos instrucciones para la recuperación.",
-			"usuario": "Usuario",
+			"usuario": "Usuario o correo electrónico",
 			"usuarioCadastrado": "Usuario registrado exitosamente !! Registrarse.",
 			"usuarioSenhaIncorreto": "Nombre de usuario y / o contraseña incorrectos."
 		},
