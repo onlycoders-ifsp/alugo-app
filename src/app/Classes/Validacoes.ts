@@ -38,8 +38,13 @@ export class Validacoes {
       resto = (soma * 10) % 11;
 
       if (resto == 10 || resto == 11) resto = 0;
-      if (resto != parseInt(cpf.substring(10, 11))) valido = false;
-      valido = true;
+      if (resto != parseInt(cpf.substring(10, 11))) {
+        valido = false;
+      }
+      else{
+        valido = true;
+      }
+      
     }
 
     if (valido) return null;
