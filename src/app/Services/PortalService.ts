@@ -20,7 +20,6 @@ export class PortalService {
     let params = new HttpParams();
     params = params.append('page',String(page));
     params = params.append('size',String(size));
-    console.log(params.get('size'));
     return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getListaProdutos,{params});
   }
 
@@ -30,8 +29,11 @@ export class PortalService {
     return this.http.get<eProduto>(environment.apiBaseUrl + environment.getOnly1Produto, {params});
   }
 
-  getProdutosUsuarioLogado() : Observable<eProduto[]>{
-    return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getOnlyUserProducts);
+  getProdutosUsuarioLogado(page:number,size:number) : Observable<eProduto[]>{
+    let params = new HttpParams();
+    params = params.append('page',String(page));
+    params = params.append('size',String(size));
+    return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getOnlyUserProducts,{params});
   }
 
   

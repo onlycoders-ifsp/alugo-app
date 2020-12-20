@@ -16,7 +16,12 @@ export class AluguelLocatarioComponent implements OnInit {
   idiomas: iIdioma[];
   currentBandeira: string;
   currentIdioma: string;
-
+  public page: number = 0;
+  public size: number = 10;
+  public pages:number;
+  public firstPage: boolean;
+  public lastPage: boolean;
+  public total: number;
   
   constructor(
     private idiService: idiomaService,
@@ -26,14 +31,24 @@ export class AluguelLocatarioComponent implements OnInit {
     this.idiomas = idiService.getListIdiomas()
    }
 
+   setPage(i,event:any){
+    event.preventDefault();
+    this.page = i;
+    this.ngOnInit();
+
+  }
   ngOnInit(): void {
     this.getListaAlugueisLocatario();
   }
 
 
   getListaAlugueisLocatario(){
-    this.aluguelService.getListAluguelLocatario().subscribe(resposta => {
-      this.alugueisLocatario = resposta;
+    this.aluguelService.getListAluguelLocatario(this.page,this.size).subscribe(resposta => {
+      this.alugueisLocatario = resposta['content'];
+      this.pages = resposta['totalPages'];
+      this.firstPage = resposta['first'];
+      this.lastPage = resposta['last'];
+      this.total = resposta['totalElements'];
       errorResponse => {
         console.log(errorResponse)
       }

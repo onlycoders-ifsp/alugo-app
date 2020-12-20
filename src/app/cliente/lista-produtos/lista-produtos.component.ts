@@ -18,6 +18,12 @@ export class ListaProdutosComponent implements OnInit {
   currentBandeira: string;
   currentIdioma: string;
   mensagemSucessoProduto: string = null;
+  public page: number = 0;
+  public size: number = 5;
+  public pages:number;
+  public firstPage: boolean;
+  public lastPage: boolean;
+  public total: number;
 
   constructor(
     private router: Router,
@@ -28,6 +34,12 @@ export class ListaProdutosComponent implements OnInit {
     this.idiomas = idiService.getListIdiomas()
    }
 
+   setPage(i,event:any){
+    event.preventDefault();
+    this.page = i;
+    this.ngOnInit();
+
+  }
   ngOnInit(): void {
     this.getListaProdutosUsuario()
     if(localStorage.getItem("produtoInputadoSucesso")){
@@ -39,13 +51,17 @@ export class ListaProdutosComponent implements OnInit {
   }
 
   getListaProdutosUsuario(){
-    this.portalService.getProdutosUsuarioLogado().subscribe(resposta => {
-      this.Produtos = resposta;
+    this.portalService.getProdutosUsuarioLogado(this.page,this.size).subscribe(resposta => {
+      this.Produtos = resposta['content'];
+      this.pages = resposta['totalPages'];
+      this.firstPage = resposta['first'];
+      this.lastPage = resposta['last'];
+      this.total = resposta['totalElements'];
       errorResponse => {
         console.log(errorResponse)
       }
     });
-    this.portalService.getProdutosUsuarioLogado()
+    this.portalService.getProdutosUsuarioLogado(this.page,this.size)
   }
 
   clickMudaIdioma() {

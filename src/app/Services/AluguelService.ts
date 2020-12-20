@@ -17,12 +17,18 @@ export class AluguelService {
 
 
 
-  getListAluguelLocador() : Observable<eAluguel[]> {
-    return this.http.get<eAluguel[]>(environment.apiBaseUrl + environment.getListAluguelLocador);
+  getListAluguelLocador(page:number,size:number) : Observable<eAluguel[]> {
+    let params = new HttpParams();
+    params = params.append('page',String(page));
+    params = params.append('size',String(size));
+    return this.http.get<eAluguel[]>(environment.apiBaseUrl + environment.getListAluguelLocador,{params});
   }
   
-  getListAluguelLocatario() : Observable<eAluguel[]> {
-    return this.http.get<eAluguel[]>(environment.apiBaseUrl + environment.getListAluguelLocatario);
+  getListAluguelLocatario(page:number,size:number) : Observable<eAluguel[]> {
+    let params = new HttpParams();
+    params = params.append('page',String(page));
+    params = params.append('size',String(size));
+    return this.http.get<eAluguel[]>(environment.apiBaseUrl + environment.getListAluguelLocatario,{params});
   }
 
   cadNewAluguel(aluguel: eCadAluguel) : Observable<boolean>{

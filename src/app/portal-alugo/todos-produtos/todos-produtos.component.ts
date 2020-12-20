@@ -26,6 +26,7 @@ export class TodosProdutosComponent implements OnInit {
   public pages:number;
   public firstPage: boolean;
   public lastPage: boolean;
+  public total: number;
   
   constructor(
     private router: Router,
@@ -66,6 +67,7 @@ export class TodosProdutosComponent implements OnInit {
         this.pages = resposta['totalPages'];
         this.firstPage = resposta['first'];
         this.lastPage = resposta['last'];
+        this.total = resposta['totalElements'];
         console.log(this.produtos)
       },
         errorResponse => {

@@ -21,7 +21,9 @@ export class ClienteLayoutComponent implements OnInit {
 
   currentUsuario: eUsuario;
   listProdutos: eProduto[] = [];
-
+  public page: number = 0;
+  public size: number = 5;
+  public total: number;
 
 
   constructor( 
@@ -49,8 +51,9 @@ export class ClienteLayoutComponent implements OnInit {
   }
 
   getQtdeProdutosUserLogado(){
-    this.portalService.getProdutosUsuarioLogado().subscribe(resposta => {
-      this.listProdutos = resposta;
+    this.portalService.getProdutosUsuarioLogado(this.page,this.size).subscribe(resposta => {
+      this.listProdutos = resposta['content'];
+      this.total = resposta['totalElements'];
       errorResponse => {
         console.log(errorResponse)
       }
