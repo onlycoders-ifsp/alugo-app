@@ -19,7 +19,8 @@ export class HomeComponent implements OnInit {
   currentIdioma: string;
 
   idiomaSelecionado: string;
-
+  public page: number = 0;
+  public size: number = 20;
 
   constructor(
     private router : Router,
@@ -31,7 +32,7 @@ export class HomeComponent implements OnInit {
       }
 
   ngOnInit(): void {
-    this.portalService.getProdutos().subscribe(resposta => {
+    this.portalService.getProdutos(this.page,this.size).subscribe(resposta => {
       this.produtos = resposta;},
       errorResponse => {
         console.log(errorResponse)

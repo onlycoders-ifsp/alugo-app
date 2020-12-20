@@ -21,6 +21,11 @@ export class TodosProdutosComponent implements OnInit {
   currentIdioma: string;
   txtPesquisaproduto: string;
   semProduto: boolean = false;
+  public page: number = 0;
+  public size: number = 20;
+  public pages:number;
+  public firstPage: boolean;
+  public lastPage: boolean;
   
   constructor(
     private router: Router,
@@ -30,6 +35,13 @@ export class TodosProdutosComponent implements OnInit {
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
+  }
+
+  setPage(i,event:any){
+    event.preventDefault();
+    this.page = i;
+    this.ngOnInit();
+
   }
 
   ngOnInit(): void {
@@ -49,8 +61,11 @@ export class TodosProdutosComponent implements OnInit {
         console.log(errorResponse);
       })
     } else {
-      this.portalService.getProdutos().subscribe(resposta => {
-        this.produtos = resposta;
+      this.portalService.getProdutos(this.page,this.size).subscribe(resposta => {
+        this.produtos = resposta['content'];
+        this.pages = resposta['totalPages'];
+        this.firstPage = resposta['first'];
+        this.lastPage = resposta['last'];
         console.log(this.produtos)
       },
         errorResponse => {

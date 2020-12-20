@@ -13,11 +13,15 @@ export class PortalService {
   constructor( private http: HttpClient ) { }
 
 
-  getProdutos() : Observable<eProduto[]> {
+  getProdutos(page:number,size:number) : Observable<eProduto[]> {
     // let params = new HttpParams();
     // params = params.append('id_usuario' , "0");
     // params = params.append('id_produto', "0");
-    return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getListaProdutos);
+    let params = new HttpParams();
+    params = params.append('page',String(page));
+    params = params.append('size',String(size));
+    console.log(params.get('size'));
+    return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getListaProdutos,{params});
   }
 
   getProdutoById(idProduto: string) : Observable<eProduto> {
