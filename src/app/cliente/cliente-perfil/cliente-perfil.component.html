@@ -93,7 +93,7 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.telefone' | translate }}</mat-label>
-          <input  formControlName="celular" mask="(00) 0 0000-0000" matInput placeholder="{{ 'campos.label.placeholdertelefone' | translate }}">
+          <input matInput formControlName="celular" mask="(00) 0 0000-0000"  placeholder="{{ 'campos.label.placeholdertelefone' | translate }}">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
@@ -102,7 +102,7 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.cep' | translate }}</mat-label>
-          <input  formControlName="cep" mask="00000-000" matInput placeholder="{{ 'campos.label.placeholdercep' | translate }}">
+          <input  formControlName="cep" (change)="preencheCep()" mask="00000-000" matInput placeholder="{{ 'campos.label.placeholdercep' | translate }}">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
@@ -111,7 +111,7 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.endereco' | translate }}</mat-label>
-          <input  formControlName="endereco" matInput placeholder="{{ 'campos.label.placeholderendereco' | translate }}">
+          <input matInput formControlName="endereco" placeholder="{{ 'campos.label.placeholderendereco' | translate }}">
           <mat-icon class="text-primary"  matSuffix>streetview</mat-icon>
         </mat-form-field>
       </div>
@@ -136,7 +136,7 @@
     </div>
     <div class="col-sm-6">
       <div class="form-group">
-        <mat-form-field  class="full-width">
+        <mat-form-field class="full-width">
           <mat-label>{{ 'campos.label.bairro' | translate }}</mat-label>
           <input  formControlName="bairro" matInput placeholder="{{ 'campos.label.placeholderbairro' | translate }}">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>

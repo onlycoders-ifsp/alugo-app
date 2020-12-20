@@ -21,7 +21,7 @@ export class RealizaAluguelComponent implements OnInit {
 
   public setView: View = 'Month';
   public views: View[] = ['Month'];
-  public setDate: Date = new Date(2020,12,1);
+  public setDate: Date = new Date();
   public showHeaderBar: boolean = true;
   public readonly: boolean = true;
   public eventObject: EventSettingsModel;
@@ -73,13 +73,14 @@ export class RealizaAluguelComponent implements OnInit {
 
         let alugueis = [];
         this.currentProduto.dt_alugadas.forEach(item => {
-          let dateIni: Date = new Date(item.dt_inicio);
+          let dataFormatadaIni = this.datepipe.transform(item.dt_inicio, 'MM-dd-yyyy');
+          let dateIni: Date = new Date(dataFormatadaIni);
           let dataFormatada = this.datepipe.transform(item.dt_fim, 'MM-dd-yyyy');
           let dateFim: Date = new Date(dataFormatada);
           let evento = {
-            Subject: 'Augado',
+            Subject: 'Augado##',
             IsReadonly: true,
-            Description: 'Produto Alugado nesta data',
+            Description: 'Produto Alugado nesta data##',
             StartTime: dateIni,
             //ano, mes, dia, hora, minuto
             EndTime: dateFim,

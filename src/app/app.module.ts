@@ -36,6 +36,9 @@ import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { LoadingComponent } from './loading/loading.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { loadingService } from './Services/loadingService';
+import { CepService } from './Services/CepService';
+import { ErrorRequestComponent } from './error-request/error-request.component';
+import { errorRequestService } from './Services/errorRequestService';
 
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
@@ -44,7 +47,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
   declarations: [
     AppComponent,
     LoginComponent,
-    LoadingComponent
+    LoadingComponent,
+    ErrorRequestComponent
   ],
   imports: [
     BrowserModule,
@@ -84,6 +88,9 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     PortalService,
     AuthService,
     loadingService,
+    CepService,
+    XMLHttpRequest,
+    errorRequestService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
