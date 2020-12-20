@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
@@ -12,6 +12,8 @@ import { produtoService } from 'src/app/Services/produtoService';
   styleUrls: ['./todos-produtos.component.css']
 })
 export class TodosProdutosComponent implements OnInit {
+  @Input() someInput: string;
+
 
   produtos: eProduto[] = [];
   currentProduto: eProduto;
@@ -35,6 +37,33 @@ export class TodosProdutosComponent implements OnInit {
   ngOnInit(): void {
     this.currentProduto = new eProduto();
     
+    if (localStorage.getItem("txtPesquisaProduto")) {
+      this.txtPesquisaproduto = localStorage.getItem("txtPesquisaProduto");
+      this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto")).subscribe(response => {
+        this.produtos = response;
+        if(this.produtos.length == 0){
+          this.semProduto = true;
+        }else{
+          this.semProduto = false;
+        }
+        localStorage.removeItem("txtPesquisaProduto");
+      }, errorResponse => {
+        console.log(errorResponse);
+      })
+    } else {
+      this.portalService.getProdutos().subscribe(resposta => {
+        this.produtos = resposta;
+        console.log(this.produtos)
+      },
+        errorResponse => {
+          console.log(errorResponse)
+        });
+    }
+  }
+
+  ngOnChanges(){
+    this.currentProduto = new eProduto();
+    console.log("chamo")
     if (localStorage.getItem("txtPesquisaProduto")) {
       this.txtPesquisaproduto = localStorage.getItem("txtPesquisaProduto");
       this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto")).subscribe(response => {
