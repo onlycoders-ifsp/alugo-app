@@ -6,12 +6,9 @@ import { AuthService } from 'src/app/Services/auth.service';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { DatePipe } from '@angular/common'
 import { Router } from '@angular/router';
-<<<<<<< HEAD
 import { CepService } from 'src/app/Services/CepService';
 import { eCep } from 'src/app/entidades/eCep';
-=======
 import { Validacoes } from 'src/app/Classes/Validacoes';
->>>>>>> 93da4b0777c1e529aeab551b7d9b2b90b56fe178
 
 @Component({
   selector: 'app-cliente-perfil',
