@@ -5,6 +5,7 @@ import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { PortalService } from 'src/app/Services/PortalService';
 import { produtoService } from 'src/app/Services/produtoService';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-todos-produtos',
@@ -23,18 +24,35 @@ export class TodosProdutosComponent implements OnInit {
   currentIdioma: string;
   txtPesquisaproduto: string;
   semProduto: boolean = false;
+  public page: number = 0;
+  public size: number = 20;
+  public pages:number;
+  public firstPage: boolean;
+  public lastPage: boolean;
+  public total: number;
   
   constructor(
     private router: Router,
     private portalService: PortalService,
     private idiService: idiomaService,
-    private produtoS: produtoService
+    private produtoS: produtoService,
+    private auth: AuthService
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
   }
 
+  setPage(i,event:any){
+    event.preventDefault();
+    this.page = i;
+    this.ngOnInit();
+
+  }
+
   ngOnInit(): void {
+    if (!this.auth.isAutenticado()){
+      this.auth.encerrarSessao();
+    }
     this.currentProduto = new eProduto();
     
     if (localStorage.getItem("txtPesquisaProduto")) {
@@ -52,7 +70,11 @@ export class TodosProdutosComponent implements OnInit {
       })
     } else {
       this.portalService.getProdutos().subscribe(resposta => {
-        this.produtos = resposta;
+        this.produtos = resposta['content'];
+        this.pages = resposta['totalPages'];
+        this.firstPage = resposta['first'];
+        this.lastPage = resposta['last'];
+        this.total = resposta['totalElements'];
       },
         errorResponse => {
           console.log(errorResponse)
@@ -65,7 +87,11 @@ export class TodosProdutosComponent implements OnInit {
     if (localStorage.getItem("txtPesquisaProduto")) {
       this.txtPesquisaproduto = localStorage.getItem("txtPesquisaProduto");
       this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto")).subscribe(response => {
-        this.produtos = response;
+        this.produtos = response['content'];
+        this.pages = response['totalPages'];
+        this.firstPage = response['first'];
+        this.lastPage = response['last'];
+        this.total = response['totalElements'];
         if(this.produtos.length == 0){
           this.semProduto = true;
         }else{
@@ -77,7 +103,11 @@ export class TodosProdutosComponent implements OnInit {
       })
     } else {
       this.portalService.getProdutos().subscribe(resposta => {
-        this.produtos = resposta;
+        this.produtos = resposta['content'];
+        this.pages = resposta['totalPages'];
+        this.firstPage = resposta['first'];
+        this.lastPage = resposta['last'];
+        this.total = resposta['totalElements'];
       },
         errorResponse => {
           console.log(errorResponse)
