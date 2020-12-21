@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {  
     if (!this.AuthService.isAutenticado()){
-      this.AuthService.encerrarSessao();
+      this.AuthService.removeToken();
     }
     this.portalService.getProdutos(this.page,this.size).subscribe(resposta => {
       this.produtos = resposta['content'];},

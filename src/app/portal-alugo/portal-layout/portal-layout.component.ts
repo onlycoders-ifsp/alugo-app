@@ -38,7 +38,7 @@ export class PortalLayoutComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.auth.isAutenticado()){
-    this.auth.encerrarSessao();
+    this.auth.removeToken();
   }
     this.currentUser.isLogado = this.auth.isAutenticado();
     this.currentUser.nome = this.auth.getUsuarioAutenticado();

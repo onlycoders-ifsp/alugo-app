@@ -60,7 +60,7 @@ export class RealizaAluguelComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.auth.isAutenticado()){
-      this.auth.encerrarSessao();
+      this.auth.encerraSessao();
     }
     this.loadInfosProduto();
     this.createForm();

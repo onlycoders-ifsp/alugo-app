@@ -43,7 +43,7 @@ export class AluguelLocadorComponent implements OnInit {
   }
   ngOnInit(): void {
     if (!this.AuthService.isAutenticado()){
-      this.AuthService.encerrarSessao();
+      this.AuthService.encerraSessao();
     }
     this.getListaAlugueisLocador();
   }

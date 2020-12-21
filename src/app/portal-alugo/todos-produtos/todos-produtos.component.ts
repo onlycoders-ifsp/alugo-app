@@ -51,7 +51,7 @@ export class TodosProdutosComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.auth.isAutenticado()){
-      this.auth.encerrarSessao();
+      this.auth.removeToken();
     }
     this.currentProduto = new eProduto();
     

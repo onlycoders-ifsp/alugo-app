@@ -44,7 +44,7 @@ export class ListaProdutosComponent implements OnInit {
   }
   ngOnInit(): void {
     if (!this.auth.isAutenticado()){
-      this.auth.encerrarSessao();
+      this.auth.removeToken();
     }
     this.getListaProdutosUsuario()
     if(localStorage.getItem("produtoInputadoSucesso")){
