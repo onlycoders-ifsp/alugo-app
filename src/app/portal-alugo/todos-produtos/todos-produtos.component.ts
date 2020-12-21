@@ -58,7 +58,11 @@ export class TodosProdutosComponent implements OnInit {
     if (localStorage.getItem("txtPesquisaProduto")) {
       this.txtPesquisaproduto = localStorage.getItem("txtPesquisaProduto");
       this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto"),this.page,this.size).subscribe(response => {
-        this.produtos = response;
+        this.produtos = response['content'];
+        this.pages = response['totalPages'];
+        this.firstPage = response['first'];
+        this.lastPage = response['last'];
+        this.total = response['totalElements'];
         if(this.produtos.length == 0){
           this.semProduto = true;
         }else{
