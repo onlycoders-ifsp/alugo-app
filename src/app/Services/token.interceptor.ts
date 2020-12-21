@@ -79,9 +79,11 @@ export class TokenInterceptor implements HttpInterceptor {
           //   this.errorRequest.showError();
           // }
       },(error: HttpErrorResponse) =>{
-        this.countLoader--;
-        this.loaderService.hide();
-        this.errorRequest.showError();
+        if(error.status == 500 || error.status == 503){
+          this.countLoader--;
+          this.loaderService.hide();
+          this.errorRequest.showError();
+        }
       }));
 
 
