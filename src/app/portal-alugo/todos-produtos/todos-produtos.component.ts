@@ -63,7 +63,7 @@ export class TodosProdutosComponent implements OnInit {
         this.firstPage = response['first'];
         this.lastPage = response['last'];
         this.total = response['totalElements'];
-        if(this.produtos.length == 0){
+        if(this.total == 0){
           this.semProduto = true;
         }else{
           this.semProduto = false;
@@ -96,7 +96,7 @@ export class TodosProdutosComponent implements OnInit {
         this.firstPage = response['first'];
         this.lastPage = response['last'];
         this.total = response['totalElements'];
-        if(this.produtos.length == 0){
+        if(this.total == 0){
           this.semProduto = true;
         }else{
           this.semProduto = false;
