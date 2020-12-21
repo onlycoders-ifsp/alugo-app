@@ -9,7 +9,8 @@
         </button>
       </div> -->
       <div class="d-sm-flex flex-wrap justify-content-between align-items-center border-bottom">
-        <h2 class="h3 py-2 mr-2 text-center text-sm-left">{{ 'cliente.lista-produtos.seusprodutos' | translate }}<span class="badge badge-secondary font-size-sm text-body align-middle ml-2">{{ Produtos.length }}</span></h2>
+        <h2 class="h3 py-2 mr-2 text-center text-sm-left">{{ 'cliente.lista-produtos.seusprodutos' | translate }}<span class="badge badge-secondary font-size-sm text-body align-middle ml-2">{{ total }}</span></h2>
+        <div *ngIf="total>0" class="d-flex"><a class="nav-link-style mr-3" *ngIf=!firstPage href="" (click)="setPage(page-1,$event)"><i class="fa fa-arrow-left"></i></a><span class="font-size-md">{{page+1}} / {{pages}}</span><a class="nav-link-style ml-3" *ngIf=!lastPage href="" (click)="setPage(page+1,$event)"><i class="fa fa-arrow-right"></i></a></div>
         <div class="py-2">
           <!-- <div class="form-inline flex-nowrap pb-3">
             <label class="text-nowrap mr-2" for="sorting">{{ 'cliente.lista-produtos.ordenarpor' | translate }}:</label>
@@ -28,7 +29,7 @@
       <div *ngFor="let produto of Produtos" class="media d-block d-sm-flex align-items-center py-4 border-bottom"><a class="d-block mb-3 mb-sm-0 mr-sm-4 mx-auto" routerLink="/cliente/produto" style="width: 12.5rem;"><img class="rounded-lg" src="data:image/jpg;base64,{{produto.capa_foto}}" alt="{{produto.nome}}"></a>
         <div class="media-body text-center text-sm-left">
           <h3 class="h6 product-title mb-2"><a routerLink="/cliente/produto">{{produto.nome}}</a></h3>
-          <div class="d-inline-block text-accent">R$ {{produto.valor_produto}}.<small></small></div>
+          <div class="d-inline-block text-accent">R$ {{produto.valor_produto}}<small></small></div>
           <div class="d-inline-block text-muted font-size-ms border-left ml-2 pl-2">{{ 'cliente.lista-produtos.alugueis' | translate }}: <span class="font-weight-medium">{{produto.qtd_alugueis}}</span></div>
           <div class="d-inline-block text-muted font-size-ms border-left ml-2 pl-2">{{ 'cliente.lista-produtos.ganhos' | translate }}: <span class="font-weight-medium">R$ {{produto.total_ganhos}}<small></small></span></div>
           <div class="d-flex justify-content-center justify-content-sm-start pt-3">
@@ -38,8 +39,11 @@
           </div>
         </div>
       </div>
-
-
+      <div class="d-flex justify-content-between align-items-center">
+        <!--<div class="dropdown mr-2"><a class="btn btn-outline-secondary dropdown-toggle" href="#shop-filters" data-toggle="collapse"><i class="fa fa-filter mr-2"></i>{{ 'portal-alugo.todos-produtos.filtros' | translate }}</a></div>-->
+        <div *ngIf="total>0" class="d-flex"><a class="nav-link-style mr-3" *ngIf=!firstPage href="" (click)="setPage(page-1,$event)"><i class="fa fa-arrow-left"></i></a><span class="font-size-md">{{page+1}} / {{pages}}</span><a class="nav-link-style ml-3" *ngIf=!lastPage href="" (click)="setPage(page+1,$event)"><i class="fa fa-arrow-right"></i></a></div>
+        <!--<div class="d-none d-sm-flex"><a class="btn btn-icon nav-link-style bg-primary text-light disabled opacity-100 mr-2" ><i class="fa fa-border-all"></i></a></div>-->
+      </div>
 
       <!-- <nav *ngIf="Produtos.length >= 5" class="d-flex justify-content-between pt-2" aria-label="Page navigation">
         <ul class="pagination">

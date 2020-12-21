@@ -43,6 +43,10 @@ export class AuthService {
     this.router.navigate(['']);
   }
 
+  removeToken(){
+    localStorage.removeItem("access_token");
+  }
+
   getUsuarioAutenticado(){
     const token = this.obterToken();
 

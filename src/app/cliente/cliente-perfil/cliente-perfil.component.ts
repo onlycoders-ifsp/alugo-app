@@ -43,6 +43,9 @@ novaFoto: string;
    }
 
   ngOnInit(): void {
+    if (!this.auth.isAutenticado()){
+      this.auth.encerraSessao();
+    }
     this.loadCurrentUser();
   }
 

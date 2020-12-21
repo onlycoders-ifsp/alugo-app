@@ -32,9 +32,11 @@ export class produtoService {
     return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getOnlyUserProducts);
   }
 
-  getProdutosByPesquisa(txtPesquisa: string) : Observable<eProduto[]>{
+  getProdutosByPesquisa(txtPesquisa: string,page:number,size:number) : Observable<eProduto[]>{
     let params = new HttpParams();
     params = params.append('produto', txtPesquisa);
+    params = params.append('page',String(page));
+    params = params.append('size',String(size));
     return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getProdutosByPesquisa, {params});
   }
 
