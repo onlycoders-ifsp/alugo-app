@@ -19,7 +19,7 @@
       </div>
       <div class="d-flex justify-content-between align-items-center">
         <!--<div class="dropdown mr-2"><a class="btn btn-outline-secondary dropdown-toggle" href="#shop-filters" data-toggle="collapse"><i class="fa fa-filter mr-2"></i>{{ 'portal-alugo.todos-produtos.filtros' | translate }}</a></div>-->
-        <div class="d-flex"><a class="nav-link-style mr-3" *ngIf=!firstPage href="" (click)="setPage(page-1,$event)"><i class="fa fa-arrow-left"></i></a><span class="font-size-md">{{page+1}} / {{pages}}</span><a class="nav-link-style ml-3" *ngIf=!lastPage href="" (click)="setPage(page+1,$event)"><i class="fa fa-arrow-right"></i></a></div>
+        <div *ngIf="total>0" class="d-flex"><a class="nav-link-style mr-3" *ngIf=!firstPage href="" (click)="setPage(page-1,$event)"><i class="fa fa-arrow-left"></i></a><span class="font-size-md">{{page+1}} / {{pages}}</span><a class="nav-link-style ml-3" *ngIf=!lastPage href="" (click)="setPage(page+1,$event)"><i class="fa fa-arrow-right"></i></a></div>
         <!--<div class="d-none d-sm-flex"><a class="btn btn-icon nav-link-style bg-primary text-light disabled opacity-100 mr-2" ><i class="fa fa-border-all"></i></a></div>-->
       </div>
       <div *ngFor="let item of alugueisLocatario" class="media d-block d-sm-flex align-items-center py-4 border-bottom">

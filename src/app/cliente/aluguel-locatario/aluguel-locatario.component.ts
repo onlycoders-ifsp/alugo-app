@@ -22,7 +22,7 @@ export class AluguelLocatarioComponent implements OnInit {
   public pages:number;
   public firstPage: boolean;
   public lastPage: boolean;
-  public total: number;
+  public total: number = 0;
   
   constructor(
     private idiService: idiomaService,
@@ -40,7 +40,7 @@ export class AluguelLocatarioComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    if (!this.AuthService.isAutenticado()){
+      if (!this.AuthService.isAutenticado()){
       this.AuthService.encerrarSessao();
     }
     this.getListaAlugueisLocatario();

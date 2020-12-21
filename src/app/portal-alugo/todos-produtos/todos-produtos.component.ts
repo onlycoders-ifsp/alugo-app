@@ -29,7 +29,7 @@ export class TodosProdutosComponent implements OnInit {
   public pages:number;
   public firstPage: boolean;
   public lastPage: boolean;
-  public total: number;
+  public total: number = 0;
   
   constructor(
     private router: Router,

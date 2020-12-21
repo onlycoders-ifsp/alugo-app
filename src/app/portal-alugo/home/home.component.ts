@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   idiomas: iIdioma[];
   currentBandeira: string;
   currentIdioma: string;
-  private AuthService: AuthService;
   idiomaSelecionado: string;
   public page: number = 0;
   public size: number = 4;
@@ -26,13 +25,14 @@ export class HomeComponent implements OnInit {
   constructor(
     private router : Router,
     private portalService: PortalService,
-    private idiService: idiomaService
+    private idiService: idiomaService,
+    private AuthService: AuthService
     ) {   
       this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
       }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     if (!this.AuthService.isAutenticado()){
       this.AuthService.encerrarSessao();
     }
