@@ -38,6 +38,9 @@ export class ClienteLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void { 
+    if (!this.auth.isAutenticado()){
+      this.auth.encerrarSessao();
+    }
     this.getQtdeProdutosUserLogado();
   }
 

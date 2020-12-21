@@ -5,6 +5,7 @@ import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { PortalService } from 'src/app/Services/PortalService';
 import { produtoService } from 'src/app/Services/produtoService';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-todos-produtos',
@@ -32,7 +33,8 @@ export class TodosProdutosComponent implements OnInit {
     private router: Router,
     private portalService: PortalService,
     private idiService: idiomaService,
-    private produtoS: produtoService
+    private produtoS: produtoService,
+    private auth: AuthService
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
@@ -46,6 +48,9 @@ export class TodosProdutosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (!this.auth.isAutenticado()){
+      this.auth.encerrarSessao();
+    }
     this.currentProduto = new eProduto();
     
     if (localStorage.getItem("txtPesquisaProduto")) {

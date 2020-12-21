@@ -3,6 +3,7 @@ import { eAluguel } from 'src/app/entidades/eAluguel';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { AluguelService } from 'src/app/Services/AluguelService';
 import { idiomaService } from 'src/app/Services/idiomaService';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-aluguel-locatario',
@@ -25,7 +26,8 @@ export class AluguelLocatarioComponent implements OnInit {
   
   constructor(
     private idiService: idiomaService,
-    private aluguelService: AluguelService
+    private aluguelService: AluguelService,
+    private AuthService: AuthService
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
@@ -38,6 +40,9 @@ export class AluguelLocatarioComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    if (!this.AuthService.isAutenticado()){
+      this.AuthService.encerrarSessao();
+    }
     this.getListaAlugueisLocatario();
   }
 

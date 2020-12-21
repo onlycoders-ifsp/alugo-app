@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
+import { AuthService } from 'src/app/Services/auth.service';
 import { PortalService } from 'src/app/Services/PortalService';
 
 @Component({
@@ -28,6 +29,7 @@ export class ListaProdutosComponent implements OnInit {
   constructor(
     private router: Router,
     private idiService: idiomaService,
+    private auth: AuthService,
     private portalService: PortalService
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
@@ -41,6 +43,9 @@ export class ListaProdutosComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    if (!this.auth.isAutenticado()){
+      this.auth.encerrarSessao();
+    }
     this.getListaProdutosUsuario()
     if(localStorage.getItem("produtoInputadoSucesso")){
       this.mensagemSucessoProduto = localStorage.getItem("produtoInputadoSucesso");

@@ -4,6 +4,7 @@ import { eProduto } from 'src/app/entidades/eProduto';
 import { PortalService } from 'src/app/Services/PortalService';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
   idiomas: iIdioma[];
   currentBandeira: string;
   currentIdioma: string;
-
+  private AuthService: AuthService;
   idiomaSelecionado: string;
   public page: number = 0;
   public size: number = 4;
@@ -25,13 +26,16 @@ export class HomeComponent implements OnInit {
   constructor(
     private router : Router,
     private portalService: PortalService,
-    private idiService: idiomaService,
+    private idiService: idiomaService
     ) {   
       this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
       }
 
   ngOnInit(): void {
+    if (!this.AuthService.isAutenticado()){
+      this.AuthService.encerrarSessao();
+    }
     this.portalService.getProdutos(this.page,this.size).subscribe(resposta => {
       this.produtos = resposta['content'];},
       errorResponse => {

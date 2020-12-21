@@ -13,10 +13,7 @@ export class AluguelService {
 
 
   constructor( private http: HttpClient ) { }
-
-
-
-
+  
   getListAluguelLocador(page:number,size:number) : Observable<eAluguel[]> {
     let params = new HttpParams();
     params = params.append('page',String(page));
