@@ -6,6 +6,8 @@ import { AuthService } from 'src/app/Services/auth.service';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { DatePipe } from '@angular/common'
 import { Router } from '@angular/router';
+import { CepService } from 'src/app/Services/CepService';
+import { eCep } from 'src/app/entidades/eCep';
 import { Validacoes } from 'src/app/Classes/Validacoes';
 
 @Component({
@@ -23,6 +25,7 @@ formularioCliente: FormGroup;
 mensagemErro: string;
 mensagemSucesso: string;
 nomeUsuario: string;
+cepPesquisado: eCep = new eCep();
 currentUsuarioLogado: eUsuario = new eUsuario();
 userAlterado: eUsuario = new eUsuario();
 novaFoto: string;
@@ -31,7 +34,8 @@ novaFoto: string;
     private fb: FormBuilder,
     private auth: AuthService,
     public datepipe: DatePipe,
-    private router: Router
+    private router: Router,
+    private cepSearch: CepService
     ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
@@ -78,9 +82,9 @@ novaFoto: string;
       login: ['', [Validators.required]],
       celular:[''],
       dataNascimento:['',[]],
-      bairro:[''],
+      bairro:['',[]],
       cep:[''],
-      endereco:[''],
+      endereco:['',[]],
       numero:[''],
       complemento:[''],
     })
@@ -101,9 +105,9 @@ novaFoto: string;
     }
     this.userAlterado.cep = formCadValues.cep;
     this.userAlterado.login = formCadValues.login;
-    if(!formCadValues.endereco){
-      formCadValues.endereco = "";
-    }
+    // if(!formCadValues.endereco){
+    //   formCadValues.endereco = "";
+    // }
     this.userAlterado.endereco = formCadValues.endereco;
     if(!formCadValues.numero){
       formCadValues.numero = "";
@@ -116,9 +120,9 @@ novaFoto: string;
       latest_date = "";
     }
     this.userAlterado.data_nascimento = latest_date;
-    if(!formCadValues.bairro){
-      formCadValues.bairro = "";
-    }
+    // if(!formCadValues.bairro){
+    //   formCadValues.bairro = "";
+    // }
     this.userAlterado.bairro = formCadValues.bairro;
     if(!formCadValues.complemento){
       formCadValues.complemento = "";
@@ -177,5 +181,17 @@ novaFoto: string;
         this.ngOnInit()
       });
     }
+  }
+
+
+  preencheCep(){
+    this.cepSearch.getCep(this.formularioCliente.value.cep).subscribe(response => {
+      this.cepPesquisado = response;
+      this.formularioCliente.patchValue({
+        bairro: this.cepPesquisado.bairro,
+        endereco: this.cepPesquisado.logradouro,
+      })
+      
+    });
   }
 }

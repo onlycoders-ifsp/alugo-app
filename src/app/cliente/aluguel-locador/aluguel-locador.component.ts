@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { eAluguel } from 'src/app/entidades/eAluguel';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { AluguelService } from 'src/app/Services/AluguelService';
+import { errorRequestService } from 'src/app/Services/errorRequestService';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { AuthService } from 'src/app/Services/auth.service'
 
@@ -28,6 +29,7 @@ export class AluguelLocadorComponent implements OnInit {
     private idiService: idiomaService,
     private aluguelService: AluguelService,
     private AuthService: AuthService
+    public errorRequest: errorRequestService
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
@@ -55,7 +57,7 @@ export class AluguelLocadorComponent implements OnInit {
       this.lastPage = resposta['last'];
       this.total = resposta['totalElements'];
       errorResponse => {
-        console.log(errorResponse)
+        console.log(errorResponse);
       }
     });
   }

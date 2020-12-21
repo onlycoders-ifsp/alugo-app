@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
@@ -13,6 +13,8 @@ import { AuthService } from 'src/app/Services/auth.service';
   styleUrls: ['./todos-produtos.component.css']
 })
 export class TodosProdutosComponent implements OnInit {
+  @Input() someInput: string;
+
 
   produtos: eProduto[] = [];
   currentProduto: eProduto;
@@ -67,13 +69,45 @@ export class TodosProdutosComponent implements OnInit {
         console.log(errorResponse);
       })
     } else {
-      this.portalService.getProdutos(this.page,this.size).subscribe(resposta => {
+      this.portalService.getProdutos().subscribe(resposta => {
         this.produtos = resposta['content'];
         this.pages = resposta['totalPages'];
         this.firstPage = resposta['first'];
         this.lastPage = resposta['last'];
         this.total = resposta['totalElements'];
-        console.log(this.produtos)
+      },
+        errorResponse => {
+          console.log(errorResponse)
+        });
+    }
+  }
+
+  ngOnChanges(){
+    this.currentProduto = new eProduto();
+    if (localStorage.getItem("txtPesquisaProduto")) {
+      this.txtPesquisaproduto = localStorage.getItem("txtPesquisaProduto");
+      this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto")).subscribe(response => {
+        this.produtos = response['content'];
+        this.pages = response['totalPages'];
+        this.firstPage = response['first'];
+        this.lastPage = response['last'];
+        this.total = response['totalElements'];
+        if(this.produtos.length == 0){
+          this.semProduto = true;
+        }else{
+          this.semProduto = false;
+        }
+        localStorage.removeItem("txtPesquisaProduto");
+      }, errorResponse => {
+        console.log(errorResponse);
+      })
+    } else {
+      this.portalService.getProdutos().subscribe(resposta => {
+        this.produtos = resposta['content'];
+        this.pages = resposta['totalPages'];
+        this.firstPage = resposta['first'];
+        this.lastPage = resposta['last'];
+        this.total = resposta['totalElements'];
       },
         errorResponse => {
           console.log(errorResponse)

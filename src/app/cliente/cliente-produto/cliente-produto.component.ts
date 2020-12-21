@@ -141,7 +141,6 @@ export class ClienteProdutoComponent implements OnInit {
 
   updateProduto() {
     this.produtoAlterado.id_produto = this.idCurrentProduto;
-    console.log(this.idCurrentProduto)
     this.produtoService.updateProduto(this.produtoAlterado).subscribe(response => {
       if(response){
         this.nomeProduto = this.produtoAlterado.nome;
@@ -248,7 +247,6 @@ export class ClienteProdutoComponent implements OnInit {
 
 
   uploadFotoDeCapa(){
-    console.log("chama muda foto")
     const files = this.fileAtual;
     if(files){
       const foto = files[0];
@@ -256,7 +254,6 @@ export class ClienteProdutoComponent implements OnInit {
       formData.append("capa_foto", foto);
       formData.append("id_produto", this.currentProduto.id_produto);
         this.produtoService.uploadFotoCapa(formData).subscribe(response => {
-          console.log(response);
           this.router.navigate(["cliente/perfil/meusprodutos"])
         }, errorResponse => {
           console.log(errorResponse)

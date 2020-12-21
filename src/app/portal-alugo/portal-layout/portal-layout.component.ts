@@ -54,8 +54,9 @@ export class PortalLayoutComponent implements OnInit {
   pesquisaProduto(){
 
     localStorage.setItem("txtPesquisaProduto", this.txtPesquisa)
-    //this.refreshChild();
-    this.router.navigate(["/list-all"])
+    
+    this.router.navigate(["/redirect"])
+    this.refreshChild();
   }
 
   refreshChild() {

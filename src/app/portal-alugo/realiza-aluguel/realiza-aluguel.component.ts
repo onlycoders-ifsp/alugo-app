@@ -21,7 +21,7 @@ export class RealizaAluguelComponent implements OnInit {
 
   public setView: View = 'Month';
   public views: View[] = ['Month'];
-  public setDate: Date = new Date(2020,12,1);
+  public setDate: Date = new Date();
   public showHeaderBar: boolean = true;
   public readonly: boolean = true;
   public eventObject: EventSettingsModel;
@@ -70,25 +70,23 @@ export class RealizaAluguelComponent implements OnInit {
     this.produtoService.getProdutoById(this.idProduto)
     .subscribe( 
       response => {
-        console.log(response);
         this.currentProduto = response;
         this.idDono = this.currentProduto.id_usuario;
 
         let alugueis = [];
         this.currentProduto.dt_alugadas.forEach(item => {
-          let dateIni: Date = new Date(item.dt_inicio);
-          let dataFormatada = this.datepipe.transform(item.dt_fim, 'MM-dd-yyyy');
-          let dateFim: Date = new Date(dataFormatada);
+          let dataFormatadaIni = this.datepipe.transform(item.dt_inicio, 'MM-dd-yyyy');
+          let dateIni: Date = new Date(dataFormatadaIni);
+          let dateFim = this.transformaDataFim(item.dt_fim);
           let evento = {
-            Subject: 'Augado',
+            Subject: 'Alugado##',
             IsReadonly: true,
-            Description: 'Produto Alugado nesta data',
+            Description: 'Produto Alugado nesta data##',
             StartTime: dateIni,
             //ano, mes, dia, hora, minuto
             EndTime: dateFim,
             CategoryColor: "#357cd2"
           }
-          console.log(evento)
           
           alugueis.push(evento);
           
@@ -96,7 +94,6 @@ export class RealizaAluguelComponent implements OnInit {
       this.eventObject = {
         dataSource: alugueis
       }
-        console.log(alugueis)
         this.loadInfosDono();
       },
       errorResponse => {
@@ -155,7 +152,8 @@ export class RealizaAluguelComponent implements OnInit {
           } else {
             this.errorDataMenorHoje = false;
             let diff = Math.abs(formCadValues.data_inicio.getTime() - formCadValues.data_fim.getTime());
-            let diffDays = Math.ceil(diff / (1000 * 3600 * 24));
+            
+            let diffDays = (Math.ceil(diff / (1000 * 3600 * 24)) + 1);
             if (diffDays >= 30) {
               let meses = 0;
               let diasCount = diffDays;
@@ -183,8 +181,6 @@ export class RealizaAluguelComponent implements OnInit {
   setNewAluguel() {
     if (this.formularioAluguel.valid) {
       if (!this.errorDataMenorHoje && !this.errorData) {
-        console.log(this.currentProduto)
-        console.log(this.currentDono)
         if (this.currentLogado.id_usuario != this.currentProduto.id_usuario) {
           
           this.errorDonoProduto = false;
@@ -219,6 +215,13 @@ export class RealizaAluguelComponent implements OnInit {
 
   clickMudaIdioma() {
     this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
+  }
+
+  transformaDataFim(data: string): Date{
+    let dateNoPadrao = this.datepipe.transform(data, 'MM-dd-yyyy');
+    let dateFim: Date = new Date(dateNoPadrao);
+    let dataFimFinal: Date = new Date(dateFim.getFullYear(), dateFim.getMonth(), dateFim.getDate(), 23,59,0,0);
+    return dataFimFinal;
   }
 
 }
