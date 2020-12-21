@@ -57,7 +57,7 @@ export class TodosProdutosComponent implements OnInit {
     
     if (localStorage.getItem("txtPesquisaProduto")) {
       this.txtPesquisaproduto = localStorage.getItem("txtPesquisaProduto");
-      this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto")).subscribe(response => {
+      this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto"),this.page,this.size).subscribe(response => {
         this.produtos = response;
         if(this.produtos.length == 0){
           this.semProduto = true;
@@ -69,7 +69,7 @@ export class TodosProdutosComponent implements OnInit {
         console.log(errorResponse);
       })
     } else {
-      this.portalService.getProdutos().subscribe(resposta => {
+      this.portalService.getProdutos(this.page,this.size).subscribe(resposta => {
         this.produtos = resposta['content'];
         this.pages = resposta['totalPages'];
         this.firstPage = resposta['first'];
@@ -86,7 +86,7 @@ export class TodosProdutosComponent implements OnInit {
     this.currentProduto = new eProduto();
     if (localStorage.getItem("txtPesquisaProduto")) {
       this.txtPesquisaproduto = localStorage.getItem("txtPesquisaProduto");
-      this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto")).subscribe(response => {
+      this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto"),this.page,this.size).subscribe(response => {
         this.produtos = response['content'];
         this.pages = response['totalPages'];
         this.firstPage = response['first'];
@@ -102,7 +102,7 @@ export class TodosProdutosComponent implements OnInit {
         console.log(errorResponse);
       })
     } else {
-      this.portalService.getProdutos().subscribe(resposta => {
+      this.portalService.getProdutos(this.page,this.size).subscribe(resposta => {
         this.produtos = resposta['content'];
         this.pages = resposta['totalPages'];
         this.firstPage = resposta['first'];

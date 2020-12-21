@@ -28,7 +28,7 @@ export class AluguelLocadorComponent implements OnInit {
   constructor(
     private idiService: idiomaService,
     private aluguelService: AluguelService,
-    private AuthService: AuthService
+    private AuthService: AuthService,
     public errorRequest: errorRequestService
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
