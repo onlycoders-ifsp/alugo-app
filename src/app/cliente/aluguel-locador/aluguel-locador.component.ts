@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { eAluguel } from 'src/app/entidades/eAluguel';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { AluguelService } from 'src/app/Services/AluguelService';
+import { errorRequestService } from 'src/app/Services/errorRequestService';
 import { idiomaService } from 'src/app/Services/idiomaService';
 
 @Component({
@@ -20,7 +21,8 @@ export class AluguelLocadorComponent implements OnInit {
   
   constructor(
     private idiService: idiomaService,
-    private aluguelService: AluguelService
+    private aluguelService: AluguelService,
+    public errorRequest: errorRequestService
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
@@ -35,7 +37,7 @@ export class AluguelLocadorComponent implements OnInit {
     this.aluguelService.getListAluguelLocador().subscribe(resposta => {
       this.alugueisLocador = resposta;
       errorResponse => {
-        console.log(errorResponse)
+        console.log(errorResponse);
       }
     });
   }

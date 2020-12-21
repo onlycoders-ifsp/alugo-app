@@ -1,11 +1,12 @@
-<div *ngIf="isError | async" class="overlay">
-
-  VISH DEU RUIM
-    <!-- <img src="../../assets/imagens/alugoGO.png" class="center1">
-    <img src="../../assets/imagens/loading.gif" class="center"> -->
-    
-      <!-- <mat-progress-spinner class="img" [color]="color" [mode]="mode" [value]="value">
-      </mat-progress-spinner> -->
+    <div *ngIf="isError | async"class="overlay">
+      <div class="container py-5 mb-lg-3">
+        <div class="row justify-content-center pt-lg-4 text-center">
+          <div class="col-lg-5 col-md-7 col-sm-9">
+            <img src="../../assets/imagens/alugoGO.png" class="center1">
+            <h1 class="display-404">Ops!</h1>
+            <h2 class="h3 mb-4">Ocorreu um erro com sua requisição! Tente novamente##</h2>
+          </div>
+        </div>
+      </div>
     </div>
-  
-    <!-- *ngIf="isLoading | async" -->
+    

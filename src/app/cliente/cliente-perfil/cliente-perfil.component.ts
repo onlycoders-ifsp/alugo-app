@@ -189,7 +189,6 @@ novaFoto: string;
         endereco: this.cepPesquisado.logradouro,
       })
       
-      console.log(this.formularioCliente)
     });
   }
 }

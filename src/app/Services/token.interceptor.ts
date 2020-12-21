@@ -31,6 +31,8 @@ export class TokenInterceptor implements HttpInterceptor {
     
     const urlRequest = request.url;
 
+    this.errorRequest.hideError();
+
     this.countLoader++;
 
     //não mostra o loading quando os idiomas são carregados no navegador
@@ -40,9 +42,7 @@ export class TokenInterceptor implements HttpInterceptor {
       } 
     }
     if(!this.loadJsonsIdioma){
-      console.log("deu start com + " + urlRequest)
       this.loaderService.show();
-      console.log(this.countLoader)
     }else{
       this.loadJsonsIdioma = false;
     }
@@ -65,20 +65,23 @@ export class TokenInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(
       tap(event => {
-          if (event instanceof HttpResponse) {
+          if (event instanceof HttpResponse && event.status === 200) {
               this.countLoader--;
-              console.log(this.countLoader)
               if (this.countLoader === 0) {
                   this.loaderService.hide();
-                  this.errorRequest.hideError();
               }
           }
-          // else if((event.status === 500 || event.status === 501 || event.status === 503)){
-          //   this.countLoader--;
-          //   console.log(this.countLoader)
-          //   this.loaderService.hide();
+          // else if(event instanceof HttpErrorResponse && event.status === 503){
+          //    this.countLoader--;
+          //    console.log(this.countLoader)
+          //    console.log("deu erro")
+          // //   this.loaderService.hide();
           //   this.errorRequest.showError();
           // }
+      },(error: HttpErrorResponse) =>{
+        this.countLoader--;
+        this.loaderService.hide();
+        this.errorRequest.showError();
       }));
 
 

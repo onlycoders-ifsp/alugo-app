@@ -53,7 +53,6 @@ export class TodosProdutosComponent implements OnInit {
     } else {
       this.portalService.getProdutos().subscribe(resposta => {
         this.produtos = resposta;
-        console.log(this.produtos)
       },
         errorResponse => {
           console.log(errorResponse)
@@ -63,7 +62,6 @@ export class TodosProdutosComponent implements OnInit {
 
   ngOnChanges(){
     this.currentProduto = new eProduto();
-    console.log("chamo")
     if (localStorage.getItem("txtPesquisaProduto")) {
       this.txtPesquisaproduto = localStorage.getItem("txtPesquisaProduto");
       this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto")).subscribe(response => {
@@ -80,7 +78,6 @@ export class TodosProdutosComponent implements OnInit {
     } else {
       this.portalService.getProdutos().subscribe(resposta => {
         this.produtos = resposta;
-        console.log(this.produtos)
       },
         errorResponse => {
           console.log(errorResponse)

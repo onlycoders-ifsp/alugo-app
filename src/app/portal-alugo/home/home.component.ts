@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.portalService.getProdutos().subscribe(resposta => {
-      console.log(resposta)
       this.produtos = resposta;},
       errorResponse => {
         console.log(errorResponse)
