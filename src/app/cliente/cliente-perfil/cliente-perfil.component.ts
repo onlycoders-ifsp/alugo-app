@@ -33,6 +33,7 @@ cepPesquisado: eCep = new eCep();
 currentUsuarioLogado: eUsuario = new eUsuario();
 userAlterado: eUsuario = new eUsuario();
 novaFoto: string;
+userName: String;
 
   constructor(private idiService: idiomaService,
     private fb: FormBuilder,
@@ -50,9 +51,7 @@ novaFoto: string;
     if (!this.auth.isAutenticado()){
       this.auth.encerraSessao();
     }
-    this.loaderService.show();
     this.loadCurrentUser();
-    this.loaderService.hide();
   }
 
   loadCurrentUser(){
@@ -60,6 +59,7 @@ novaFoto: string;
       this.currentUsuarioLogado = resposta;
       let dataFormatada = this.datepipe.transform(this.currentUsuarioLogado.data_nascimento, 'MM-dd-yyyy');
       let date: Date = new Date(dataFormatada);
+      //this.userName = this.currentUsuarioLogado.login;
       this.formularioCliente.patchValue({
         nome: this.currentUsuarioLogado.nome,
         email: this.currentUsuarioLogado.email,
@@ -81,7 +81,6 @@ novaFoto: string;
   }
 
   createForm(){
-    this.loaderService.hide();
     this.formularioCliente = this.fb.group({
       nome:['',
         [Validators.required]
@@ -103,6 +102,8 @@ novaFoto: string;
       numero:['',[]],
       complemento:['',[]],
     },{updateOn: 'blur'})
+    
+    this.loaderService.hide();
   }
   
   updateUsuario(){
@@ -153,7 +154,10 @@ novaFoto: string;
         this.nomeUsuario = formCadValues.nome;
           this.mensagemErro = null;
           this.uploadFotoUser();
-          this.loadCurrentUser();
+          this.loaderService.hide();
+          if(this.currentUsuarioLogado.login != this.userAlterado.login){
+              this.auth.encerraSessaoTLogin();
+          }
       }, errorResponse => {
         this.mensagemSucesso = null,
           this.mensagemErro = "Erro" + formCadValues.nome;
@@ -210,7 +214,6 @@ novaFoto: string;
   }
 
   VerificaEmail(authService:AuthService) : AsyncValidatorFn {
-    this.loaderService.hide();
     return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
       return authService
               .getVerificaEmailUpdate(control.value)
@@ -222,7 +225,6 @@ novaFoto: string;
 
   
   VerificaUser(authService:AuthService) : AsyncValidatorFn {
-    this.loaderService.hide();
     return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
       return authService
               .getVerificaUserNameUpdate(control.value)
@@ -233,7 +235,6 @@ novaFoto: string;
   }
 
   VerificaCpf(authService:AuthService) : AsyncValidatorFn  {
-    this.loaderService.hide();
     return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
       return authService
               .getVerificaCpfUpdate(control.value)

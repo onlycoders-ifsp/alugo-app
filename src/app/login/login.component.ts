@@ -8,7 +8,6 @@ import { eUsuarioConstructor } from '../entidades/eUsuarioConstrutor';
 import { Validacoes } from 'src/app/Classes/Validacoes';
 import { AsyncValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Observable } from "rxjs/Observable";
-import 'rxjs/add/operator/map';
 import { loadingService } from 'src/app/Services/loadingService';
 
 @Component({

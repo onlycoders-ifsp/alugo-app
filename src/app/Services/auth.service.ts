@@ -70,6 +70,11 @@ export class AuthService {
     this.router.navigate(['']);
   }
 
+  encerraSessaoTLogin(){
+    localStorage.removeItem('access_token');
+    this.router.navigate(['/login']);
+  }
+
   tentarLogin(username: string, password: string) : Observable<any> {
     const params = new HttpParams()
                                 .set('username', username)
