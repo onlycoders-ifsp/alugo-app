@@ -103,7 +103,6 @@ userName: String;
       complemento:['',[]],
     },{updateOn: 'blur'})
     
-    this.loaderService.hide();
   }
   
   updateUsuario(){
