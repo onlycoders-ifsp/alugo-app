@@ -326,6 +326,7 @@
 			"dataInicial": "Data Inicial",
 			"dataInicialVazia": "Insira uma data inicial.",
 			"descricaoValor": "Descrição do Valor",
+			"disponibilidade": "Disponibilidade",
 			"locador": "Locador:",
 			"nomeDono": "Dono do Produto:",
 			"ops": "Ops!",
@@ -351,5 +352,10 @@
 			"visualizarDetalhes": "Visualizar Detalhes",
 			"vocequerganhardinheiro": "Você quer ganhar dinheiro?"
 		}
+	},
+	"error-request":{
+		"mensagemErro": "Ops!",
+		"mensagemErro2": "Ocorreu um erro com sua requisição! Tente novamente"
 	}
+
 }

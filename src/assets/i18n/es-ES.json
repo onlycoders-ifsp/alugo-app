@@ -326,6 +326,7 @@
 			"dataInicial": "Fecha Inicial",
 			"dataInicialVazia": "Ingrese una fecha de inicio.",
 			"descricaoValor": "Descripción del Valor",
+			"disponibilidade": "Disponibilidad",
 			"locador": "Locador:",
 			"nomeDono": "Dueño del Producto:",
 			"ops": "¡Ups!",
@@ -351,5 +352,9 @@
 			"visualizarDetalhes": "Ver Detalles",
 			"vocequerganhardinheiro": "¿Quieres hacer dinero?"
 		}
+	},
+	"error-request":{
+		"mensagemErro": "¡Ups!",
+		"mensagemErro2": "¡Hubo un error con su solicitud! Inténtalo de nuevo"
 	}
 }

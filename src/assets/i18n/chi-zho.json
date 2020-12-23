@@ -326,6 +326,7 @@
 			"dataInicial": "初始日期",
 			"dataInicialVazia": "输入开始日期。",
 			"descricaoValor": "值说明",
+			"disponibilidade": "可用性",
 			"locador": "定位器：",
 			"nomeDono": "产品所有者：",
 			"ops": "糟糕！",
@@ -351,5 +352,9 @@
 			"visualizarDetalhes": "查看详情",
 			"vocequerganhardinheiro": "你想赚钱吗？"
 		}
+	},
+	"error-request":{
+		"mensagemErro": "糟糕！",
+		"mensagemErro2": "您的请求有误！ 再试一次"
 	}
 }

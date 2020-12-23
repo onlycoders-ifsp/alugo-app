@@ -326,6 +326,7 @@
 			"dataInicial": "Initial Date",
 			"dataInicialVazia": "Enter a start date.",
 			"descricaoValor": "Value Description",
+			"disponibilidade": "Availability",
 			"locador": "Locator:",
 			"nomeDono": "Owner of the product:",
 			"ops": "Oops!",
@@ -351,5 +352,9 @@
 			"visualizarDetalhes": "View Details",
 			"vocequerganhardinheiro": "Do you want to make money?"
 		}
+	},
+	"error-request":{
+		"mensagemErro": "Oops!",
+		"mensagemErro2": "There was an error with your request! Try again"
 	}
 }
