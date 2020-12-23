@@ -26,6 +26,7 @@
 			"endereco": "Endereço",
 			"login": "Entrar",
 			"loginNecessario": "Você precisa definir um login.",
+			"userExiste": "Nome de usuário já cadastrado.",
 			"nome": "Nome",
 			"nomePreenchimento": "Você precisa preencher o campo nome.",
 			"numero": "Número",
@@ -150,7 +151,8 @@
 			"dicaDescricao": "Insira o maior número de detalhes possível.",
 			"dicaNomeProduto": "Insira o nome do produto cadastrado.",
 			"dicaProduto": "Pense em algo chamativo para atrair o lacador.",
-			"dicaValorBase": "Valor Aproximado Calculado",
+			"dicaValorBase": "Dica:",
+			"dicaValorBase2": "do valor do produto",
 			"dicaValorProduto": "Valor Pago no Produto:",
 			"formInvalido": "O formulário ainda não está valido",
 			"formattags": "Minúsculas, separadas por vírgula e uma única palavra",
@@ -264,12 +266,14 @@
 			"cpf": "CPF",
 			"cpfMenosDigitos": "O CPF tem menos de 11 digitos.",
 			"cpfMuitosDigitos": "O CPF tem mais de 11 digitos.",
+			"cpfExiste": "CPF informado já está cadastrado.",
 			"cpfPreenchimento": "Preencha o CPF.",
 			"crieConta": "Crie sua Conta!",
 			"dicaUsuario": "Entre com email ou nome de usuário",
 			"email": "E-mail",
 			"emailPreenchimento": "Preencha o email!",
 			"emailValido": "O e-mail precisa ser válido.",
+			"emailExiste": "Email informado já está cadastrado.",
 			"entreEconomize": "Entre e Economize!",
 			"esqueceuSenha": "Esqueceu a Senha?",
 			"exCpf": "123.456.789.01",
@@ -325,6 +329,7 @@
 			"dataInicial": "Data Inicial",
 			"dataInicialVazia": "Insira uma data inicial.",
 			"descricaoValor": "Descrição do Valor",
+			"disponibilidade": "Disponibilidade",
 			"locador": "Locador:",
 			"nomeDono": "Dono do Produto:",
 			"ops": "Ops!",
@@ -350,5 +355,10 @@
 			"visualizarDetalhes": "Visualizar Detalhes",
 			"vocequerganhardinheiro": "Você quer ganhar dinheiro?"
 		}
+	},
+	"error-request":{
+		"mensagemErro": "Ops!",
+		"mensagemErro2": "Ocorreu um erro com sua requisição! Tente novamente"
 	}
+
 }

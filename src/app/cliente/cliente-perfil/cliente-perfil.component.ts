@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
 import { CepService } from 'src/app/Services/CepService';
 import { eCep } from 'src/app/entidades/eCep';
 import { Validacoes } from 'src/app/Classes/Validacoes';
+import { AsyncValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import { Observable } from "rxjs/Observable";
+import 'rxjs/add/operator/map';
+import { loadingService } from 'src/app/Services/loadingService';
 
 @Component({
   selector: 'app-cliente-perfil',
@@ -29,12 +33,13 @@ cepPesquisado: eCep = new eCep();
 currentUsuarioLogado: eUsuario = new eUsuario();
 userAlterado: eUsuario = new eUsuario();
 novaFoto: string;
+userName: String;
 
   constructor(private idiService: idiomaService,
     private fb: FormBuilder,
     private auth: AuthService,
     public datepipe: DatePipe,
-    private router: Router,
+    private loaderService: loadingService,
     private cepSearch: CepService
     ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
@@ -54,6 +59,7 @@ novaFoto: string;
       this.currentUsuarioLogado = resposta;
       let dataFormatada = this.datepipe.transform(this.currentUsuarioLogado.data_nascimento, 'MM-dd-yyyy');
       let date: Date = new Date(dataFormatada);
+      //this.userName = this.currentUsuarioLogado.login;
       this.formularioCliente.patchValue({
         nome: this.currentUsuarioLogado.nome,
         email: this.currentUsuarioLogado.email,
@@ -76,20 +82,29 @@ novaFoto: string;
 
   createForm(){
     this.formularioCliente = this.fb.group({
-      nome:['',[Validators.required]],
-      cpf:['',[Validators.required,Validators.maxLength(11), Validators.minLength(11), Validacoes.ValidaCpf]],
-      email:['',[Validators.required, Validators.email]],
-      login: ['', [Validators.required]],
-      celular:[''],
+      nome:['',
+        [Validators.required]
+      ],
+      cpf:['',
+        [Validators.required,
+         Validators.maxLength(11), 
+         Validators.minLength(11), 
+         Validacoes.ValidaCpf],
+        [this.VerificaCpf(this.auth)]
+      ],
+      email:['',[Validators.required, Validators.email],[this.VerificaEmail(this.auth)]],
+      login: ['', [Validators.required],[this.VerificaUser(this.auth)]],
+      celular:['',[]],
       dataNascimento:['',[]],
       bairro:['',[]],
-      cep:[''],
+      cep:['',[]],
       endereco:['',[]],
-      numero:[''],
-      complemento:[''],
-    })
+      numero:['',[]],
+      complemento:['',[]],
+    },{updateOn: 'blur'})
+    
+    this.loaderService.hide();
   }
-
   
   updateUsuario(){
     const formCadValues = this.formularioCliente.value;
@@ -105,9 +120,9 @@ novaFoto: string;
     }
     this.userAlterado.cep = formCadValues.cep;
     this.userAlterado.login = formCadValues.login;
-    // if(!formCadValues.endereco){
-    //   formCadValues.endereco = "";
-    // }
+    //if(!formCadValues.endereco){
+    //  formCadValues.endereco = "";
+    //}
     this.userAlterado.endereco = formCadValues.endereco;
     if(!formCadValues.numero){
       formCadValues.numero = "";
@@ -132,12 +147,17 @@ novaFoto: string;
     //precisa passar foto em branco pq não chamou o método de foto ainda
     this.userAlterado.capa_foto = "";
 
+
     if(this.formularioCliente.valid){
       this.auth.updateUsuario(this.userAlterado).subscribe(response =>{
         this.mensagemSucesso = "Sucesso"
         this.nomeUsuario = formCadValues.nome;
           this.mensagemErro = null;
           this.uploadFotoUser();
+          this.loaderService.hide();
+          if(this.currentUsuarioLogado.login != this.userAlterado.login){
+              this.auth.encerraSessaoTLogin();
+          }
       }, errorResponse => {
         this.mensagemSucesso = null,
           this.mensagemErro = "Erro" + formCadValues.nome;
@@ -147,7 +167,6 @@ novaFoto: string;
       this.mensagemErro = "Invalido"
       this.mensagemSucesso = null;
     }
-
   }
 
   clickMudaIdioma() {
@@ -182,8 +201,7 @@ novaFoto: string;
       });
     }
   }
-
-
+  
   preencheCep(){
     this.cepSearch.getCep(this.formularioCliente.value.cep).subscribe(response => {
       this.cepPesquisado = response;
@@ -193,5 +211,36 @@ novaFoto: string;
       })
       
     });
+  }
+
+  VerificaEmail(authService:AuthService) : AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      return authService
+              .getVerificaEmailUpdate(control.value)
+              .map(response => {
+                    return response ? {emailExiste: true} : null
+                  })
+    };
+  }
+
+  
+  VerificaUser(authService:AuthService) : AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      return authService
+              .getVerificaUserNameUpdate(control.value)
+              .map(response =>{
+                    return response ? {userExiste: true} : null
+              });
+      }
+  }
+
+  VerificaCpf(authService:AuthService) : AsyncValidatorFn  {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      return authService
+              .getVerificaCpfUpdate(control.value)
+              .map(response =>{
+                return response ? {cpfExiste: true} : null
+              })
+    }
   }
 }

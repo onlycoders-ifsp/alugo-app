@@ -6,7 +6,6 @@ import { eUserLogin } from '../entidades/eUserLogin';
 import { eUsuario } from '../entidades/eUsuario';
 import { JwtHelperService } from '@auth0/angular-jwt'
 import { Router } from '@angular/router';
-import { eObjetoUsuario } from '../entidades/eObjetoUsuario';
 import { eUsuarioConstructor } from '../entidades/eUsuarioConstrutor';
 import { eSenha } from '../entidades/eSenha';
 
@@ -42,7 +41,6 @@ export class AuthService {
     localStorage.removeItem("access_token");
     this.router.navigate(['']);
   }
-
   removeToken(){
     localStorage.removeItem("access_token");
   }
@@ -70,6 +68,11 @@ export class AuthService {
   encerraSessao(){
     localStorage.removeItem('access_token');
     this.router.navigate(['']);
+  }
+
+  encerraSessaoTLogin(){
+    localStorage.removeItem('access_token');
+    this.router.navigate(['/login']);
   }
 
   tentarLogin(username: string, password: string) : Observable<any> {
@@ -117,5 +120,53 @@ export class AuthService {
   uploadFotoUsuario(formData: FormData) : Observable<any>{
     return this.http.put(environment.apiBaseUrl + environment.putFotoUsuario, formData)
 
+  }
+
+  public getVerificaCpf(cpf:string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('cpf' , cpf);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.getVerificaCpf, {params} );
+  }
+  public getVerificaCpfUpdate(cpf:string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('cpf' , cpf);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.getVerificaCpfUpdate, {params} );
+  }
+
+  /*
+  public getVerificaEmail(email:string) : Observable<any>{
+    let params = new HttpParams();
+    params = params.append('email' , email);
+    console.log(email);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.getVerificaEmail, 
+      {params}).pipe(
+        map((exist)=>{
+          return exist ? {emailExiste: true} : null
+        })
+        );
+  }
+*/
+  public getVerificaEmail(email:string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('email' , email);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.getVerificaEmail,{params})
+  }
+
+  public getVerificaEmailUpdate(email:string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('email' , email);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.getVerificaEmailUpdate,{params})
+  }
+
+  public getVerificaUserName(user:string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('user' , user);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.getVerificaUserName, {params} );
+  }
+
+  public getVerificaUserNameUpdate(user:string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('user' , user);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.getVerificaUserNameUpdate, {params} );
   }
 }

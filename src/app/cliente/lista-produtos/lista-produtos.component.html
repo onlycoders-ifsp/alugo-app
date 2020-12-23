@@ -1,3 +1,11 @@
+<div *ngIf="mensagemSucessoProduto === 'AtualizadoSucesso'" class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ 'cliente.cliente-produto.produto' | translate }} {{ nomeProduto }} {{ 'cliente.cliente-produto.atualizaSucesso' | translate }}
+</div>
+
+<div *ngIf="mensagemSucessoProduto === 'CadastroSucesso'" class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ 'cliente.cliente-produto.produto' | translate }} {{ nomeProduto }} {{ 'cliente.cliente-produto.cadastroSucesso' | translate }}
+</div>
+
 <div class="bg-light box-shadow-lg rounded-lg overflow-hidden">
   <section class="col-lg-12 pt-lg-4 pb-4 mb-3">
     <div class="pt-2 px-4 pl-lg-0 pr-xl-5">
@@ -28,7 +36,7 @@
       <!-- LISTA DE PRODUTOS DO USUÁRIO EM QUESTÃO-->
       <div *ngFor="let produto of Produtos" class="media d-block d-sm-flex align-items-center py-4 border-bottom"><a class="d-block mb-3 mb-sm-0 mr-sm-4 mx-auto" routerLink="/cliente/produto" style="width: 12.5rem;"><img class="rounded-lg" src="data:image/jpg;base64,{{produto.capa_foto}}" alt="{{produto.nome}}"></a>
         <div class="media-body text-center text-sm-left">
-          <h3 class="h6 product-title mb-2"><a routerLink="/cliente/produto">{{produto.nome}}</a></h3>
+          <h3 class="h6 product-title mb-2">{{produto.nome}}</h3>
           <div class="d-inline-block text-accent">R$ {{produto.valor_produto}}<small></small></div>
           <div class="d-inline-block text-muted font-size-ms border-left ml-2 pl-2">{{ 'cliente.lista-produtos.alugueis' | translate }}: <span class="font-weight-medium">{{produto.qtd_alugueis}}</span></div>
           <div class="d-inline-block text-muted font-size-ms border-left ml-2 pl-2">{{ 'cliente.lista-produtos.ganhos' | translate }}: <span class="font-weight-medium">R$ {{produto.total_ganhos}}<small></small></span></div>
