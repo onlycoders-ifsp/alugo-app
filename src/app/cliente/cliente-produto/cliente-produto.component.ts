@@ -8,6 +8,7 @@ import { idiomaService } from 'src/app/Services/idiomaService';
 import { PortalService } from 'src/app/Services/PortalService';
 import { produtoService } from 'src/app/Services/produtoService';
 import { AuthService } from 'src/app/Services/auth.service';
+//import { Console } from 'console';
 
 @Component({
   selector: 'app-cliente-produto',
@@ -26,6 +27,8 @@ export class ClienteProdutoComponent implements OnInit {
   mensagemSucesso: string;
   mensagemErro: string;
   nomeProduto: string;
+  percSugeridoDiaria: number = 0.02;
+  percSugeridoMensal: number = 0.25;
   erroDescricao: boolean = false;
   erroDescricaoCurta: boolean = false;
 
@@ -147,6 +150,7 @@ export class ClienteProdutoComponent implements OnInit {
         this.mensagemSucesso = "AtualizadoSucesso";
         this.mensagemErro = null;
         localStorage.setItem("produtoInputadoSucesso", this.mensagemSucesso);
+        localStorage.setItem("produtoNome", this.nomeProduto);
       localStorage.removeItem("idProdutoMudanca");
       this.uploadFotoDeCapa();
       }else{
@@ -169,6 +173,7 @@ export class ClienteProdutoComponent implements OnInit {
       this.mensagemSucesso = "CadastroSucesso",
         this.mensagemErro = null;
         localStorage.setItem("produtoInputadoSucesso", this.mensagemSucesso);
+        localStorage.setItem("produtoNome", this.nomeProduto);
         this.uploadFotoDeCapa();
     }, errorResponse => {
       this.mensagemSucesso = null,
@@ -263,6 +268,14 @@ export class ClienteProdutoComponent implements OnInit {
     }else{
       this.router.navigate(["cliente/perfil/meusprodutos"])
     }
+
+  }
+
+  preencheValorSugerido(){
+    this.formularioProduto.patchValue({
+      valor_base_diaria: this.formularioProduto.value.valor_produto*this.percSugeridoDiaria,
+      valor_base_mensal: this.formularioProduto.value.valor_produto*this.percSugeridoMensal
+    })
 
   }
 

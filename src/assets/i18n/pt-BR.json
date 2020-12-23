@@ -150,7 +150,8 @@
 			"dicaDescricao": "Insira o maior número de detalhes possível.",
 			"dicaNomeProduto": "Insira o nome do produto cadastrado.",
 			"dicaProduto": "Pense em algo chamativo para atrair o lacador.",
-			"dicaValorBase": "Valor Aproximado Calculado",
+			"dicaValorBase": "Dica:",
+			"dicaValorBase2": "do valor do produto",
 			"dicaValorProduto": "Valor Pago no Produto:",
 			"formInvalido": "O formulário ainda não está valido",
 			"formattags": "Minúsculas, separadas por vírgula e uma única palavra",
@@ -325,6 +326,7 @@
 			"dataInicial": "Data Inicial",
 			"dataInicialVazia": "Insira uma data inicial.",
 			"descricaoValor": "Descrição do Valor",
+			"disponibilidade": "Disponibilidade",
 			"locador": "Locador:",
 			"nomeDono": "Dono do Produto:",
 			"ops": "Ops!",
@@ -350,5 +352,10 @@
 			"visualizarDetalhes": "Visualizar Detalhes",
 			"vocequerganhardinheiro": "Você quer ganhar dinheiro?"
 		}
+	},
+	"error-request":{
+		"mensagemErro": "Ops!",
+		"mensagemErro2": "Ocorreu um erro com sua requisição! Tente novamente"
 	}
+
 }
