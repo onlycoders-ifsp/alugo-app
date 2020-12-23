@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { iIdioma } from '../Interfaces/iIdioma';
 import { idiomaService } from '../Services/idiomaService';
-import { eUserLogin } from '../entidades/eUserLogin';
 import { AuthService } from '../Services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { eUsuario } from '../entidades/eUsuario';
 import { eUsuarioConstructor } from '../entidades/eUsuarioConstrutor';
 import { Validacoes } from 'src/app/Classes/Validacoes';
+import { AsyncValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import { Observable } from "rxjs/Observable";
+import 'rxjs/add/operator/map';
+import { loadingService } from 'src/app/Services/loadingService';
 
 @Component({
   selector: 'app-login',
@@ -32,11 +34,11 @@ export class LoginComponent implements OnInit {
   mensagemSenhaErrada: boolean;
   loginErro: boolean;
 
-
   constructor(
     private router: Router,
     private idiService: idiomaService,
     private authService: AuthService,
+    private loaderService: loadingService,
     private fb: FormBuilder
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
@@ -48,10 +50,11 @@ export class LoginComponent implements OnInit {
       nome:['',[
         Validators.required
       ]],
-      email:['', [
+      email:[null, [
         Validators.required,
-        Validators.email
-      ], ],
+        Validators.email],
+        [this.VerificaEmail(this.authService)]
+      ],
       senha:['',[
         Validators.required,
         Validators.minLength(8)
@@ -64,18 +67,20 @@ export class LoginComponent implements OnInit {
         Validators.required,
         Validators.minLength(11),
         Validators.maxLength(11), 
-        Validacoes.ValidaCpf
-      ], ],
+        Validacoes.ValidaCpf], 
+        [this.VerificaCpf(this.authService)]
+    ],
       celular:['', [
         Validators.required
       ], ]
-    })
+    },{updateOn: 'blur'})
 
     this.formularioLogin = this.fb.group({
       username:['',[Validators.required]],
       password:['',[Validators.required,Validators.minLength(4)]]
     })
   }
+
 
   login() {
     if(this.formularioLogin.valid){
@@ -131,7 +136,7 @@ export class LoginComponent implements OnInit {
         this.mensagemSucesso = false;
         this.mensagemErroCad = false;
     }
-
+    this.loaderService.hide()
       
   }
 
@@ -141,5 +146,40 @@ export class LoginComponent implements OnInit {
 
   setNewIdioma() {
 
+  }
+
+  VerificaEmail(authService:AuthService) : AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      return authService
+              .getVerificaEmail(control.value)
+              .map(response => {
+                    return response ? {emailExiste: true} : null
+                  })
+    };
+    // ? {emailExiste: true} : null));
+    //catchError(error => null)
+    
+    //return of(null);
+  }
+
+  
+  VerificaUser(authService:AuthService) : AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      return authService
+              .getVerificaUserName(control.value)
+              .map(response =>{
+                    return response ? {userExiste: true} : null
+              });
+      }
+  }
+
+  VerificaCpf(authService:AuthService) : AsyncValidatorFn  {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      return authService
+              .getVerificaCpf(control.value)
+              .map(response =>{
+                return response ? {cpfExiste: true} : null
+              })
+    }
   }
 }
