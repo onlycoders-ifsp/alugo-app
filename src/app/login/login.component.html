@@ -134,6 +134,9 @@
                                               <mat-error *ngIf="formularioCadastro.controls.email.errors && formularioCadastro.controls.email.errors.email">
                                                 {{ 'portal-alugo.login.emailValido' | translate }}
                                               </mat-error>
+                                              <mat-error *ngIf="formularioCadastro.controls.email.errors && formularioCadastro.controls.email.errors.emailExiste">
+                                                {{ 'portal-alugo.login.emailExiste' | translate }}
+                                              </mat-error>
                                             <mat-icon matSuffix>email</mat-icon>
                                         </mat-form-field>
                                     </div>
@@ -166,6 +169,9 @@
                                                       <mat-error *ngIf="formularioCadastro.controls.cpf.errors && formularioCadastro.controls.cpf.errors.maxlength">
                                                         {{ 'portal-alugo.login.cpfMuitosDigitos' | translate }}
                                                       </mat-error>
+                                                        <mat-error *ngIf="formularioCadastro.controls.cpf.errors && formularioCadastro.controls.cpf.errors.cpfExiste">
+                                                        {{ 'portal-alugo.login.cpfExiste' | translate }}
+                                                        </mat-error>
                                                     <mat-icon matSuffix>local_library</mat-icon>
                                                 </mat-form-field>
                                             </div>
@@ -219,7 +225,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" mat-flat-button class="btn btn-success btn-user btn-block">{{ 'portal-alugo.login.registrar' | translate }}</button>
+                                    <button type="submit" [disabled]="formularioCadastro.invalid" mat-flat-button class="btn btn-success btn-user btn-block">{{ 'portal-alugo.login.registrar' | translate }}</button>
                                 </form>
                                 <hr>
                                 <div class="text-center">
