@@ -19,6 +19,7 @@ export class ListaProdutosComponent implements OnInit {
   currentBandeira: string;
   currentIdioma: string;
   mensagemSucessoProduto: string = null;
+  nomeProduto: string;
   public page: number = 0;
   public size: number = 5;
   public pages:number;
@@ -49,7 +50,9 @@ export class ListaProdutosComponent implements OnInit {
     this.getListaProdutosUsuario()
     if(localStorage.getItem("produtoInputadoSucesso")){
       this.mensagemSucessoProduto = localStorage.getItem("produtoInputadoSucesso");
+      this.nomeProduto = localStorage.getItem("produtoNome");
       localStorage.removeItem("produtoInputadoSucesso");
+      localStorage.removeItem("produtoNome");
     }
 
 

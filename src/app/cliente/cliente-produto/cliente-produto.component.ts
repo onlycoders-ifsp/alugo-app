@@ -8,7 +8,7 @@ import { idiomaService } from 'src/app/Services/idiomaService';
 import { PortalService } from 'src/app/Services/PortalService';
 import { produtoService } from 'src/app/Services/produtoService';
 import { AuthService } from 'src/app/Services/auth.service';
-import { Console } from 'console';
+//import { Console } from 'console';
 
 @Component({
   selector: 'app-cliente-produto',
@@ -150,6 +150,7 @@ export class ClienteProdutoComponent implements OnInit {
         this.mensagemSucesso = "AtualizadoSucesso";
         this.mensagemErro = null;
         localStorage.setItem("produtoInputadoSucesso", this.mensagemSucesso);
+        localStorage.setItem("produtoNome", this.nomeProduto);
       localStorage.removeItem("idProdutoMudanca");
       this.uploadFotoDeCapa();
       }else{
@@ -172,6 +173,7 @@ export class ClienteProdutoComponent implements OnInit {
       this.mensagemSucesso = "CadastroSucesso",
         this.mensagemErro = null;
         localStorage.setItem("produtoInputadoSucesso", this.mensagemSucesso);
+        localStorage.setItem("produtoNome", this.nomeProduto);
         this.uploadFotoDeCapa();
     }, errorResponse => {
       this.mensagemSucesso = null,
