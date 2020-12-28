@@ -40,6 +40,7 @@ export const environment = {
   getVerificaCpfUpdate: "/usuarios/verifica/cpf-update",
   getVerificaEmailUpdate: "/usuarios/verifica/email-update",
   getVerificaUserNameUpdate: "/usuarios/verifica/username-update",
+  getListaUsuarios: "/usuarios/lista-usuario",
 
 
   //ENDPOINTS DE ALUGUEL

@@ -88,7 +88,8 @@ export class LoginComponent implements OnInit {
                                                   .subscribe(response =>{
                                                     const access_token = JSON.stringify(response);
                                                     localStorage.setItem("access_token", access_token)
-                                                    this.router.navigate(['/cliente/perfil/dados']),
+                                                    this.router.navigate(['/admin/lista'])
+                                                    //this.router.navigate(['/cliente/perfil/dados']),
                                                     this.loginErro = false;
                                                   }, errorResponse =>{
                                                     //this.loginErro = formLoginValues.username + ' Usuário e/ou senha inválidos'

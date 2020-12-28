@@ -9,7 +9,6 @@ import { eUsuario } from '../entidades/eUsuario';
 })
 export class AdminService {
 
-url: string = environment.apiBaseUrl + '/usuarios';
 
   constructor( private http: HttpClient ) { }
 
@@ -17,9 +16,7 @@ url: string = environment.apiBaseUrl + '/usuarios';
 
 
   getUsuarios() : Observable<eUsuario[]> {
-    let params = new HttpParams();
-    params = params.append('id_usuario' , "0");
-    return this.http.get<eUsuario[]>(this.url, {params});
+    return this.http.get<eUsuario[]>(environment.apiBaseUrl + environment.getListaUsuarios);
 
   }
 

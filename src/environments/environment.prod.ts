@@ -30,6 +30,7 @@ export const environment = {
   getDadosUsuario: "/usuarios/usuario",
   getUserLogado: "/usuarios/usuario-logado",
   putFotoUsuario: "/usuarios/upload-foto",
+  getListaUsuarios: "/usuarios/lista-usuario",
 
 
   //ENDPOINTS DE ALUGUEL
