@@ -27,6 +27,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { AluguelLocadorComponent } from './aluguel-locador/aluguel-locador.component';
 import { AluguelLocatarioComponent } from './aluguel-locatario/aluguel-locatario.component';
+import { ClienteProdutoAluguelComponent } from './cliente-produto-aluguel/cliente-produto-aluguel.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -38,7 +39,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     ListaProdutosComponent,
     ClienteCredenciaisComponent,
     AluguelLocadorComponent,
-    AluguelLocatarioComponent
+    AluguelLocatarioComponent,
+    ClienteProdutoAluguelComponent,
   ],
   imports: [
     CommonModule,

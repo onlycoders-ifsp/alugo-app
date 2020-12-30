@@ -27,6 +27,12 @@ export class AluguelService {
     params = params.append('size',String(size));
     return this.http.get<eAluguel[]>(environment.apiBaseUrl + environment.getListAluguelLocatario,{params});
   }
+  
+  getListAluguelProduto(idProduto: string) : Observable<eAluguel[]> {
+    let params = new HttpParams();
+    params = params.append('id_produto',idProduto);
+    return this.http.get<eAluguel[]>(environment.apiBaseUrl + environment.getListAluguelProduto,{params});
+  }
 
   cadNewAluguel(aluguel: eCadAluguel) : Observable<boolean>{
     return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadAluguel, aluguel);

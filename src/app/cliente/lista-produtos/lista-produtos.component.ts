@@ -93,6 +93,10 @@ export class ListaProdutosComponent implements OnInit {
   novoProduto(){
     localStorage.removeItem("idProdutoMudanca")
     this.router.navigate(['cliente/perfil/produto']);
+  }  
+  verAlugueisDesteProduto(idProduto: string){
+    localStorage.setItem("idProduto", idProduto)
+    this.router.navigate(['cliente/perfil/produto-aluguel']);
   }
   voltaHome(){
     this.router.navigate(['']);
