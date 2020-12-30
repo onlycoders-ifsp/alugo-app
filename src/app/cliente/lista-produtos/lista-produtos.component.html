@@ -43,6 +43,7 @@
           <div class="d-flex justify-content-center justify-content-sm-start pt-3">
             <!-- <button class="btn bg-faded-accent btn-icon mr-2" type="button" data-toggle="tooltip" title="Inativar"><i class="fa fa-lock text-accent"></i></button> -->
             <button class="btn bg-faded-info btn-icon mr-2" (click)="verMeuProduto(produto.id_produto)" type="button" data-toggle="tooltip" title="{{ 'cliente.lista-produtos.titleBotaoEditar' | translate }}"><i class="fa fa-edit text-info"></i></button>
+            <button *ngIf="produto.qtd_alugueis>0" class="btn bg-faded-info btn-icon mr-2" (click)="verMeuProduto(produto.id_produto)" type="button" data-toggle="tooltip" title="{{ 'cliente.lista-produtos.titleBotaoLista' | translate }}"><i class="fa fa-list text-info"></i></button>
             <!-- <button class="btn bg-faded-danger btn-icon" type="button" data-toggle="tooltip" title="{{ 'cliente.lista-produtos.titleBotaoInativar' | translate }}"><i class="fa fa-trash text-danger"></i></button> -->
           </div>
         </div>
