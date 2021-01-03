@@ -59,7 +59,7 @@
     <!--begin::Menu Nav-->
     <ul class="menu-nav">
       <li class="menu-item" aria-haspopup="true">
-        <a href="../../../../index.html" class="menu-link">
+        <a routerLink="/admin/painel" class="menu-link">
           <span class="svg-icon menu-icon">
             <i class="fa fa-user text-light"></i>
           </span>
@@ -68,7 +68,7 @@
       </li>
       <li class="menu-section">
         <h4 class="menu-text">Administrativo</h4>
-        <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+        <i class="menu-icon fa fa-bold-more-hor icon-md"></i>
       </li>
       <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
         <a routerLink="/admin/lista" class="menu-link menu-toggle">
@@ -78,7 +78,16 @@
             <!--end::Svg Icon-->
           </span>
           <span class="menu-text">Lista de Usuários </span>
-          <i class="menu-arrow"></i>
+        </a>
+      </li>
+      <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+        <a routerLink="/admin/gerenciaprodutos" class="menu-link menu-toggle">
+          <span class="svg-icon menu-icon">
+            <!--begin::Svg Icon | path:/keen/theme/demo1/dist/assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
+            <i class="fa fa-user text-light"></i>
+            <!--end::Svg Icon-->
+          </span>
+          <span class="menu-text">Lista de Produtos </span>
         </a>
       </li>
       <li class="menu-section">
@@ -93,7 +102,6 @@
             <!--end::Svg Icon-->
           </span>
           <span class="menu-text">Perfil</span>
-          <i class="menu-arrow"></i>
         </a>
       </li>
       

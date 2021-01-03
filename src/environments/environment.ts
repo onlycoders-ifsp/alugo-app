@@ -30,7 +30,7 @@ export const environment = {
   putAlteraUsuario: "/usuarios/altera-dados",
   putAlteraSenha: "/usuarios/altera-senha",
   postCadUsuario: "/usuarios/cadastro",
-  deleteDeleteUsuario: "/usuarios/inativa",
+  deleteUsuario: "/usuarios/inativa",
   getDadosUsuario: "/usuarios/usuario",
   getUserLogado: "/usuarios/usuario-logado",
   putFotoUsuario: "/usuarios/upload-foto",

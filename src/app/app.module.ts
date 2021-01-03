@@ -48,7 +48,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     AppComponent,
     LoginComponent,
     LoadingComponent,
-    ErrorRequestComponent
+    ErrorRequestComponent,
   ],
   imports: [
     BrowserModule,

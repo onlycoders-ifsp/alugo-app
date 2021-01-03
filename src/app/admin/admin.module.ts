@@ -19,11 +19,13 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { AdminPerfilComponent } from './admin-perfil/admin-perfil.component';
+import { AdminPainelComponent } from './admin-painel/admin-painel.component';
+import { AdminGerenciaProdutosComponent } from './admin-gerencia-produtos/admin-gerencia-produtos.component';
 
 
 
 @NgModule({
-  declarations: [ListaUsuariosComponent,AdminLayoutComponent, AdminPerfilComponent],
+  declarations: [ListaUsuariosComponent,AdminLayoutComponent, AdminPerfilComponent, AdminPainelComponent, AdminGerenciaProdutosComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -51,7 +53,9 @@ import { AdminPerfilComponent } from './admin-perfil/admin-perfil.component';
   ], exports: [
     CommonModule,
     ListaUsuariosComponent,
-    AdminPerfilComponent
+    AdminPerfilComponent,
+    AdminPainelComponent,
+    AdminGerenciaProdutosComponent
   ]
 })
 export class AdminModule { }

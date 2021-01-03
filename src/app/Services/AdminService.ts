@@ -14,10 +14,18 @@ export class AdminService {
 
   nome: boolean = false;
 
+  
+
 
   getUsuarios() : Observable<eUsuario[]> {
     return this.http.get<eUsuario[]>(environment.apiBaseUrl + environment.getListaUsuarios);
 
+  }
+
+  inativaOrAtivaUser(userId: string) : Observable<Boolean>{
+    let params = new HttpParams();
+    params = params.append('id_usuario',userId);
+    return this.http.delete<Boolean>(environment.apiBaseUrl + environment.deleteUsuario,{params} );
   }
 
   // salvar(Usuario: Usuario) : Observable<Usuario> {
