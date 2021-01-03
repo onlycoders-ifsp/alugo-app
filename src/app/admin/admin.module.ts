@@ -18,11 +18,12 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
+import { AdminPerfilComponent } from './admin-perfil/admin-perfil.component';
 
 
 
 @NgModule({
-  declarations: [ListaUsuariosComponent,AdminLayoutComponent],
+  declarations: [ListaUsuariosComponent,AdminLayoutComponent, AdminPerfilComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -49,7 +50,8 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
         })
   ], exports: [
     CommonModule,
-    ListaUsuariosComponent
+    ListaUsuariosComponent,
+    AdminPerfilComponent
   ]
 })
 export class AdminModule { }
