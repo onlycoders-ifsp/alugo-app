@@ -20,4 +20,5 @@ export class eProduto {
     media_avaliacao: number;
     capa_foto: string;
     ativo: boolean
+    publicado: boolean;
 }
