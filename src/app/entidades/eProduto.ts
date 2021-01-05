@@ -1,3 +1,4 @@
+import { eCategorias } from './ECategorias';
 import { eDatasAlugado } from './eDatasAlugado';
 
 export class eProduto {
@@ -15,6 +16,7 @@ export class eProduto {
     data_compra: string;
     qtd_alugueis: number;
     total_ganhos: number;
+    categorias: eCategorias[];
     media_avaliacao: number;
     capa_foto: string;
     ativo: boolean
