@@ -9,6 +9,7 @@ import { Validacoes } from 'src/app/Classes/Validacoes';
 import { AsyncValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Observable } from "rxjs/Observable";
 import { loadingService } from 'src/app/Services/loadingService';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
   formularioCadastro: FormGroup;
   formularioLogin: FormGroup;
   currentBandeira: string;
-
+  location = Location;
   username: string;
   password: string;
   currentIdioma: string;
@@ -45,6 +46,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (environment.production && location.protocol === 'http:'){
+      window.location.href = location.href.replace('http', 'https');
+    }
     this.formularioCadastro = this.fb.group({
       nome:['',[
         Validators.required
