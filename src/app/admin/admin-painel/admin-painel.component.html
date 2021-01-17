@@ -1,1 +1,101 @@
-<p>admin-painel works!</p>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card card-custom gutter-b">
+            <div class="card-header">
+                <div class="card-title">
+                    <h3 class="card-label">Divisão de erros</h3>
+                </div>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <div id="chartDonutId">
+                    <apx-chart [series]="chartDonutOptions.series" [chart]="chartDonutOptions.chart"
+                        [labels]="chartDonutOptions.labels" [responsive]="chartDonutOptions.responsive"></apx-chart>
+                </div>
+                <div class="resize-triggers">
+                    <div class="expand-trigger">
+                        <div style="width: 579px; height: 297px;"></div>
+                    </div>
+                    <div class="contract-trigger"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card card-custom gutter-b">
+            <div class="card-header">
+                <div class="card-title">
+                    <h3 class="card-label">Histórico de Erros</h3>
+                </div>
+            </div>
+            <div class="card-body" style="position: relative;">
+                <div id="chartBarraId">
+                    <apx-chart [series]="chartLineOptions.series" [chart]="chartLineOptions.chart"
+                        [xaxis]="chartLineOptions.xaxis" [stroke]="chartLineOptions.stroke"
+                        [tooltip]="chartLineOptions.tooltip" [dataLabels]="chartLineOptions.dataLabels"
+                        [legend]="chartLineOptions.legend" [markers]="chartLineOptions.markers"
+                        [grid]="chartLineOptions.grid" [yaxis]="chartLineOptions.yaxis"
+                        [title]="chartLineOptions.title"></apx-chart>
+                </div>
+                <div class="resize-triggers">
+                    <div class="expand-trigger">
+                        <div style="width: 579px; height: 297px;"></div>
+                    </div>
+                    <div class="contract-trigger"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-lg-12">
+        <div class="card card-custom card-stretch gutter-b">
+            <div class="card-header border-0 pt-5">
+                <h3 class="card-title align-items-start flex-column">
+                    <span class="card-label font-weight-bolder font-size-h4 text-dark-75">Histórico de Erros</span>
+                    <span class="text-muted mt-3 font-weight-bold font-size-lg">Descrição dos erros</span>
+                </h3>
+                <div class="card-toolbar">
+                    
+                        <!--begin::Pagination-->
+                        <div class="d-flex justify-content-between align-items-center flex-wrap">
+                            <div class="d-flex flex-wrap py-2 mr-3">
+                                <a href="#" class="btn btn-icon btn-sm btn-light mr-2 my-1"><i class="fa fa-arrow-left icon-xs"></i></a>
+                                <a href="#" class="btn btn-icon btn-sm border-0 btn-light btn-hover-primary active mr-2 my-1">{{page+1}}</a>
+                                <a href="#" class="btn btn-icon btn-sm btn-light mr-2 my-1"><i class="fa fa-arrow-right icon-xs"></i></a>
+                            </div>
+                            <div class="d-flex align-items-center py-3">
+                                <span class="text-muted">Mostrando {{size*(page+1)}} de {{total}} Logs</span>
+                            </div>
+                        </div>
+                        <!--end:: Pagination-->
+      
+                </div>
+            </div>
+            <div class="card-body pt-2">
+                <div class="card-scroll" style="height: 600px !important;">
+                    <div class="timeline timeline-6 mt-3">
+                        <div *ngFor="let erro of listErros" class="timeline-item align-items-start">
+                            <div class="timeline-label font-weight-bolder text-dark-75 font-size-lg">{{erro.dataErro}}
+                            </div>
+                            <div class="timeline-badge">
+                                <i class="fa fa-genderless text-danger icon-xl"></i>
+                            </div>
+                            <div class="font-weight-mormal font-size-lg timeline-content text-muted pl-3">
+                                <h3 class="font-weight-bolder text-dark-75 pl-3 font-size-lg">{{erro.procedure}}</h3>
+                                <b>Tabela: </b><span>{{erro.tabela}}</span><br>
+                                <b>Erro: </b><span
+                                    class="font-weight-bolder text-dark-75 pl-3 font-size-lg">{{erro.erro}}</span><br>
+                                <b>Query: </b><span>{{erro.query}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

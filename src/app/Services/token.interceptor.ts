@@ -12,15 +12,23 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { loadingService } from './loadingService';
 import { Router } from '@angular/router';
 import { errorRequestService } from './errorRequestService';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
   urlsDeslogado : string[] = ['/oauth/token', '/usuarios/cadastro', 'produtos/produto', '/usuarios/usuario'];
-  jsonsIdioma : string[] = ['/assets/i18n/pt-BR.json', '/assets/i18n/en-US.json', '/assets/i18n/es-ES.json', '/assets/i18n/chi-zho.json'];
+  urlsSemLoading : string[] = [
+    '/assets/i18n/pt-BR.json', 
+    '/assets/i18n/en-US.json', 
+    '/assets/i18n/es-ES.json', 
+    '/assets/i18n/chi-zho.json',
+    environment.getListaUsuarios,
+    environment.deleteUsuario,
+    environment.getLogsDeErros];
 
   needBearer : boolean = true;
-  loadJsonsIdioma : boolean = false;
+  loadUrlsSemtela : boolean = false;
   countLoader: number = 0;
 
   constructor(public loaderService: loadingService, public errorRequest: errorRequestService) {}
@@ -35,16 +43,17 @@ export class TokenInterceptor implements HttpInterceptor {
 
     this.countLoader++;
 
-    //não mostra o loading quando os idiomas são carregados no navegador
-    for(let index in this.jsonsIdioma){
-      if(urlRequest == this.jsonsIdioma[index]){
-        this.loadJsonsIdioma = true;
+    console.log(urlRequest)
+    //não mostra o loading tradicionalpara estes requests
+    for(let index in this.urlsSemLoading){
+      if(urlRequest.endsWith(this.urlsSemLoading[index])){
+        this.loadUrlsSemtela = true;
       } 
     }
-    if(!this.loadJsonsIdioma){
+    if(!this.loadUrlsSemtela){
       this.loaderService.show();
     }else{
-      this.loadJsonsIdioma = false;
+      this.loadUrlsSemtela = false;
     }
     
     for(let index in this.urlsDeslogado){

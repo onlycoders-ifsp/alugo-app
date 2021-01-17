@@ -21,6 +21,7 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { AdminPerfilComponent } from './admin-perfil/admin-perfil.component';
 import { AdminPainelComponent } from './admin-painel/admin-painel.component';
 import { AdminGerenciaProdutosComponent } from './admin-gerencia-produtos/admin-gerencia-produtos.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 
@@ -32,6 +33,7 @@ import { AdminGerenciaProdutosComponent } from './admin-gerencia-produtos/admin-
     MatDialogModule,
     MatDatepickerModule,
     FormsModule,
+    NgApexchartsModule,
     MatTableModule,
     MatStepperModule,
     MatToolbarModule,

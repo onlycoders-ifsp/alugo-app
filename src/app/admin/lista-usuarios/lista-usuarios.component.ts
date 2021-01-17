@@ -38,7 +38,7 @@ export class ListaUsuariosComponent implements OnInit {
   ngOnInit(): void {
     this.adminService.getUsuarios().subscribe(resposta => {
       this.listaUsuarios = resposta['content'];
-      console.log(this.listaUsuarios['content'])},
+      console.log(this.listaUsuarios)},
       
       errorResponse => {
         console.log(errorResponse);
