@@ -18,6 +18,8 @@ import { environment } from 'src/environments/environment';
 export class TokenInterceptor implements HttpInterceptor {
 
   urlsDeslogado : string[] = ['/oauth/token', '/usuarios/cadastro', 'produtos/produto', '/usuarios/usuario'];
+
+  //colocar aqui os endpoints que não mostram a tela laranja de carregamento
   urlsSemLoading : string[] = [
     '/assets/i18n/pt-BR.json', 
     '/assets/i18n/en-US.json', 
@@ -25,7 +27,9 @@ export class TokenInterceptor implements HttpInterceptor {
     '/assets/i18n/chi-zho.json',
     environment.getListaUsuarios,
     environment.deleteUsuario,
-    environment.getLogsDeErros];
+    environment.getLogsDeErros,
+    environment.getProdutosNaoPublicados
+  ];
 
   needBearer : boolean = true;
   loadUrlsSemtela : boolean = false;

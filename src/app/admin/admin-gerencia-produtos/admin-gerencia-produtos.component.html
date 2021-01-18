@@ -1,7 +1,7 @@
     <!--begin::Row-->
     <div class="row">
         <!--begin::Col-->
-        <div *ngFor="let produto of produtos" class="col-xxl-3 col-xl-6 col-md-6 col-sm-6">
+        <div *ngFor="let produto of produtos" class="col-xxl-4 col-xl-6 col-md-6 col-sm-12">
             <!--begin::Card-->
             <div class="card card-custom gutter-b card-stretch">
                 <!--begin::Body-->
@@ -64,7 +64,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </span>
-                            <a href="#" class="text-muted text-hover-primary font-weight-bold">Status: Publicado</a>
+                            <a href="#" class="text-muted text-hover-primary font-weight-bold">Publicado? {{produto.publicado}}</a>
                         </div>
                         <div class="d-flex align-items-center mb-2">
                             <span class="flex-shrink-0 mr-2">
@@ -85,8 +85,8 @@
                     <!--end::Contacts-->
                     <!--begin::Actions-->
                     <div class="pt-2">
-                        <a href="#" class="btn btn-primary font-weight-bolder mr-2">Contact</a>
-                        <a href="#" class="btn btn-light-primary font-weight-bolder">Profile</a>
+                        <a href="#" class="btn btn-success font-weight-bolder mr-2">Aprovar</a>
+                        <a href="#" class="btn btn-danger font-weight-bolder mr-2">Reprovar</a>
                     </div>
                     <!--end::Actions-->
                 </div>

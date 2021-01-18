@@ -20,7 +20,7 @@ export class AdminGerenciaProdutosComponent implements OnInit {
   produtos: eProduto[] = [];
   semProduto: boolean = false;
   public page: number = 0;
-  public size: number = 20;
+  public size: number = 21;
   public pages:number;
   public firstPage: boolean;
   public lastPage: boolean;
@@ -28,7 +28,7 @@ export class AdminGerenciaProdutosComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.portalService.getProdutos(this.page,this.size).subscribe(resposta => {
+    this.adminService.getProdutosNaoPublicados(this.page,this.size).subscribe(resposta => {
       this.produtos = resposta['content'];
       this.pages = resposta['totalPages'];
       this.firstPage = resposta['first'];

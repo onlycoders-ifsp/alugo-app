@@ -51,7 +51,8 @@ export const environment = {
   //ENDPOINTS ADMIN
   getListaUsuarios: "/admin/lista-usuario",
   deleteUsuario: "/admin/inativa-usuario",
-  getLogsDeErros: "/admin/log-erros"
+  getLogsDeErros: "/admin/log-erros",
+  getProdutosNaoPublicados: "/admin/publicar-produtos"
 };
 
 /*
