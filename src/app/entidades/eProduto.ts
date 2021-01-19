@@ -17,5 +17,6 @@ export class eProduto {
     total_ganhos: number;
     media_avaliacao: number;
     capa_foto: string;
-    ativo: boolean
+    ativo: boolean;
+    publicado: boolean
 }
