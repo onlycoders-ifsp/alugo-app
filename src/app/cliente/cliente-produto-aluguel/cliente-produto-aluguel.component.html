@@ -1,32 +1,28 @@
 <section class="col-lg-12 pt-lg-8 pb-4 mb-3">
+
     <div class="pt-2 px-4 pl-lg-0 pr-xl-5">
-      
+
       <div class="d-sm-flex flex-wrap justify-content-between align-items-center border-bottom">
-        <h2 class="h3 py-2 mr-2 text-center text-sm-left">{{ 'cliente.aluguel-locador.produtosAlugados' | translate }}</h2>
-        <div class="py-2">
-        </div>
+        <h2 class="h3 py-2 mr-2 text-center text-sm-left">{{ 'cliente.cliente-produto-aluguel.qtdAlugueis' | translate }}<span class="badge font-size-sm text-body align-middle ml-2">{{ total }}</span></h2>
+        <div *ngIf="total>0" class="d-flex"><a class="nav-link-style mr-3" *ngIf=!firstPage href="" (click)="setPage(page-1,$event)"><i class="fa fa-arrow-left"></i></a><span class="font-size-md">{{page+1}} / {{pages}}</span><a class="nav-link-style ml-3" *ngIf=!lastPage href="" (click)="setPage(page+1,$event)"><i class="fa fa-arrow-right"></i></a></div>
       </div>
-      <div *ngFor="let item of alugueisProduto" class="media d-block d-sm-flex align-items-center py-4 border-bottom">
-        <div class="media-body text-center text-sm-left">       
-            <label class="custom-control-label font-size-ms">{{item.data_inicio}} até {{item.data_fim}}</label>
-          </div>
-          <div class="d-flex align-items-center justify-content-center justify-content-sm-start pt-2">
-            <div class="my-2">
-              <div class="bg-secondary rounded p-3 mt-4 mb-2"><a class="media align-items-center">              
-                  <div class="media-body pl-2"><span class="font-size-ms text-muted">{{ 'cliente.aluguel-locador.locatario' | translate }}</span>
-                    
-                  </div>
-                </a></div>
-            </div>
-          </div>
-          <div class="card border-bottom-0 border-left-0 border-right-0">
-            <div class="card-header d-flex justify-content-between align-items-center py-3 border-0">
-              <div class="custom-control custom-radio">
-                {{ 'cliente.aluguel-locador.valorGerado' | translate }}
-              </div>
-              <h5 class="mb-0 text-accent font-weight-normal">R$ {{item.valor_aluguel}}<small></small></h5>
-            </div>
-          </div>
+
+       <div *ngFor="let item of alugueisProduto" class="media d-block d-sm-flex align-items-center py-4 border-bottom">
+         
+        <div>
+          <img style="width: 5rem;" class="rounded-lg d-block mb-3 mb-sm-0 mr-sm-4 mx-auto" src="data:image/jpg;base64,{{item.foto_locatario}}" alt="{{item.nome_produto}}">
+        </div>       
+        <div class="media-body justify-content-center text-sm-left">       
+          <label class=" font-size-ms">{{ 'cliente.aluguel-locador.locatario' | translate }} {{item.nome_locatario}}</label>
+          <div><label class=" font-size-ms">Valor aluguel: R${{item.valor_aluguel}}</label></div>
+          <div><label class=" font-size-ms">Valor ganho: R${{item.valor_ganho}}</label></div>
+        </div>         
+        <div class="media-body justify-content-center text-sm-right">       
+          <div><label class=" font-size-ms">Data inicio: {{item.data_inicio}}</label></div>
+          <div><label class=" font-size-ms">Data fim: {{item.data_fim}}</label></div>
+          <div><label *ngIf= "!item.data_devolucao" class=" font-size-ms">Produto ainda não devolvido.</label></div>
+          <div><label *ngIf= "item.data_devolucao" class=" font-size-ms">Data devolução: {{item.data_devolucao}}</label></div>
         </div>
+        </div> 
       </div>
 </section>

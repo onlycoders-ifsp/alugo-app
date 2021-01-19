@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { eAluguel } from 'src/app/entidades/eAluguel';
+import { eAluguelDetalhe } from 'src/app/entidades/eAluguelDetalhe';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { AluguelService } from 'src/app/Services/AluguelService';
 import { errorRequestService } from 'src/app/Services/errorRequestService';
@@ -13,11 +13,17 @@ import { AuthService } from 'src/app/Services/auth.service'
 })
 export class ClienteProdutoAluguelComponent implements OnInit {
 
-  alugueisProduto: eAluguel[] = [];
+  alugueisProduto: eAluguelDetalhe[] = [];
 
   idiomas: iIdioma[];
   currentBandeira: string;
   currentIdioma: string;
+  public page: number = 0;
+  public size: number = 5;
+  public pages:number;
+  public firstPage: boolean;
+  public lastPage: boolean;
+  public total: number = 0;
 
   constructor(
     private idiService: idiomaService,
@@ -29,6 +35,13 @@ export class ClienteProdutoAluguelComponent implements OnInit {
     this.idiomas = idiService.getListIdiomas()
    }
 
+   setPage(i,event:any){
+    event.preventDefault();
+    this.page = i;
+    this.ngOnInit();
+
+  }
+
   ngOnInit(): void {
     if (!this.AuthService.isAutenticado()){
       this.AuthService.encerraSessao();
@@ -38,7 +51,11 @@ export class ClienteProdutoAluguelComponent implements OnInit {
 
   getListaAlugueisProduto(){
     this.aluguelService.getListAluguelProduto(localStorage.getItem("idProduto")).subscribe(resposta => {
-      this.alugueisProduto = resposta;
+      this.alugueisProduto = resposta['content'];
+      this.pages = resposta['totalPages'];
+      this.firstPage = resposta['first'];
+      this.lastPage = resposta['last'];
+      this.total = resposta['totalElements'];
       errorResponse => {
         console.log(errorResponse);
       }

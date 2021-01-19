@@ -172,6 +172,9 @@
 			"valorProduto": "Valor do Produto",
 			"valoraluguel": "Valor do Aluguel"
 		},
+		"cliente-produto-aluguel": {
+			"qtdAlugueis": "Quantidade de aluguéis:"
+		},
 		"lista-produtos": {
 			"alugueis": "Aluguéis",
 			"anterior": "Anterior",
