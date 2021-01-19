@@ -14,14 +14,14 @@
         </div>       
         <div class="media-body justify-content-center text-sm-left">       
           <label class=" font-size-ms">{{ 'cliente.aluguel-locador.locatario' | translate }} {{item.nome_locatario}}</label>
-          <div><label class=" font-size-ms">Valor aluguel: R${{item.valor_aluguel}}</label></div>
-          <div><label class=" font-size-ms">Valor ganho: R${{item.valor_ganho}}</label></div>
+          <div><label class=" font-size-ms">{{ 'cliente.cliente-produto-aluguel.valoraluguel' | translate }} R${{item.valor_aluguel}}</label></div>
+          <div><label class=" font-size-ms">{{ 'cliente.cliente-produto-aluguel.valorganho' | translate }} R${{item.valor_ganho}}</label></div>
         </div>         
         <div class="media-body justify-content-center text-sm-right">       
-          <div><label class=" font-size-ms">Data inicio: {{item.data_inicio}}</label></div>
-          <div><label class=" font-size-ms">Data fim: {{item.data_fim}}</label></div>
-          <div><label *ngIf= "!item.data_devolucao" class=" font-size-ms">Produto ainda não devolvido.</label></div>
-          <div><label *ngIf= "item.data_devolucao" class=" font-size-ms">Data devolução: {{item.data_devolucao}}</label></div>
+          <div><label class=" font-size-ms">{{ 'cliente.cliente-produto-aluguel.datainicio' | translate }} {{item.data_inicio}}</label></div>
+          <div><label class=" font-size-ms">{{ 'cliente.cliente-produto-aluguel.datafim' | translate }} {{item.data_fim}}</label></div>
+          <div><label *ngIf= "!item.data_devolucao" class=" font-size-ms">{{ 'cliente.cliente-produto-aluguel.produtonaodevolvido' | translate }} </label></div>
+          <div><label *ngIf= "item.data_devolucao" class=" font-size-ms">{{ 'cliente.cliente-produto-aluguel.datadevolucao' | translate }} {{item.data_devolucao}}</label></div>
         </div>
         </div> 
       </div>

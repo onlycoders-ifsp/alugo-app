@@ -172,6 +172,15 @@
 			"valorProduto": "Product Value",
 			"valoraluguel": "Rent Value"
 		},
+		"cliente-produto-aluguel": {
+			"datainicio":"Start date:",
+			"datafim":"End date:",
+			"datadevolucao":"Return date:",
+			"qtdAlugueis": "Number of rentals:",
+			"produtonaodevolvido": "Product not yet returned.",
+			"valoraluguel": "Rent value:",
+			"valorganho": "Earned value:"
+		},
 		"lista-produtos": {
 			"alugueis": "Rentals",
 			"anterior": "Previous",

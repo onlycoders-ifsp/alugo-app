@@ -172,6 +172,15 @@
 			"valorProduto": "产品价值",
 			"valoraluguel": "租金价值"
 		},
+		"cliente-produto-aluguel": {
+			"datainicio":"开始日期：",
+			"datafim":"结束日期：",
+			"datadevolucao":"归期：",
+			"qtdAlugueis": "出租数量：",
+			"produtonaodevolvido": "产品尚未退货。",
+			"valoraluguel": "租金价值：",
+			"valorganho": "所得价值："
+		},
 		"lista-produtos": {
 			"alugueis": "租金",
 			"anterior": "以前",

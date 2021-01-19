@@ -172,6 +172,15 @@
 			"valorProduto": "Valor del Producto",
 			"valoraluguel": "Valor de Alquiler"
 		},
+		"cliente-produto-aluguel": {
+			"datainicio":"Fecha de inicio:",
+			"datafim":"Fecha final:",
+			"datadevolucao":"Fecha de regreso:",
+			"qtdAlugueis": "Número de alquileres:",
+			"produtonaodevolvido": "Producto aún no devuelto.",
+			"valoraluguel": "Valor de alquiler:",
+			"valorganho": "Valor agregado:"
+		},
 		"lista-produtos": {
 			"alugueis": "Alquileres",
 			"anterior": "Previo",
