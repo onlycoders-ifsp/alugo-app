@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { eCategorias } from 'src/app/entidades/eCategorias';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
@@ -17,6 +18,7 @@ export class TodosProdutosComponent implements OnInit {
 
 
   produtos: eProduto[] = [];
+  categorias: eCategorias[] = [];
   currentProduto: eProduto;
 
   idiomas: iIdioma[];
@@ -34,6 +36,7 @@ export class TodosProdutosComponent implements OnInit {
   constructor(
     private router: Router,
     private portalService: PortalService,
+    private produtoService: produtoService,
     private idiService: idiomaService,
     private produtoS: produtoService,
     private auth: AuthService
@@ -53,6 +56,8 @@ export class TodosProdutosComponent implements OnInit {
     if (!this.auth.isAutenticado()){
       this.auth.removeToken();
     }
+
+    this.getListaCategorias();
     this.currentProduto = new eProduto();
     
     if (localStorage.getItem("txtPesquisaProduto")) {
@@ -84,6 +89,16 @@ export class TodosProdutosComponent implements OnInit {
           console.log(errorResponse)
         });
     }
+  }
+
+  getListaCategorias(){
+    this.produtoService.getCategorias().subscribe(resposta => {
+      console.log(resposta)
+      this.categorias = resposta;
+      errorResponse => {
+        console.log(errorResponse);
+      }
+    });
   }
 
   ngOnChanges(){

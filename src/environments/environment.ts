@@ -17,6 +17,7 @@ export const environment = {
   putAlteraProduto: "/produtos/altera",
   deleteAtivaInativaProduto: "/produtos/ativa-nativa",
   postCadProduto: "/produtos/cadastro",
+  getCategorias: "/produtos/categorias",
   getPesquisaProduto: "/produtos/pesquisa",
   getProdutosUsuario: "/produtos/usuario",
   getListaProdutos: '/produtos/lista-produto',

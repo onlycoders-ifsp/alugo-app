@@ -13,6 +13,7 @@ export const environment = {
   putAlteraProduto: "/produtos/altera",
   deleteAtivaInativaProduto: "/produtos/ativa-nativa",
   postCadProduto: "/produtos/cadastro",
+  getCategorias: "/produtos/categorias",
   getPesquisaProduto: "/produtos/pesquisa",
   getProdutosUsuario: "/produtos/usuario",
   getListaProdutos: '/produtos/lista-produto',
@@ -41,7 +42,7 @@ export const environment = {
   //ENDPOINTS DE ALUGUEL
   getListAluguelLocador: "/aluguel/locador",
   getListAluguelLocatario: "/aluguel/locatario",
-  getListAluguelProduto: "/aluguel/produto",
+  getListAluguelProduto: "/aluguel/detalhe",
   postCadAluguel: "/aluguel/aluguel-efetua"
 
 };
