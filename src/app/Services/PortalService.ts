@@ -23,6 +23,14 @@ export class PortalService {
     return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getListaProdutos,{params});
   }
 
+  getProdutosByCategoria(categoria:number, page:number,size:number) : Observable<eProduto[]> {
+    let params = new HttpParams();
+    params = params.append('categoria',String(categoria));
+    params = params.append('page',String(page));
+    params = params.append('size',String(size));
+    return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getListaProdutos,{params});
+  }
+
   getProdutoById(idProduto: string) : Observable<eProduto> {
     let params = new HttpParams();
     params = params.append('id_produto', idProduto);

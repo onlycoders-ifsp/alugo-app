@@ -145,7 +145,7 @@
 			"atualizaErro": "Error al realizar la actualización del producto",
 			"atualizaSucesso": "actualizado con éxito!",
 			"cadastroErro": "Error al realizar el registro del producto",
-			"cadastroSucesso": "¡Registrado correctamente!",
+			"cadastroSucesso": "¡Registrado correctamente! Enviado para aprobación de publicación.",
 			"dataCompra": "Fecha de Compra",
 			"descricaoCurta": "Descripción Breve del Producto",
 			"dicaDescricao": "Ingrese tantos detalles como sea posible.",
@@ -172,6 +172,15 @@
 			"valorProduto": "Valor del Producto",
 			"valoraluguel": "Valor de Alquiler"
 		},
+		"cliente-produto-aluguel": {
+			"datainicio":"Fecha de inicio:",
+			"datafim":"Fecha final:",
+			"datadevolucao":"Fecha de regreso:",
+			"qtdAlugueis": "Número de alquileres:",
+			"produtonaodevolvido": "Producto aún no devuelto.",
+			"valoraluguel": "Valor de alquiler:",
+			"valorganho": "Valor agregado:"
+		},
 		"lista-produtos": {
 			"alugueis": "Alquileres",
 			"anterior": "Previo",
@@ -182,10 +191,13 @@
 			"nome": "Nombre",
 			"novoProduto": "Nuevo Producto",
 			"ordenarpor": "Ordenar Por",
+			"produtopublicadoNegativo": "Producto publicado: No",
+			"produtopublicadoPositivo": "Producto publicado: Sí",
 			"proximo": "Próximo",
 			"seusprodutos": "Tus Productos",
 			"titleBotaoEditar": "Editar Producto",
 			"titleBotaoInativar": "Desactivar Producto",
+			"titleBotaoLista": "Listado de alquileres para este producto",
 			"valoraluguel": "Valor de Alquiler"
 		}
 	},
@@ -352,6 +364,8 @@
 			"procuraartigos": "¿Busca herramientas para videos y fotos?",
 			"produtosdisponiveis": "Productos disponibles para alquiler:",
 			"proximo": "Próximo",
+			"selecaocategoria":"Selecciona una categoría:",
+			"todos":"TODAS",
 			"visualizarDetalhes": "Ver Detalles",
 			"vocequerganhardinheiro": "¿Quieres hacer dinero?"
 		}

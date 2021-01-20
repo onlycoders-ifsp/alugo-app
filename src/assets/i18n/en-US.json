@@ -145,7 +145,7 @@
 			"atualizaErro": "Error performing product update",
 			"atualizaSucesso": "updated successfully!",
 			"cadastroErro": "Error when performing product registration",
-			"cadastroSucesso": "registered successfully!",
+			"cadastroSucesso": "registered successfully!Submitted for publication approval.",
 			"dataCompra": "Purchase Date",
 			"descricaoCurta": "Short Product Description",
 			"dicaDescricao": "Enter as many details as possible.",
@@ -172,6 +172,15 @@
 			"valorProduto": "Product Value",
 			"valoraluguel": "Rent Value"
 		},
+		"cliente-produto-aluguel": {
+			"datainicio":"Start date:",
+			"datafim":"End date:",
+			"datadevolucao":"Return date:",
+			"qtdAlugueis": "Number of rentals:",
+			"produtonaodevolvido": "Product not yet returned.",
+			"valoraluguel": "Rent value:",
+			"valorganho": "Earned value:"
+		},
 		"lista-produtos": {
 			"alugueis": "Rentals",
 			"anterior": "Previous",
@@ -182,10 +191,13 @@
 			"nome": "Name",
 			"novoProduto": "New Product",
 			"ordenarpor": "Order By",
+			"produtopublicadoNegativo": "Published product: No",
+			"produtopublicadoPositivo": "Published product: Yes",
 			"proximo": "Next",
 			"seusprodutos": "Your Products",
 			"titleBotaoEditar": "Edit Product",
 			"titleBotaoInativar": "Inactivate Product",
+			"titleBotaoLista": "Listing of rentals for this product",
 			"valoraluguel": "Rent Value"
 		}
 	},
@@ -352,6 +364,8 @@
 			"procuraartigos": "Looking for tools for video and photos?",
 			"produtosdisponiveis": "Products available for rent:",
 			"proximo": "Next",
+			"selecaocategoria":"Select category:",
+			"todos":"ALL",
 			"visualizarDetalhes": "View Details",
 			"vocequerganhardinheiro": "Do you want to make money?"
 		}

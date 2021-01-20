@@ -13,6 +13,7 @@ export const environment = {
   putAlteraProduto: "/produtos/altera",
   deleteAtivaInativaProduto: "/produtos/ativa-nativa",
   postCadProduto: "/produtos/cadastro",
+  getCategorias: "/produtos/categorias",
   getPesquisaProduto: "/produtos/pesquisa",
   getProdutosUsuario: "/produtos/usuario",
   getListaProdutos: '/produtos/lista-produto',
@@ -30,11 +31,18 @@ export const environment = {
   getDadosUsuario: "/usuarios/usuario",
   getUserLogado: "/usuarios/usuario-logado",
   putFotoUsuario: "/usuarios/upload-foto",
+  getVerificaCpf: "/usuarios/verifica/cpf",
+  getVerificaEmail: "/usuarios/verifica/email",
+  getVerificaUserName: "/usuarios/verifica/username",
+  getVerificaCpfUpdate: "/usuarios/verifica/cpf-update",
+  getVerificaEmailUpdate: "/usuarios/verifica/email-update",
+  getVerificaUserNameUpdate: "/usuarios/verifica/username-update",
 
 
   //ENDPOINTS DE ALUGUEL
   getListAluguelLocador: "/aluguel/locador",
   getListAluguelLocatario: "/aluguel/locatario",
+  getListAluguelProduto: "/aluguel/detalhe",
   postCadAluguel: "/aluguel/aluguel-efetua"
 
 };
