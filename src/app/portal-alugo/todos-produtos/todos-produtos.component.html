@@ -19,12 +19,12 @@
   </div>
   <!-- <div class="bg-light box-shadow-lg rounded-lg p-2 mt-n5 mb-4"> -->
     <div class="d-flex align-items-left">
-       <h3>Selecione a categoria:</h3>
+       <h3>{{ 'portal-alugo.todos-produtos.selecaocategoria' | translate }}</h3>
     </div>
     <mat-form-field appearance="outline" [style.width.%]="30">
       <mat-select>
-        <mat-option>-- TODOS --</mat-option>
-        <mat-option *ngFor="let categoria of categorias" [value]="categoria.id_categoria">
+        <mat-option (click)="buscaCategoria(null)">-- {{ 'portal-alugo.todos-produtos.todos' | translate }} --</mat-option>
+        <mat-option (click)="buscaCategoria(categoria)" *ngFor="let categoria of categorias" [value]="categoria.id_categoria">
             {{categoria.descricao}}
         </mat-option>
       </mat-select>

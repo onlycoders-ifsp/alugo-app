@@ -59,8 +59,27 @@ export class TodosProdutosComponent implements OnInit {
 
     this.getListaCategorias();
     this.currentProduto = new eProduto();
-    
-    if (localStorage.getItem("txtPesquisaProduto")) {
+
+    if (localStorage.getItem("IdCategoriaBuscada")){
+      this.txtPesquisaproduto = localStorage.getItem("CategoriaBuscada");
+      this.portalService.getProdutosByCategoria(Number(localStorage.getItem("IdCategoriaBuscada")),this.page,this.size).subscribe(resposta => {
+        this.produtos = resposta['content'];
+        this.pages = resposta['totalPages'];
+        this.firstPage = resposta['first'];
+        this.lastPage = resposta['last'];
+        this.total = resposta['totalElements'];
+        if(this.total == 0){
+          this.semProduto = true;
+        }else{
+          this.semProduto = false;
+        }
+        localStorage.removeItem("IdCategoriaBuscada");
+      },
+        errorResponse => {
+          console.log(errorResponse)
+        });
+    }    
+    else if (localStorage.getItem("txtPesquisaProduto")) {
       this.txtPesquisaproduto = localStorage.getItem("txtPesquisaProduto");
       this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto"),this.page,this.size).subscribe(response => {
         this.produtos = response['content'];
@@ -93,12 +112,23 @@ export class TodosProdutosComponent implements OnInit {
 
   getListaCategorias(){
     this.produtoService.getCategorias().subscribe(resposta => {
-      console.log(resposta)
       this.categorias = resposta;
       errorResponse => {
         console.log(errorResponse);
       }
     });
+  }
+
+  buscaCategoria(Categoria:eCategorias){
+    if(Categoria){      
+      localStorage.setItem("IdCategoriaBuscada", Categoria.id_categoria);  
+      localStorage.setItem("CategoriaBuscada", Categoria.descricao);
+    } 
+    else{
+      localStorage.removeItem("IdCategoriaBuscada");
+      localStorage.removeItem("CategoriaBuscada");
+    }
+    this.router.navigate(["/redirect"])
   }
 
   ngOnChanges(){
