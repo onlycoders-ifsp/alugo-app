@@ -1,4 +1,4 @@
-export class eCategorias {
-    id_categoria:string;
-    nome_categoria
+export class eCategorias{
+    descricao: string;
+    id_categoria: string;
 }

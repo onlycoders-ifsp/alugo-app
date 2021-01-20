@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment'
 import { eProduto } from '../entidades/eProduto';
 import { eAluguel } from '../entidades/eAluguel';
+import { eAluguelDetalhe } from '../entidades/eAluguelDetalhe';
 import { eCadAluguel } from '../entidades/eCadAluguel';
 
 @Injectable({
@@ -26,6 +27,12 @@ export class AluguelService {
     params = params.append('page',String(page));
     params = params.append('size',String(size));
     return this.http.get<eAluguel[]>(environment.apiBaseUrl + environment.getListAluguelLocatario,{params});
+  }
+  
+  getListAluguelProduto(idProduto: string) : Observable<eAluguelDetalhe[]> {
+    let params = new HttpParams();
+    params = params.append('id_produto',idProduto);
+    return this.http.get<eAluguelDetalhe[]>(environment.apiBaseUrl + environment.getListAluguelProduto,{params});
   }
 
   cadNewAluguel(aluguel: eCadAluguel) : Observable<boolean>{

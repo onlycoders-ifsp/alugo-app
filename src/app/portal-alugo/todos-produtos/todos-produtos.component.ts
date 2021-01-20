@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { eCategorias } from 'src/app/entidades/eCategorias';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
@@ -17,7 +18,9 @@ export class TodosProdutosComponent implements OnInit {
 
 
   produtos: eProduto[] = [];
+  categorias: eCategorias[] = [];
   currentProduto: eProduto;
+  idCategoriaSelected: string;
 
   idiomas: iIdioma[];
   currentBandeira: string;
@@ -34,6 +37,7 @@ export class TodosProdutosComponent implements OnInit {
   constructor(
     private router: Router,
     private portalService: PortalService,
+    private produtoService: produtoService,
     private idiService: idiomaService,
     private produtoS: produtoService,
     private auth: AuthService
@@ -53,9 +57,31 @@ export class TodosProdutosComponent implements OnInit {
     if (!this.auth.isAutenticado()){
       this.auth.removeToken();
     }
+
+    this.idCategoriaSelected = localStorage.getItem("IdCategoriaBuscada");
+    this.getListaCategorias();
     this.currentProduto = new eProduto();
-    
-    if (localStorage.getItem("txtPesquisaProduto")) {
+
+    if (localStorage.getItem("IdCategoriaBuscada")){
+      this.txtPesquisaproduto = localStorage.getItem("CategoriaBuscada");
+      this.portalService.getProdutosByCategoria(Number(localStorage.getItem("IdCategoriaBuscada")),this.page,this.size).subscribe(resposta => {
+        this.produtos = resposta['content'];
+        this.pages = resposta['totalPages'];
+        this.firstPage = resposta['first'];
+        this.lastPage = resposta['last'];
+        this.total = resposta['totalElements'];
+        if(this.total == 0){
+          this.semProduto = true;
+        }else{
+          this.semProduto = false;
+        }
+        localStorage.removeItem("IdCategoriaBuscada");
+      },
+        errorResponse => {
+          console.log(errorResponse)
+        });
+    }    
+    else if (localStorage.getItem("txtPesquisaProduto")) {
       this.txtPesquisaproduto = localStorage.getItem("txtPesquisaProduto");
       this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto"),this.page,this.size).subscribe(response => {
         this.produtos = response['content'];
@@ -84,6 +110,27 @@ export class TodosProdutosComponent implements OnInit {
           console.log(errorResponse)
         });
     }
+  }
+
+  getListaCategorias(){
+    this.produtoService.getCategorias().subscribe(resposta => {
+      this.categorias = resposta;
+      errorResponse => {
+        console.log(errorResponse);
+      }
+    });
+  }
+
+  buscaCategoria(Categoria:eCategorias){
+    if(Categoria){      
+      localStorage.setItem("IdCategoriaBuscada", Categoria.id_categoria);  
+      localStorage.setItem("CategoriaBuscada", Categoria.descricao);
+    } 
+    else{
+      localStorage.removeItem("IdCategoriaBuscada");
+      localStorage.removeItem("CategoriaBuscada");
+    }
+    this.router.navigate(["/redirect"])
   }
 
   ngOnChanges(){

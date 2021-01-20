@@ -19,6 +19,6 @@ export class eProduto {
     categorias: eCategorias[];
     media_avaliacao: number;
     capa_foto: string;
-    ativo: boolean
+    ativo: boolean;
     publicado: boolean;
 }
