@@ -22,7 +22,7 @@
        <h3>{{ 'portal-alugo.todos-produtos.selecaocategoria' | translate }}</h3>
     </div>
     <mat-form-field appearance="outline" [style.width.%]="30">
-      <mat-select>
+      <mat-select [(value)]="idCategoriaSelected">
         <mat-option (click)="buscaCategoria(null)">-- {{ 'portal-alugo.todos-produtos.todos' | translate }} --</mat-option>
         <mat-option (click)="buscaCategoria(categoria)" *ngFor="let categoria of categorias" [value]="categoria.id_categoria">
             {{categoria.descricao}}

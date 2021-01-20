@@ -20,6 +20,7 @@ export class TodosProdutosComponent implements OnInit {
   produtos: eProduto[] = [];
   categorias: eCategorias[] = [];
   currentProduto: eProduto;
+  idCategoriaSelected: string;
 
   idiomas: iIdioma[];
   currentBandeira: string;
@@ -57,6 +58,7 @@ export class TodosProdutosComponent implements OnInit {
       this.auth.removeToken();
     }
 
+    this.idCategoriaSelected = localStorage.getItem("IdCategoriaBuscada");
     this.getListaCategorias();
     this.currentProduto = new eProduto();
 
