@@ -3,24 +3,49 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment'
 import { eUsuario } from '../entidades/eUsuario';
+import { eErros } from '../entidades/eErros';
+import { eProduto } from '../entidades/eProduto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
-url: string = environment.apiBaseUrl + '/usuarios';
 
   constructor( private http: HttpClient ) { }
 
   nome: boolean = false;
 
+  
+
 
   getUsuarios() : Observable<eUsuario[]> {
-    let params = new HttpParams();
-    params = params.append('id_usuario' , "0");
-    return this.http.get<eUsuario[]>(this.url, {params});
+    return this.http.get<eUsuario[]>(environment.apiBaseUrl + environment.getListaUsuarios);
 
+  }
+
+  inativaOrAtivaUser(userId: string) : Observable<Boolean>{
+    let params = new HttpParams();
+    params = params.append('id_usuario',userId);
+    return this.http.delete<Boolean>(environment.apiBaseUrl + environment.deleteUsuario,{params} );
+  }
+
+  getLogsErros(page:number,size:number) : Observable<eErros[]> {
+    let params = new HttpParams();
+    params = params.append('page',String(page));
+    params = params.append('size',String(size));
+    return this.http.get<eErros[]>(environment.apiBaseUrl + environment.getLogsDeErros, {params});
+
+  }
+
+  getProdutosNaoPublicados(page:number,size:number) : Observable<eProduto[]> {
+    // let params = new HttpParams();
+    // params = params.append('id_usuario' , "0");
+    // params = params.append('id_produto', "0");
+    let params = new HttpParams();
+    params = params.append('page',String(page));
+    params = params.append('size',String(size));
+    return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getProdutosNaoPublicados,{params});
   }
 
   // salvar(Usuario: Usuario) : Observable<Usuario> {

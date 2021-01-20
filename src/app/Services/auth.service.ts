@@ -56,6 +56,17 @@ export class AuthService {
     }
   }
 
+  getRolesUsuarioLogado(){
+    const token = this.obterToken();
+
+    if(token){
+      const roleUser = this.jwtHelper.decodeToken(token).authorities;
+      return roleUser;
+    }else{
+      return null;
+    }
+  }
+
   isAutenticado() : boolean{
     const token = this.obterToken();
     if(token){

@@ -20,7 +20,7 @@ import { RouterModule } from '@angular/router';
 import { ClienteModule } from './cliente/cliente.module';
 import { PortalAlugoModule } from './portal-alugo/portal-alugo.module';
 import {MatNativeDateModule} from '@angular/material/core';
-//import { AdminModule } from './admin/admin.module';
+import { AdminModule } from './admin/admin.module';
 import { AdminService } from './Services/AdminService';
 import { idiomaService } from './Services/idiomaService';
 import { PortalService } from './Services/PortalService';
@@ -48,7 +48,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     AppComponent,
     LoginComponent,
     LoadingComponent,
-    ErrorRequestComponent
+    ErrorRequestComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +69,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     BrowserAnimationsModule,
     ClienteModule,
     PortalAlugoModule,
-    //AdminModule,
+    AdminModule,
     RouterModule,
     MatSelectModule,
     HttpClientModule,

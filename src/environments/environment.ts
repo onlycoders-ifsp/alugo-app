@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
+<<<<<<< HEAD
   apiBaseUrl: 'https://hml-backend-alugo.herokuapp.com',//'http://localhost:8080',
+=======
+  apiBaseUrl: 'http://localhost:8080', //'http://localhost:8080',//'https://hml-backend-alugo.herokuapp.com',
+>>>>>>> adminportal
   clientId: 'front-alugo',
   secret: 'aluGo@123!321',
   authorizedGrantTypes: 'password',
@@ -31,7 +35,7 @@ export const environment = {
   putAlteraUsuario: "/usuarios/altera-dados",
   putAlteraSenha: "/usuarios/altera-senha",
   postCadUsuario: "/usuarios/cadastro",
-  deleteDeleteUsuario: "/usuarios/inativa",
+ 
   getDadosUsuario: "/usuarios/usuario",
   getUserLogado: "/usuarios/usuario-logado",
   putFotoUsuario: "/usuarios/upload-foto",
@@ -41,14 +45,20 @@ export const environment = {
   getVerificaCpfUpdate: "/usuarios/verifica/cpf-update",
   getVerificaEmailUpdate: "/usuarios/verifica/email-update",
   getVerificaUserNameUpdate: "/usuarios/verifica/username-update",
+  
 
 
   //ENDPOINTS DE ALUGUEL
   getListAluguelLocador: "/aluguel/locador",
   getListAluguelLocatario: "/aluguel/locatario",
   getListAluguelProduto: "/aluguel/detalhe",
-  postCadAluguel: "/aluguel/aluguel-efetua"
+  postCadAluguel: "/aluguel/aluguel-efetua",
 
+  //ENDPOINTS ADMIN
+  getListaUsuarios: "/admin/lista-usuario",
+  deleteUsuario: "/admin/inativa-usuario",
+  getLogsDeErros: "/admin/log-erros",
+  getProdutosNaoPublicados: "/admin/publicar-produtos"
 };
 
 /*

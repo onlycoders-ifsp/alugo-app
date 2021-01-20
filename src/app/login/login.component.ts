@@ -88,7 +88,7 @@ export class LoginComponent implements OnInit {
                                                   .subscribe(response =>{
                                                     const access_token = JSON.stringify(response);
                                                     localStorage.setItem("access_token", access_token)
-                                                    this.router.navigate(['/cliente/perfil/dados']),
+                                                    this.logaUsuarios();
                                                     this.loginErro = false;
                                                   }, errorResponse =>{
                                                     //this.loginErro = formLoginValues.username + ' Usuário e/ou senha inválidos'
@@ -96,6 +96,25 @@ export class LoginComponent implements OnInit {
                                                   })
     }
     
+    
+  }
+
+  logaUsuarios(){
+    const roles = this.authService.getRolesUsuarioLogado();
+    console.log(roles);
+    let isAdmin = false;
+    roles.forEach(element => {
+      
+      if(element == "ROLE_ADMIN"){
+        console.log("achou a role de admin");
+        isAdmin = true;
+      }
+    });
+    if(isAdmin){
+      this.router.navigate(['/admin/lista']);
+    }else{
+      this.router.navigate(['/cliente/perfil/dados'])
+    }
     
   }
 
