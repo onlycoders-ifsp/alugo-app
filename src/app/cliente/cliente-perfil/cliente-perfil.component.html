@@ -124,7 +124,7 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.cep' | translate }}</mat-label>
-          <input  formControlName="cep" (change)="preencheCep()" mask="00000-000" matInput placeholder="{{ 'campos.label.placeholdercep' | translate }}">
+          <input  formControlName="cep" (blur)="preencheCep()" mask="00000-000" matInput placeholder="{{ 'campos.label.placeholdercep' | translate }}">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
