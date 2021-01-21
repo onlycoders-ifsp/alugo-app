@@ -101,7 +101,7 @@ userName: String;
       endereco:['',[]],
       numero:['',[]],
       complemento:['',[]],
-    },{updateOn: 'blur'})
+    },)
     
   }
   
