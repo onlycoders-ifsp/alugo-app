@@ -71,6 +71,7 @@
 	},
 	"cliente": {
 		"aluguel-locador": {
+			"infocontatolocatario": "Renter contact information",
 			"locatario": "Renter:",
 			"pessoaAluguel": "Renter:",
 			"produtosAlugados": "Your Rented Products:",
@@ -79,6 +80,7 @@
 		"aluguel-locatario": {
 			"alugueisRealizados": "Realized Rentals:",
 			"ate": "to",
+			"infocontatolocador": "Renter contact information",
 			"valorPago": "Amount Paid:"
 		},
 		"cliente-credenciais": {

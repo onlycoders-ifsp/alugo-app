@@ -71,6 +71,7 @@
 	},
 	"cliente": {
 		"aluguel-locador": {
+			"infocontatolocatario": "Informações para contato do locatário",
 			"locatario": "Locatário:",
 			"pessoaAluguel": "Proponente do Aluguel:",
 			"produtosAlugados": "Seus Produtos Alugados:",
@@ -79,6 +80,7 @@
 		"aluguel-locatario": {
 			"alugueisRealizados": "Aluguéis Realizados:",
 			"ate": "até",
+			"infocontatolocador": "Informações para contato do locador",
 			"valorPago": "Valor Pago:"
 		},
 		"cliente-credenciais": {

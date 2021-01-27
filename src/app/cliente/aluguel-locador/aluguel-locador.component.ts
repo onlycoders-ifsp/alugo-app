@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { eAluguel } from 'src/app/entidades/eAluguel';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { AluguelService } from 'src/app/Services/AluguelService';
 import { errorRequestService } from 'src/app/Services/errorRequestService';
 import { idiomaService } from 'src/app/Services/idiomaService';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { AuthService } from 'src/app/Services/auth.service'
 
 @Component({
@@ -29,11 +30,23 @@ export class AluguelLocadorComponent implements OnInit {
     private idiService: idiomaService,
     private aluguelService: AluguelService,
     private AuthService: AuthService,
-    public errorRequest: errorRequestService
+    public errorRequest: errorRequestService,
+    public dialog: MatDialog
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
    }
+   
+   openDialog(aluguelSelecionado:eAluguel) {
+    this.dialog.open(DialogElementsExampleDialog,{
+      data:{
+        Nome:aluguelSelecionado.locatario.nome,
+        Telefone:aluguelSelecionado.locatario.celular,
+        Email:aluguelSelecionado.locatario.email
+      }
+    });
+  }
+
 
    setPage(i,event:any){
     event.preventDefault();
@@ -47,7 +60,6 @@ export class AluguelLocadorComponent implements OnInit {
     }
     this.getListaAlugueisLocador();
   }
-
 
   getListaAlugueisLocador(){
     this.aluguelService.getListAluguelLocador(this.page,this.size).subscribe(resposta => {
@@ -67,4 +79,15 @@ export class AluguelLocadorComponent implements OnInit {
     this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
   }
 
+}
+
+
+@Component({
+  selector: 'infos-Locatario',
+  templateUrl: 'InfosLocatario.html',
+})
+export class DialogElementsExampleDialog {
+
+  constructor(@Inject(MAT_DIALOG_DATA) 
+  public data) {}
 }

@@ -41,6 +41,7 @@
 
                 <div class="media-body pl-2"><span class="font-size-ms text-muted">{{ 'cliente.aluguel-locador.locatario' | translate }}</span>
                   <h6 class="font-size-sm mb-0">{{item.locatario.nome}}</h6>
+                  <button class="btn bg-faded-info btn-icon mr-2" (click)="openDialog(item)" type="button" data-toggle="tooltip" title="{{ 'cliente.aluguel-locador.infocontatolocatario' | translate }}"><i class="fa fa-info text-info"></i></button>
                 </div>
               </a></div>
           </div>

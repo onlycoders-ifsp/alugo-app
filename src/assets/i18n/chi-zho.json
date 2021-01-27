@@ -71,6 +71,7 @@
 	},
 	"cliente": {
 		"aluguel-locador": {
+			"infocontatolocatario": "租户联系信息",
 			"locatario": "房客姓名",
 			"pessoaAluguel": "承租人：",
 			"produtosAlugados": "您租用的产品：",
@@ -79,6 +80,7 @@
 		"aluguel-locatario": {
 			"alugueisRealizados": "已实现的租金：",
 			"ate": "至",
+			"infocontatolocador": "出租人联系方式",
 			"valorPago": "支付的金额："
 		},
 		"cliente-credenciais": {
