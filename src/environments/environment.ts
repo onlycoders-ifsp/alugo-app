@@ -4,11 +4,7 @@
 
 export const environment = {
   production: false,
-<<<<<<< HEAD
   apiBaseUrl: 'https://hml-backend-alugo.herokuapp.com',//'http://localhost:8080',
-=======
-  apiBaseUrl: 'http://localhost:8080', //'http://localhost:8080',//'https://hml-backend-alugo.herokuapp.com',
->>>>>>> adminportal
   clientId: 'front-alugo',
   secret: 'aluGo@123!321',
   authorizedGrantTypes: 'password',
