@@ -148,6 +148,7 @@
 			"atualizaSucesso": "updated successfully!",
 			"cadastroErro": "Error when performing product registration",
 			"cadastroSucesso": "registered successfully!Submitted for publication approval.",
+			"categoriaProduto":"Product Category:",
 			"dataCompra": "Purchase Date",
 			"descricaoCurta": "Short Product Description",
 			"dicaDescricao": "Enter as many details as possible.",

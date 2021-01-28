@@ -148,6 +148,7 @@
 			"atualizaSucesso": "atualizado com sucesso!",
 			"cadastroErro": "Erro ao realizar o cadastro do produto",
 			"cadastroSucesso": "cadastrado com sucesso! Enviado para aprovação da publicação.",
+			"categoriaProduto":"Categoria do produto:",
 			"dataCompra": "Data de Compra",
 			"descricaoCurta": "Descrição Curta do Produto",
 			"dicaDescricao": "Insira o maior número de detalhes possível.",

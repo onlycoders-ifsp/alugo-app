@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="form-group py-2">
-          <label class="font-weight-medium">Categoria do produto:</label>
+          <label class="font-weight-medium">{{ 'cliente.cliente-produto.categoriaProduto' | translate }}</label>
           <select formControlName="categorias" class="form-control" >
             <option *ngFor="let categoria of categorias" [value]="categoria.id_categoria">
               {{categoria.descricao}}

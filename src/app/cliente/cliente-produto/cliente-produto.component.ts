@@ -82,15 +82,10 @@ export class ClienteProdutoComponent implements OnInit {
     })
   }
 
-  loadFormToCadOrUpdate() {
-
-    
+  loadFormToCadOrUpdate() {    
     const formCadValues = this.formularioProduto.value;
     this.produtoAlterado.nome = formCadValues.nome;
     this.produtoAlterado.descricao_curta = formCadValues.descricao_curta;
-    console.log(this.categorias.filter(categoria => categoria.id_categoria == formCadValues.categorias).map(function(item) {
-      return { id_categoria: item.id_categoria, nome_categoria: item.descricao };
-    }));
     this.produtoAlterado.categorias = this.categorias.filter(categoria => categoria.id_categoria == formCadValues.categorias).map(function(item) {
       return { id_categoria: item.id_categoria, nome_categoria: item.descricao };
     });
