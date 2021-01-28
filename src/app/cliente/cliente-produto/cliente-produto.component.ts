@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { eCategorias } from 'src/app/entidades/eCategorias';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
@@ -18,6 +19,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 export class ClienteProdutoComponent implements OnInit {
 
   idiomas: iIdioma[];
+  categorias: eCategorias[] = [];
   currentBandeira: string;
   currentIdioma: string;
   formularioProduto: FormGroup;
@@ -49,6 +51,7 @@ export class ClienteProdutoComponent implements OnInit {
     if (!this.auth.isAutenticado()){
       this.auth.encerraSessao();
     }
+    this.getListaCategorias();
     this.createForm();
     if (localStorage.getItem("idProdutoMudanca")) {
       this.idCurrentProduto = localStorage.getItem("idProdutoMudanca");
@@ -64,6 +67,7 @@ export class ClienteProdutoComponent implements OnInit {
     this.formularioProduto = this.fb.group({
       nome: ['', [Validators.required]],
       descricao_curta: ['', [Validators.required]],
+      categorias: ['', [Validators.required]],
       ativo: [''],
       descricao: ['', [Validators.required]],
       valor_base_diaria: ['', [Validators.required]],
@@ -84,6 +88,12 @@ export class ClienteProdutoComponent implements OnInit {
     const formCadValues = this.formularioProduto.value;
     this.produtoAlterado.nome = formCadValues.nome;
     this.produtoAlterado.descricao_curta = formCadValues.descricao_curta;
+    console.log(this.categorias.filter(categoria => categoria.id_categoria == formCadValues.categorias).map(function(item) {
+      return { id_categoria: item.id_categoria, nome_categoria: item.descricao };
+    }));
+    this.produtoAlterado.categorias = this.categorias.filter(categoria => categoria.id_categoria == formCadValues.categorias).map(function(item) {
+      return { id_categoria: item.id_categoria, nome_categoria: item.descricao };
+    });
     this.produtoAlterado.ativo = formCadValues.ativo;
     this.produtoAlterado.descricao = formCadValues.descricao;
     this.produtoAlterado.valor_base_diaria = Number(formCadValues.valor_base_diaria);
@@ -94,20 +104,20 @@ export class ClienteProdutoComponent implements OnInit {
     }
     this.produtoAlterado.capa_foto = formCadValues.capa_foto;
 
-    if(!formCadValues.qtd_alugueis){
-      formCadValues.qtd_alugueis = 0;
-    }
-    this.produtoAlterado.qtd_alugueis = Number(formCadValues.qtd_alugueis);
+    // if(!formCadValues.qtd_alugueis){
+    //   formCadValues.qtd_alugueis = 0;
+    // }
+    // this.produtoAlterado.qtd_alugueis = Number(formCadValues.qtd_alugueis);
 
-    if(!formCadValues.total_ganhos){
-      formCadValues.total_ganhos = 0;
-    }
-    this.produtoAlterado.total_ganhos = Number(formCadValues.total_ganhos);
+    // if(!formCadValues.total_ganhos){
+    //   formCadValues.total_ganhos = 0;
+    // }
+    // this.produtoAlterado.total_ganhos = Number(formCadValues.total_ganhos);
 
-    if(!formCadValues.media_avaliacao){
-      formCadValues.media_avaliacao = 0;
-    }
-    this.produtoAlterado.media_avaliacao = Number(formCadValues.media_avaliacao);
+    // if(!formCadValues.media_avaliacao){
+    //   formCadValues.media_avaliacao = 0;
+    // }
+    // this.produtoAlterado.media_avaliacao = Number(formCadValues.media_avaliacao);
 
     let date: Date = formCadValues.data_compra;
     let latest_date = this.datepipe.transform(date, 'yyyy-MM-dd');
@@ -118,6 +128,15 @@ export class ClienteProdutoComponent implements OnInit {
     } else {
       this.cadProduto();
     }
+  }
+
+  getListaCategorias(){
+    this.produtoService.getCategorias().subscribe(resposta => {
+      this.categorias = resposta;
+      errorResponse => {
+        console.log(errorResponse);
+      }
+    });
   }
 
   inputaProduto() {
@@ -144,6 +163,7 @@ export class ClienteProdutoComponent implements OnInit {
 
   updateProduto() {
     this.produtoAlterado.id_produto = this.idCurrentProduto;
+    console.log(this.produtoAlterado);
     this.produtoService.updateProduto(this.produtoAlterado).subscribe(response => {
       if(response){
         this.nomeProduto = this.produtoAlterado.nome;
@@ -166,10 +186,10 @@ export class ClienteProdutoComponent implements OnInit {
 
   cadProduto() {
     this.produtoAlterado.ativo = false;
+    console.log(this.produtoAlterado);
     this.produtoService.cadProduto(this.produtoAlterado).subscribe(response => {
       this.currentProduto = response;
       this.nomeProduto = this.produtoAlterado.nome;
-      console.log(this.nomeProduto);
       this.mensagemSucesso = "CadastroSucesso",
         this.mensagemErro = null;
         localStorage.setItem("produtoInputadoSucesso", this.mensagemSucesso);
@@ -192,6 +212,7 @@ export class ClienteProdutoComponent implements OnInit {
         nome: this.currentProduto.nome,
         descricao_curta: this.currentProduto.descricao_curta,
         ativo: this.currentProduto.ativo,
+        categorias: this.currentProduto.categorias[0].id_categoria,
         descricao: this.currentProduto.descricao,
         valor_base_diaria: this.currentProduto.valor_base_diaria,
         valor_base_mensal: this.currentProduto.valor_base_mensal,

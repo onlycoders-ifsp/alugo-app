@@ -1,4 +1,4 @@
-import { eCategorias } from './eCategorias';
+import { eCategorias } from './eCategoriasProd';
 import { eDatasAlugado } from './eDatasAlugado';
 
 export class eProduto {
