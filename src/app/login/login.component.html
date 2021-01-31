@@ -55,8 +55,10 @@
                     <div *ngIf="loginErro" class="alert alert-warning alert-dismissible fade show" role="alert">
                         {{ 'portal-alugo.login.usuarioSenhaIncorreto' | translate }}<!--  {{ loginErro }}-->
                       </div>
-                    <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ 'portal-alugo.login.usuarioCadastrado' | translate }}
+                   <!--<div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ 'portal-alugo.login.usuarioCadastrado' | translate }}-->
+                        <div *ngIf="mensagemSucesso">
+                            {{openModal('custom-modal-1')}}
                       </div>
                       <div *ngIf="mensagemErroCad" class="alert alert-danger alert-dismissible fade show" role="alert">
                         {{ 'portal-alugo.login.alertaCadastro' | translate }}
@@ -263,3 +265,9 @@
         </div>
     </div>
 </div>
+
+<jw-modal id="custom-modal-1">
+    <h1>Cadastro</h1>
+    <p>Confirme o cadastro através do link enviado ao seu email</p>
+    <button (click)="closeModal('custom-modal-1');">Fechar</button>
+</jw-modal>

@@ -10,6 +10,7 @@ import { AsyncValidatorFn, AbstractControl, ValidationErrors } from '@angular/fo
 import { Observable } from "rxjs/Observable";
 import { loadingService } from 'src/app/Services/loadingService';
 import { environment } from 'src/environments/environment';
+import { ModalService } from '../_modal';
 
 @Component({
   selector: 'app-login',
@@ -35,6 +36,7 @@ export class LoginComponent implements OnInit {
   loginErro: boolean;
 
   constructor(
+    private modalService: ModalService,
     private router: Router,
     private idiService: idiomaService,
     private authService: AuthService,
@@ -122,8 +124,12 @@ export class LoginComponent implements OnInit {
     
   }
 
-  cadastrar() {
-    
+
+  protocol:string= location.protocol;
+  host:string = location.hostname;
+  port:string = location.port;
+  url:string;
+  cadastrar() {    
     const formCadValues = this.formularioCadastro.value;
     const user : eUsuarioConstructor = new eUsuarioConstructor(formCadValues.nome, 
       formCadValues.email, 
@@ -137,10 +143,18 @@ export class LoginComponent implements OnInit {
     if (this.formularioCadastro.valid) {
       if (formCadValues.senha == formCadValues.confirmaSenha) {
         this.mensagemSenhaErrada = false;
-        this.authService.cadastrarNovoUsuario(user).subscribe(response => {
-          this.mensagemSucesso = true;
-          this.mensagemErro = false;
-          this.mensagemErroCad = false
+        this.url = this.protocol + "//" + this.host;
+        this.url += (this.port==null||this.port=="0")?"":":"+this.port;
+        this.authService.cadastrarNovoUsuario(user,this.url).subscribe(response => {
+          if(response){
+            this.mensagemSucesso = true;
+            this.mensagemErro = false;
+            this.mensagemErroCad = false
+          }else{
+            this.mensagemSucesso = false;
+            this.mensagemErroCad = true;
+            this.mensagemErro = false;  
+          }
         }, errorResponse => {
           this.mensagemSucesso = false;
           this.mensagemErroCad = true;
@@ -203,5 +217,13 @@ export class LoginComponent implements OnInit {
                 return response ? {cpfExiste: true} : null
               })
     }
+  }
+  openModal(id: string) {
+    this.modalService.open(id);
+}
+  closeModal(id: string) {
+      //this.modalService.close(id);
+      document.getElementById(id).remove();
+      //this.modalService.remove(id);
   }
 }

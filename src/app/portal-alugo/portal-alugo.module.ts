@@ -18,8 +18,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeek, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 import { RedirectComponent } from './redirect/redirect.component';
-
-
+import { ValidaCadastroComponent } from '../portal-alugo/valida-cadastro/valida-cadastro.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +29,7 @@ import { RedirectComponent } from './redirect/redirect.component';
     DetalheProdutoComponent,
     RealizaAluguelComponent,
     RedirectComponent,
+    ValidaCadastroComponent,
   ],
   imports: [
     CommonModule,
@@ -59,7 +59,8 @@ import { RedirectComponent } from './redirect/redirect.component';
     TodosProdutosComponent,
     PaginaNaoExisteComponent,
     DetalheProdutoComponent,
-    RealizaAluguelComponent
+    RealizaAluguelComponent,
+    ValidaCadastroComponent
   ]
 })
 export class PortalAlugoModule { }

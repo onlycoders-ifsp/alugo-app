@@ -102,8 +102,10 @@ export class AuthService {
     return this.http.post<any>(environment.apiBaseUrl + environment.login, usuario);
   }
 
-  cadastrarNovoUsuario(usuario: eUsuarioConstructor) : Observable<eUsuarioConstructor>{
-    return this.http.post<eUsuarioConstructor>(environment.apiBaseUrl + environment.postCadUsuario,usuario );
+  cadastrarNovoUsuario(usuario: eUsuarioConstructor, url:string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('url' , url);
+    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadUsuario,usuario, {params});
 
   }
 

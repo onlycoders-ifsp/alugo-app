@@ -12,7 +12,6 @@ import { ClienteProdutoComponent } from './cliente-produto/cliente-produto.compo
 import { ListaProdutosComponent } from './lista-produtos/lista-produtos.component';
 import { ClienteProdutoAluguelComponent } from './cliente-produto-aluguel/cliente-produto-aluguel.component';
 
-
 const routes: Routes = [
   {path: 'cliente', component: PortalLayoutComponent, canActivate: [AuthGuard] ,children: [
     { path: 'perfil', component: ClienteLayoutComponent, children: [
@@ -23,7 +22,7 @@ const routes: Routes = [
       { path: 'alugueis-locador', component: AluguelLocadorComponent },
       { path: 'alugueis-locatario', component: AluguelLocatarioComponent },
       { path: 'produto-aluguel', component: ClienteProdutoAluguelComponent }
-    ] }    
+    ] }  
   ]}
 ];
 

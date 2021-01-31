@@ -44,5 +44,9 @@ export class PortalService {
     return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getOnlyUserProducts,{params});
   }
 
-  
+  getAtivaUsuario(code:string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('code',String(code));
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.getAtivaUsuario,{params});
+  }
 }

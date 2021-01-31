@@ -25,6 +25,13 @@ export class TokenInterceptor implements HttpInterceptor {
     '/assets/i18n/en-US.json', 
     '/assets/i18n/es-ES.json', 
     '/assets/i18n/chi-zho.json',
+    environment.getAtivaUsuario,
+    environment.getVerificaCpf,
+    environment.getVerificaEmail,
+    environment.getVerificaUserName,
+    environment.getVerificaCpfUpdate,
+    environment.getVerificaEmailUpdate,
+    environment.getVerificaUserNameUpdate,
     environment.getListaUsuarios,
     environment.deleteUsuario,
     environment.getLogsDeErros,
@@ -47,7 +54,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
     this.countLoader++;
 
-    console.log(urlRequest)
+    //console.log(urlRequest)
     //não mostra o loading tradicionalpara estes requests
     for(let index in this.urlsSemLoading){
       if(urlRequest.endsWith(this.urlsSemLoading[index])){

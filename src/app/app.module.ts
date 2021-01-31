@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms'
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { DatePipe } from '@angular/common';
-
+import { ModalModule } from './_modal';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -39,6 +39,7 @@ import { loadingService } from './Services/loadingService';
 import { CepService } from './Services/CepService';
 import { ErrorRequestComponent } from './error-request/error-request.component';
 import { errorRequestService } from './Services/errorRequestService';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
@@ -51,6 +52,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     ErrorRequestComponent,
   ],
   imports: [
+    ModalModule,
     BrowserModule,
     MatDialogModule,
     FormsModule,
@@ -79,7 +81,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
             }
-        })
+        }),
+        NgbModule
   ],
   providers: [
     AdminService,
