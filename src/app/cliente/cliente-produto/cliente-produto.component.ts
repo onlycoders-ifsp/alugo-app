@@ -9,7 +9,6 @@ import { idiomaService } from 'src/app/Services/idiomaService';
 import { PortalService } from 'src/app/Services/PortalService';
 import { produtoService } from 'src/app/Services/produtoService';
 import { AuthService } from 'src/app/Services/auth.service';
-//import { Console } from 'console';
 
 @Component({
   selector: 'app-cliente-produto',
@@ -158,7 +157,6 @@ export class ClienteProdutoComponent implements OnInit {
 
   updateProduto() {
     this.produtoAlterado.id_produto = this.idCurrentProduto;
-    console.log(this.produtoAlterado);
     this.produtoService.updateProduto(this.produtoAlterado).subscribe(response => {
       if(response){
         this.nomeProduto = this.produtoAlterado.nome;
@@ -181,7 +179,6 @@ export class ClienteProdutoComponent implements OnInit {
 
   cadProduto() {
     this.produtoAlterado.ativo = false;
-    console.log(this.produtoAlterado);
     this.produtoService.cadProduto(this.produtoAlterado).subscribe(response => {
       this.currentProduto = response;
       this.nomeProduto = this.produtoAlterado.nome;
