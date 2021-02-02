@@ -6,7 +6,7 @@
             <br>
             <h5>Informações da entrega:</h5>
             <div class="form-group pb-2">
-              <mat-form-field  class="full-width">
+              <mat-form-field class="full-width">
                 <mat-label>{{ 'campos.label.cep' | translate }}</mat-label>
                 <input  formControlName="cepEntrega" (blur)="preencheCep(1)" mask="00000-000" matInput placeholder="{{ 'campos.label.placeholdercep' | translate }}">
                 <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
@@ -15,7 +15,7 @@
             </div>
             <div class="form-group pb-2">
                 <!-- Logradouro Entrega -->
-                <mat-form-field  class="full-width">
+                <mat-form-field class="full-width">
                     <mat-label>{{ 'campos.label.endereco' | translate }}</mat-label>
                     <input matInput formControlName="enderecoEntrega" placeholder="{{ 'campos.label.placeholderendereco' | translate }}">
                     <mat-icon class="text-primary"  matSuffix>streetview</mat-icon>
@@ -31,7 +31,7 @@
             </div>
             <div class="form-group pb-2">
                 <!-- Número -->
-                <mat-form-field  class="full-width">
+                <mat-form-field class="full-width">
                     <mat-label>{{ 'campos.label.numero' | translate }}</mat-label>
                     <input  formControlName="numeroEntrega" matInput placeholder="321">
                     <mat-icon class="text-primary"  matSuffix>edit_road</mat-icon>
@@ -39,15 +39,20 @@
             </div>
             <div class="form-group pb-2">
                 <!-- Descrição Entrega -->
-                <mat-form-field  class="full-width">
+                <mat-form-field class="full-width">
                     <mat-label>Descrição do local</mat-label>
-                    <input  formControlName="descricaoEntrega" matInput placeholder="Shopping principal, praça de alimentação.">
+                    <input formControlName="descricaoEntrega" matInput placeholder="Shopping principal, praça de alimentação.">
                     <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
                 </mat-form-field>
             </div>
             <div class="form-group pb-2">
                 <!-- Horário -->
-                AQUI VIRÁ A SELEÇÃO DO HORÁRIO
+                <mat-form-field class="full-width">
+                    <mat-label>Horário</mat-label>
+                    <input formControlName="horarioEntrega" matInput [ngxMatDatetimePicker]="picker" placeholder="Escolha a data e o horário">                    
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>                
+                    <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+                </mat-form-field>
             </div>
             
             <br>
@@ -94,9 +99,15 @@
             </div>
             <div class="form-group pb-2">
                 <!-- Horário -->
-                AQUI VIRÁ A SELEÇÃO DO HORÁRIO
+                <mat-form-field class="full-width">
+                    <mat-label>Horário</mat-label>
+                    <input formControlName="horarioDevolucao" matInput [ngxMatDatetimePicker]="picker1" placeholder="Escolha a data e o horário">                    
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>                
+                    <ngx-mat-datetime-picker #picker1></ngx-mat-datetime-picker> 
+                </mat-form-field>
             </div>
-
+            <button class="btn btn-primary btn-block" type="submit"><i
+                class="fa fa-edit font-size-lg mr-2"></i>Salvar locais e horários</button>
         </form>
       </div>
     </section>

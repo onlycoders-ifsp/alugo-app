@@ -37,18 +37,27 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
     if (!this.AuthService.isAutenticado()){
     this.AuthService.encerraSessao();
     }
+
+    this.createForm();
   }
 
-  // createForm(){
-  //   this.formularioLocais = this.fb.group({
-  //     bairro:['',[]],
-  //     cep:['',[]],
-  //     endereco:['',[]],
-  //     numero:['',[]],
-  //     descricaoEntrega:['',[]],
-  //   },{updateOn: 'blur'})
+  createForm(){
+    this.formularioLocais = this.fb.group({
+      bairroEntrega:['',[]],
+      cepEntrega:['',[]],
+      enderecoEntrega:['',[]],
+      numeroEntrega:['',[]],
+      descricaoEntrega:['',[]],
+      horarioEntrega:['',[]],
+      bairroDevolucao:['',[]],
+      cepDevolucao:['',[]],
+      enderecoDevolucao:['',[]],
+      numeroDevolucao:['',[]],
+      descricaoDevolucao:['',[]],
+      horarioDevolucao:['',[]],
+    },{updateOn: 'blur'})
     
-  // }
+  }
 
 
   clickMudaIdioma() {
