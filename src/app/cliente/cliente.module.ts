@@ -30,6 +30,7 @@ import { AluguelLocatarioComponent } from './aluguel-locatario/aluguel-locatario
 import { ClienteProdutoAluguelComponent } from './cliente-produto-aluguel/cliente-produto-aluguel.component';
 import { AluguelLocalDataEntregaComponent } from './aluguel-local-data-entrega/aluguel-local-data-entrega.component';
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { AluguelVisualizacaoLocalDataEntregaComponent } from './aluguel-visualizacao-local-data-entrega/aluguel-visualizacao-local-data-entrega.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -44,6 +45,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     AluguelLocatarioComponent,
     ClienteProdutoAluguelComponent,
     AluguelLocalDataEntregaComponent,
+    AluguelVisualizacaoLocalDataEntregaComponent,
   ],
   imports: [
     CommonModule,

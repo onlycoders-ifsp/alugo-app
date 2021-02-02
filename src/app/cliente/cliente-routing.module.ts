@@ -12,6 +12,7 @@ import { ClienteProdutoComponent } from './cliente-produto/cliente-produto.compo
 import { ListaProdutosComponent } from './lista-produtos/lista-produtos.component';
 import { ClienteProdutoAluguelComponent } from './cliente-produto-aluguel/cliente-produto-aluguel.component';
 import { AluguelLocalDataEntregaComponent } from './aluguel-local-data-entrega/aluguel-local-data-entrega.component';
+import { AluguelVisualizacaoLocalDataEntregaComponent } from './aluguel-visualizacao-local-data-entrega/aluguel-visualizacao-local-data-entrega.component';
 
 const routes: Routes = [
   {path: 'cliente', component: PortalLayoutComponent, canActivate: [AuthGuard] ,children: [
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'alugueis-locador', component: AluguelLocadorComponent },
       { path: 'alugueis-locatario', component: AluguelLocatarioComponent },
       { path: 'local-entrega', component: AluguelLocalDataEntregaComponent },
+      { path: 'visualizacao-local-entrega', component: AluguelVisualizacaoLocalDataEntregaComponent },
       { path: 'produto-aluguel', component: ClienteProdutoAluguelComponent }
     ] }  
   ]}
