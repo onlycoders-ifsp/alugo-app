@@ -52,7 +52,7 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
 
     this.idCurrentAluguel = localStorage.getItem("idAluguel");
 
-    this.loadCurrentProduto();
+    this.loadCurrentEntregaDevolucao();
   }
 
   createForm(){
@@ -173,7 +173,7 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
     });
   }
 
-  loadCurrentProduto() {
+  loadCurrentEntregaDevolucao() {
     this.aluguelService.getEntregaDevolucao(this.idCurrentAluguel).subscribe(resposta => {
       this.currententregaDevolucao = resposta;
 

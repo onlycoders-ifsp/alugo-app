@@ -1,7 +1,7 @@
 <div class="bg-light box-shadow-lg rounded-lg overflow-hidden">
     <section class="col-lg-12 pt-lg-8 pb-4 mb-3">
       <div class="pt-2 px-4 pl-lg-0 pr-xl-5">
-        <form [formGroup]="formularioLocais" (ngSubmit)="inputaLocais()">
+        <form [formGroup]="formularioLocais">
             <h5>Confirmação locais e horários de entrega e devoluções dos produtos:</h5>
             <br>
             <h5>Informações da entrega:</h5>
@@ -27,14 +27,6 @@
                     <mat-label>{{ 'campos.label.bairro' | translate }}</mat-label>
                     <input  formControlName="bairroEntrega" matInput readonly placeholder="{{ 'campos.label.placeholderbairro' | translate }}">
                     <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
-                </mat-form-field>
-            </div>
-            <div class="form-group pb-2">
-                <!-- Número -->
-                <mat-form-field class="full-width">
-                    <mat-label>{{ 'campos.label.numero' | translate }}</mat-label>
-                    <input  formControlName="numeroEntrega" matInput readonly placeholder="321">
-                    <mat-icon class="text-primary"  matSuffix>edit_road</mat-icon>
                 </mat-form-field>
             </div>
             <div class="form-group pb-2">
@@ -82,14 +74,6 @@
                 </mat-form-field>
             </div>
             <div class="form-group pb-2">
-                <!-- Número -->
-                <mat-form-field  class="full-width">
-                    <mat-label>{{ 'campos.label.numero' | translate }}</mat-label>
-                    <input  formControlName="numeroDevolucao" matInput readonly placeholder="321">
-                    <mat-icon class="text-primary"  matSuffix>edit_road</mat-icon>
-                </mat-form-field>
-            </div>
-            <div class="form-group pb-2">
                 <!-- Descrição Entrega -->
                 <mat-form-field  class="full-width">
                     <mat-label>Descrição do local</mat-label>
@@ -105,23 +89,29 @@
                     <!-- <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>          -->        
                     <ngx-mat-datetime-picker #picker1></ngx-mat-datetime-picker>
                 </mat-form-field>
-            </div>            
-             <div class="form-group pb-2">
-                <label class="font-weight-medium">Confirmação escolha:</label>
-                <select [(value)]="Selecionado"  formControlName="escolha" class="form-control">
-                    <option *ngFor="let option of options" [value]="option.name">{{option.name}}</option>
-                </select>
-                
-            </div> 
-        
-            <div class="row">
-                <div class="col-sm-12 text-center">
-                    <button class="btn btn-primary" type="submit"><i class="fa fa-edit font-size-lg mr-2"></i>{{Selecionado}}Confirmar locais e horários</button>
-                    <button class="btn btn-danger" type="submit"><i class="fa fa-edit font-size-lg mr-2"></i>Recusar locais e horários</button>
-                </div>
-            </div>
+            </div>   
             
-        </form>
+        </form>         
+        <!-- <div class="pb-2">
+           <label class="font-weight-medium">{{Selecionado}}Confirmação escolha:</label>
+           <select [(value)]="Selecionado"  formControlName="escolha" class="form-control">
+               <option *ngFor="let option of options" [value]="option.name">{{option.name}}</option>
+           </select>
+           
+       </div>  -->
+   
+       <form [formGroup]="formularioConfirmacao">
+        <div class="form-group py-2">
+            <label class="font-weight-medium">Observação sobre o endereço e data hora de entrega e devolução</label>
+            <textarea formControlName="observacao" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <button class="btn btn-primary" (click)="inputaLocais(true)" type="submit"><i class="fa fa-edit font-size-lg mr-2"></i>Confirmar locais e horários</button>
+                <button class="btn btn-danger" (click)="inputaLocais(false)" type="submit"><i class="fa fa-edit font-size-lg mr-2"></i>Recusar locais e horários</button>
+            </div>
+        </div>
+       </form>
       </div>
     </section>
   </div>

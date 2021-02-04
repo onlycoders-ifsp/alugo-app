@@ -7,6 +7,7 @@ import { eAluguel } from '../entidades/eAluguel';
 import { eAluguelDetalhe } from '../entidades/eAluguelDetalhe';
 import { eCadAluguel } from '../entidades/eCadAluguel';
 import { eEntregaDevolucao } from '../entidades/eEntregaDevolucao';
+import { eConfirmaEntregaDevolucao } from '../entidades/eConfirmaEntregaDevolucao';
 
 @Injectable({
   providedIn: 'root'
@@ -50,8 +51,12 @@ export class AluguelService {
     return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadEntregaDevolucao, EntregaDevolucao)
   }
   
-  putEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<eAluguelDetalhe[]> {
-    return this.http.put<eAluguelDetalhe[]>(environment.apiBaseUrl + environment.getEntregaDevolucao,EntregaDevolucao);
+  putEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<boolean> {
+    return this.http.put<boolean>(environment.apiBaseUrl + environment.putEntregaDevolucao,EntregaDevolucao);
+  }
+  
+  putConfirmacaoEntregaDevolucao(eConfirmaEntregaDevolucao: eConfirmaEntregaDevolucao) : Observable<boolean> {
+    return this.http.put<boolean>(environment.apiBaseUrl + environment.putConfirmacaoEntregaDevolucao,eConfirmaEntregaDevolucao);
   }
 
 //   getListAluguelLocador() : Observable<eAluguel[]> {
