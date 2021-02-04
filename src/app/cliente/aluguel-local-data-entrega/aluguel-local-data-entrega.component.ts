@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -7,6 +8,7 @@ import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { AluguelService } from 'src/app/Services/AluguelService';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { AuthService } from 'src/app/Services/auth.service';
+import { eEntregaDevolucao } from 'src/app/entidades/eEntregaDevolucao';
 
 
 @Component({
@@ -22,9 +24,17 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
   cepPesquisado: eCep = new eCep();
   formularioLocais: FormGroup;
   mensagemErro: string;
+  mensagemSucesso: string;
+  idCurrentAluguel: string;
+  entregaDevolucaoAlterado: eEntregaDevolucao = new eEntregaDevolucao();
+  currententregaDevolucao: eEntregaDevolucao;
+  private aluguelService: AluguelService;
+  edicao: boolean;
 
   constructor(
+    private router: Router,
     private AuthService: AuthService,
+    public datepipe: DatePipe,
     private idiService: idiomaService,
     private fb: FormBuilder,
     private cepSearch: CepService
@@ -39,6 +49,10 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
     }
 
     this.createForm();
+
+    this.idCurrentAluguel = localStorage.getItem("idAluguel");
+
+    this.loadCurrentProduto();
   }
 
   createForm(){
@@ -92,11 +106,103 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
 
     if (this.formularioLocais.valid) {
       this.mensagemErro = null
-      //this.loadFormToCadOrUpdate();
+      this.loadFormToCadOrUpdate();
       
     } else {      
       this.mensagemErro = "formInvalido"
     }
+  }
+
+  loadFormToCadOrUpdate() {    
+    const formCadValues = this.formularioLocais.value;
+    this.entregaDevolucaoAlterado.cep_entrega = formCadValues.cepEntrega;
+    this.entregaDevolucaoAlterado.cep_devolucao = formCadValues.cepDevolucao;
+    this.entregaDevolucaoAlterado.bairro_entrega = formCadValues.bairroEntrega;
+    this.entregaDevolucaoAlterado.bairro_devolucao = formCadValues.bairroDevolucao;
+
+    let dateEntrega: Date = formCadValues.horarioEntrega;
+    let latest_dateEntrega = this.datepipe.transform(dateEntrega, 'yyyy-MM-dd hh:mm:ss.000000');
+    this.entregaDevolucaoAlterado.data_entrega = latest_dateEntrega;
+
+    let dateDevolucao: Date = formCadValues.horarioDevolucao;
+    let latest_dateDevolucao = this.datepipe.transform(dateDevolucao, 'yyyy-MM-dd hh:mm:ss.000000');
+    this.entregaDevolucaoAlterado.data_entrega = latest_dateDevolucao;
+    
+    this.entregaDevolucaoAlterado.descricao_entrega = formCadValues.descricaoEntrega;
+    this.entregaDevolucaoAlterado.descricao_devolucao = formCadValues.descricaoDevolucao;
+    this.entregaDevolucaoAlterado.logradouro_entrega = formCadValues.enderecoEntrega;
+    this.entregaDevolucaoAlterado.logradouro_devolucao = formCadValues.enderecoDevolucao;
+    this.entregaDevolucaoAlterado.observacao_recusa = "";
+
+    if (this.edicao) {
+      this.updateEntregaDevolucao();
+    } else {
+      this.cadEntregaDevolucao();
+    }
+    
+  }
+
+  cadEntregaDevolucao() {
+    this.entregaDevolucaoAlterado.id_aluguel = this.idCurrentAluguel;
+    console.log(this.entregaDevolucaoAlterado);
+    this.aluguelService.cadNewEntregaDevolucao(this.entregaDevolucaoAlterado).subscribe(response => {
+      this.mensagemSucesso = "CadastroSucesso",
+        this.mensagemErro = null;
+        localStorage.removeItem("idAluguel");
+    }, errorResponse => {
+      this.mensagemSucesso = null,
+        this.mensagemErro = "CadastroErro";
+    });
+  }  
+  
+  updateEntregaDevolucao() {
+    this.entregaDevolucaoAlterado.id_aluguel = this.idCurrentAluguel;
+    console.log(this.entregaDevolucaoAlterado);
+    this.aluguelService.putEntregaDevolucao(this.entregaDevolucaoAlterado).subscribe(response => {
+      if(response){
+        this.mensagemSucesso = "AtualizadoSucesso";
+        this.mensagemErro = null;
+      localStorage.removeItem("idAluguel");
+      this.router.navigate(["cliente/perfil/alugueis-locatario"])
+      }else{
+        this.mensagemErro = "AtualizadoErro";
+      }
+    }, errorResponse => {
+      this.mensagemSucesso = null,
+        this.mensagemErro = "AtualizadoErro";
+    });
+  }
+
+  loadCurrentProduto() {
+    this.aluguelService.getEntregaDevolucao(this.idCurrentAluguel).subscribe(resposta => {
+      this.currententregaDevolucao = resposta;
+
+      let dataFormatadaEntrega = this.datepipe.transform(this.currententregaDevolucao.data_entrega, 'MM-dd-yyyy');
+      let dateEntrega: Date = new Date(dataFormatadaEntrega);
+      
+      let dataFormatadaDevolucao = this.datepipe.transform(this.currententregaDevolucao.data_devolucao, 'MM-dd-yyyy');
+      let dateDevolucao: Date = new Date(dataFormatadaDevolucao);
+
+      this.edicao = true;
+      this.formularioLocais.patchValue({
+        cepEntrega: this.currententregaDevolucao.cep_entrega,
+        cepDevolucao: this.currententregaDevolucao.cep_devolucao,
+        bairroEntrega: this.currententregaDevolucao.bairro_entrega,
+        bairroDevolucao: this.currententregaDevolucao.bairro_devolucao,
+        horarioEntrega: dateEntrega,
+        horarioDevolucao: dateDevolucao,
+        descricaoEntrega: this.currententregaDevolucao.descricao_entrega,
+        descricaoDevolucao: this.currententregaDevolucao.descricao_devolucao,
+        enderecoEntrega: this.currententregaDevolucao.logradouro_entrega,
+        enderecoDevolucao: this.currententregaDevolucao.logradouro_devolucao
+      })
+      errorResponse => {
+        this.edicao = false;
+        console.log(errorResponse)
+        this.currententregaDevolucao = new eEntregaDevolucao();
+      }
+    });
+    this.createForm();
   }
 
 }

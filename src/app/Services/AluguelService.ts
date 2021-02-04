@@ -6,6 +6,7 @@ import { eProduto } from '../entidades/eProduto';
 import { eAluguel } from '../entidades/eAluguel';
 import { eAluguelDetalhe } from '../entidades/eAluguelDetalhe';
 import { eCadAluguel } from '../entidades/eCadAluguel';
+import { eEntregaDevolucao } from '../entidades/eEntregaDevolucao';
 
 @Injectable({
   providedIn: 'root'
@@ -34,9 +35,23 @@ export class AluguelService {
     params = params.append('id_produto',idProduto);
     return this.http.get<eAluguelDetalhe[]>(environment.apiBaseUrl + environment.getListAluguelProduto,{params});
   }
+  
+  getEntregaDevolucao(id_aluguel: string) : Observable<eEntregaDevolucao> {
+    let params = new HttpParams();
+    params = params.append('id_aluguel',id_aluguel);
+    return this.http.get<eEntregaDevolucao>(environment.apiBaseUrl + environment.getEntregaDevolucao,{params});
+  }
 
   cadNewAluguel(aluguel: eCadAluguel) : Observable<boolean>{
     return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadAluguel, aluguel);
+  }
+
+  cadNewEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<boolean>{
+    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadEntregaDevolucao, EntregaDevolucao)
+  }
+  
+  putEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<eAluguelDetalhe[]> {
+    return this.http.put<eAluguelDetalhe[]>(environment.apiBaseUrl + environment.getEntregaDevolucao,EntregaDevolucao);
   }
 
 //   getListAluguelLocador() : Observable<eAluguel[]> {
