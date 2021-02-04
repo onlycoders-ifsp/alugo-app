@@ -11,4 +11,5 @@ export class eEntregaDevolucao{
     logradouro_entrega: string;
     logradouro_devolucao: string;
     observacao_recusa: string;
+    aceite_locador:boolean;
 }

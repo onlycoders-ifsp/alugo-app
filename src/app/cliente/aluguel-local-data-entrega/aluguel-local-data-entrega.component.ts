@@ -130,13 +130,14 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
 
     let dateDevolucao: Date = formCadValues.horarioDevolucao;
     let latest_dateDevolucao = this.datepipe.transform(dateDevolucao, 'yyyy-MM-dd hh:mm:ss.000000');
-    this.entregaDevolucaoAlterado.data_entrega = latest_dateDevolucao;
+    this.entregaDevolucaoAlterado.data_devolucao = latest_dateDevolucao;
     
     this.entregaDevolucaoAlterado.descricao_entrega = formCadValues.descricaoEntrega;
     this.entregaDevolucaoAlterado.descricao_devolucao = formCadValues.descricaoDevolucao;
     this.entregaDevolucaoAlterado.logradouro_entrega = formCadValues.enderecoEntrega;
     this.entregaDevolucaoAlterado.logradouro_devolucao = formCadValues.enderecoDevolucao;
     this.entregaDevolucaoAlterado.observacao_recusa = "";
+    this.entregaDevolucaoAlterado.aceite_locador = false;
 
     if (this.edicao) {
       this.updateEntregaDevolucao();
@@ -148,6 +149,7 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
 
   cadEntregaDevolucao() {
     this.entregaDevolucaoAlterado.id_aluguel = this.idCurrentAluguel;
+    console.log(this.entregaDevolucaoAlterado)
     this.aluguelService.cadNewEntregaDevolucao(this.entregaDevolucaoAlterado).subscribe(response => {
       console.log(response)
       this.mensagemSucesso = "CadastroSucesso",
