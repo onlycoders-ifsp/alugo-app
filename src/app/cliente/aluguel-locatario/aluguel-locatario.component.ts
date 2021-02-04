@@ -80,7 +80,6 @@ export class AluguelLocatarioComponent implements OnInit {
   }
 
   verLocaisDesteAluguel(Aluguel: eAluguel){
-    console.log(Aluguel);
     localStorage.setItem("idAluguel", Aluguel.id_aluguel)
     localStorage.setItem("inicioAluguel", Aluguel.data_inicio)
     localStorage.setItem("fimAluguel", Aluguel.data_fim)

@@ -35,7 +35,6 @@ export class AluguelVisualizacaoLocalDataEntregaComponent implements OnInit {
   mensagemErro: string;
   mensagemSucesso: string;
   idCurrentAluguel: string;
-  private aluguelService: AluguelService;
   currententregaDevolucao: eEntregaDevolucao;
   confirmacaoEntregaDevolucaoAlterado: eConfirmaEntregaDevolucao = new eConfirmaEntregaDevolucao();
 
@@ -45,6 +44,7 @@ export class AluguelVisualizacaoLocalDataEntregaComponent implements OnInit {
     private idiService: idiomaService,
     public datepipe: DatePipe,
     private fb: FormBuilder,
+    private aluguelService: AluguelService,
     private cepSearch: CepService
     ) {
     this.currentBandeira = idiService.setDefaultLanguage(),

@@ -44,7 +44,7 @@ export const environment = {
   getListAluguelProduto: "/aluguel/detalhe",
   postCadAluguel: "/aluguel/aluguel-efetua",
   postCadEntregaDevolucao: "/aluguel/entrega-devolucao",
-  getEntregaDevolucao:"/aluguel/banana",//********OLHAR AQUI RAMON
+  getEntregaDevolucao:"/aluguel/encontro",
   putEntregaDevolucao:"/aluguel/banana",//********OLHAR AQUI RAMON
   putConfirmacaoEntregaDevolucao:"/aluguel/banana",//********OLHAR AQUI RAMON
 

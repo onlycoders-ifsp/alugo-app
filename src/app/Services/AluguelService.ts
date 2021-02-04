@@ -48,6 +48,7 @@ export class AluguelService {
   }
 
   cadNewEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<boolean>{
+    console.log(environment.apiBaseUrl + environment.postCadEntregaDevolucao);
     return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadEntregaDevolucao, EntregaDevolucao)
   }
   

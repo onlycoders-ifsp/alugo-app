@@ -30,7 +30,6 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
   fimCurrentAluguel: string;
   entregaDevolucaoAlterado: eEntregaDevolucao = new eEntregaDevolucao();
   currententregaDevolucao: eEntregaDevolucao;
-  private aluguelService: AluguelService;
   edicao: boolean;
 
   constructor(
@@ -39,7 +38,8 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
     public datepipe: DatePipe,
     private idiService: idiomaService,
     private fb: FormBuilder,
-    private cepSearch: CepService
+    private cepSearch: CepService,
+    private aluguelService: AluguelService
     ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
@@ -148,12 +148,13 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
 
   cadEntregaDevolucao() {
     this.entregaDevolucaoAlterado.id_aluguel = this.idCurrentAluguel;
-    console.log(this.entregaDevolucaoAlterado);
     this.aluguelService.cadNewEntregaDevolucao(this.entregaDevolucaoAlterado).subscribe(response => {
+      console.log(response)
       this.mensagemSucesso = "CadastroSucesso",
         this.mensagemErro = null;
         localStorage.removeItem("idAluguel");
     }, errorResponse => {
+      console.log(errorResponse)
       this.mensagemSucesso = null,
         this.mensagemErro = "CadastroErro";
     });
@@ -161,9 +162,9 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
   
   updateEntregaDevolucao() {
     this.entregaDevolucaoAlterado.id_aluguel = this.idCurrentAluguel;
-    console.log(this.entregaDevolucaoAlterado);
     this.aluguelService.putEntregaDevolucao(this.entregaDevolucaoAlterado).subscribe(response => {
       if(response){
+        console.log(response)
         this.mensagemSucesso = "AtualizadoSucesso";
         this.mensagemErro = null;
       localStorage.removeItem("idAluguel");
@@ -178,9 +179,10 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
   }
 
   loadCurrentEntregaDevolucao() {
+    console.log(this.idCurrentAluguel)
     this.aluguelService.getEntregaDevolucao(this.idCurrentAluguel).subscribe(resposta => {
       this.currententregaDevolucao = resposta;
-
+      console.log(this.currententregaDevolucao)
       let dataFormatadaEntrega = this.datepipe.transform(this.currententregaDevolucao.data_entrega, 'yyyy-MM-dd hh:mm:ss.000000');
       let dateEntrega: Date = new Date(dataFormatadaEntrega);
       
