@@ -40,10 +40,17 @@
                 <img *ngIf="!item.locador.capa_foto" class="rounded-circle" width="50" src="../../../assets/imagens/avatar.svg" alt="{{ 'portal-alugo.realiza-aluguel.nomeDono' | translate }}" />
   
                   <div class="media-body pl-2"><span class="font-size-ms text-muted">{{ 'portal-alugo.realiza-aluguel.locador' | translate }}</span>
+                    <div>                      
                     <h6 class="font-size-sm mb-0">{{item.locador.nome}}</h6>
-                    <button class="btn bg-faded-info btn-icon mr-2" (click)="openDialog(item)" type="button" data-toggle="tooltip" title="{{ 'cliente.aluguel-locatario.infocontatolocador' | translate }}"><i class="fa fa-info text-info"></i></button>
+                    </div>
+                    <div>
+                      <button class="btn bg-faded-info btn-icon mr-2" (click)="openDialog(item)" type="button" data-toggle="tooltip" title="{{ 'cliente.aluguel-locatario.infocontatolocador' | translate }}"><i class="fa fa-info text-info"></i></button>  
+                    </div>                    
                   </div>
                 </a></div>
+              <div class="d-flex justify-content-center justify-content-sm-start pt-3">
+                <button class="btn bg-faded-info btn-icon mr-2" (click)="verLocaisDesteAluguel(item)" type="button" data-toggle="tooltip" title="Marcar local e horário de entrega e devolução do produto."><i class="fa fa-map-marker text-info"></i></button>
+              </div>
             </div>
           </div>
           <div class="card border-bottom-0 border-left-0 border-right-0">

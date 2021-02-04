@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { eAluguel } from 'src/app/entidades/eAluguel';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { AluguelService } from 'src/app/Services/AluguelService';
@@ -27,6 +28,7 @@ export class AluguelLocadorComponent implements OnInit {
   public total: number = 0;
   
   constructor(
+    private router: Router,
     private idiService: idiomaService,
     private aluguelService: AluguelService,
     private AuthService: AuthService,
@@ -77,6 +79,11 @@ export class AluguelLocadorComponent implements OnInit {
 
   clickMudaIdioma() {
     this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
+  }
+
+  confirmarLocaisDesteAluguel(idAluguel: string){
+    localStorage.setItem("idAluguel", idAluguel)
+    this.router.navigate(['cliente/perfil/visualizacao-local-entrega']);
   }
 
 }

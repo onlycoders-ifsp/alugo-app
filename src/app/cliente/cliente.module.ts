@@ -28,6 +28,9 @@ import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { AluguelLocadorComponent } from './aluguel-locador/aluguel-locador.component';
 import { AluguelLocatarioComponent } from './aluguel-locatario/aluguel-locatario.component';
 import { ClienteProdutoAluguelComponent } from './cliente-produto-aluguel/cliente-produto-aluguel.component';
+import { AluguelLocalDataEntregaComponent } from './aluguel-local-data-entrega/aluguel-local-data-entrega.component';
+import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { AluguelVisualizacaoLocalDataEntregaComponent } from './aluguel-visualizacao-local-data-entrega/aluguel-visualizacao-local-data-entrega.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -41,6 +44,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     AluguelLocadorComponent,
     AluguelLocatarioComponent,
     ClienteProdutoAluguelComponent,
+    AluguelLocalDataEntregaComponent,
+    AluguelVisualizacaoLocalDataEntregaComponent,
   ],
   imports: [
     CommonModule,
@@ -55,8 +60,11 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     AppRoutingModule,
     MatToolbarModule,
     MatInputModule,
+    NgxMatTimepickerModule,
     MatCardModule,
     MatButtonModule,
+    NgxMatDatetimePickerModule,
+    NgxMatNativeDateModule,
     MatIconModule,
     ReactiveFormsModule,
     HttpClientModule,
