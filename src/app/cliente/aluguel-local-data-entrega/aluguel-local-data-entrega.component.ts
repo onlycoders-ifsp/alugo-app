@@ -26,6 +26,8 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
   mensagemErro: string;
   mensagemSucesso: string;
   idCurrentAluguel: string;
+  inicioCurrentAluguel: string;  
+  fimCurrentAluguel: string;
   entregaDevolucaoAlterado: eEntregaDevolucao = new eEntregaDevolucao();
   currententregaDevolucao: eEntregaDevolucao;
   private aluguelService: AluguelService;
@@ -48,9 +50,11 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
     this.AuthService.encerraSessao();
     }
 
-    this.createForm();
-
     this.idCurrentAluguel = localStorage.getItem("idAluguel");
+    this.inicioCurrentAluguel = localStorage.getItem("inicioAluguel")//new Date(localStorage.getItem("inicioAluguel"));
+    this.fimCurrentAluguel = localStorage.getItem("fimAluguel")//new Date(localStorage.getItem("fimAluguel"));
+
+    this.createForm();
 
     this.loadCurrentEntregaDevolucao();
   }
@@ -177,10 +181,10 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
     this.aluguelService.getEntregaDevolucao(this.idCurrentAluguel).subscribe(resposta => {
       this.currententregaDevolucao = resposta;
 
-      let dataFormatadaEntrega = this.datepipe.transform(this.currententregaDevolucao.data_entrega, 'MM-dd-yyyy');
+      let dataFormatadaEntrega = this.datepipe.transform(this.currententregaDevolucao.data_entrega, 'yyyy-MM-dd hh:mm:ss.000000');
       let dateEntrega: Date = new Date(dataFormatadaEntrega);
       
-      let dataFormatadaDevolucao = this.datepipe.transform(this.currententregaDevolucao.data_devolucao, 'MM-dd-yyyy');
+      let dataFormatadaDevolucao = this.datepipe.transform(this.currententregaDevolucao.data_devolucao, 'yyyy-MM-dd hh:mm:ss.000000');
       let dateDevolucao: Date = new Date(dataFormatadaDevolucao);
 
       this.edicao = true;

@@ -79,8 +79,11 @@ export class AluguelLocatarioComponent implements OnInit {
     this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
   }
 
-  verLocaisDesteAluguel(idAluguel: string){
-    localStorage.setItem("idAluguel", idAluguel)
+  verLocaisDesteAluguel(Aluguel: eAluguel){
+    console.log(Aluguel);
+    localStorage.setItem("idAluguel", Aluguel.id_aluguel)
+    localStorage.setItem("inicioAluguel", Aluguel.data_inicio)
+    localStorage.setItem("fimAluguel", Aluguel.data_fim)
     this.router.navigate(['cliente/perfil/local-entrega']);
   }
 
