@@ -1,0 +1,81 @@
+<div class="row">
+    <section class="col-lg-12 pt-2 pt-lg-4 pb-4 mb-3">
+      <div class="pt-2 px-4 pr-lg-0 pl-xl-5">
+        <!-- Title-->
+        <h2 class="h6 border-bottom pb-3 mb-3">Checklist´s do aluguel</h2>
+        <!-- Billing detail-->
+        
+
+        <!-- Payment methods accordion-->
+        <div class="accordion mb-2" id="checklist" role="tablist">
+          <div class="card">
+            <div class="card-header" role="tab">
+              <h3 class="accordion-heading"><a href="#checklist-entrega" data-toggle="collapse" class="collapsed" aria-expanded="false"><i class="fa fa-truck-loading font-size-lg mr-2 mt-n1 align-middle"></i>Checklist de Entrega<span class="accordion-indicator"></span></a></h3>
+            </div>
+            <div class="collapse" id="checklist-entrega" data-parent="#checklist" role="tabpanel" style="">
+              <div class="card-body">
+                <p class="font-size-sm">Informções fornecidas na entrega do produto</p>
+                <div class="card-wrapper"></div>
+                <form class="interactive-credit-card row">
+                  <div class="form-group col-sm-12">
+                    <div>
+                        <div class="cz-file-drop-area form-group">
+                          <input class="cz-file-drop-input" (change)="setNovaFotoProduto($event)" type="file">
+                          <span class="cz-file-drop-message">
+                            <img [src]="novaFoto">
+                          </span>
+                        </div>
+                      </div>
+                      <div class="form-group py-2">
+                        <label class="font-weight-medium">Descricao de entrega</label>
+                        <textarea formControlName="descricao_curta" class="form-control " rows="3"></textarea>
+                        <div class="invalid-feedback">
+                          errado
+                        </div>
+                        <small class="form-text text-muted">descricao dos itens que esta entregando</small>
+                        
+                      </div>
+                  </div>
+                  <button class="btn btn-success mt-0 mr-2" type="submit">Confirmar</button>
+                  <button class="btn btn-danger mt-0" type="submit">Recusar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" role="tab">
+              <h3 class="accordion-heading"><a class="collapsed" href="#checklist-devolucao" data-toggle="collapse"><i class="fa fa-undo-alt mr-2 align-middle"></i>Checklist de devolução<span class="accordion-indicator"></span></a></h3>
+            </div>
+            <div class="collapse" id="checklist-devolucao" data-parent="#checklist" role="tabpanel">
+              <div class="card-body font-size-sm">
+                <p class="font-size-sm">Informções fornecidas na entrega do produto</p>
+                <form class="interactive-credit-card row">
+                    <div class="form-group col-sm-12">
+                      <div>
+                          <div class="cz-file-drop-area form-group">
+                            <input class="cz-file-drop-input" (change)="setNovaFotoProduto($event)" type="file">
+                            <span class="cz-file-drop-message">
+                              <img [src]="novaFoto">
+                            </span>
+                          </div>
+                        </div>
+                        <div class="form-group py-2">
+                          <label class="font-weight-medium">Descricao de entrega</label>
+                          <textarea formControlName="descricao_curta" class="form-control " rows="3"></textarea>
+                          <div class="invalid-feedback">
+                            errado
+                          </div>
+                          <small class="form-text text-muted">descricao dos itens que esta entregando</small>
+                          
+                        </div>
+                    </div>
+                    <button class="btn btn-success mt-0 mr-2" type="submit">Confirmar</button>
+                    <button class="btn btn-danger mt-0" type="submit">Recusar</button>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>

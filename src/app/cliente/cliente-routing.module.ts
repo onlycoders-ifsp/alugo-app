@@ -11,6 +11,7 @@ import { ClientePerfilComponent } from './cliente-perfil/cliente-perfil.componen
 import { ClienteProdutoComponent } from './cliente-produto/cliente-produto.component';
 import { ListaProdutosComponent } from './lista-produtos/lista-produtos.component';
 import { ClienteProdutoAluguelComponent } from './cliente-produto-aluguel/cliente-produto-aluguel.component';
+import { ClienteChecklistComponent } from './cliente-checklist/cliente-checklist.component';
 
 const routes: Routes = [
   {path: 'cliente', component: PortalLayoutComponent, canActivate: [AuthGuard] ,children: [
@@ -21,7 +22,8 @@ const routes: Routes = [
       { path: 'meusprodutos', component: ListaProdutosComponent },
       { path: 'alugueis-locador', component: AluguelLocadorComponent },
       { path: 'alugueis-locatario', component: AluguelLocatarioComponent },
-      { path: 'produto-aluguel', component: ClienteProdutoAluguelComponent }
+      { path: 'produto-aluguel', component: ClienteProdutoAluguelComponent },
+      { path: 'checklist-entrega', component: ClienteChecklistComponent }
     ] }  
   ]}
 ];

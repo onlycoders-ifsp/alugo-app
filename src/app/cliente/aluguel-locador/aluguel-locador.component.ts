@@ -6,6 +6,8 @@ import { errorRequestService } from 'src/app/Services/errorRequestService';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { AuthService } from 'src/app/Services/auth.service'
+import { eProduto } from 'src/app/entidades/eProduto';
+import { eUsuario } from 'src/app/entidades/eUsuario';
 
 @Component({
   selector: 'app-aluguel-locador',
@@ -58,9 +60,35 @@ export class AluguelLocadorComponent implements OnInit {
     if (!this.AuthService.isAutenticado()){
       this.AuthService.encerraSessao();
     }
+    // this.getMock();
     this.getListaAlugueisLocador();
+
   }
 
+  getMock(){
+    let item: eAluguel = new eAluguel();
+    let produto: eProduto = new eProduto();
+    let usuario: eUsuario = new eUsuario();
+
+    usuario.nome = 'Usuário Mocado';
+    produto.nome = 'Produto Mocado'
+
+    item.data_fim = '01/01/2022';
+    item.data_inicio = '01/01/2021';
+    item.data_saque = '';
+    item.id_aluguel = '61271';
+    item.locador = new eUsuario();
+    item.locatario = usuario;
+    item.produto = produto;
+    item.valor_aluguel = 10;
+    this.alugueisLocador.push(item);
+    this.alugueisLocador.push(item);
+    this.alugueisLocador.push(item);
+    this.pages = 1;
+    this.firstPage = true;
+    this.lastPage = false;
+    this.total = 17;
+  }
   getListaAlugueisLocador(){
     this.aluguelService.getListAluguelLocador(this.page,this.size).subscribe(resposta => {
       this.alugueisLocador = resposta['content'];
