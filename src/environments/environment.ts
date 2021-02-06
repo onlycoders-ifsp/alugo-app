@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:8080',//'https://hml-backend-alugo.herokuapp.com',//'http://localhost:8080',
+  apiBaseUrl: 'https://hml-backend-alugo.herokuapp.com',//'http://localhost:8080',
   clientId: 'front-alugo',
   secret: 'aluGo@123!321',
   authorizedGrantTypes: 'password',
@@ -47,6 +47,10 @@ export const environment = {
   getListAluguelLocatario: "/aluguel/locatario",
   getListAluguelProduto: "/aluguel/detalhe",
   postCadAluguel: "/aluguel/aluguel-efetua",
+  postCadEntregaDevolucao: "/aluguel/entrega-devolucao",
+  getEntregaDevolucao:"/aluguel/encontro",
+  putEntregaDevolucao:"/aluguel/banana",
+  putConfirmacaoEntregaDevolucao:"/aluguel/banana",
 
   //ENDPOINTS ADMIN
   getListaUsuarios: "/admin/lista-usuario",

@@ -37,14 +37,16 @@ export const environment = {
   getVerificaCpfUpdate: "/usuarios/verifica/cpf-update",
   getVerificaEmailUpdate: "/usuarios/verifica/email-update",
   getVerificaUserNameUpdate: "/usuarios/verifica/username-update",
-  
-
 
   //ENDPOINTS DE ALUGUEL
   getListAluguelLocador: "/aluguel/locador",
   getListAluguelLocatario: "/aluguel/locatario",
   getListAluguelProduto: "/aluguel/detalhe",
   postCadAluguel: "/aluguel/aluguel-efetua",
+  postCadEntregaDevolucao: "/aluguel/entrega-devolucao",
+  getEntregaDevolucao:"/aluguel/encontro",
+  putEntregaDevolucao:"/aluguel/banana",//********OLHAR AQUI RAMON
+  putConfirmacaoEntregaDevolucao:"/aluguel/banana",//********OLHAR AQUI RAMON
 
   //ENDPOINTS ADMIN
   getListaUsuarios: "/admin/lista-usuario",

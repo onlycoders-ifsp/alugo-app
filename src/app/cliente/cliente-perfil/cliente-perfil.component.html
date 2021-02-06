@@ -46,7 +46,7 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.cpf' | translate }}</mat-label>
-          <input  formControlName="cpf" mask="000.000.000-00" matInput placeholder="{{ 'campos.label.placeholdercpf' | translate }}">
+          <input formControlName="cpf" mask="000.000.000-00" matInput placeholder="{{ 'campos.label.placeholdercpf' | translate }}" readonly>
           <mat-error *ngIf="formularioCliente.controls.cpf.errors && formularioCliente.controls.cpf.errors.cpfInvalido && 
           !formularioCliente.controls.cpf.errors.required && !formularioCliente.controls.cpf.errors.minlength && !formularioCliente.controls.cpf.errors.maxlength">
             {{ 'campos.label.cpfInvalido' | translate }}
