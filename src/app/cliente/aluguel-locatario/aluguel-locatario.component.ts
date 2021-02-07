@@ -25,6 +25,9 @@ export class AluguelLocatarioComponent implements OnInit {
   public firstPage: boolean;
   public lastPage: boolean;
   public total: number = 0;
+
+
+  
   
   constructor(
     private router: Router,
@@ -86,7 +89,13 @@ export class AluguelLocatarioComponent implements OnInit {
     this.router.navigate(['cliente/perfil/local-entrega']);
   }
 
+
+
+  
+
 }
+
+
 
 
 @Component({
