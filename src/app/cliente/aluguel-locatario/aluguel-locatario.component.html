@@ -77,7 +77,13 @@
               <div class="d-flex justify-content-center pt-3">
   
                 <button class="btn bg-faded-info btn-icon mr-2" 
-                    type="button" data-toggle="tooltip" title="Confirmar local e horário de entrega e devolução do produto."><i
+                    type="button" data-toggle="tooltip" (click)="avaliacao(item)"
+                    title="Avaliar o locador e o produto alugado."><i
+                      class="fa fa-star text-info"></i></button>
+  
+                <button class="btn bg-faded-info btn-icon mr-2" 
+                    type="button" data-toggle="tooltip" (click)="verLocaisDesteAluguel(item)"
+                    title="Confirmar local e horário de entrega e devolução do produto."><i
                       class="fa fa-map-marker text-info"></i></button>
   
                 <button class="btn bg-faded-success btn-icon mr-2" type="button" data-toggle="tooltip" title=""
