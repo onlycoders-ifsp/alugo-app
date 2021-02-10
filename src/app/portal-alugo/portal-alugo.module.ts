@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeek, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 import { RedirectComponent } from './redirect/redirect.component';
 import { ValidaCadastroComponent } from '../portal-alugo/valida-cadastro/valida-cadastro.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ValidaCadastroComponent } from '../portal-alugo/valida-cadastro/valida-
     PortalAlugoRoutingModule,
     BrowserModule,
     MatSelectModule,
+    NgbModule,
     HttpClientModule,
         TranslateModule.forRoot({
             loader: {
