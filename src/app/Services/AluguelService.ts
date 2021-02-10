@@ -68,6 +68,7 @@ export class AluguelService {
   getListAvaliacoesProduto(idProduto: string) : Observable<eAvaliacaoRetorno[]> {
     let params = new HttpParams();
     params = params.append('id_produto',idProduto);
+    console.log(environment.apiBaseUrl + environment.getAvaliacoesProduto,{params})
     return this.http.get<eAvaliacaoRetorno[]>(environment.apiBaseUrl + environment.getAvaliacoesProduto,{params});
   }
   

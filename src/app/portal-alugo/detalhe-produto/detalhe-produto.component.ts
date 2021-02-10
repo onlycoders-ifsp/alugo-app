@@ -20,6 +20,9 @@ export class DetalheProdutoComponent implements OnInit {
   currentIdioma: string;
   produtoI: eProduto;
 
+  quantidadeAvaliacao: number;
+  mediaAvaliacao: number;
+
   AvaliacoesProduto: eAvaliacaoRetorno[] = [];
   
 //getListAvaliacoesProduto
@@ -50,11 +53,13 @@ export class DetalheProdutoComponent implements OnInit {
     .subscribe(
       response => {
         this.AvaliacoesProduto = response
+        this.quantidadeAvaliacao = this.AvaliacoesProduto.length;
+        this.mediaAvaliacao = this.AvaliacoesProduto.reduce((total, next) => total + +next.nota, 0)/this.quantidadeAvaliacao;
+        this.mediaAvaliacao = +this.mediaAvaliacao.toFixed(2);
       },errorResponse =>{
         console.log(errorResponse)
       });
 
-      console.log(this.AvaliacoesProduto)
     
    }
 
