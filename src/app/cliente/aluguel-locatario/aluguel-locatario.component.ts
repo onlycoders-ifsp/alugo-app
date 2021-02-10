@@ -7,14 +7,21 @@ import { idiomaService } from 'src/app/Services/idiomaService';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { AuthService } from 'src/app/Services/auth.service';
 
+declare function pagar(): any;
+
 @Component({
   selector: 'app-aluguel-locatario',
   templateUrl: './aluguel-locatario.component.html',
   styleUrls: ['./aluguel-locatario.component.css']
 })
+
+
+
 export class AluguelLocatarioComponent implements OnInit {
 
   alugueisLocatario: eAluguel[] = [];
+
+  
 
   idiomas: iIdioma[];
   currentBandeira: string;
@@ -50,6 +57,26 @@ export class AluguelLocatarioComponent implements OnInit {
     });
   }
 
+  openDialogDetalhesStatus(aluguelSelecionado:eAluguel) {
+    this.dialog.open(DialogStatusAluguel,{
+      data:{
+        NomeCara:aluguelSelecionado.locador.nome,
+      }
+    });
+  }
+
+  openDialogPagamento(aluguelSelecionado:eAluguel) {
+    const dialogRef = this.dialog.open(DialogAluguelPagamento,{
+      data:{
+        urlPagamento:aluguelSelecionado.url_pagamento,
+      },  closeOnNavigation: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
    setPage(i,event:any){
     event.preventDefault();
     this.page = i;
@@ -57,7 +84,9 @@ export class AluguelLocatarioComponent implements OnInit {
 
   }
   ngOnInit(): void {
-      if (!this.AuthService.isAutenticado()){
+
+
+    if (!this.AuthService.isAutenticado()){
       this.AuthService.encerraSessao();
     }
     this.getListaAlugueisLocatario();
@@ -66,11 +95,20 @@ export class AluguelLocatarioComponent implements OnInit {
 
   getListaAlugueisLocatario(){
     this.aluguelService.getListAluguelLocatario(this.page,this.size).subscribe(resposta => {
-      this.alugueisLocatario = resposta['content'];
+      console.log(this.alugueisLocatario.length)
+      if(this.alugueisLocatario.length!=0){
+        for (let item of resposta['content']) {
+          this.alugueisLocatario.push(item);
+        }
+      }else{
+        this.alugueisLocatario = resposta['content'];
+      }
+      // this.alugueisLocatario = resposta['content'];
       this.pages = resposta['totalPages'];
       this.firstPage = resposta['first'];
       this.lastPage = resposta['last'];
       this.total = resposta['totalElements'];
+      console.log(this.alugueisLocatario);
       errorResponse => {
         console.log(errorResponse)
       }
@@ -107,4 +145,27 @@ export class DialogElementsExampleDialog {
 
   constructor(@Inject(MAT_DIALOG_DATA) 
   public data) {}
+}
+
+@Component({
+  selector: 'status-aluguel',
+  templateUrl: 'statusAluguel.html',
+  styleUrls: ['./aluguel-locatario.component.css'],
+})
+export class DialogStatusAluguel {
+
+  constructor(@Inject(MAT_DIALOG_DATA) 
+  public data) {}
+}
+
+@Component({
+  selector: 'aluguel-pagamento',
+  templateUrl: 'aluguelPagamento.html',
+  styleUrls: ['./aluguel-locatario.component.css'],
+})
+export class DialogAluguelPagamento {
+
+  constructor(@Inject(MAT_DIALOG_DATA) 
+  public data) {}
+
 }

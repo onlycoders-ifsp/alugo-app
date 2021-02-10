@@ -56,5 +56,16 @@ export const environment = {
   getListaUsuarios: "/admin/lista-usuario",
   deleteUsuario: "/admin/inativa-usuario",
   getLogsDeErros: "/admin/log-erros",
-  getProdutosNaoPublicados: "/admin/publicar-produtos"
+  getProdutosNaoPublicados: "/admin/publicar-produtos",
+
+    //ENDPOINTS MERCADO LIVRE
+    mlBaseUrl:'https://api.mercadopago.com',
+    mlToken:'TEST-3839591210769699-020717-920ee176862d215166e271d66e8432f7-132870722',
+    mlCriaPreferencia:'/checkout/preferences',
+  
+    //URLS DE REDIRECIONAMENTO
+    redirectBase:'https://hml-alugo-app.herokuapp.com', // 'http://localhost:4200' 'https://hml-alugo-app.herokuapp.com'
+    redirectSucesso:'/cliente/perfil/alugueis-locatario',
+    redirectErro:'',
+    redirectPendente:''
 };
