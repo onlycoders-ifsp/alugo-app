@@ -4,7 +4,7 @@
 <form [formGroup]="formularioAvaliacao">
     <h5>Avalie o locatário deste aluguel:</h5>    
     <div class="form-group py-2">
-        <label class="font-weight-medium">De 0 a 5, dê uma nota geral para o contato com o locatário deste aluguel:</label>
+        <label class="font-weight-medium">De 0 a 5, dê uma nota geral para a experiência com o locatário deste aluguel:</label>
         <br>
         <ngb-rating formControlName="avaliacao" [max]="5" [(rate)]="currentRate"></ngb-rating>
         Nota: {{currentRate}}        
@@ -16,7 +16,7 @@
     </div>
     <div class="row">
         <div class="col-sm-12 text-center">
-            <button class="btn btn-primary" type="submit"><i class="fa fa-edit font-size-lg mr-2"></i>Salvar avaliação</button>
+            <button class="btn btn-primary" type="submit" (click)="inputaAvaliacao()"><i class="fa fa-edit font-size-lg mr-2"></i>Salvar avaliação</button>
         </div>
     </div>
    </form>

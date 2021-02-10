@@ -52,8 +52,16 @@ export class AluguelService {
     return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadEntregaDevolucao, EntregaDevolucao)
   }
 
-  cadNewAvaliacao(Avaliacao: eAvaliacao) : Observable<boolean>{
-    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadAvaliacao, Avaliacao)
+  cadNewAvaliacaoLocador(Avaliacao: eAvaliacao) : Observable<boolean>{ //Salva avaliação do locador(Locatario para locador)
+    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadAvaliacaoLocador, Avaliacao)
+  }
+
+  cadNewAvaliacaoLocatario(Avaliacao: eAvaliacao) : Observable<boolean>{ //Salva avaliação do locador(Locador para locatario)
+    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadAvaliacaoLocatario, Avaliacao)
+  }
+
+  cadNewAvaliacaoProduto(Avaliacao: eAvaliacao) : Observable<boolean>{
+    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadAvaliacaoProduto, Avaliacao)
   }
   
   putEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<boolean> {

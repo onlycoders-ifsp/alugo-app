@@ -51,7 +51,9 @@ export const environment = {
   getEntregaDevolucao:"/aluguel/encontro",
   putEntregaDevolucao:"/aluguel/banana",
   putConfirmacaoEntregaDevolucao:"/aluguel/banana",
-  postCadAvaliacao: "/aluguel/avaliacao",
+  postCadAvaliacaoLocatario: "/aluguel/avaliacao/grava/locatario",
+  postCadAvaliacaoLocador: "/aluguel/avaliacao/grava/locador",
+  postCadAvaliacaoProduto: "/aluguel/avaliacao/grava/produto",
 
   //ENDPOINTS ADMIN
   getListaUsuarios: "/admin/lista-usuario",

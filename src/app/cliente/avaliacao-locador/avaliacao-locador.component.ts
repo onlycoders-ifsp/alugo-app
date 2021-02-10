@@ -46,18 +46,26 @@ export class AvaliacaoLocadorComponent implements OnInit {
 
   loadFormToCadOrUpdate() {    
     const formCadValues = this.formularioAvaliacao.value;
-    this.avaliacaoAlterado.observacao = formCadValues.observacao;
-    this.avaliacaoAlterado.nota = formCadValues.nota;
+    this.avaliacaoAlterado.comentario = formCadValues.observacao;
+    this.avaliacaoAlterado.nota = this.currentRate;
 
     this.cadAvaliacao();
     
     
   }
 
+  inputaAvaliacao(){
+    if (this.formularioAvaliacao.valid) {
+      this.loadFormToCadOrUpdate();      
+    } else {
+      this.mensagemErro = "formInvalido"
+    }
+  }
+
   cadAvaliacao() {
     this.avaliacaoAlterado.id_aluguel = this.idCurrentAluguel;
     console.log(this.avaliacaoAlterado)
-    this.aluguelService.cadNewAvaliacao(this.avaliacaoAlterado).subscribe(response => {
+    this.aluguelService.cadNewAvaliacaoLocatario(this.avaliacaoAlterado).subscribe(response => {
       console.log(response)
       this.mensagemSucesso = "CadastroSucesso",
         this.mensagemErro = null;

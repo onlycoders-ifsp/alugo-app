@@ -41,53 +41,74 @@ export class AvaliacaoLocatarioComponent implements OnInit {
     this.AuthService.encerraSessao();
     }
 
+    this.idCurrentAluguel = localStorage.getItem("idAluguel");
     this.createForm();
   }
 
   loadFormToCadOrUpdate() {    
     const formCadValuesLocador = this.formularioAvaliacaoLocador.value;
-    this.avaliacaoLocadorAlterado.observacao = formCadValuesLocador.observacao;
-    this.avaliacaoLocadorAlterado.nota = formCadValuesLocador.nota;    
+    this.avaliacaoLocadorAlterado.comentario = formCadValuesLocador.observacao;
+    this.avaliacaoLocadorAlterado.nota = this.currentRateLocador;    
 
     const formCadValuesProduto = this.formularioAvaliacaoProduto.value;
-    this.avaliacaoProdutoAlterado.observacao = formCadValuesProduto.observacao;
-    this.avaliacaoProdutoAlterado.nota = formCadValuesProduto.nota;
+    this.avaliacaoProdutoAlterado.comentario = formCadValuesProduto.observacao;
+    this.avaliacaoProdutoAlterado.nota = this.currentRateProduto;
 
-    this.cadAvaliacao();   
+    this.cadAvaliacaoLocador();   
     
   }
 
-  cadAvaliacao() {
+  inputaAvaliacao(){
+    if (this.formularioAvaliacaoLocador.valid && this.formularioAvaliacaoProduto.valid) {
+      this.loadFormToCadOrUpdate();      
+    } 
+    else {
+      this.mensagemErro = "formInvalido"
+    }
+  }
+
+  cadAvaliacaoLocador() {
     this.avaliacaoLocadorAlterado.id_aluguel = this.idCurrentAluguel;
-    this.avaliacaoProdutoAlterado.id_aluguel = this.idCurrentAluguel;
     console.log(this.avaliacaoLocadorAlterado)
+
+    this.aluguelService.cadNewAvaliacaoLocador(this.avaliacaoLocadorAlterado).subscribe(response => {
+      console.log('requisição do locador - OK')
+      console.log(response)
+      this.mensagemSucesso = "CadastroSucessoLocador",
+        this.mensagemErro = null;
+      this.cadAvaliacaoProduto();
+    }, errorResponse => {
+      console.log('requisição do locador - Problema')
+      console.log(errorResponse)
+      this.mensagemSucesso = null,
+        this.mensagemErro = "CadastroErro";
+    });       
+  } 
+
+  cadAvaliacaoProduto() {
+    this.avaliacaoProdutoAlterado.id_aluguel = this.idCurrentAluguel;
     console.log(this.avaliacaoProdutoAlterado)
 
-    this.aluguelService.cadNewAvaliacao(this.avaliacaoLocadorAlterado).subscribe(response => {
+    this.aluguelService.cadNewAvaliacaoProduto(this.avaliacaoProdutoAlterado).subscribe(response => {
+      console.log('requisição do produto - OK')
       console.log(response)
-      this.mensagemSucesso = "CadastroSucesso",
+      this.mensagemSucesso += "CadastroSucessoProduto",
         this.mensagemErro = null;
     }, errorResponse => {
+      console.log('requisição do produto - Problema')
       console.log(errorResponse)
       this.mensagemSucesso = null,
         this.mensagemErro = "CadastroErro";
     });
 
-    this.aluguelService.cadNewAvaliacao(this.avaliacaoProdutoAlterado).subscribe(response => {
-      console.log(response)
-      this.mensagemSucesso = "CadastroSucesso",
-        this.mensagemErro = null;
-    }, errorResponse => {
-      console.log(errorResponse)
-      this.mensagemSucesso = null,
-        this.mensagemErro = "CadastroErro";
-    });
-
+    console.log(this.mensagemSucesso)
     if(this.mensagemSucesso){
       localStorage.removeItem("idAluguel");
       this.router.navigate(["cliente/perfil/alugueis-locatario"]);
     }
   } 
+
+
 
   createForm(){
     this.formularioAvaliacaoLocador = this.fb.group({
