@@ -9,6 +9,7 @@ import { eCadAluguel } from '../entidades/eCadAluguel';
 import { eEntregaDevolucao } from '../entidades/eEntregaDevolucao';
 import { eConfirmaEntregaDevolucao } from '../entidades/eConfirmaEntregaDevolucao';
 import { eAvaliacao } from '../entidades/eAvaliacao';
+import { eAvaliacaoRetorno } from '../entidades/eAvaliacaoRetorno';
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +63,12 @@ export class AluguelService {
 
   cadNewAvaliacaoProduto(Avaliacao: eAvaliacao) : Observable<boolean>{
     return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadAvaliacaoProduto, Avaliacao)
+  }
+  
+  getListAvaliacoesProduto(idProduto: string) : Observable<eAvaliacaoRetorno[]> {
+    let params = new HttpParams();
+    params = params.append('id_produto',idProduto);
+    return this.http.get<eAvaliacaoRetorno[]>(environment.apiBaseUrl + environment.getAvaliacoesProduto,{params});
   }
   
   putEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<boolean> {
