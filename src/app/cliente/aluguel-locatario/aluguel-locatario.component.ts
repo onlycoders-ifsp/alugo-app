@@ -7,14 +7,21 @@ import { idiomaService } from 'src/app/Services/idiomaService';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { AuthService } from 'src/app/Services/auth.service';
 
+declare function pagar(): any;
+
 @Component({
   selector: 'app-aluguel-locatario',
   templateUrl: './aluguel-locatario.component.html',
   styleUrls: ['./aluguel-locatario.component.css']
 })
+
+
+
 export class AluguelLocatarioComponent implements OnInit {
 
   alugueisLocatario: eAluguel[] = [];
+
+  
 
   idiomas: iIdioma[];
   currentBandeira: string;
@@ -57,7 +64,9 @@ export class AluguelLocatarioComponent implements OnInit {
 
   }
   ngOnInit(): void {
-      if (!this.AuthService.isAutenticado()){
+
+
+    if (!this.AuthService.isAutenticado()){
       this.AuthService.encerraSessao();
     }
     this.getListaAlugueisLocatario();
@@ -87,11 +96,7 @@ export class AluguelLocatarioComponent implements OnInit {
     localStorage.setItem("inicioAluguel", Aluguel.data_inicio)
     localStorage.setItem("fimAluguel", Aluguel.data_fim)
     this.router.navigate(['cliente/perfil/local-entrega']);
-  }
-
-
-
-  
+  } 
 
 }
 
