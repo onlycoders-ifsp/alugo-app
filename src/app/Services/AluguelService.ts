@@ -45,8 +45,8 @@ export class AluguelService {
     return this.http.get<eEntregaDevolucao>(environment.apiBaseUrl + environment.getEntregaDevolucao,{params});
   }
 
-  cadNewAluguel(aluguel: eCadAluguel) : Observable<boolean>{
-    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadAluguel, aluguel);
+  cadNewAluguel(aluguel: eCadAluguel) : Observable<string>{
+    return this.http.post<string>(environment.apiBaseUrl + environment.postCadAluguel, aluguel);
   }
 
   cadNewEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<boolean>{

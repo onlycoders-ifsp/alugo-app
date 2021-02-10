@@ -65,6 +65,18 @@ export class AluguelLocatarioComponent implements OnInit {
     });
   }
 
+  openDialogPagamento(aluguelSelecionado:eAluguel) {
+    const dialogRef = this.dialog.open(DialogAluguelPagamento,{
+      data:{
+        urlPagamento:aluguelSelecionado.url_pagamento,
+      },  closeOnNavigation: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
    setPage(i,event:any){
     event.preventDefault();
     this.page = i;
@@ -144,4 +156,16 @@ export class DialogStatusAluguel {
 
   constructor(@Inject(MAT_DIALOG_DATA) 
   public data) {}
+}
+
+@Component({
+  selector: 'aluguel-pagamento',
+  templateUrl: 'aluguelPagamento.html',
+  styleUrls: ['./aluguel-locatario.component.css'],
+})
+export class DialogAluguelPagamento {
+
+  constructor(@Inject(MAT_DIALOG_DATA) 
+  public data) {}
+
 }

@@ -33,6 +33,7 @@ export class RealizaAluguelComponent implements OnInit {
   public preferenciaML: ePreferenciaML = new ePreferenciaML();
   public itemML:eItemML = new eItemML();
   public backUrl:eBack_urls = new eBack_urls();
+  public novoAluguelCad: string = '';
   
 
   idiomas: iIdioma[];
@@ -209,6 +210,7 @@ export class RealizaAluguelComponent implements OnInit {
           this.registraPreferenciaML();
           
           this.aluguelService.cadNewAluguel(this.cadAluguel).subscribe(response => {
+            this.novoAluguelCad = response;
             this.registraPreferenciaML();
           }, errorResponse => {
             console.log(errorResponse)
@@ -239,12 +241,12 @@ export class RealizaAluguelComponent implements OnInit {
   }
 
   loadPreferenciaML(){
-    this.preferenciaML.auto_return = 'approved';
+    this.preferenciaML.auto_return = '';
     
     this.preferenciaML.expiration_date_from = '2021-02-01T12:00:00.000-04:00';
     this.preferenciaML.expiration_date_to = '2022-02-01T12:00:00.000-04:00';
     this.preferenciaML.expires = true;
-    this.preferenciaML.external_reference = this.cadAluguel.data_inicio+this.cadAluguel.data_fim;
+    this.preferenciaML.external_reference = this.novoAluguelCad;
     this.preferenciaML.notification_url = environment.apiBaseUrl + environment.notificationML;
     this.preferenciaML.statement_descriptor = 'aluGO';
     this.backUrl.failure = environment.redirectBase + environment.redirectErro;

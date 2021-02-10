@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:8080', //'https://hml-backend-alugo.herokuapp.com',//'http://localhost:8080',
+  apiBaseUrl: 'https://hml-backend-alugo.herokuapp.com', //'https://hml-backend-alugo.herokuapp.com',//'http://localhost:8080',
   clientId: 'front-alugo',
   secret: 'aluGo@123!321',
   authorizedGrantTypes: 'password',
@@ -70,8 +70,8 @@ export const environment = {
   mlCriaPreferencia:'/checkout/preferences',
 
   //URLS DE REDIRECIONAMENTO
-  redirectBase:'http://localhost:4200', // 'http://localhost:4200/' 'https://hml-alugo-app.herokuapp.com/'
-  redirectSucesso:'/cliente/perfil/alugueis-locatario',
+  redirectBase:'', // 'http://localhost:4200/' 'https://hml-alugo-app.herokuapp.com/'
+  redirectSucesso:'',
   redirectErro:'',
   redirectPendente:''
 
