@@ -4,13 +4,14 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://hml-backend-alugo.herokuapp.com',//'http://localhost:8080',
+  apiBaseUrl: 'http://localhost:8080', //'https://hml-backend-alugo.herokuapp.com',//'http://localhost:8080',
   clientId: 'front-alugo',
   secret: 'aluGo@123!321',
   authorizedGrantTypes: 'password',
   obterToken: "/oauth/token",
   cepUrl: "https://viacep.com.br/ws",
   login: "/login",
+  notificationML:'',
 
 
   //ENDPOINTS DE PRODUTO
@@ -60,7 +61,20 @@ export const environment = {
   getListaUsuarios: "/admin/lista-usuario",
   deleteUsuario: "/admin/inativa-usuario",
   getLogsDeErros: "/admin/log-erros",
-  getProdutosNaoPublicados: "/admin/publicar-produtos"
+  getProdutosNaoPublicados: "/admin/publicar-produtos",
+
+
+  //ENDPOINTS MERCADO LIVRE
+  mlBaseUrl:'https://api.mercadopago.com',
+  mlToken:'TEST-3839591210769699-020717-920ee176862d215166e271d66e8432f7-132870722',
+  mlCriaPreferencia:'/checkout/preferences',
+
+  //URLS DE REDIRECIONAMENTO
+  redirectBase:'http://localhost:4200', // 'http://localhost:4200/' 'https://hml-alugo-app.herokuapp.com/'
+  redirectSucesso:'/cliente/perfil/alugueis-locatario',
+  redirectErro:'',
+  redirectPendente:''
+
 };
 
 /*

@@ -11,6 +11,11 @@ import { AuthService } from 'src/app/Services/auth.service';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { produtoService } from 'src/app/Services/produtoService';
 import { View, EventSettingsModel,  } from '@syncfusion/ej2-angular-schedule'
+import { mercadoLivreService } from 'src/app/Services/mercadoLivreService';
+import { ePreferenciaML } from 'src/app/entidades/ePreferenciaML';
+import { environment } from 'src/environments/environment';
+import { eItemML } from 'src/app/entidades/eItemML';
+import { eBack_urls } from 'src/app/entidades/eBack_urls';
 
 @Component({
   selector: 'app-realiza-aluguel',
@@ -25,6 +30,9 @@ export class RealizaAluguelComponent implements OnInit {
   public showHeaderBar: boolean = true;
   public readonly: boolean = true;
   public eventObject: EventSettingsModel;
+  public preferenciaML: ePreferenciaML = new ePreferenciaML();
+  public itemML:eItemML = new eItemML();
+  public backUrl:eBack_urls = new eBack_urls();
   
 
   idiomas: iIdioma[];
@@ -50,7 +58,8 @@ export class RealizaAluguelComponent implements OnInit {
     private auth: AuthService,
     private fb: FormBuilder,
     private aluguelService: AluguelService,
-    private datepipe: DatePipe
+    private datepipe: DatePipe,
+    private mlService: mercadoLivreService
   ) { 
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
@@ -196,11 +205,11 @@ export class RealizaAluguelComponent implements OnInit {
           this.cadAluguel.valor_aluguel = this.valorAluguel;
           this.cadAluguel.id_produto = this.currentProduto.id_produto;
 
-
+          console.log(this.cadAluguel)
+          this.registraPreferenciaML();
+          
           this.aluguelService.cadNewAluguel(this.cadAluguel).subscribe(response => {
-            this.errorCad = false;
-            this.errorAluguelExistente = null;
-            this.router.navigate(["cliente/perfil/alugueis-locatario"])
+            this.registraPreferenciaML();
           }, errorResponse => {
             console.log(errorResponse)
             this.errorCad = true;
@@ -211,6 +220,50 @@ export class RealizaAluguelComponent implements OnInit {
         }
       }
     }
+  }
+
+  registraPreferenciaML(){
+    this.loadPreferenciaML();
+
+    console.log(this.preferenciaML)
+    this.mlService.cadPreferencia(this.preferenciaML).subscribe(response => {
+      this.errorCad = false;
+      this.errorAluguelExistente = null;
+      this.router.navigate(["cliente/perfil/alugueis-locatario"]);
+    }, errorResponse => {
+      console.log(errorResponse)
+      this.errorCad = true;
+      this.errorAluguelExistente = errorResponse.error.message;
+    })
+    
+  }
+
+  loadPreferenciaML(){
+    this.preferenciaML.auto_return = 'approved';
+    
+    this.preferenciaML.expiration_date_from = '2021-02-01T12:00:00.000-04:00';
+    this.preferenciaML.expiration_date_to = '2022-02-01T12:00:00.000-04:00';
+    this.preferenciaML.expires = true;
+    this.preferenciaML.external_reference = this.cadAluguel.data_inicio+this.cadAluguel.data_fim;
+    this.preferenciaML.notification_url = environment.apiBaseUrl + environment.notificationML;
+    this.preferenciaML.statement_descriptor = 'aluGO';
+    this.backUrl.failure = environment.redirectBase + environment.redirectErro;
+    this.backUrl.pending = environment.redirectBase + environment.redirectPendente;
+    this.backUrl.success = environment.redirectBase + environment.redirectSucesso;
+    this.preferenciaML.back_urls = this.backUrl;
+
+    this.preferenciaML.items = [];
+
+    
+    this.itemML.quantity = 1;
+    this.itemML.title = this.currentProduto.nome;
+    this.itemML.unit_price = this.cadAluguel.valor_aluguel;
+    this.itemML.currency_id = 'BRL';
+    this.itemML.description = this.currentProduto.descricao;
+    this.itemML.picture_url = 'https://www.kindpng.com/picc/m/9-94516_your-online-store-is-automatically-optimised-png-online.png';
+
+    this.preferenciaML.items.push(this.itemML)
+    console.log(this.preferenciaML.items)
   }
 
   clickMudaIdioma() {

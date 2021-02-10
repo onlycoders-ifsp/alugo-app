@@ -57,6 +57,14 @@ export class AluguelLocatarioComponent implements OnInit {
     });
   }
 
+  openDialogDetalhesStatus(aluguelSelecionado:eAluguel) {
+    this.dialog.open(DialogStatusAluguel,{
+      data:{
+        NomeCara:aluguelSelecionado.locador.nome,
+      }
+    });
+  }
+
    setPage(i,event:any){
     event.preventDefault();
     this.page = i;
@@ -75,11 +83,20 @@ export class AluguelLocatarioComponent implements OnInit {
 
   getListaAlugueisLocatario(){
     this.aluguelService.getListAluguelLocatario(this.page,this.size).subscribe(resposta => {
-      this.alugueisLocatario = resposta['content'];
+      console.log(this.alugueisLocatario.length)
+      if(this.alugueisLocatario.length!=0){
+        for (let item of resposta['content']) {
+          this.alugueisLocatario.push(item);
+        }
+      }else{
+        this.alugueisLocatario = resposta['content'];
+      }
+      // this.alugueisLocatario = resposta['content'];
       this.pages = resposta['totalPages'];
       this.firstPage = resposta['first'];
       this.lastPage = resposta['last'];
       this.total = resposta['totalElements'];
+      console.log(this.alugueisLocatario);
       errorResponse => {
         console.log(errorResponse)
       }
@@ -113,6 +130,17 @@ export class AluguelLocatarioComponent implements OnInit {
   templateUrl: 'InfosLocador.html',
 })
 export class DialogElementsExampleDialog {
+
+  constructor(@Inject(MAT_DIALOG_DATA) 
+  public data) {}
+}
+
+@Component({
+  selector: 'status-aluguel',
+  templateUrl: 'statusAluguel.html',
+  styleUrls: ['./aluguel-locatario.component.css'],
+})
+export class DialogStatusAluguel {
 
   constructor(@Inject(MAT_DIALOG_DATA) 
   public data) {}

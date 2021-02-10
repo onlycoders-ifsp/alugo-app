@@ -51,6 +51,14 @@ export class AluguelLocadorComponent implements OnInit {
     });
   }
 
+  openDialogDetalhesStatus(aluguelSelecionado:eAluguel) {
+    this.dialog.open(DialogStatusAluguel,{
+      data:{
+        NomeCara:aluguelSelecionado.locador.nome,
+      }
+    });
+  }
+
 
    setPage(i,event:any){
     event.preventDefault();
@@ -127,6 +135,17 @@ export class AluguelLocadorComponent implements OnInit {
   templateUrl: 'InfosLocatario.html',
 })
 export class DialogElementsExampleDialog {
+
+  constructor(@Inject(MAT_DIALOG_DATA) 
+  public data) {}
+}
+
+@Component({
+  selector: 'status-aluguel',
+  templateUrl: 'statusLocadorAluguel.html',
+  styleUrls: ['./aluguel-locador.component.css'],
+})
+export class DialogStatusAluguel {
 
   constructor(@Inject(MAT_DIALOG_DATA) 
   public data) {}

@@ -14,12 +14,6 @@
           </div>
         </div>
       </div>
-      <form action="/processar_pagamento" method="POST">
-        <script
-          src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
-          data-preference-id='<%= global.id %>'>
-        </script>
-      </form>
       
   
       <div *ngFor="let item of alugueisLocatario" class="media d-block d-sm-flex align-items-center py-4 border-bottom">
@@ -37,34 +31,97 @@
           </div>
           <div class="d-flex align-items-center justify-content-center justify-content-sm-start pt-2">
             <div class="my-2 col-12">
-              <div class="d-flex justify-content-center pt-3">
-  
-                <button class="btn bg-faded-info btn-icon mr-2" 
-                    type="button" data-toggle="tooltip" (click)="avaliacao(item)"
-                    title="Avaliar o locador e o produto alugado."><i
-                      class="fa fa-star text-info"></i></button>
-  
-                <button class="btn bg-faded-info btn-icon mr-2" 
-                    type="button" data-toggle="tooltip" (click)="verLocaisDesteAluguel(item)"
-                    title="Confirmar local e horário de entrega e devolução do produto."><i
-                      class="fa fa-map-marker text-info"></i></button>
-  
-                <button class="btn bg-faded-success btn-icon mr-2" type="button" data-toggle="tooltip" title=""
-                  data-original-title="Delete"><i class="fa fa-map text-success"></i></button>
+              <div [ngSwitch]="item.status_aluguel" class="d-flex pt-3">
+              
+                <!---->
+                <div *ngSwitchCase="1">
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
+                    data-original-title="Status do Aluguel">Agendado##</button>
 
-                  <a href="https://sandbox.mercadopago.com.br/checkout/v1/redirect?pref_id=132870722-031f17a5-5add-44d4-9985-7866e96fa264" class="btn bg-faded-success btn-icon mr-2" data-toggle="tooltip" title="Pagar o Aluguel"
-                data-original-title="Delete"><i class="fa fa-money-check-alt text-success"></i></a>
-                
-  
-  
-      
-                <button class="btn bg-faded-accent btn-icon mr-2" type="button" data-toggle="tooltip" title=""
-                  data-original-title="Status do Aluguel">Aguardando pagamento</button>
-                <!-- <button class="btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fa fa-edit text-info"></i></button> -->
-      
+                    <button class="justify-right btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip"
+                    (click)="verLocaisDesteAluguel(item)" title="Confirmar local e horário de entrega e devolução do produto."><i
+                      class="fa fa-map-marker text-info"></i></button>
+                </div>
+              
+                <div *ngSwitchCase="2">
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-success btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
+                    data-original-title="Status do Aluguel">Em Andamento##</button>
+                </div>
+              
+                <div *ngSwitchCase="3">
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-info btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
+                    data-original-title="Status do Aluguel">Finalizado sem Ocorrência##</button>
+                    <button class="btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip" (click)="avaliacao(item)"
+                    title="Avaliar o locador e o produto alugado."><i class="fa fa-star text-info"></i></button>
+                </div>
+              
+                <div *ngSwitchCase="4">
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-danger btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
+                    data-original-title="Status do Aluguel">Finalizado com Ocorrência##</button>
+                    <button class="btn bg-faded-danger btn-icon mr-2 text-lg-right" type="button"
+                          data-toggle="tooltip" title="Ver ocorrência"><i
+                            class="fa fa-info text-danger"></i></button>
+                </div>
+              
+                <div *ngSwitchCase="5">
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-warning btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
+                    data-original-title="Status do Aluguel">Cancelado pelo Locador##</button>
+                    <button class="btn bg-faded-warning btn-icon mr-2 text-lg-right" type="button"
+                          data-toggle="tooltip" title="Ver ocorrência"><i
+                            class="fa fa-info text-warning"></i></button>
+                </div>
+              
+                <div *ngSwitchCase="6">
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-warning btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
+                    data-original-title="Status do Aluguel">Cancelado pelo Locatário##</button>
+                    <button class="btn bg-faded-warning btn-icon mr-2 text-lg-right" type="button"
+                          data-toggle="tooltip" title="Ver ocorrência"><i
+                            class="fa fa-info text-warning"></i></button>
+                </div>
+              
+                <div *ngSwitchCase="7">
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
+                    data-original-title="Status do Aluguel">Aguardando pagamento##</button>
+                    <a href="{{item.url_pagamento}}"
+                    class="btn bg-faded-success btn-icon mr-2" data-toggle="tooltip" title="Pagar o Aluguel"
+                    data-original-title="Delete"><i class="fa fa-money-check-alt text-success"></i></a>
+                </div>
+              
+                <div *ngSwitchCase="8">
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-faded-danger btn-icon mr-2" type="button" data-toggle="tooltip" title=""
+                    data-original-title="Status do Aluguel">Cancelamento Automático##</button>
+                </div>
+              
+                <div *ngSwitchCase="9">
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-info btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
+                    data-original-title="Status do Aluguel">Aguardando aceite dono##</button>
+                </div>
+              
+                <div *ngSwitchCase="10">
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
+                    data-original-title="Status do Aluguel">Aguardando devolução##</button>
+                    <button class="btn bg-faded-accent btn-icon mr-2" type="button" data-toggle="tooltip" title="Devolver produto"><i
+                      class="fa fa-backward text-accent"></i></button>
+                </div>
+              
+                <div *ngSwitchCase="11">
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
+                    data-original-title="Status do Aluguel">Aguardando entrega##</button>
+                    <button class="btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip" title="Receber o produto"><i
+                      class="fa fa-people-carry text-info"></i></button>
+                </div>
+              
+                <div *ngSwitchCase="12">
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-success btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
+                    data-original-title="Status do Aluguel">Pagamento Confirmado</button>
+                  <!-- <button class="btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip" title="Receber o produto"><i
+                      class="fa fa-truck-loading text-info"></i></button> -->
+                  
+                </div>
+              
               </div>
-              <div class="bg-secondary rounded p-3 mt-4 mb-2 col-12">
-                <a class="media align-items-center">
+              <div class="bg-faded-info rounded p-3 mt-4 mb-2 col-12 card">
+                <a class="media">
                   <div class="container-fluid">
                     <div class="row">
                       <div class="col-3">
@@ -83,10 +140,10 @@
       
                         </div>
                       </div>
-                      <div class="col-3 justify-content-sm-end">
+                      <div class="col-3 align-items-end">
                         <button class="btn bg-faded-info btn-icon mr-2 text-lg-right" (click)="openDialog(item)" type="button"
                           data-toggle="tooltip" title="{{ 'cliente.aluguel-locatario.infocontatolocador' | translate }}"><i
-                            class="fa fa-info text-info"></i></button>
+                            class="fa fa-info text-accent"></i></button>
                       </div>
                     </div>
                   </div>
@@ -111,19 +168,19 @@
       
       <nav class="d-md-flex justify-content-between align-items-center text-center text-md-left mt-4"
       aria-label="Page navigation">
-      <div class="d-md-flex align-items-center w-100"><span class="font-size-sm text-muted mr-md-3">Mostrando 10 de 19
+      <div class="d-md-flex align-items-center w-100"><span class="font-size-sm text-muted mr-md-3">Mostrando {{alugueisLocatario.length}} de {{total}}
           aluguéis</span>
-        <div class="progress w-100 my-3 mx-auto mx-md-0" style="max-width: 10rem; height: 4px;">
-          <div class="progress-bar" role="progressbar" style="width: 56%;" aria-valuenow="56" aria-valuemin="0"
+        <!-- <div class="progress w-100 my-3 mx-auto mx-md-0" style="max-width: 10rem; height: 4px;">
+          <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="56" aria-valuemin="0"
             aria-valuemax="100"></div>
-        </div>
+        </div> -->
       </div>
-      <button class="btn btn-outline-primary btn-sm" type="button">Carregar mais</button>
+      <button *ngIf="total>0" (click)="setPage(page+1,$event)" class="btn btn-outline-primary btn-sm" type="button">Carregar mais##</button>
     </nav>
-    <div *ngIf="total>0" class="d-flex"><a class="nav-link-style mr-3" *ngIf=!firstPage href=""
+    <!-- <div *ngIf="total>0" class="d-flex"><a class="nav-link-style mr-3" *ngIf=!firstPage href=""
         (click)="setPage(page-1,$event)"><i class="fa fa-arrow-left"></i></a><span class="font-size-md">{{page+1}} /
         {{pages}}</span><a class="nav-link-style ml-3" *ngIf=!lastPage href="" (click)="setPage(page+1,$event)"><i
-          class="fa fa-arrow-right"></i></a></div>
+          class="fa fa-arrow-right"></i></a></div> -->
       
       
     </div>

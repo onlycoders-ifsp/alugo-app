@@ -10,4 +10,6 @@ export class eAluguel{
     locador: eUsuario;
     locatario: eUsuario;
     id_aluguel: string;
+    status_aluguel: number;
+    url_pagamento:string;
 }

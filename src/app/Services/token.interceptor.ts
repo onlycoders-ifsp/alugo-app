@@ -17,7 +17,16 @@ import { environment } from 'src/environments/environment';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  urlsDeslogado : string[] = ['/oauth/token', '/usuarios/cadastro', 'produtos/produto', '/usuarios/usuario'];
+  urlsDeslogado : string[] = [
+    '/oauth/token', 
+    '/usuarios/cadastro', 
+    'produtos/produto', 
+    '/usuarios/usuario', 
+    environment.mlCriaPreferencia];
+
+    urlsMercadoPago : string[] = [
+      environment.mlCriaPreferencia
+    ];
 
   //colocar aqui os endpoints que não mostram a tela laranja de carregamento
   urlsSemLoading : string[] = [
@@ -39,6 +48,7 @@ export class TokenInterceptor implements HttpInterceptor {
   ];
 
   needBearer : boolean = true;
+  needMpToken : boolean = false;
   loadUrlsSemtela : boolean = false;
   countLoader: number = 0;
 
@@ -72,6 +82,15 @@ export class TokenInterceptor implements HttpInterceptor {
         this.needBearer = false;
       } 
     }
+
+    if(!this.needBearer){
+      for(let index in this.urlsMercadoPago){
+        if(urlRequest.endsWith(this.urlsMercadoPago[index])){
+          this.needMpToken = true;
+        } 
+      }
+    }
+
     if( tokenString && this.needBearer){
       const token = JSON.parse(tokenString);
       const jwt = token.access_token;
@@ -83,10 +102,23 @@ export class TokenInterceptor implements HttpInterceptor {
     }
     this.needBearer = true;
 
+
+    if(this.needMpToken){
+      request = request.clone({
+        setHeaders : {
+          Authorization :  'Bearer ' + environment.mlToken
+        }
+      })
+    }
+    this.needMpToken = false;
+
+    console.log(urlRequest + ' = ' + this.countLoader);
+
     return next.handle(request).pipe(
       tap(event => {
-          if (event instanceof HttpResponse && event.status === 200) {
+          if (event instanceof HttpResponse && (event.status === 200 || event.status === 201)) {
               this.countLoader--;
+              console.log(urlRequest + ' = ' + this.countLoader);
               if (this.countLoader === 0) {
                   this.loaderService.hide();
               }
