@@ -96,7 +96,12 @@ export class AluguelLocatarioComponent implements OnInit {
     localStorage.setItem("inicioAluguel", Aluguel.data_inicio)
     localStorage.setItem("fimAluguel", Aluguel.data_fim)
     this.router.navigate(['cliente/perfil/local-entrega']);
-  } 
+  }
+
+  avaliacao(Aluguel: eAluguel){
+    localStorage.setItem("idAluguel", Aluguel.id_aluguel)
+    this.router.navigate(['cliente/perfil/avaliacao-locatario']);
+  }
 
 }
 

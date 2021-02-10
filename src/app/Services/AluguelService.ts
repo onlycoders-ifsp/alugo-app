@@ -8,6 +8,8 @@ import { eAluguelDetalhe } from '../entidades/eAluguelDetalhe';
 import { eCadAluguel } from '../entidades/eCadAluguel';
 import { eEntregaDevolucao } from '../entidades/eEntregaDevolucao';
 import { eConfirmaEntregaDevolucao } from '../entidades/eConfirmaEntregaDevolucao';
+import { eAvaliacao } from '../entidades/eAvaliacao';
+import { eAvaliacaoRetorno } from '../entidades/eAvaliacaoRetorno';
 
 @Injectable({
   providedIn: 'root'
@@ -48,8 +50,25 @@ export class AluguelService {
   }
 
   cadNewEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<boolean>{
-    console.log(environment.apiBaseUrl + environment.postCadEntregaDevolucao);
     return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadEntregaDevolucao, EntregaDevolucao)
+  }
+
+  cadNewAvaliacaoLocador(Avaliacao: eAvaliacao) : Observable<boolean>{ //Salva avaliação do locador(Locatario para locador)
+    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadAvaliacaoLocador, Avaliacao)
+  }
+
+  cadNewAvaliacaoLocatario(Avaliacao: eAvaliacao) : Observable<boolean>{ //Salva avaliação do locador(Locador para locatario)
+    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadAvaliacaoLocatario, Avaliacao)
+  }
+
+  cadNewAvaliacaoProduto(Avaliacao: eAvaliacao) : Observable<boolean>{
+    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadAvaliacaoProduto, Avaliacao)
+  }
+  
+  getListAvaliacoesProduto(idProduto: string) : Observable<eAvaliacaoRetorno[]> {
+    let params = new HttpParams();
+    params = params.append('id_produto',idProduto);
+    return this.http.get<eAvaliacaoRetorno[]>(environment.apiBaseUrl + environment.getAvaliacoesProduto,{params});
   }
   
   putEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<boolean> {

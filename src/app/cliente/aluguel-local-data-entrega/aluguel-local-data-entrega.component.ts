@@ -155,6 +155,7 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
       this.mensagemSucesso = "CadastroSucesso",
         this.mensagemErro = null;
         localStorage.removeItem("idAluguel");
+        this.router.navigate(["cliente/perfil/alugueis-locatario"]);
     }, errorResponse => {
       console.log(errorResponse)
       this.mensagemSucesso = null,
