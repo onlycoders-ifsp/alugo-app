@@ -77,7 +77,13 @@
               <div class="d-flex justify-content-center pt-3">
   
                 <button class="btn bg-faded-info btn-icon mr-2" 
-                    type="button" data-toggle="tooltip" title="Confirmar local e horário de entrega e devolução do produto."><i
+                    type="button" data-toggle="tooltip" (click)="avaliacao(item)"
+                    title="Avaliar o locador e o produto alugado."><i
+                      class="fa fa-star text-info"></i></button>
+  
+                <button class="btn bg-faded-info btn-icon mr-2" 
+                    type="button" data-toggle="tooltip" (click)="verLocaisDesteAluguel(item)"
+                    title="Confirmar local e horário de entrega e devolução do produto."><i
                       class="fa fa-map-marker text-info"></i></button>
   
                 <button class="btn bg-faded-success btn-icon mr-2" type="button" data-toggle="tooltip" title=""
@@ -102,24 +108,24 @@
                   <div class="container-fluid">
                     <div class="row">
                       <div class="col-3">
-                        <img *ngIf="item.locatario.capa_foto" class="rounded-circle" width="50"
-                          src="data:image/jpg;base64,{{item.locatario.capa_foto}}"
+                        <img *ngIf="item.locador.capa_foto" class="rounded-circle" width="50"
+                          src="data:image/jpg;base64,{{item.locador.capa_foto}}"
                           alt="{{ 'cliente.aluguel-locador.pessoaAluguel' | translate }}" />
-                        <img *ngIf="!item.locatario.capa_foto" class="rounded-circle" width="50"
+                        <img *ngIf="!item.locador.capa_foto" class="rounded-circle" width="50"
                           src="../../../assets/imagens/avatar.svg"
-                          alt="{{ 'cliente.aluguel-locador.pessoaAluguel' | translate }}" />
+                          alt="{{ 'cliente.cliente-layout.locador' | translate }}" />
                       </div>
                       <div class="col-6">
                         <div class="media-body pl-2"><span class="font-size-ms text-muted">{{
-                            'cliente.aluguel-locador.locatario' |
+                            'cliente.cliente-layout.locador' |
                             translate }}</span>
-                          <h6 class="font-size-sm mb-0">{{item.locatario.nome}}</h6>
+                          <h6 class="font-size-sm mb-0">{{item.locador.nome}}</h6>
       
                         </div>
                       </div>
                       <div class="col-3 justify-content-sm-end">
                         <button class="btn bg-faded-info btn-icon mr-2 text-lg-right" (click)="openDialog(item)" type="button"
-                          data-toggle="tooltip" title="{{ 'cliente.aluguel-locador.infocontatolocatario' | translate }}"><i
+                          data-toggle="tooltip" title="{{ 'cliente.aluguel-locatario.infocontatolocador' | translate }}"><i
                             class="fa fa-info text-info"></i></button>
                       </div>
                     </div>

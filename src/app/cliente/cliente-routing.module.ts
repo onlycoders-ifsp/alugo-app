@@ -14,6 +14,8 @@ import { ClienteProdutoAluguelComponent } from './cliente-produto-aluguel/client
 import { ClienteChecklistComponent } from './cliente-checklist/cliente-checklist.component';
 import { AluguelLocalDataEntregaComponent } from './aluguel-local-data-entrega/aluguel-local-data-entrega.component';
 import { AluguelVisualizacaoLocalDataEntregaComponent } from './aluguel-visualizacao-local-data-entrega/aluguel-visualizacao-local-data-entrega.component';
+import { AvaliacaoLocadorComponent } from './avaliacao-locador/avaliacao-locador.component';
+import { AvaliacaoLocatarioComponent } from './avaliacao-locatario/avaliacao-locatario.component';
 
 const routes: Routes = [
   {path: 'cliente', component: PortalLayoutComponent, canActivate: [AuthGuard] ,children: [
@@ -23,7 +25,9 @@ const routes: Routes = [
       { path: 'produto', component: ClienteProdutoComponent },
       { path: 'meusprodutos', component: ListaProdutosComponent },
       { path: 'alugueis-locador', component: AluguelLocadorComponent },
+      { path: 'avaliacao-locador', component: AvaliacaoLocadorComponent },
       { path: 'alugueis-locatario', component: AluguelLocatarioComponent },
+      { path: 'avaliacao-locatario', component: AvaliacaoLocatarioComponent },
       { path: 'produto-aluguel', component: ClienteProdutoAluguelComponent },
       { path: 'checklist-entrega', component: ClienteChecklistComponent },
       { path: 'local-entrega', component: AluguelLocalDataEntregaComponent },

@@ -32,6 +32,11 @@
         <div class="d-flex align-items-center justify-content-center justify-content-sm-start pt-2">
           <div class="my-2 col-12">
             <div class="d-flex justify-content-center pt-3">
+  
+              <button class="btn bg-faded-info btn-icon mr-2" 
+                  type="button" data-toggle="tooltip" (click)="avaliacao(item)"
+                  title="Avaliar o locatário deste aluguel."><i
+                    class="fa fa-star text-info"></i></button>
 
               <button class="btn bg-faded-info btn-icon mr-2" (click)="confirmarLocaisDesteAluguel(item.id_aluguel)"
                   type="button" data-toggle="tooltip" title="Confirmar local e horário de entrega e devolução do produto."><i

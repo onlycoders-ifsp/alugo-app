@@ -45,8 +45,12 @@ export const environment = {
   postCadAluguel: "/aluguel/aluguel-efetua",
   postCadEntregaDevolucao: "/aluguel/entrega-devolucao",
   getEntregaDevolucao:"/aluguel/encontro",
-  putEntregaDevolucao:"/aluguel/banana",//********OLHAR AQUI RAMON
-  putConfirmacaoEntregaDevolucao:"/aluguel/banana",//********OLHAR AQUI RAMON
+  putEntregaDevolucao:"/aluguel/banana",
+  putConfirmacaoEntregaDevolucao:"/aluguel/banana",
+  postCadAvaliacaoLocatario: "/aluguel/avaliacao/grava/locatario",
+  postCadAvaliacaoLocador: "/aluguel/avaliacao/grava/locador",
+  postCadAvaliacaoProduto: "/aluguel/avaliacao/grava/produto",
+  getAvaliacoesProduto: "/aluguel/avaliacao/retorna/produto",
 
   //ENDPOINTS ADMIN
   getListaUsuarios: "/admin/lista-usuario",

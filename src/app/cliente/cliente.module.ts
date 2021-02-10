@@ -32,6 +32,9 @@ import { ClienteChecklistComponent } from './cliente-checklist/cliente-checklist
 import { AluguelLocalDataEntregaComponent } from './aluguel-local-data-entrega/aluguel-local-data-entrega.component';
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { AluguelVisualizacaoLocalDataEntregaComponent } from './aluguel-visualizacao-local-data-entrega/aluguel-visualizacao-local-data-entrega.component';
+import { AvaliacaoLocatarioComponent } from './avaliacao-locatario/avaliacao-locatario.component';
+import { AvaliacaoLocadorComponent } from './avaliacao-locador/avaliacao-locador.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -48,6 +51,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     ClienteChecklistComponent,
     AluguelLocalDataEntregaComponent,
     AluguelVisualizacaoLocalDataEntregaComponent,
+    AvaliacaoLocatarioComponent,
+    AvaliacaoLocadorComponent,
   ],
   imports: [
     CommonModule,
@@ -70,6 +75,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     MatIconModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
     BrowserAnimationsModule,
     ClienteRoutingModule,
     HttpClientModule,

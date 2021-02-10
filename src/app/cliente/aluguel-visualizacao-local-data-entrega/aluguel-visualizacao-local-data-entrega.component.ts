@@ -80,7 +80,6 @@ export class AluguelVisualizacaoLocalDataEntregaComponent implements OnInit {
 
   updateConfirmacaoEntregaDevolucao() {
     this.confirmacaoEntregaDevolucaoAlterado.id_aluguel = this.idCurrentAluguel;
-    console.log(this.confirmacaoEntregaDevolucaoAlterado);
     this.aluguelService.putConfirmacaoEntregaDevolucao(this.confirmacaoEntregaDevolucaoAlterado).subscribe(response => {
       if(response){
         this.mensagemSucesso = "AtualizadoSucesso";
