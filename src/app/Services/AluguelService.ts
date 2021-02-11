@@ -10,6 +10,7 @@ import { eEntregaDevolucao } from '../entidades/eEntregaDevolucao';
 import { eConfirmaEntregaDevolucao } from '../entidades/eConfirmaEntregaDevolucao';
 import { eAvaliacao } from '../entidades/eAvaliacao';
 import { eAvaliacaoRetorno } from '../entidades/eAvaliacaoRetorno';
+import { eChecklist } from '../entidades/eChecklist';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,13 @@ export class AluguelService {
 
 
   constructor( private http: HttpClient ) { }
+  
+  getChecklistEntrega(page:number,size:number) : Observable<eAluguel[]> {
+    let params = new HttpParams();
+    params = params.append('page',String(page));
+    params = params.append('size',String(size));
+    return this.http.get<eAluguel[]>(environment.apiBaseUrl + environment.getListAluguelLocador,{params});
+  }
   
   getListAluguelLocador(page:number,size:number) : Observable<eAluguel[]> {
     let params = new HttpParams();
