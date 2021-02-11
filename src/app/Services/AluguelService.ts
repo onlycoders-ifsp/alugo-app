@@ -83,7 +83,7 @@ export class AluguelService {
     params = params.append('id_aluguel', id_aluguel);
     params = params.append('url_pagamento', url);
     console.log(params);
-    return this.http.put<boolean>(environment.apiBaseUrl + environment.putUrlAluguel,{params});
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.putUrlAluguel,{params});
   }
 
   cadNewEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<boolean>{

@@ -1,6 +1,7 @@
 <div mat-dialog-content>
+    {{data.urlPagamento}}
     <iframe
-        src="https://sandbox.mercadopago.com.br/checkout/v1/redirect?pref_id=132870722-8c2050e8-518e-426e-b4c6-1d5cb5a678e4"
+        [src]="data.urlPagamento"
         style="width: 1200px;height:600px;">
     </iframe>
 </div>
