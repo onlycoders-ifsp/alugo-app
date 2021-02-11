@@ -14,8 +14,8 @@ export class mercadoLivreService {
 
   
 
-  cadPreferencia(preferencia: ePreferenciaML) : Observable<ePreferenciaML> {
-    return this.http.post<ePreferenciaML>(environment.mlBaseUrl + environment.mlCriaPreferencia, preferencia);
+  cadPreferencia(preferencia: ePreferenciaML) : Observable<any> {
+    return this.http.post<any>(environment.mlBaseUrl + environment.mlCriaPreferencia, preferencia);
   }
 
 

@@ -205,12 +205,12 @@ export class RealizaAluguelComponent implements OnInit {
 
           this.cadAluguel.valor_aluguel = this.valorAluguel;
           this.cadAluguel.id_produto = this.currentProduto.id_produto;
-
-          console.log(this.cadAluguel)
-          this.registraPreferenciaML();
           
+          console.log(this.cadAluguel);
           this.aluguelService.cadNewAluguel(this.cadAluguel).subscribe(response => {
             this.novoAluguelCad = response;
+            console.log(response);
+            console.log(this.novoAluguelCad)
             this.registraPreferenciaML();
           }, errorResponse => {
             console.log(errorResponse)
@@ -224,25 +224,8 @@ export class RealizaAluguelComponent implements OnInit {
     }
   }
 
-  registraPreferenciaML(){
-    this.loadPreferenciaML();
-
-    console.log(this.preferenciaML)
-    this.mlService.cadPreferencia(this.preferenciaML).subscribe(response => {
-      this.errorCad = false;
-      this.errorAluguelExistente = null;
-      this.router.navigate(["cliente/perfil/alugueis-locatario"]);
-    }, errorResponse => {
-      console.log(errorResponse)
-      this.errorCad = true;
-      this.errorAluguelExistente = errorResponse.error.message;
-    })
-    
-  }
-
   loadPreferenciaML(){
     this.preferenciaML.auto_return = '';
-    
     this.preferenciaML.expiration_date_from = '2021-02-01T12:00:00.000-04:00';
     this.preferenciaML.expiration_date_to = '2022-02-01T12:00:00.000-04:00';
     this.preferenciaML.expires = true;
@@ -253,19 +236,42 @@ export class RealizaAluguelComponent implements OnInit {
     this.backUrl.pending = environment.redirectBase + environment.redirectPendente;
     this.backUrl.success = environment.redirectBase + environment.redirectSucesso;
     this.preferenciaML.back_urls = this.backUrl;
-
     this.preferenciaML.items = [];
-
-    
     this.itemML.quantity = 1;
     this.itemML.title = this.currentProduto.nome;
     this.itemML.unit_price = this.cadAluguel.valor_aluguel;
     this.itemML.currency_id = 'BRL';
     this.itemML.description = this.currentProduto.descricao;
     this.itemML.picture_url = 'https://www.kindpng.com/picc/m/9-94516_your-online-store-is-automatically-optimised-png-online.png';
-
     this.preferenciaML.items.push(this.itemML)
-    console.log(this.preferenciaML.items)
+  }
+
+  registraPreferenciaML(){
+    this.loadPreferenciaML();
+    console.log(this.preferenciaML)
+    this.mlService.cadPreferencia(this.preferenciaML).subscribe(response => {
+      console.log(response.sandbox_init_point);
+      const url = response.sandbox_init_point;
+      this.updateAluguelComUrlPagamento(url);
+    }, errorResponse => {
+      console.log(errorResponse)
+      this.errorCad = true;
+      this.errorAluguelExistente = errorResponse.error.message;
+    })
+    
+  }
+
+  updateAluguelComUrlPagamento(url:string){
+    console.log(this.novoAluguelCad + " pra add url")
+    this.aluguelService.updateAluguelUrl(this.novoAluguelCad,url).subscribe(response => {
+      this.errorCad = false;
+      this.errorAluguelExistente = null;
+      this.router.navigate(["cliente/perfil/alugueis-locatario"]);
+    }, errorResponse => {
+      console.log(errorResponse)
+      this.errorCad = true;
+      this.errorAluguelExistente = errorResponse.error.message;
+    })
   }
 
   clickMudaIdioma() {

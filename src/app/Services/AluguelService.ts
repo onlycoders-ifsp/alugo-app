@@ -57,6 +57,14 @@ export class AluguelService {
     return this.http.post<string>(environment.apiBaseUrl + environment.postCadAluguel, aluguel);
   }
 
+  updateAluguelUrl(id_aluguel: string, url: string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('id_aluguel', id_aluguel);
+    params = params.append('url_pagamento', url);
+    console.log(params);
+    return this.http.put<boolean>(environment.apiBaseUrl + environment.putUrlAluguel,{params});
+  }
+
   cadNewEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<boolean>{
     return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadEntregaDevolucao, EntregaDevolucao)
   }
