@@ -51,7 +51,7 @@ export class AluguelService {
   }
 
   updateAluguelUrl(id_aluguel: string, url: string) : Observable<boolean>{
-    let params = new HttpParams();
+    let params = new HttpHeaders();
     params = params.append('id_aluguel', id_aluguel);
     params = params.append('url_pagamento', url);
     console.log(params);
