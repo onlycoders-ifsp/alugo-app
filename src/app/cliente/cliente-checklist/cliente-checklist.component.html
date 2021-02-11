@@ -34,10 +34,11 @@
                       </div>
                       <small class="form-text text-muted">descricao dos itens que esta entregando</small>
                       
-                    </div>
-                    <button class="btn btn-success mt-0 mr-2" (click)="aceitaEntrega()">Confirmar</button>
-                  <button class="btn btn-danger mt-0" (click)="recusaEntrega()">Recusar</button>                  
-                  <div class="form-group py-2">
+                    </div>                    
+                    <button *ngIf="currentChecklistEntrega.ok_locador.toLowerCase() !== 'true'" class="btn btn-success mt-0 mr-2" (click)="aceitaEntrega()">Confirmar</button>
+                    <button *ngIf="currentChecklistEntrega.ok_locador.toLowerCase() !== 'true'" class="btn btn-danger mt-0" (click)="recusaEntrega()">Recusar</button>     
+                    
+                  <div *ngIf="currentChecklistEntrega.ok_locador.toLowerCase() !== 'true'"  class="form-group py-2">
                     <label class="font-weight-medium">Motivo para a recusa</label>
                     <textarea formControlName="motivo_recusa" class="form-control " rows="2"></textarea>                    
                   </div>
@@ -73,9 +74,9 @@
                           <small class="form-text text-muted">descricao dos itens que esta entregando</small>
                           
                         </div>
-                        <button class="btn btn-success mt-0 mr-2" (click)="aceitaDevolucao()">Confirmar</button>
-                        <button class="btn btn-danger mt-0" (click)="recusaDevolucao()">Recusar</button>                  
-                        <div class="form-group py-2">
+                        <button *ngIf="currentChecklistDevolucao.ok_locador.toLowerCase() !== 'true'" class="btn btn-success mt-0 mr-2" (click)="aceitaDevolucao()">Confirmar</button>
+                        <button *ngIf="currentChecklistDevolucao.ok_locador.toLowerCase() !== 'true'" class="btn btn-danger mt-0" (click)="recusaDevolucao()">Recusar</button>                  
+                        <div *ngIf="currentChecklistDevolucao.ok_locador.toLowerCase() !== 'true'" class="form-group py-2">
                           <label class="font-weight-medium">Motivo para a recusa</label>
                           <textarea formControlName="motivo_recusa" class="form-control " rows="2"></textarea>                    
                         </div>

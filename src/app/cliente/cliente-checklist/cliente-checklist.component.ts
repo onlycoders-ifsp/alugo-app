@@ -39,8 +39,7 @@ export class ClienteChecklistComponent implements OnInit {
       this.auth.encerraSessao();
     }
 
-    //this.idCurrentAluguel = localStorage.getItem("idAluguel");
-    this.idCurrentAluguel = "89f29f52-66ec-40a5-b681-691fe8775585"
+    this.idCurrentAluguel = localStorage.getItem("idAluguel");
     this.loadCurrentChecklistEntrega();
     this.createForm();
   }
@@ -57,10 +56,7 @@ export class ClienteChecklistComponent implements OnInit {
   }
 
   aceitaDevolucao(){
-    console.log(true)
     const formCadValues = this.formularioChecklistDevolucao.value
-    console.log(formCadValues.motivo_recusa)
-    console.log(this.idCurrentAluguel)
     this.aluguelService.putChecklistDevolucao(this.idCurrentAluguel,formCadValues.motivo_recusa,"true").subscribe(resposta => {
       console.log(resposta)
       this.router.navigate(["cliente/perfil/alugueis-locatario"])
@@ -71,11 +67,8 @@ export class ClienteChecklistComponent implements OnInit {
   }  
 
   recusaDevolucao(){
-    console.log(false)
     const formCadValues = this.formularioChecklistDevolucao.value
-    console.log(formCadValues.motivo_recusa)
-    console.log(this.idCurrentAluguel)   
-    this.aluguelService.putChecklistDevolucao(this.idCurrentAluguel,formCadValues.motivo_recusa,"true").subscribe(resposta => {
+    this.aluguelService.putChecklistDevolucao(this.idCurrentAluguel,formCadValues.motivo_recusa,"false").subscribe(resposta => {
       console.log(resposta)
       this.router.navigate(["cliente/perfil/alugueis-locatario"])
       errorResponse => {
@@ -85,10 +78,7 @@ export class ClienteChecklistComponent implements OnInit {
   }
 
   aceitaEntrega(){
-    console.log(true)
     const formCadValues = this.formularioChecklistEntrega.value
-    console.log(formCadValues.motivo_recusa)
-    console.log(this.idCurrentAluguel)
     this.aluguelService.putChecklistEntrega(this.idCurrentAluguel,formCadValues.motivo_recusa,"true").subscribe(resposta => {
       console.log(resposta)
       this.router.navigate(["cliente/perfil/alugueis-locatario"])
@@ -99,11 +89,8 @@ export class ClienteChecklistComponent implements OnInit {
   }  
 
   recusaEntrega(){
-    console.log(false)
     const formCadValues = this.formularioChecklistEntrega.value
-    console.log(formCadValues.motivo_recusa)
-    console.log(this.idCurrentAluguel)   
-    this.aluguelService.putChecklistEntrega(this.idCurrentAluguel,formCadValues.motivo_recusa,"true").subscribe(resposta => {
+    this.aluguelService.putChecklistEntrega(this.idCurrentAluguel,formCadValues.motivo_recusa,"false").subscribe(resposta => {
       console.log(resposta)
       this.router.navigate(["cliente/perfil/alugueis-locatario"])
       errorResponse => {

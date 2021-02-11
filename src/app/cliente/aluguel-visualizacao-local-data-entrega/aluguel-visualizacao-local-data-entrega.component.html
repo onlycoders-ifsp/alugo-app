@@ -102,13 +102,13 @@
    
        <form [formGroup]="formularioConfirmacao">
         <div class="form-group py-2">
-            <label class="font-weight-medium">Observação sobre o endereço e data hora de entrega e devolução</label>
+            <label class="font-weight-medium">Observação para recusa do endereço, data e hora de entrega e devolução</label>
             <textarea formControlName="observacao" class="form-control" rows="3"></textarea>
         </div>
         <div class="row">
             <div class="col-sm-12 text-center">
-                <button class="btn btn-primary" (click)="inputaLocais(true)" type="submit"><i class="fa fa-edit font-size-lg mr-2"></i>Confirmar locais e horários</button>
-                <button class="btn btn-danger" (click)="inputaLocais(false)" type="submit"><i class="fa fa-edit font-size-lg mr-2"></i>Recusar locais e horários</button>
+                <button class="btn btn-primary" (click)="inputaLocais('true')" type="submit"><i class="fa fa-edit font-size-lg mr-2"></i>Confirmar locais e horários</button>
+                <button class="btn btn-danger" (click)="inputaLocais('false')" type="submit"><i class="fa fa-edit font-size-lg mr-2"></i>Recusar locais e horários</button>
             </div>
         </div>
        </form>
