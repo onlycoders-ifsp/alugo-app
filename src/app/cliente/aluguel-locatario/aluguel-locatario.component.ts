@@ -132,6 +132,12 @@ export class AluguelLocatarioComponent implements OnInit {
     this.router.navigate(['cliente/perfil/avaliacao-locatario']);
   }
 
+  confirmarChecklists(idAluguel: string){
+    console.log(idAluguel)
+    localStorage.setItem("idAluguel", idAluguel)
+    this.router.navigate(['cliente/perfil/checklist-entrega']);
+  }
+
 }
 
 
