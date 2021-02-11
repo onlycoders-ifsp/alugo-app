@@ -108,9 +108,9 @@ export class AluguelService {
   putConfirmacaoEntregaDevolucao(id_aluguel: string, motivoRecusa: string, OK:string) : Observable<boolean> {
     let params = new HttpParams();
     params = params.append('id_aluguel',id_aluguel);
-    params = params.append('motivoRecusa',motivoRecusa);
+    params = params.append('motivo',motivoRecusa);
     params = params.append('ok',OK);
-    return this.http.put<boolean>(environment.apiBaseUrl + environment.putConfirmacaoEntregaDevolucao,{params});
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.putConfirmacaoEntregaDevolucao,{params});
   }
 
 //   getListAluguelLocador() : Observable<eAluguel[]> {

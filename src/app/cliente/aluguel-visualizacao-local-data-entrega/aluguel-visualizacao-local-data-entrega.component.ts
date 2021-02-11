@@ -125,9 +125,9 @@ export class AluguelVisualizacaoLocalDataEntregaComponent implements OnInit {
 
   inputaLocais(escolha: string) {
     const formCadValues = this.formularioConfirmacao.value
-    this.aluguelService.putChecklistEntrega(this.idCurrentAluguel,formCadValues.observacao,escolha).subscribe(resposta => {
+    this.aluguelService.putConfirmacaoEntregaDevolucao(this.idCurrentAluguel,formCadValues.observacao,escolha).subscribe(resposta => {
       console.log(resposta)
-      this.router.navigate(["cliente/perfil/alugueis-locatario"])
+      this.router.navigate(["cliente/perfil/alugueis-locador"])
       errorResponse => {
         console.log(errorResponse)
       }
@@ -144,10 +144,10 @@ export class AluguelVisualizacaoLocalDataEntregaComponent implements OnInit {
     this.aluguelService.getEntregaDevolucao(this.idCurrentAluguel).subscribe(resposta => {
       this.currententregaDevolucao = resposta;
 
-      let dataFormatadaEntrega = this.datepipe.transform(this.currententregaDevolucao.data_entrega, 'MM-dd-yyyy');
+      let dataFormatadaEntrega = this.datepipe.transform(this.currententregaDevolucao.data_entrega, 'yyyy-MM-dd hh:mm:ss.000000');
       let dateEntrega: Date = new Date(dataFormatadaEntrega);
       
-      let dataFormatadaDevolucao = this.datepipe.transform(this.currententregaDevolucao.data_devolucao, 'MM-dd-yyyy');
+      let dataFormatadaDevolucao = this.datepipe.transform(this.currententregaDevolucao.data_devolucao, 'yyyy-MM-dd hh:mm:ss.000000');
       let dateDevolucao: Date = new Date(dataFormatadaDevolucao);
 
       this.formularioLocais.patchValue({
