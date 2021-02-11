@@ -10,6 +10,7 @@ import { eEntregaDevolucao } from '../entidades/eEntregaDevolucao';
 import { eConfirmaEntregaDevolucao } from '../entidades/eConfirmaEntregaDevolucao';
 import { eAvaliacao } from '../entidades/eAvaliacao';
 import { eAvaliacaoRetorno } from '../entidades/eAvaliacaoRetorno';
+import { param } from 'jquery';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,14 @@ export class AluguelService {
 
   cadNewAluguel(aluguel: eCadAluguel) : Observable<string>{
     return this.http.post<string>(environment.apiBaseUrl + environment.postCadAluguel, aluguel);
+  }
+
+  updateAluguelUrl(id_aluguel: string, url: string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('id_aluguel', id_aluguel);
+    params = params.append('url_pagamento', url);
+    console.log(params);
+    return this.http.put<boolean>(environment.apiBaseUrl + environment.putUrlAluguel,{params});
   }
 
   cadNewEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<boolean>{
