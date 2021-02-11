@@ -7,6 +7,7 @@ export const environment = {
   obterToken: "/oauth/token",
   cepUrl: "https://viacep.com.br/ws",
   login: "/login",
+  notificationML:'',
 
 
   //ENDPOINTS DE PRODUTO
@@ -27,7 +28,7 @@ export const environment = {
   putAlteraUsuario: "/usuarios/altera-dados",
   putAlteraSenha: "/usuarios/altera-senha",
   postCadUsuario: "/usuarios/cadastro",
- 
+  getAtivaUsuario: "/usuarios/verficacao-email",
   getDadosUsuario: "/usuarios/usuario",
   getUserLogado: "/usuarios/usuario-logado",
   putFotoUsuario: "/usuarios/upload-foto",
@@ -51,6 +52,7 @@ export const environment = {
   postCadAvaliacaoLocador: "/aluguel/avaliacao/grava/locador",
   postCadAvaliacaoProduto: "/aluguel/avaliacao/grava/produto",
   getAvaliacoesProduto: "/aluguel/avaliacao/retorna/produto",
+  putUrlAluguel:'/aluguel/pagamento/url-pagamento',
   getChecklistEntrega: "/aluguel/checklist/retorna-entrega",
   getChecklistDevolucao: "/aluguel/checklist/retorna-devolucao",
   putConfirmChecklistEntrega: "/aluguel/checklist/aceite-entrega",
@@ -62,14 +64,17 @@ export const environment = {
   getLogsDeErros: "/admin/log-erros",
   getProdutosNaoPublicados: "/admin/publicar-produtos",
 
-    //ENDPOINTS MERCADO LIVRE
-    mlBaseUrl:'https://api.mercadopago.com',
-    mlToken:'TEST-3839591210769699-020717-920ee176862d215166e271d66e8432f7-132870722',
-    mlCriaPreferencia:'/checkout/preferences',
-  
-    //URLS DE REDIRECIONAMENTO
-    redirectBase:'https://hml-alugo-app.herokuapp.com', // 'http://localhost:4200' 'https://hml-alugo-app.herokuapp.com'
-    redirectSucesso:'/cliente/perfil/alugueis-locatario',
-    redirectErro:'',
-    redirectPendente:''
+
+  //ENDPOINTS MERCADO LIVRE
+  mlBaseUrl:'https://api.mercadopago.com',
+  mlToken:'TEST-3839591210769699-020717-920ee176862d215166e271d66e8432f7-132870722',
+  mlCriaPreferencia:'/checkout/preferences',
+
+  //URLS DE REDIRECIONAMENTO
+  redirectBase:'', // 'http://localhost:4200/' 'https://hml-alugo-app.herokuapp.com/'
+  redirectSucesso:'',
+  redirectErro:'',
+  redirectPendente:''
+
+    
 };
