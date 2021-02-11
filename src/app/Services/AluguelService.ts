@@ -10,7 +10,7 @@ import { eEntregaDevolucao } from '../entidades/eEntregaDevolucao';
 import { eConfirmaEntregaDevolucao } from '../entidades/eConfirmaEntregaDevolucao';
 import { eAvaliacao } from '../entidades/eAvaliacao';
 import { eAvaliacaoRetorno } from '../entidades/eAvaliacaoRetorno';
-import { param } from 'jquery';
+import { eChecklist } from '../entidades/eChecklist';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,13 @@ export class AluguelService {
 
 
   constructor( private http: HttpClient ) { }
+  
+  getChecklistEntrega(page:number,size:number) : Observable<eAluguel[]> {
+    let params = new HttpParams();
+    params = params.append('page',String(page));
+    params = params.append('size',String(size));
+    return this.http.get<eAluguel[]>(environment.apiBaseUrl + environment.getListAluguelLocador,{params});
+  }
   
   getListAluguelLocador(page:number,size:number) : Observable<eAluguel[]> {
     let params = new HttpParams();
@@ -77,6 +84,7 @@ export class AluguelService {
   getListAvaliacoesProduto(idProduto: string) : Observable<eAvaliacaoRetorno[]> {
     let params = new HttpParams();
     params = params.append('id_produto',idProduto);
+    console.log(environment.apiBaseUrl + environment.getAvaliacoesProduto,{params})
     return this.http.get<eAvaliacaoRetorno[]>(environment.apiBaseUrl + environment.getAvaliacoesProduto,{params});
   }
   

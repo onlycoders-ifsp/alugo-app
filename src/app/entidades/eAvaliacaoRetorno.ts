@@ -1,5 +1,5 @@
 export class eAvaliacaoRetorno{
     nome_avaliador: string;
-    nota: number;
+    nota: string;
     comentario: string;
 }
