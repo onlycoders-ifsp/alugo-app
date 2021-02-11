@@ -59,41 +59,42 @@ export class AluguelVisualizacaoLocalDataEntregaComponent implements OnInit {
     this.createForm();
 
     this.idCurrentAluguel = localStorage.getItem("idAluguel");
+    console.log(this.idCurrentAluguel)
 
     this.loadCurrentEntregaDevolucao();
   }
   
-  loadFormToCadOrUpdate(escolha: boolean) {    
-    const formCadValues = this.formularioConfirmacao.value;
-    if(escolha){
-      this.confirmacaoEntregaDevolucaoAlterado.aceite = escolha;
-      this.confirmacaoEntregaDevolucaoAlterado.observacao_recusa = "";
-    }
-    else{
-      this.confirmacaoEntregaDevolucaoAlterado.aceite = escolha;
-      this.confirmacaoEntregaDevolucaoAlterado.observacao_recusa = formCadValues.observacao;
-    }
+  // loadFormToCadOrUpdate(escolha: boolean) {    
+  //   const formCadValues = this.formularioConfirmacao.value;
+  //   if(escolha){
+  //     this.confirmacaoEntregaDevolucaoAlterado.aceite = escolha;
+  //     this.confirmacaoEntregaDevolucaoAlterado.observacao_recusa = "";
+  //   }
+  //   else{
+  //     this.confirmacaoEntregaDevolucaoAlterado.aceite = escolha;
+  //     this.confirmacaoEntregaDevolucaoAlterado.observacao_recusa = formCadValues.observacao;
+  //   }
 
-    this.updateConfirmacaoEntregaDevolucao();
+  //   this.updateConfirmacaoEntregaDevolucao();
     
-  }
+  // }
 
-  updateConfirmacaoEntregaDevolucao() {
-    this.confirmacaoEntregaDevolucaoAlterado.id_aluguel = this.idCurrentAluguel;
-    this.aluguelService.putConfirmacaoEntregaDevolucao(this.confirmacaoEntregaDevolucaoAlterado).subscribe(response => {
-      if(response){
-        this.mensagemSucesso = "AtualizadoSucesso";
-        this.mensagemErro = null;
-      localStorage.removeItem("idAluguel");
-      this.router.navigate(["cliente/perfil/alugueis-locador"])
-      }else{
-        this.mensagemErro = "AtualizadoErro";
-      }
-    }, errorResponse => {
-      this.mensagemSucesso = null,
-        this.mensagemErro = "AtualizadoErro";
-    });
-  }
+  // updateConfirmacaoEntregaDevolucao() {
+  //   this.confirmacaoEntregaDevolucaoAlterado.id_aluguel = this.idCurrentAluguel;
+  //   this.aluguelService.putConfirmacaoEntregaDevolucao(this.confirmacaoEntregaDevolucaoAlterado).subscribe(response => {
+  //     if(response){
+  //       this.mensagemSucesso = "AtualizadoSucesso";
+  //       this.mensagemErro = null;
+  //     localStorage.removeItem("idAluguel");
+  //     this.router.navigate(["cliente/perfil/alugueis-locador"])
+  //     }else{
+  //       this.mensagemErro = "AtualizadoErro";
+  //     }
+  //   }, errorResponse => {
+  //     this.mensagemSucesso = null,
+  //       this.mensagemErro = "AtualizadoErro";
+  //   });
+  // }
 
   createForm(){
     this.formularioLocais = this.fb.group({
@@ -122,24 +123,31 @@ export class AluguelVisualizacaoLocalDataEntregaComponent implements OnInit {
     this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
   }  
 
-  inputaLocais(escolha: boolean) {
-
-    if (this.formularioLocais.valid) {
-      this.mensagemErro = null
-      this.loadFormToCadOrUpdate(escolha);      
-    } else {      
-      this.mensagemErro = "formInvalido"
-    }
+  inputaLocais(escolha: string) {
+    const formCadValues = this.formularioConfirmacao.value
+    this.aluguelService.putConfirmacaoEntregaDevolucao(this.idCurrentAluguel,formCadValues.observacao,escolha).subscribe(resposta => {
+      console.log(resposta)
+      this.router.navigate(["cliente/perfil/alugueis-locador"])
+      errorResponse => {
+        console.log(errorResponse)
+      }
+    }); 
+    // if (this.formularioLocais.valid) {
+    //   this.mensagemErro = null
+    //   this.loadFormToCadOrUpdate(escolha);      
+    // } else {      
+    //   this.mensagemErro = "formInvalido"
+    // }
   }
 
   loadCurrentEntregaDevolucao() {
     this.aluguelService.getEntregaDevolucao(this.idCurrentAluguel).subscribe(resposta => {
       this.currententregaDevolucao = resposta;
 
-      let dataFormatadaEntrega = this.datepipe.transform(this.currententregaDevolucao.data_entrega, 'MM-dd-yyyy');
+      let dataFormatadaEntrega = this.datepipe.transform(this.currententregaDevolucao.data_entrega, 'yyyy-MM-dd hh:mm:ss.000000');
       let dateEntrega: Date = new Date(dataFormatadaEntrega);
       
-      let dataFormatadaDevolucao = this.datepipe.transform(this.currententregaDevolucao.data_devolucao, 'MM-dd-yyyy');
+      let dataFormatadaDevolucao = this.datepipe.transform(this.currententregaDevolucao.data_devolucao, 'yyyy-MM-dd hh:mm:ss.000000');
       let dateDevolucao: Date = new Date(dataFormatadaDevolucao);
 
       this.formularioLocais.patchValue({

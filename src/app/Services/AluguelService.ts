@@ -20,11 +20,32 @@ export class AluguelService {
 
   constructor( private http: HttpClient ) { }
   
-  getChecklistEntrega(page:number,size:number) : Observable<eAluguel[]> {
+  putChecklistEntrega(id_aluguel: string, motivoRecusa: string, OK:string) : Observable<boolean> {
     let params = new HttpParams();
-    params = params.append('page',String(page));
-    params = params.append('size',String(size));
-    return this.http.get<eAluguel[]>(environment.apiBaseUrl + environment.getListAluguelLocador,{params});
+    params = params.append('id_aluguel',id_aluguel);
+    params = params.append('motivoRecusa',motivoRecusa);
+    params = params.append('ok',OK);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.putConfirmChecklistEntrega,{params});
+  }
+  
+  putChecklistDevolucao(id_aluguel: string, motivoRecusa: string, OK:string) : Observable<boolean> {
+    let params = new HttpParams();
+    params = params.append('id_aluguel',id_aluguel);
+    params = params.append('motivoRecusa',motivoRecusa);
+    params = params.append('ok',OK);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.putConfirmChecklistDevolucao,{params});
+  }
+  
+  getChecklistEntrega(id_aluguel: string) : Observable<eChecklist> {
+    let params = new HttpParams();
+    params = params.append('idAluguel',id_aluguel);
+    return this.http.get<eChecklist>(environment.apiBaseUrl + environment.getChecklistEntrega,{params});
+  }
+  
+  getChecklistDevolucao(id_aluguel: string) : Observable<eChecklist> {
+    let params = new HttpParams();
+    params = params.append('idAluguel',id_aluguel);
+    return this.http.get<eChecklist>(environment.apiBaseUrl + environment.getChecklistDevolucao,{params});
   }
   
   getListAluguelLocador(page:number,size:number) : Observable<eAluguel[]> {
@@ -92,8 +113,12 @@ export class AluguelService {
     return this.http.put<boolean>(environment.apiBaseUrl + environment.putEntregaDevolucao,EntregaDevolucao);
   }
   
-  putConfirmacaoEntregaDevolucao(eConfirmaEntregaDevolucao: eConfirmaEntregaDevolucao) : Observable<boolean> {
-    return this.http.put<boolean>(environment.apiBaseUrl + environment.putConfirmacaoEntregaDevolucao,eConfirmaEntregaDevolucao);
+  putConfirmacaoEntregaDevolucao(id_aluguel: string, motivoRecusa: string, OK:string) : Observable<boolean> {
+    let params = new HttpParams();
+    params = params.append('id_aluguel',id_aluguel);
+    params = params.append('motivo',motivoRecusa);
+    params = params.append('ok',OK);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.putConfirmacaoEntregaDevolucao,{params});
   }
 
 //   getListAluguelLocador() : Observable<eAluguel[]> {
