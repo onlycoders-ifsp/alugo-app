@@ -16,6 +16,8 @@ import { ePreferenciaML } from 'src/app/entidades/ePreferenciaML';
 import { environment } from 'src/environments/environment';
 import { eItemML } from 'src/app/entidades/eItemML';
 import { eBack_urls } from 'src/app/entidades/eBack_urls';
+import { ePayerML } from 'src/app/entidades/ePayerML';
+import { ePayerIdentificationML } from 'src/app/entidades/ePayerIdentificationML';
 
 @Component({
   selector: 'app-realiza-aluguel',
@@ -33,6 +35,8 @@ export class RealizaAluguelComponent implements OnInit {
   public preferenciaML: ePreferenciaML = new ePreferenciaML();
   public itemML:eItemML = new eItemML();
   public backUrl:eBack_urls = new eBack_urls();
+  public payer:ePayerML = new ePayerML();
+  public payerIdentification:ePayerIdentificationML = new ePayerIdentificationML();
   public novoAluguelCad: string = '';
   
 
@@ -224,7 +228,10 @@ export class RealizaAluguelComponent implements OnInit {
     }
   }
 
+  //carrega a requisição
   loadPreferenciaML(){
+
+    //atributos da compra
     this.preferenciaML.auto_return = '';
     this.preferenciaML.expiration_date_from = '2021-02-01T12:00:00.000-04:00';
     this.preferenciaML.expiration_date_to = '2022-02-01T12:00:00.000-04:00';
@@ -232,10 +239,14 @@ export class RealizaAluguelComponent implements OnInit {
     this.preferenciaML.external_reference = this.novoAluguelCad;
     this.preferenciaML.notification_url = environment.apiBaseUrl + environment.notificationML;
     this.preferenciaML.statement_descriptor = 'aluGO';
-    this.backUrl.failure = environment.redirectBase + environment.redirectErro;
-    this.backUrl.pending = environment.redirectBase + environment.redirectPendente;
-    this.backUrl.success = environment.redirectBase + environment.redirectSucesso;
-    this.preferenciaML.back_urls = this.backUrl;
+
+    //atributos de url de redirecionamento
+    this.preferenciaML.back_urls = new eBack_urls();
+    this.preferenciaML.back_urls.failure = environment.redirectBase + environment.redirectErro;
+    this.preferenciaML.back_urls.pending = environment.redirectBase + environment.redirectPendente;
+    this.preferenciaML.back_urls.success = environment.redirectBase + environment.redirectSucesso;
+
+    //atributos do produto
     this.preferenciaML.items = [];
     this.itemML.quantity = 1;
     this.itemML.title = this.currentProduto.nome;
@@ -243,7 +254,17 @@ export class RealizaAluguelComponent implements OnInit {
     this.itemML.currency_id = 'BRL';
     this.itemML.description = this.currentProduto.descricao;
     this.itemML.picture_url = 'https://www.kindpng.com/picc/m/9-94516_your-online-store-is-automatically-optimised-png-online.png';
-    this.preferenciaML.items.push(this.itemML)
+    this.preferenciaML.items.push(this.itemML);
+
+    //atributos do comprador
+    this.preferenciaML.payer = new ePayerML();
+    this.preferenciaML.payer.name = this.currentLogado.nome;
+    //utilizo o sobrenome como id de usuário para pesquisas
+    this.preferenciaML.payer.surname = this.currentLogado.id_usuario;
+    this.preferenciaML.payer.email = this.currentLogado.email;
+    this.preferenciaML.payer.identification = new ePayerIdentificationML();
+    this.preferenciaML.payer.identification.type = 'CPF';
+    this.preferenciaML.payer.identification.number = this.currentLogado.cpf;
   }
 
   registraPreferenciaML(){

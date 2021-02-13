@@ -56,11 +56,15 @@ export const environment = {
   postCadAvaliacaoLocador: "/aluguel/avaliacao/grava/locador",
   postCadAvaliacaoProduto: "/aluguel/avaliacao/grava/produto",
   getAvaliacoesProduto: "/aluguel/avaliacao/retorna/produto",
-  putUrlAluguel:'/aluguel/pagamento/url-pagamento',
+  
   getChecklistEntrega: "/aluguel/checklist/retorna-entrega",
   getChecklistDevolucao: "/aluguel/checklist/retorna-devolucao",
   putConfirmChecklistEntrega: "/aluguel/checklist/aceite-entrega",
   putConfirmChecklistDevolucao: "/aluguel/checklist/aceite-devolucao",
+
+  //ENDPOINTS PAGAMENTO
+  putUrlpagamentoAluguel:'/pagamento/url-pagamento',
+  putEfetuaPagamento:'/pagamento/efetua',
 
   //ENDPOINTS ADMIN
   getListaUsuarios: "/admin/lista-usuario",
