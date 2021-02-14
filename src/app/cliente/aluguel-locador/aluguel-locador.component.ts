@@ -127,6 +127,16 @@ export class AluguelLocadorComponent implements OnInit {
     this.router.navigate(['cliente/perfil/avaliacao-locador']);
   }
 
+  confirmaAluguel(idAluguel: string, aceite: boolean){
+    this.aluguelService.aceitaRecusaAluguel(idAluguel, aceite).subscribe(resposta => {
+      this.ngOnInit();
+      errorResponse => {
+        console.log(errorResponse)
+      }
+    });
+    
+  }
+
 }
 
 

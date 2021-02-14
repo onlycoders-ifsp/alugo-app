@@ -6,6 +6,7 @@ import { AluguelService } from 'src/app/Services/AluguelService';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { AuthService } from 'src/app/Services/auth.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 declare function pagar(): any;
 
@@ -32,6 +33,7 @@ export class AluguelLocatarioComponent implements OnInit {
   public firstPage: boolean;
   public lastPage: boolean;
   public total: number = 0;
+  urlSafe: string;
 
 
   
@@ -41,7 +43,8 @@ export class AluguelLocatarioComponent implements OnInit {
     private idiService: idiomaService,
     private aluguelService: AluguelService,
     private AuthService: AuthService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public sanitizer: DomSanitizer
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
@@ -66,11 +69,16 @@ export class AluguelLocatarioComponent implements OnInit {
   }
 
   openDialogPagamento(aluguelSelecionado:eAluguel) {
+    const url = this.sanitizer.bypassSecurityTrustResourceUrl(aluguelSelecionado.url_pagamento);
+    console.log(url);
     const dialogRef = this.dialog.open(DialogAluguelPagamento,{
       data:{
-        urlPagamento:aluguelSelecionado.url_pagamento,
+        idAluguel:aluguelSelecionado.id_aluguel,
+        urlPagamento:url,
       },  closeOnNavigation: true
     });
+
+    
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -138,7 +146,11 @@ export class AluguelLocatarioComponent implements OnInit {
     this.router.navigate(['cliente/perfil/checklist-entrega']);
   }
 
+  
+
 }
+
+
 
 
 

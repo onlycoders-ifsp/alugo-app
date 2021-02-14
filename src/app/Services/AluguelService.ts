@@ -83,7 +83,7 @@ export class AluguelService {
     params = params.append('id_aluguel', id_aluguel);
     params = params.append('url_pagamento', url);
     console.log(params);
-    return this.http.get<boolean>(environment.apiBaseUrl + environment.putUrlAluguel,{params});
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.putUrlpagamentoAluguel,{params});
   }
 
   cadNewEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<boolean>{
@@ -107,6 +107,13 @@ export class AluguelService {
     params = params.append('id_produto',idProduto);
     console.log(environment.apiBaseUrl + environment.getAvaliacoesProduto,{params})
     return this.http.get<eAvaliacaoRetorno[]>(environment.apiBaseUrl + environment.getAvaliacoesProduto,{params});
+  }
+
+  aceitaRecusaAluguel(idAluguel: string, aceite: boolean) : Observable<boolean> {
+    let params = new HttpParams();
+    params = params.append('id_aluguel',idAluguel);
+    params = params.append("ok", aceite.toString());
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.aceiteRecusadoAluguel,{params});
   }
   
   putEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<boolean> {

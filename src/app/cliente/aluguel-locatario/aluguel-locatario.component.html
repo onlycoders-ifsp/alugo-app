@@ -82,8 +82,11 @@
                 <div *ngSwitchCase="7">
                   <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
                     data-original-title="Status do Aluguel">Aguardando pagamento##</button>
-                    <button (click)="openDialogPagamento(item)" class="btn bg-faded-success btn-icon mr-2" type="button" data-toggle="tooltip" title="Pagar o Aluguel"><i
-                      class="fa fa-money-check-alt text-success"></i></button>
+                    <!-- <button (click)="openDialogPagamento(item)" class="btn bg-faded-success btn-icon mr-2" type="button" data-toggle="tooltip" title="Pagar o Aluguel"><i
+                      class="fa fa-money-check-alt text-success"></i></button> -->
+                      <a href="{{item.url_pagamento}}" target="_blank" class="btn bg-faded-success btn-icon mr-2" data-toggle="tooltip" title="Pagar o Aluguel"><i
+                        class="fa fa-money-check-alt text-success"></i></a>
+
                 </div>
               
                 <div *ngSwitchCase="8">
