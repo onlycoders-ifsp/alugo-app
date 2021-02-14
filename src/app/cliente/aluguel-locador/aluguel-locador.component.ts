@@ -127,6 +127,12 @@ export class AluguelLocadorComponent implements OnInit {
     this.router.navigate(['cliente/perfil/avaliacao-locador']);
   }
 
+  checklist(Aluguel: eAluguel, tipo:string){
+    localStorage.setItem("idAluguel", Aluguel.id_aluguel)
+    localStorage.setItem("tipocheck", tipo)
+    this.router.navigate(['cliente/perfil/checklist-cadastro']);
+  }
+
 }
 
 

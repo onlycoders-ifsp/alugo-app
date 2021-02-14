@@ -12,6 +12,7 @@ import { ClienteProdutoComponent } from './cliente-produto/cliente-produto.compo
 import { ListaProdutosComponent } from './lista-produtos/lista-produtos.component';
 import { ClienteProdutoAluguelComponent } from './cliente-produto-aluguel/cliente-produto-aluguel.component';
 import { ClienteChecklistComponent } from './cliente-checklist/cliente-checklist.component';
+import { ClienteChecklistCadastroComponent } from './cliente-checklist-cadastro/cliente-checklist-cadastro.component';
 import { AluguelLocalDataEntregaComponent } from './aluguel-local-data-entrega/aluguel-local-data-entrega.component';
 import { AluguelVisualizacaoLocalDataEntregaComponent } from './aluguel-visualizacao-local-data-entrega/aluguel-visualizacao-local-data-entrega.component';
 import { AvaliacaoLocadorComponent } from './avaliacao-locador/avaliacao-locador.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
       { path: 'avaliacao-locatario', component: AvaliacaoLocatarioComponent },
       { path: 'produto-aluguel', component: ClienteProdutoAluguelComponent },
       { path: 'checklist-entrega', component: ClienteChecklistComponent },
+      { path: 'checklist-cadastro', component: ClienteChecklistCadastroComponent },
       { path: 'local-entrega', component: AluguelLocalDataEntregaComponent },
       { path: 'visualizacao-local-entrega', component: AluguelVisualizacaoLocalDataEntregaComponent },
       { path: 'produto-aluguel', component: ClienteProdutoAluguelComponent }
