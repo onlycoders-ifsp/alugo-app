@@ -18,6 +18,7 @@ import { eItemML } from 'src/app/entidades/eItemML';
 import { eBack_urls } from 'src/app/entidades/eBack_urls';
 import { ePayerML } from 'src/app/entidades/ePayerML';
 import { ePayerIdentificationML } from 'src/app/entidades/ePayerIdentificationML';
+import { NotificacaoService } from 'src/app/Services/notificacaoService';
 
 @Component({
   selector: 'app-realiza-aluguel',
@@ -64,7 +65,8 @@ export class RealizaAluguelComponent implements OnInit {
     private fb: FormBuilder,
     private aluguelService: AluguelService,
     private datepipe: DatePipe,
-    private mlService: mercadoLivreService
+    private mlService: mercadoLivreService,
+    private notificacaoService: NotificacaoService
   ) { 
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
@@ -287,11 +289,13 @@ export class RealizaAluguelComponent implements OnInit {
     this.aluguelService.updateAluguelUrl(this.novoAluguelCad,url).subscribe(response => {
       this.errorCad = false;
       this.errorAluguelExistente = null;
+      this.notificacaoService.showSuccess("Aluguel efetuado com sucesso!")
       this.router.navigate(["cliente/perfil/alugueis-locatario"]);
     }, errorResponse => {
       console.log(errorResponse)
       this.errorCad = true;
       this.errorAluguelExistente = errorResponse.error.message;
+      this.notificacaoService.showDanger(errorResponse.error.message);
     })
   }
 

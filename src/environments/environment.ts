@@ -56,6 +56,7 @@ export const environment = {
   postCadAvaliacaoLocador: "/aluguel/avaliacao/grava/locador",
   postCadAvaliacaoProduto: "/aluguel/avaliacao/grava/produto",
   getAvaliacoesProduto: "/aluguel/avaliacao/retorna/produto",
+  aceiteRecusadoAluguel: "/aluguel/confirma-aluguel",
   
   getChecklistEntrega: "/aluguel/checklist/retorna-entrega",
   getChecklistDevolucao: "/aluguel/checklist/retorna-devolucao",

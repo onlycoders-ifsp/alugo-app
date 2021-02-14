@@ -146,7 +146,11 @@ export class AluguelLocatarioComponent implements OnInit {
     this.router.navigate(['cliente/perfil/checklist-entrega']);
   }
 
+  
+
 }
+
+
 
 
 
