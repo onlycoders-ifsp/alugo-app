@@ -18,7 +18,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeek, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
 import { RedirectComponent } from './redirect/redirect.component';
-import { ValidaCadastroComponent } from '../portal-alugo/valida-cadastro/valida-cadastro.component';
+import { ValidaCadastroComponent } from '../valida-cadastro/valida-cadastro.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -30,7 +30,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DetalheProdutoComponent,
     RealizaAluguelComponent,
     RedirectComponent,
-    ValidaCadastroComponent,
   ],
   imports: [
     CommonModule,
@@ -62,7 +61,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PaginaNaoExisteComponent,
     DetalheProdutoComponent,
     RealizaAluguelComponent,
-    ValidaCadastroComponent
   ]
 })
 export class PortalAlugoModule { }

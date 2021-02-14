@@ -8,7 +8,6 @@ import { PortalLayoutComponent } from './portal-layout/portal-layout.component';
 import { RealizaAluguelComponent } from './realiza-aluguel/realiza-aluguel.component';
 import { RedirectComponent } from './redirect/redirect.component';
 import { TodosProdutosComponent } from './todos-produtos/todos-produtos.component';
-import { ValidaCadastroComponent } from './valida-cadastro/valida-cadastro.component';
 
 const routes: Routes = [
     {
@@ -18,8 +17,7 @@ const routes: Routes = [
             { path: 'list-all', component: TodosProdutosComponent },
             { path: 'detalhe-produto', component: DetalheProdutoComponent },
             { path: 'redirect', component: RedirectComponent },
-            { path: '404', component: PaginaNaoExisteComponent },
-            { path : 'valida-cadastro',component:ValidaCadastroComponent}
+            { path: '404', component: PaginaNaoExisteComponent }
         ]
     }
 ];
