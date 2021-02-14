@@ -1,5 +1,6 @@
 import { eBack_urls } from "./eBack_urls";
 import { eItemML } from "./eItemML";
+import { ePayerML } from "./ePayerML";
 
 export class ePreferenciaML {
     items:eItemML[];
@@ -11,4 +12,7 @@ export class ePreferenciaML {
     expiration_date_to:string;
     expires:boolean;
     back_urls: eBack_urls;
+
+
+    payer: ePayerML;
 }

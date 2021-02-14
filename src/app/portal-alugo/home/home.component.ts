@@ -5,6 +5,7 @@ import { PortalService } from 'src/app/Services/PortalService';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { AuthService } from 'src/app/Services/auth.service';
+import { NotificacaoService } from 'src/app/Services/notificacaoService';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +27,8 @@ export class HomeComponent implements OnInit {
     private router : Router,
     private portalService: PortalService,
     private idiService: idiomaService,
-    private AuthService: AuthService
+    private AuthService: AuthService,
+    private notificacaoService: NotificacaoService
     ) {   
       this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
@@ -42,12 +44,6 @@ export class HomeComponent implements OnInit {
         console.log(errorResponse)
       });
 
-    // let browserlang = this.translateService.getBrowserLang();
-    // if (this.langs.indexOf(browserlang) > -1) {
-    //   this.translateService.setDefaultLang(browserlang);
-    // } else {
-    //   this.translateService.setDefaultLang('pt-br');
-    // }
     
   }
 

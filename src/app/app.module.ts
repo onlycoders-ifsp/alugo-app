@@ -40,6 +40,8 @@ import { CepService } from './Services/CepService';
 import { ErrorRequestComponent } from './error-request/error-request.component';
 import { errorRequestService } from './Services/errorRequestService';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NotificacaoComponent } from './notificacao/notificacao.component';
+import { NotificacaoService } from './Services/notificacaoService';
 
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
@@ -50,6 +52,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     LoginComponent,
     LoadingComponent,
     ErrorRequestComponent,
+    NotificacaoComponent,
   ],
   imports: [
     ModalModule,
@@ -91,6 +94,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     PortalService,
     AuthService,
     loadingService,
+    NotificacaoService,
     CepService,
     XMLHttpRequest,
     errorRequestService,
