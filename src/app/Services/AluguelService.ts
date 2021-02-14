@@ -21,16 +21,20 @@ export class AluguelService {
 
   constructor( private http: HttpClient ) { }
   
-  cadNewChecklistEntrega(checklist: eChecklistCad, foto:string) : Observable<any>{
-    let params = new HttpParams();
-    params = params.append('foto',foto);
-    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadChecklistEntrega, checklist,{params})
+  cadNewChecklistEntrega(checklist: eChecklistCad) : Observable<boolean>{
+    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadChecklistEntrega, checklist)
   }
   
-  cadNewChecklistDevolucao(checklist: eChecklistCad, foto:string) : Observable<any>{
-    let params = new HttpParams();
-    params = params.append('foto',foto);
-    return this.http.put<boolean>(environment.apiBaseUrl + environment.postCadChecklistDevolucao, checklist,{params})
+  cadNewChecklistDevolucao(checklist: eChecklistCad) : Observable<boolean>{
+    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadChecklistDevolucao, checklist)
+  }
+  
+  upFotoChecklistEntrega(formData: FormData) : Observable<any>{
+    return this.http.put<boolean>(environment.apiBaseUrl + environment.putfotoChecklistEntrega, formData)
+  }
+  
+  upFotoChecklistDevolucao(formData: FormData) : Observable<any>{
+    return this.http.put<boolean>(environment.apiBaseUrl + environment.putfotoChecklistDevolucao, formData)
   }
   
   putChecklistEntrega(id_aluguel: string, motivoRecusa: string, OK:string) : Observable<boolean> {

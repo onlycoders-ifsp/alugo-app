@@ -63,6 +63,8 @@ export const environment = {
   putConfirmChecklistDevolucao: "/aluguel/checklist/aceite-devolucao",
   postCadChecklistEntrega: "/aluguel/checklist/salva-entrega",
   postCadChecklistDevolucao: "/aluguel/checklist/salva-devolucao",
+  putfotoChecklistEntrega: "/aluguel/checklist/salva-foto-entrega",
+  putfotoChecklistDevolucao: "/aluguel/checklist/salva-foto-devolucao",
 
   //ENDPOINTS ADMIN
   getListaUsuarios: "/admin/lista-usuario",

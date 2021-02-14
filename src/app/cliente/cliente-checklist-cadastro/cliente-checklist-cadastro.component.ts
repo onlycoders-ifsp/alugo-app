@@ -151,13 +151,26 @@ export class ClienteChecklistCadastroComponent implements OnInit {
   }
 
   cadCheckEntrega(){
+    this.aluguelService.cadNewChecklistEntrega(this.checkEntregaAlterado).subscribe(response => {      
+      console.log(response)
+
+      this.upfotoEntrega()
+    }, errorResponse => {
+      
+      console.log(errorResponse)
+    })
+
+
+  }
+
+  upfotoEntrega(){
     const files = this.fileAtualEntrega;
     if(files){
       const foto = files[0];
       const formData: FormData = new FormData();
       formData.append("foto", foto);
-      console.log(this.checkEntregaAlterado)
-      this.aluguelService.cadNewChecklistEntrega(this.checkEntregaAlterado,foto).subscribe(response => {
+      formData.append("id_aluguel", this.checkEntregaAlterado.id_aluguel);
+      this.aluguelService.upFotoChecklistEntrega(formData).subscribe(response => {
         
         console.log(response)
         this.router.navigate(["cliente/perfil/alugueis-locador"])
@@ -166,15 +179,7 @@ export class ClienteChecklistCadastroComponent implements OnInit {
         console.log(errorResponse)
       })
     }else{
-      console.log(this.checkEntregaAlterado)
-      this.aluguelService.cadNewChecklistEntrega(this.checkEntregaAlterado,null).subscribe(response => {
-        
-        console.log(response)
-        this.router.navigate(["cliente/perfil/alugueis-locador"])
-      }, errorResponse => {
-        
-        console.log(errorResponse)
-      })
+      this.router.navigate(["cliente/perfil/alugueis-locador"])
     }
 
   }
@@ -200,12 +205,26 @@ export class ClienteChecklistCadastroComponent implements OnInit {
   }
 
   cadCheckDevolucao(){
+    this.aluguelService.cadNewChecklistDevolucao(this.checkDevolucaoAlterado).subscribe(response => {      
+      console.log(response)
+
+      this.upfotoDevolucao()
+    }, errorResponse => {
+      
+      console.log(errorResponse)
+    })
+
+
+  }
+
+  upfotoDevolucao(){
     const files = this.fileAtualDevolucao;
     if(files){
       const foto = files[0];
       const formData: FormData = new FormData();
       formData.append("foto", foto);
-      this.aluguelService.cadNewChecklistDevolucao(this.checkEntregaAlterado,foto).subscribe(response => {
+      formData.append("id_aluguel", this.checkDevolucaoAlterado.id_aluguel);
+      this.aluguelService.upFotoChecklistDevolucao(formData).subscribe(response => {
         
         console.log(response)
         this.router.navigate(["cliente/perfil/alugueis-locador"])
@@ -214,14 +233,7 @@ export class ClienteChecklistCadastroComponent implements OnInit {
         console.log(errorResponse)
       })
     }else{
-      this.aluguelService.cadNewChecklistDevolucao(this.checkEntregaAlterado,null).subscribe(response => {
-        
-        console.log(response)
-        this.router.navigate(["cliente/perfil/alugueis-locador"])
-      }, errorResponse => {
-        
-        console.log(errorResponse)
-      })
+      this.router.navigate(["cliente/perfil/alugueis-locador"])
     }
 
   }
