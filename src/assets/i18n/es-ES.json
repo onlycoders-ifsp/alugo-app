@@ -83,6 +83,34 @@
 			"infocontatolocador": "Información de contacto del arrendador",
 			"valorPago": "Cantidad Pagada:"
 		},
+		"cliente-checklist":{
+			"confirmar":"Confirmar",
+			"confirmacaochecklist":"Confirmación de listas de verificación de alquiler",
+			"dicadescricaoEntrega":"Descripción de los artículos que se le entregan.",
+			"dicadescricaoDevolucao":"Descripción de los artículos que devuelve.",
+			"motivoRecusa":"Si se niega, dé una razón para ayudar en el llenado correcto.",
+			"recusar":"Rehusar"
+		},
+		"cliente-checklist-cadastro":{
+			"carregafotoDevolucao":"Cargar foto del producto a la devolución",
+			"carregafotoEntrega":"Cargue la foto del producto en la entrega",
+			"checklist":"Listas de verificación de alquiler",
+			"checklistDevolucao":"Lista de verificación de devolución",
+			"checklistEntrega":"Lista de verificación de entrega",
+			"descricaoDevolucao":"Descripción de devolución",
+			"descricaoEntrega":"Descripción de entrega",
+			"dicadescricaoDevolucao":"descripción de los artículos que se reciben",
+			"dicadescricaoEntrega":"descripción de los artículos que está entregando",
+			"errado":"incorrecto",
+			"infoFornecidasDevolucao":"Información proporcionada sobre la devolución del producto",
+			"infoFornecidasEntrega":"Información proporcionada sobre la entrega del producto",
+			"inserefotoDevolucao":"Inserte una foto del producto a la devolución",
+			"inserefotoEntrega":"Insertar una foto del producto en la entrega",
+			"motivorecusaDevolucao":"Razón de la negativa a devolver la lista de verificación",
+			"motivorecusaEntrega":"Lista de verificación del motivo de la denegación de entrega",
+			"salvarDevolucao":"Guardar lista de verificación de devolución",
+			"salvarEntrega":"Guardar lista de verificación de entrega"
+		},
 		"cliente-credenciais": {
 			"alertaConfirmacaoSenha": "Complete la confirmación de la contraseña.",
 			"alertaSenhaAntiga": "Ingrese la contraseña anterior.",

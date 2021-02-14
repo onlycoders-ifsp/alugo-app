@@ -83,6 +83,34 @@
 			"infocontatolocador": "Renter contact information",
 			"valorPago": "Amount Paid:"
 		},
+		"cliente-checklist":{
+			"confirmar":"Confirm",
+			"confirmacaochecklist":"Confirmation of rental checklists",
+			"dicadescricaoEntrega":"Description of the items being delivered to you.",
+			"dicadescricaoDevolucao":"Description of the items being returned by you.",
+			"motivoRecusa":"If you refuse, give a reason to assist in the correct filling.",
+			"recusar":"Refuse"
+		},
+		"cliente-checklist-cadastro":{
+			"carregafotoDevolucao":"Upload product photo on return",
+			"carregafotoEntrega":"Upload product photo on delivery",
+			"checklist":"Rent checklists",
+			"checklistDevolucao":"Return Checklist",
+			"checklistEntrega":"Delivery checklist",
+			"descricaoDevolucao":"Return description",
+			"descricaoEntrega":"Delivery description",
+			"dicadescricaoDevolucao":"description of the items being received back",
+			"dicadescricaoEntrega":"description of the items you are delivering",
+			"errado":"wrong",
+			"infoFornecidasDevolucao":"Information provided on product return",
+			"infoFornecidasEntrega":"Information provided on product delivery",
+			"inserefotoDevolucao":"Insert a product photo on return",
+			"inserefotoEntrega":"Insert a product photo on delivery",
+			"motivorecusaDevolucao":"Reason for refusal to return checklist",
+			"motivorecusaEntrega":"Reason for refusal delivery checklist",
+			"salvarDevolucao":"Save return checklist",
+			"salvarEntrega":"Save delivery checklist"
+		},
 		"cliente-credenciais": {
 			"alertaConfirmacaoSenha": "Fill in the password confirmation.",
 			"alertaSenhaAntiga": "Enter the old password.",

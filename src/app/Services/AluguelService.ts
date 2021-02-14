@@ -11,6 +11,7 @@ import { eConfirmaEntregaDevolucao } from '../entidades/eConfirmaEntregaDevoluca
 import { eAvaliacao } from '../entidades/eAvaliacao';
 import { eAvaliacaoRetorno } from '../entidades/eAvaliacaoRetorno';
 import { eChecklist } from '../entidades/eChecklist';
+import { eChecklistCad } from '../entidades/eChecklistCad';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,22 @@ export class AluguelService {
 
 
   constructor( private http: HttpClient ) { }
+  
+  cadNewChecklistEntrega(checklist: eChecklistCad) : Observable<boolean>{
+    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadChecklistEntrega, checklist)
+  }
+  
+  cadNewChecklistDevolucao(checklist: eChecklistCad) : Observable<boolean>{
+    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadChecklistDevolucao, checklist)
+  }
+  
+  upFotoChecklistEntrega(formData: FormData) : Observable<any>{
+    return this.http.put<boolean>(environment.apiBaseUrl + environment.putfotoChecklistEntrega, formData)
+  }
+  
+  upFotoChecklistDevolucao(formData: FormData) : Observable<any>{
+    return this.http.put<boolean>(environment.apiBaseUrl + environment.putfotoChecklistDevolucao, formData)
+  }
   
   putChecklistEntrega(id_aluguel: string, motivoRecusa: string, OK:string) : Observable<boolean> {
     let params = new HttpParams();
@@ -101,7 +118,7 @@ export class AluguelService {
   cadNewAvaliacaoProduto(Avaliacao: eAvaliacao) : Observable<boolean>{
     return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadAvaliacaoProduto, Avaliacao)
   }
-  
+
   getListAvaliacoesProduto(idProduto: string) : Observable<eAvaliacaoRetorno[]> {
     let params = new HttpParams();
     params = params.append('id_produto',idProduto);
