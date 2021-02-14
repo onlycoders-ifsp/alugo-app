@@ -101,18 +101,18 @@ export class ClienteChecklistComponent implements OnInit {
   }
 
   loadCurrentChecklistEntrega() {
-    this.aluguelService.getChecklistEntrega(this.idCurrentAluguel).subscribe(resposta => {
-      this.currentChecklistEntrega = resposta;
-      console.log(resposta)
-
-      this.loadCurrentChecklistDevolucao()
+    this.aluguelService.getChecklistEntrega(this.idCurrentAluguel).subscribe(resposta => {  
+    if(resposta){
+      this.currentChecklistEntrega = resposta; 
 
       this.formularioChecklistEntrega.patchValue({
         descricao_curta: this.currentChecklistEntrega.descricao,
         capa_foto: this.currentChecklistEntrega.foto
       })
       this.MotivoEntrega = this.currentChecklistEntrega.motivo_Recusa
+    }    
 
+    this.loadCurrentChecklistDevolucao()
       errorResponse => {
         console.log(errorResponse)
       }
@@ -121,15 +121,16 @@ export class ClienteChecklistComponent implements OnInit {
   }
   
   loadCurrentChecklistDevolucao() {
-    this.aluguelService.getChecklistDevolucao(this.idCurrentAluguel).subscribe(resposta => {
-      this.currentChecklistDevolucao = resposta;
+    this.aluguelService.getChecklistDevolucao(this.idCurrentAluguel).subscribe(resposta => {  
+    if(resposta){
+       this.currentChecklistDevolucao = resposta;
 
       this.formularioChecklistDevolucao.patchValue({
         descricao_curta: this.currentChecklistDevolucao.descricao,
         capa_foto: this.currentChecklistDevolucao.foto
       })
       this.MotivoDevolucao = this.currentChecklistDevolucao.motivo_Recusa
-
+    }
       errorResponse => {
         console.log(errorResponse)
       }

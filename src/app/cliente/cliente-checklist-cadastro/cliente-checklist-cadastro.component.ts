@@ -46,11 +46,10 @@ export class ClienteChecklistCadastroComponent implements OnInit {
       this.auth.encerraSessao();
     }
 
-    // this.idCurrentAluguel = localStorage.getItem("idAluguel");
-    this.idCurrentAluguel = "b62089ac-73a5-474b-b126-1a00d9decbbc"
-    this.tipo = localStorage.getItem("tipo")
     this.createForm();
-    //this.loadCurrentChecklistEntrega();
+    this.idCurrentAluguel = localStorage.getItem("idAluguel");
+    this.tipo = localStorage.getItem("tipo")
+    this.loadCurrentChecklistEntrega();
 
   }
 
@@ -66,37 +65,40 @@ export class ClienteChecklistCadastroComponent implements OnInit {
   }
 
   loadCurrentChecklistEntrega() {
-    console.log("ENTREGA")
+    
     this.aluguelService.getChecklistEntrega(this.idCurrentAluguel).subscribe(resposta => {
-      this.currentChecklistEntrega = resposta;
-      console.log(resposta)
+      if(resposta){
+      this.currentChecklistEntrega = resposta; 
+      
+        this.formularioChecklistEntrega.patchValue({
+          descricao_curta: this.currentChecklistEntrega.descricao,
+          capa_foto: this.currentChecklistEntrega.foto,
+          motivo_recusa: this.currentChecklistEntrega.motivo_Recusa
+        })
+      }
 
       this.loadCurrentChecklistDevolucao()
-
-      console.log(this.currentChecklistEntrega.motivo_Recusa)
-
-      this.formularioChecklistEntrega.patchValue({
-        descricao_curta: this.currentChecklistEntrega.descricao,
-        capa_foto: this.currentChecklistEntrega.foto,
-        motivo_recusa: this.currentChecklistEntrega.motivo_Recusa
-      })
 
       errorResponse => {
         console.log(errorResponse)
       }
     });
+    this.createForm();
   }
   
-  loadCurrentChecklistDevolucao() {
-    console.log("DEVOLUÇÃO")
-    this.aluguelService.getChecklistDevolucao(this.idCurrentAluguel).subscribe(resposta => {
-      this.currentChecklistDevolucao = resposta;
+  loadCurrentChecklistDevolucao() {    
 
+    this.aluguelService.getChecklistDevolucao(this.idCurrentAluguel).subscribe(resposta => {    
+    if(resposta){
+     this.currentChecklistDevolucao = resposta;
+      
       this.formularioChecklistDevolucao.patchValue({
         descricao_curta: this.currentChecklistDevolucao.descricao,
         capa_foto: this.currentChecklistDevolucao.foto,
         motivo_recusa: this.currentChecklistDevolucao.motivo_Recusa
       })
+    }
+
       errorResponse => {
         console.log(errorResponse)
       }
@@ -156,21 +158,21 @@ export class ClienteChecklistCadastroComponent implements OnInit {
       formData.append("foto", foto);
       console.log(this.checkEntregaAlterado)
       this.aluguelService.cadNewChecklistEntrega(this.checkEntregaAlterado,foto).subscribe(response => {
-        console.log("CERTO");
+        
         console.log(response)
         this.router.navigate(["cliente/perfil/alugueis-locador"])
       }, errorResponse => {
-        console.log("ERRADO");
+        
         console.log(errorResponse)
       })
     }else{
       console.log(this.checkEntregaAlterado)
       this.aluguelService.cadNewChecklistEntrega(this.checkEntregaAlterado,null).subscribe(response => {
-        console.log("CERTO");
+        
         console.log(response)
         this.router.navigate(["cliente/perfil/alugueis-locador"])
       }, errorResponse => {
-        console.log("ERRADO");
+        
         console.log(errorResponse)
       })
     }
@@ -190,9 +192,9 @@ export class ClienteChecklistCadastroComponent implements OnInit {
 
   loadFormToCadOrUpdateDevolucao() {    
     const formCadValues = this.formularioChecklistDevolucao.value;
-    this.checkEntregaAlterado.descricao = formCadValues.descricao_curta;
-    this.checkEntregaAlterado.id_aluguel = this.idCurrentAluguel;
-
+    this.checkDevolucaoAlterado.descricao = formCadValues.descricao_curta;
+    this.checkDevolucaoAlterado.id_aluguel = this.idCurrentAluguel;
+    
     this.cadCheckDevolucao();     
 
   }
@@ -203,23 +205,21 @@ export class ClienteChecklistCadastroComponent implements OnInit {
       const foto = files[0];
       const formData: FormData = new FormData();
       formData.append("foto", foto);
-      console.log(this.checkDevolucaoAlterado)
-      this.aluguelService.cadNewChecklistDevolucao(this.checkDevolucaoAlterado,foto).subscribe(response => {
-        console.log("CERTO");
+      this.aluguelService.cadNewChecklistDevolucao(this.checkEntregaAlterado,foto).subscribe(response => {
+        
         console.log(response)
         this.router.navigate(["cliente/perfil/alugueis-locador"])
       }, errorResponse => {
-        console.log("ERRADO");
+        
         console.log(errorResponse)
       })
     }else{
-      console.log(this.checkDevolucaoAlterado)
-      this.aluguelService.cadNewChecklistDevolucao(this.checkDevolucaoAlterado,null).subscribe(response => {
-        console.log("CERTO");
+      this.aluguelService.cadNewChecklistDevolucao(this.checkEntregaAlterado,null).subscribe(response => {
+        
         console.log(response)
         this.router.navigate(["cliente/perfil/alugueis-locador"])
       }, errorResponse => {
-        console.log("ERRADO");
+        
         console.log(errorResponse)
       })
     }

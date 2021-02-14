@@ -30,7 +30,7 @@ export class AluguelService {
   cadNewChecklistDevolucao(checklist: eChecklistCad, foto:string) : Observable<any>{
     let params = new HttpParams();
     params = params.append('foto',foto);
-    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadChecklistDevolucao, checklist, {params})
+    return this.http.put<boolean>(environment.apiBaseUrl + environment.postCadChecklistDevolucao, checklist,{params})
   }
   
   putChecklistEntrega(id_aluguel: string, motivoRecusa: string, OK:string) : Observable<boolean> {
