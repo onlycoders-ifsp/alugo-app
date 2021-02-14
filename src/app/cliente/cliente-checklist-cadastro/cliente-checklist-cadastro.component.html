@@ -31,7 +31,7 @@
                     
                     
                     <div *ngIf="novaFotoEntrega">                           
-                      <div class="cz-file-drop-area form-group">{{novaFotoEntrega}}
+                      <div class="cz-file-drop-area form-group">
                         <input class="cz-file-drop-input" (change)="setNovaFotoEntrega($event)" type="file">
                         <span class="cz-file-drop-message">
                             
@@ -49,7 +49,7 @@
                       <small class="form-text text-muted">descricao dos itens que esta entregando</small>
                       
                     </div>                    
-                    <button class="btn btn-success mt-0 mr-2" (click)="inputaCheckEntrega()">Salvar checklist de entrega</button>
+                    <button type="button" [hidden]="tipo=='devolucao'" class="btn btn-success mt-0 mr-2" (click)="inputaCheckEntrega()">Salvar checklist de entrega</button>
                     
                   <div class="form-group py-2">
                     <label class="font-weight-medium">Motivo para a recusa</label>
@@ -100,7 +100,7 @@
                           <small class="form-text text-muted">descricao dos itens que esta entregando</small>
                           
                         </div>
-                        <button class="btn btn-success mt-0 mr-2" (click)="inputaCheckEntrega()">Salvar checklist de devolução</button>  
+                        <button [hidden]= "tipo=='entrega'" class="btn btn-success mt-0 mr-2" (click)="inputaCheckDevolucao()">Salvar checklist de devolução</button>  
 
                         <div class="form-group py-2">
                             <label class="font-weight-medium">Motivo para a recusa</label>

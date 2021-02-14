@@ -23,6 +23,11 @@ export class ClienteChecklistComponent implements OnInit {
   currentChecklistEntrega: eChecklist;
   currentChecklistDevolucao: eChecklist;
 
+  MotivoEntrega: string;
+  MotivoDevolucao: string;
+
+  tipo: string;
+
   constructor(
     private router: Router,
     private idiService: idiomaService,
@@ -39,25 +44,24 @@ export class ClienteChecklistComponent implements OnInit {
       this.auth.encerraSessao();
     }
 
-    this.idCurrentAluguel = localStorage.getItem("idAluguel");
-    this.loadCurrentChecklistEntrega();
+    
     this.createForm();
+    this.idCurrentAluguel = localStorage.getItem("idAluguel");
+    this.tipo = localStorage.getItem("tipo");
+    this.loadCurrentChecklistEntrega();
   }
 
   createForm() {
     this.formularioChecklistEntrega = this.fb.group({
-      descricao_curta: ['', [Validators.required]],
-      motivo_recusa: ['', [Validators.required]]
+      descricao_curta: ['', [Validators.required]]
     })
     this.formularioChecklistDevolucao = this.fb.group({
-      descricao_curta: ['', [Validators.required]],
-      motivo_recusa: ['', [Validators.required]]
+      descricao_curta: ['', [Validators.required]]
     })
   }
 
   aceitaDevolucao(){
-    const formCadValues = this.formularioChecklistDevolucao.value
-    this.aluguelService.putChecklistDevolucao(this.idCurrentAluguel,formCadValues.motivo_recusa,"true").subscribe(resposta => {
+    this.aluguelService.putChecklistDevolucao(this.idCurrentAluguel,null,"true").subscribe(resposta => {
       console.log(resposta)
       this.router.navigate(["cliente/perfil/alugueis-locatario"])
       errorResponse => {
@@ -67,8 +71,7 @@ export class ClienteChecklistComponent implements OnInit {
   }  
 
   recusaDevolucao(){
-    const formCadValues = this.formularioChecklistDevolucao.value
-    this.aluguelService.putChecklistDevolucao(this.idCurrentAluguel,formCadValues.motivo_recusa,"false").subscribe(resposta => {
+    this.aluguelService.putChecklistDevolucao(this.idCurrentAluguel,this.MotivoDevolucao,"false").subscribe(resposta => {
       console.log(resposta)
       this.router.navigate(["cliente/perfil/alugueis-locatario"])
       errorResponse => {
@@ -78,8 +81,7 @@ export class ClienteChecklistComponent implements OnInit {
   }
 
   aceitaEntrega(){
-    const formCadValues = this.formularioChecklistEntrega.value
-    this.aluguelService.putChecklistEntrega(this.idCurrentAluguel,formCadValues.motivo_recusa,"true").subscribe(resposta => {
+    this.aluguelService.putChecklistEntrega(this.idCurrentAluguel,null,"true").subscribe(resposta => {
       console.log(resposta)
       this.router.navigate(["cliente/perfil/alugueis-locatario"])
       errorResponse => {
@@ -89,8 +91,7 @@ export class ClienteChecklistComponent implements OnInit {
   }  
 
   recusaEntrega(){
-    const formCadValues = this.formularioChecklistEntrega.value
-    this.aluguelService.putChecklistEntrega(this.idCurrentAluguel,formCadValues.motivo_recusa,"false").subscribe(resposta => {
+    this.aluguelService.putChecklistEntrega(this.idCurrentAluguel,this.MotivoEntrega,"false").subscribe(resposta => {
       console.log(resposta)
       this.router.navigate(["cliente/perfil/alugueis-locatario"])
       errorResponse => {
@@ -100,20 +101,17 @@ export class ClienteChecklistComponent implements OnInit {
   }
 
   loadCurrentChecklistEntrega() {
-    console.log("ENTREGA")
     this.aluguelService.getChecklistEntrega(this.idCurrentAluguel).subscribe(resposta => {
       this.currentChecklistEntrega = resposta;
       console.log(resposta)
 
       this.loadCurrentChecklistDevolucao()
 
-      console.log(this.currentChecklistEntrega.motivo_Recusa)
-
       this.formularioChecklistEntrega.patchValue({
         descricao_curta: this.currentChecklistEntrega.descricao,
-        capa_foto: this.currentChecklistEntrega.foto,
-        motivo_recusa: this.currentChecklistEntrega.motivo_Recusa
+        capa_foto: this.currentChecklistEntrega.foto
       })
+      this.MotivoEntrega = this.currentChecklistEntrega.motivo_Recusa
 
       errorResponse => {
         console.log(errorResponse)
@@ -123,15 +121,15 @@ export class ClienteChecklistComponent implements OnInit {
   }
   
   loadCurrentChecklistDevolucao() {
-    console.log("DEVOLUÇÃO")
     this.aluguelService.getChecklistDevolucao(this.idCurrentAluguel).subscribe(resposta => {
       this.currentChecklistDevolucao = resposta;
 
       this.formularioChecklistDevolucao.patchValue({
         descricao_curta: this.currentChecklistDevolucao.descricao,
-        capa_foto: this.currentChecklistDevolucao.foto,
-        motivo_recusa: this.currentChecklistDevolucao.motivo_Recusa
+        capa_foto: this.currentChecklistDevolucao.foto
       })
+      this.MotivoDevolucao = this.currentChecklistDevolucao.motivo_Recusa
+
       errorResponse => {
         console.log(errorResponse)
       }

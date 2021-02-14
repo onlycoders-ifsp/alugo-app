@@ -28,8 +28,8 @@ export class ClienteChecklistCadastroComponent implements OnInit {
   mensagemSucesso: string;
   mensagemErro: string;
 
-  TESTE: string;
-  CACETE: string;
+  tipo: string;
+
   constructor(
     private router: Router,
     private idiService: idiomaService,
@@ -46,12 +46,12 @@ export class ClienteChecklistCadastroComponent implements OnInit {
       this.auth.encerraSessao();
     }
 
-    this.idCurrentAluguel = localStorage.getItem("idAluguel");
+    // this.idCurrentAluguel = localStorage.getItem("idAluguel");
+    this.idCurrentAluguel = "b62089ac-73a5-474b-b126-1a00d9decbbc"
+    this.tipo = localStorage.getItem("tipo")
     this.createForm();
-    // this.loadCurrentChecklistEntrega();
+    //this.loadCurrentChecklistEntrega();
 
-    this.TESTE = "MEU PAU"
-    this.CACETE = "CACETE"
   }
 
   createForm() {
@@ -142,7 +142,7 @@ export class ClienteChecklistCadastroComponent implements OnInit {
   loadFormToCadOrUpdateEntrega() {    
     const formCadValues = this.formularioChecklistEntrega.value;
     this.checkEntregaAlterado.descricao = formCadValues.descricao_curta;
-    this.checkEntregaAlterado.id_aluguel = formCadValues.idCurrentAluguel;
+    this.checkEntregaAlterado.id_aluguel = this.idCurrentAluguel;
 
     this.cadCheckEntrega();     
 
@@ -154,13 +154,25 @@ export class ClienteChecklistCadastroComponent implements OnInit {
       const foto = files[0];
       const formData: FormData = new FormData();
       formData.append("foto", foto);
-        this.aluguelService.cadNewChecklistEntrega(this.checkEntregaAlterado,foto).subscribe(response => {
-          this.router.navigate(["cliente/perfil/alugueis-locador"])
-        }, errorResponse => {
-          console.log(errorResponse)
-        })
+      console.log(this.checkEntregaAlterado)
+      this.aluguelService.cadNewChecklistEntrega(this.checkEntregaAlterado,foto).subscribe(response => {
+        console.log("CERTO");
+        console.log(response)
+        this.router.navigate(["cliente/perfil/alugueis-locador"])
+      }, errorResponse => {
+        console.log("ERRADO");
+        console.log(errorResponse)
+      })
     }else{
-      this.router.navigate(["cliente/perfil/alugueis-locador"])
+      console.log(this.checkEntregaAlterado)
+      this.aluguelService.cadNewChecklistEntrega(this.checkEntregaAlterado,null).subscribe(response => {
+        console.log("CERTO");
+        console.log(response)
+        this.router.navigate(["cliente/perfil/alugueis-locador"])
+      }, errorResponse => {
+        console.log("ERRADO");
+        console.log(errorResponse)
+      })
     }
 
   }
@@ -172,6 +184,56 @@ export class ClienteChecklistCadastroComponent implements OnInit {
       
     } else {
       this.mensagemErro = "formInvalido"
+      
+    }
+  }
+
+  loadFormToCadOrUpdateDevolucao() {    
+    const formCadValues = this.formularioChecklistDevolucao.value;
+    this.checkEntregaAlterado.descricao = formCadValues.descricao_curta;
+    this.checkEntregaAlterado.id_aluguel = this.idCurrentAluguel;
+
+    this.cadCheckDevolucao();     
+
+  }
+
+  cadCheckDevolucao(){
+    const files = this.fileAtualDevolucao;
+    if(files){
+      const foto = files[0];
+      const formData: FormData = new FormData();
+      formData.append("foto", foto);
+      console.log(this.checkDevolucaoAlterado)
+      this.aluguelService.cadNewChecklistDevolucao(this.checkDevolucaoAlterado,foto).subscribe(response => {
+        console.log("CERTO");
+        console.log(response)
+        this.router.navigate(["cliente/perfil/alugueis-locador"])
+      }, errorResponse => {
+        console.log("ERRADO");
+        console.log(errorResponse)
+      })
+    }else{
+      console.log(this.checkDevolucaoAlterado)
+      this.aluguelService.cadNewChecklistDevolucao(this.checkDevolucaoAlterado,null).subscribe(response => {
+        console.log("CERTO");
+        console.log(response)
+        this.router.navigate(["cliente/perfil/alugueis-locador"])
+      }, errorResponse => {
+        console.log("ERRADO");
+        console.log(errorResponse)
+      })
+    }
+
+  }
+
+  inputaCheckDevolucao() {
+
+    if (this.formularioChecklistDevolucao.valid) {
+      this.loadFormToCadOrUpdateDevolucao();
+      
+    } else {
+      this.mensagemErro = "formInvalido"
+      
     }
   }
 

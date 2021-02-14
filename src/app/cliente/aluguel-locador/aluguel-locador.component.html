@@ -32,9 +32,9 @@
         <div class="d-flex align-items-center justify-content-center justify-content-sm-start pt-2">
           <div class="my-2 col-12">
             <div [ngSwitch]="item.status_aluguel" class="d-flex pt-3">
-              
-              <button (click)="checklist(item, 'entrega')" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
-                  data-original-title="Status do Aluguel">Teste##</button>
+
+              <button (click)="checklist(item, 'devolucao')" class="btn bg-faded-accent btn-icon mr-2" type="button" data-toggle="tooltip" title="Devolver produto"><i
+                  class="fa fa-backward text-accent"></i>TESTE</button>
               
               <!---->
               <div *ngSwitchCase="1">
@@ -101,7 +101,7 @@
               <div *ngSwitchCase="10">
                 <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
                   data-original-title="Status do Aluguel">Aguardando devolução##</button>
-                  <button class="btn bg-faded-accent btn-icon mr-2" type="button" data-toggle="tooltip" title="Devolver produto"><i
+                  <button (click)="checklist(item, 'devolucao')" class="btn bg-faded-accent btn-icon mr-2" type="button" data-toggle="tooltip" title="Devolver produto"><i
                     class="fa fa-backward text-accent"></i></button>
               </div>
             
@@ -113,8 +113,8 @@
               <div *ngSwitchCase="12">
                 <button (click)="openDialogDetalhesStatus(item)" class="btn bg-success btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
                   data-original-title="Status do Aluguel">Aguardando entrega##</button>
-                <button class="btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip" title="Inserir checklist"><i
-                    class="fa fa-truck-loading text-info"></i></button>
+                <button (click)="checklist(item, 'entrega')" class="btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip" title="Inserir checklist"><i
+                   class="fa fa-truck-loading text-info"></i></button>
                 
               </div>
 

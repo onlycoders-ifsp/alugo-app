@@ -129,7 +129,7 @@ export class AluguelLocadorComponent implements OnInit {
 
   checklist(Aluguel: eAluguel, tipo:string){
     localStorage.setItem("idAluguel", Aluguel.id_aluguel)
-    localStorage.setItem("tipocheck", tipo)
+    localStorage.setItem("tipo", tipo)
     this.router.navigate(['cliente/perfil/checklist-cadastro']);
   }
 

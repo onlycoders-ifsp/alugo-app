@@ -20,7 +20,7 @@
                   <div class="form-group col-sm-12">
                     <div>
                         <div class="cz-file-drop-area form-group">
-                          <input class="cz-file-drop-input" type="file" disabled>
+                          <input class="cz-file-drop-input" type="file"  [attr.disabled]="true">
                           <span class="cz-file-drop-message">
                             <img src="data:image/jpg;base64,{{currentChecklistEntrega.foto}}">
                           </span>
@@ -28,23 +28,23 @@
                     </div>
                     <div class="form-group py-2">
                       <label class="font-weight-medium">Descricao de entrega</label>
-                      <textarea formControlName="descricao_curta" class="form-control " rows="3" disabled></textarea>
+                      <textarea formControlName="descricao_curta" class="form-control " rows="3"  [attr.disabled]="true"></textarea>
                       <div class="invalid-feedback">
                         errado
                       </div>
                       <small class="form-text text-muted">descricao dos itens que esta entregando</small>
                       
-                    </div>                    
-                    <button *ngIf="currentChecklistEntrega.ok_locador.toLowerCase() !== 'true'" class="btn btn-success mt-0 mr-2" (click)="aceitaEntrega()">Confirmar</button>
-                    <button *ngIf="currentChecklistEntrega.ok_locador.toLowerCase() !== 'true'" class="btn btn-danger mt-0" (click)="recusaEntrega()">Recusar</button>     
-                    
-                  <div *ngIf="currentChecklistEntrega.ok_locador.toLowerCase() !== 'true'"  class="form-group py-2">
-                    <label class="font-weight-medium">Motivo para a recusa</label>
-                    <textarea formControlName="motivo_recusa" class="form-control " rows="2"></textarea>                    
-                  </div>
+                    </div>
                   </div>
                   
-                </form>
+                </form>                    
+                <button [hidden]="currentChecklistEntrega.ok_locador == 'true' || tipo=='devolucao'" class="btn btn-success mt-0 mr-2" (click)="aceitaEntrega()">Confirmar</button>
+                <button [hidden]="currentChecklistEntrega.ok_locador == 'true' || tipo=='devolucao'" class="btn btn-danger mt-0" (click)="recusaEntrega()">Recusar</button>   
+                
+                <div [hidden]="currentChecklistEntrega.ok_locador == 'true' || tipo=='devolucao'" class="py-2">
+                  <label class="font-weight-medium">Motivo para a recusa</label>
+                  <textarea [(ngModel)]="MotivoEntrega" #teste class="form-control" rows="2"></textarea>                    
+                </div>
               </div>
             </div>
           </div>
@@ -53,13 +53,13 @@
               <h3 class="accordion-heading"><a class="collapsed" href="#checklist-devolucao" data-toggle="collapse"><i class="fa fa-undo-alt mr-2 align-middle"></i>Checklist de devolução</a></h3>
             </div>
             <div class="collapse" id="checklist-devolucao" data-parent="#checklist" role="tabpanel">
-              <div class="card-body font-size-sm">
+              <div class="card-body">
                 <p class="font-size-sm">Informações fornecidas na devolução do produto</p>
-                <form [formGroup]="formularioChecklistDevolucao" class="interactive-credit-card row">
+                 <form [formGroup]="formularioChecklistDevolucao" class="interactive-credit-card row">
                     <div class="form-group col-sm-12">
                       <div>
                           <div class="cz-file-drop-area form-group">
-                            <input class="cz-file-drop-input" type="file" disabled>
+                            <input class="cz-file-drop-input" type="file"  [attr.disabled]="true">
                             <span class="cz-file-drop-message">
                               <img src="data:image/jpg;base64,{{currentChecklistDevolucao.foto}}">
                             </span>
@@ -67,21 +67,24 @@
                         </div>
                         <div class="form-group py-2">
                           <label class="font-weight-medium">Descricao de entrega</label>
-                          <textarea formControlName="descricao_curta" class="form-control " rows="3" disabled></textarea>
+                          <textarea formControlName="descricao_curta" class="form-control " rows="3"  [attr.disabled]="true"></textarea>
                           <div class="invalid-feedback">
                             errado
                           </div>
                           <small class="form-text text-muted">descricao dos itens que esta entregando</small>
-                          
+                      
                         </div>
-                        <button *ngIf="currentChecklistDevolucao.ok_locador.toLowerCase() !== 'true'" class="btn btn-success mt-0 mr-2" (click)="aceitaDevolucao()">Confirmar</button>
-                        <button *ngIf="currentChecklistDevolucao.ok_locador.toLowerCase() !== 'true'" class="btn btn-danger mt-0" (click)="recusaDevolucao()">Recusar</button>                  
-                        <div *ngIf="currentChecklistDevolucao.ok_locador.toLowerCase() !== 'true'" class="form-group py-2">
-                          <label class="font-weight-medium">Motivo para a recusa</label>
-                          <textarea formControlName="motivo_recusa" class="form-control " rows="2"></textarea>                    
-                        </div>
-                    </div>
-                  </form>
+                      </div> 
+                      
+                    </form>                  
+                    <button [hidden]="currentChecklistDevolucao.ok_locador == 'true' || tipo=='entrega'" class="btn btn-success mt-0 mr-2" (click)="aceitaDevolucao()">Confirmar</button>
+                    <button [hidden]="currentChecklistDevolucao.ok_locador == 'true' || tipo=='entrega'" class="btn btn-danger mt-0" (click)="recusaDevolucao()">Recusar</button>  
+                    
+                    
+                    <div [hidden]="currentChecklistDevolucao.ok_locador == 'true' || tipo=='entrega'" class="py-2">
+                      <label class="font-weight-medium">Motivo para a recusa</label>
+                      <textarea [(ngModel)]="MotivoDevolucao" #teste class="form-control" rows="2"></textarea>                    
+                    </div> 
               </div>
             </div>
           </div>
