@@ -35,6 +35,7 @@ import { AluguelVisualizacaoLocalDataEntregaComponent } from './aluguel-visualiz
 import { AvaliacaoLocatarioComponent } from './avaliacao-locatario/avaliacao-locatario.component';
 import { AvaliacaoLocadorComponent } from './avaliacao-locador/avaliacao-locador.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ClienteChecklistCadastroComponent } from './cliente-checklist-cadastro/cliente-checklist-cadastro.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -53,6 +54,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     AluguelVisualizacaoLocalDataEntregaComponent,
     AvaliacaoLocatarioComponent,
     AvaliacaoLocadorComponent,
+    ClienteChecklistCadastroComponent,
   ],
   imports: [
     CommonModule,

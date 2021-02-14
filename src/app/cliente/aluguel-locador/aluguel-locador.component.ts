@@ -127,14 +127,20 @@ export class AluguelLocadorComponent implements OnInit {
     this.router.navigate(['cliente/perfil/avaliacao-locador']);
   }
 
+
+  checklist(Aluguel: eAluguel, tipo:string){
+    localStorage.setItem("idAluguel", Aluguel.id_aluguel)
+    localStorage.setItem("tipo", tipo)
+    this.router.navigate(['cliente/perfil/checklist-cadastro']);
+  }
+
   confirmaAluguel(idAluguel: string, aceite: boolean){
     this.aluguelService.aceitaRecusaAluguel(idAluguel, aceite).subscribe(resposta => {
       this.ngOnInit();
       errorResponse => {
         console.log(errorResponse)
       }
-    });
-    
+    });    
   }
 
 }

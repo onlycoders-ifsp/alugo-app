@@ -127,7 +127,7 @@
                   <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
                     data-original-title="Status do Aluguel">Aguardando checklist entrega pelo locatário##</button>
                     <button class="justify-right btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip"
-                    title="Validar informações de entrega" (click)="confirmarChecklists(item.id_aluguel)"><i
+                    title="Validar informações de entrega" (click)="confirmarChecklists(item.id_aluguel,'entrega')"><i
                       class="fa fa-check text-info"></i></button>
                 </div>
   
@@ -135,7 +135,7 @@
                   <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
                     data-original-title="Status do Aluguel">Aguardando checklist devolução pelo locatário##</button>
                     <button class="justify-right btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip"
-                    title="Validar informações de devolução" (click)="confirmarChecklists(item.id_aluguel)"><i
+                    title="Validar informações de devolução" (click)="confirmarChecklists(item.id_aluguel,'devolucao')"><i
                       class="fa fa-check text-info"></i></button>
                 </div>
               

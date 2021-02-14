@@ -83,6 +83,34 @@
 			"infocontatolocador": "Informações para contato do locador",
 			"valorPago": "Valor Pago:"
 		},
+		"cliente-checklist":{
+			"confirmar":"Confirmar",
+			"confirmacaochecklist":"Confirmação dos checklists do aluguel",
+			"dicadescricaoEntrega":"Descrição dos itens que estão sendo entregues a você.",
+			"dicadescricaoDevolucao":"Descrição dos itens que estão sendo devolvido por você.",
+			"motivoRecusa":"Caso recuse, dê um motivo para auxiliar o preenchimento correto.",
+			"recusar":"Recusar"
+		},
+		"cliente-checklist-cadastro":{
+			"carregafotoDevolucao":"Carregar foto do produto na devolução",
+			"carregafotoEntrega":"Carregar foto do produto na entrega",
+			"checklist":"Checklists do aluguel",
+			"checklistDevolucao":"Checklist de devolução",
+			"checklistEntrega":"Checklist de entrega",
+			"descricaoDevolucao":"Descricao da devolução",
+			"descricaoEntrega":"Descricao de entrega",
+			"dicadescricaoDevolucao":"descricao dos itens que estão sendo recebidos de volta",
+			"dicadescricaoEntrega":"descricao dos itens que esta entregando",
+			"errado":"errado",
+			"infoFornecidasDevolucao":"Informações fornecidas na devolução do produto",
+			"infoFornecidasEntrega":"Informações fornecidas na entrega do produto",
+			"inserefotoDevolucao":"Inserir uma foto do produto na devolução",
+			"inserefotoEntrega":"Inserir uma foto do produto na entrega",
+			"motivorecusaDevolucao":"Motivo para a recusa checklist devolução",
+			"motivorecusaEntrega":"Motivo para a recusa checklist entrega",
+			"salvarDevolucao":"Salvar checklist de devolução",
+			"salvarEntrega":"Salvar checklist de entrega"
+		},
 		"cliente-credenciais": {
 			"alertaConfirmacaoSenha": "Preencha a confirmação de senha.",
 			"alertaSenhaAntiga": "Informe a senha antiga.",
