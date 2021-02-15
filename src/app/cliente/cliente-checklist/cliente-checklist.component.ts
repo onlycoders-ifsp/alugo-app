@@ -105,6 +105,7 @@ export class ClienteChecklistComponent implements OnInit {
     if(resposta){
       this.currentChecklistEntrega = resposta; 
 
+      console.log(this.currentChecklistEntrega.descricao)
       this.formularioChecklistEntrega.patchValue({
         descricao_curta: this.currentChecklistEntrega.descricao,
         capa_foto: this.currentChecklistEntrega.foto
@@ -117,7 +118,6 @@ export class ClienteChecklistComponent implements OnInit {
         console.log(errorResponse)
       }
     });
-    this.createForm();
   }
   
   loadCurrentChecklistDevolucao() {
@@ -135,7 +135,6 @@ export class ClienteChecklistComponent implements OnInit {
         console.log(errorResponse)
       }
     });
-    this.createForm();
   }
   
 

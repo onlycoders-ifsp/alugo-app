@@ -239,7 +239,7 @@ export class RealizaAluguelComponent implements OnInit {
     this.preferenciaML.expiration_date_to = '2022-02-01T12:00:00.000-04:00';
     this.preferenciaML.expires = true;
     this.preferenciaML.external_reference = this.novoAluguelCad;
-    this.preferenciaML.notification_url = environment.apiBaseUrl + environment.notificationML;
+    this.preferenciaML.notification_url = environment.apiBaseUrl + environment.webHookPagamento;
     this.preferenciaML.statement_descriptor = 'aluGO';
 
     //atributos de url de redirecionamento

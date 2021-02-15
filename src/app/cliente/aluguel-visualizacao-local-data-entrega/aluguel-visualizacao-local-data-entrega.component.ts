@@ -141,9 +141,9 @@ export class AluguelVisualizacaoLocalDataEntregaComponent implements OnInit {
   }
 
   loadCurrentEntregaDevolucao() {
+    console.log(this.idCurrentAluguel)
     this.aluguelService.getEntregaDevolucao(this.idCurrentAluguel).subscribe(resposta => {
       this.currententregaDevolucao = resposta;
-
       let dataFormatadaEntrega = this.datepipe.transform(this.currententregaDevolucao.data_entrega, 'yyyy-MM-dd hh:mm:ss.000000');
       let dateEntrega: Date = new Date(dataFormatadaEntrega);
       
