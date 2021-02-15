@@ -117,6 +117,22 @@
 			"infocontatolocador": "Informações para contato do locador",
 			"valorPago": "Valor Pago:"
 		},
+		"aluguel-local-data-entrega":{
+			"locaishorarios":"Locais e horários de entrega e devoluções dos produtos:",
+			"infoentrega":"Informações da entrega:",
+			"descricaolocal":"Descrição do local",
+			"placeholderlocal":"Shopping principal, praça de alimentação.",
+			"horario":"Horário",
+			"placeholderdatahorario":"Escolha a data e o horário",
+			"infodevolucao":"Informações da devolução:",
+			"salvar":"Salvar locais e horários"
+		},
+		"aluguel-visualizacao-local-data-entrega":{
+			"confirmalocaishorarios":"Confirmação locais e horários de entrega e devoluções dos produtos:",
+			"observacao":"Observação para recusa do endereço, data e hora de entrega e devolução",
+			"confirmar":"Confirmar locais e horários",
+			"recusar":"Recusar locais e horários"
+		},
 		"avaliacao-locador":{
 			"avalielocatario":"Avalie o locatário deste aluguel:",
 			"notaaluguel":"De 0 a 5, dê uma nota geral para a experiência com o locatário deste aluguel:",

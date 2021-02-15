@@ -117,6 +117,22 @@
 			"infocontatolocador": "Renter contact information",
 			"valorPago": "Amount Paid:"
 		},
+		"aluguel-local-data-entrega":{
+			"locaishorarios":"Places and times of delivery and product returns:",
+			"infoentrega":"Delivery information:",
+			"descricaolocal":"Description of the place",
+			"placeholderlocal":"Main shopping mall, food court.",
+			"horario":"Times",
+			"placeholderdatahorario":"Choose the date and time",
+			"infodevolucao":"Return information:",
+			"salvar":"Save locations and times"
+		},
+		"aluguel-visualizacao-local-data-entrega":{
+			"confirmalocaishorarios":"Local confirmation and delivery times and product returns:",
+			"observacao":"Note for refusing the address, date and time of delivery and return",
+			"confirmar":"Confirm locations and times",
+			"recusar":"Decline locations and times"
+		},
 		"avaliacao-locador":{
 			"avalielocatario":"Rate the renter for this rental:",
 			"notaaluguel":"From 0 to 5, give a general rating for the experience with the tenant of this rental:",

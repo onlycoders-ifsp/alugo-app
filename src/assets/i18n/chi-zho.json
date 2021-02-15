@@ -117,6 +117,22 @@
 			"infocontatolocador": "出租人联系方式",
 			"valorPago": "支付的金额："
 		},
+		"aluguel-local-data-entrega":{
+			"locaishorarios":"交货地点和时间以及产品退货：",
+			"infoentrega":"配送信息：",
+			"descricaolocal":"地点说明",
+			"placeholderlocal":"主要购物商场，美食广场。",
+			"horario":"时间",
+			"placeholderdatahorario":"选择日期和时间",
+			"infodevolucao":"返回信息：",
+			"salvar":"保存位置和时间"
+		},
+		"aluguel-visualizacao-local-data-entrega":{
+			"confirmalocaishorarios":"当地确认和交货时间以及产品退货：",
+			"observacao":"拒绝收货地址，日期和时间的注意事项",
+			"confirmar":"确认地点和时间",
+			"recusar":"拒绝地点和时间"
+		},
 		"avaliacao-locador":{
 			"avalielocatario":"评价此租金的房客：",
 			"notaaluguel":"从0到5，对该房客的租房体验给出总体评价：",

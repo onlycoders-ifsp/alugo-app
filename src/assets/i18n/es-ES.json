@@ -117,6 +117,22 @@
 			"infocontatolocador": "Información de contacto del arrendador",
 			"valorPago": "Cantidad Pagada:"
 		},
+		"aluguel-local-data-entrega":{
+			"locaishorarios":"Lugares y horarios de entrega y devolución de productos:",
+			"infoentrega":"Información de entrega:",
+			"descricaolocal":"Descripcion del lugar",
+			"placeholderlocal":"Centro comercial principal, patio de comidas.",
+			"horario":"Hora",
+			"placeholderdatahorario":"Elija la fecha y la hora",
+			"infodevolucao":"Información de devolución:",
+			"salvar":"Guardar ubicaciones y horarios"
+		},
+		"aluguel-visualizacao-local-data-entrega":{
+			"confirmalocaishorarios":"Tiempos de confirmación y entrega local y devoluciones de productos:",
+			"observacao":"Nota para rechazar la dirección, fecha y hora de entrega y devolución",
+			"confirmar":"Confirmar ubicaciones y horarios",
+			"recusar":"Rechazar ubicaciones y horarios"
+		},
 		"avaliacao-locador":{
 			"avalielocatario":"Califique al arrendatario para este alquiler:",
 			"notaaluguel":"De 0 a 5, otorgue una calificación general de la experiencia con el inquilino de este alquiler:",
