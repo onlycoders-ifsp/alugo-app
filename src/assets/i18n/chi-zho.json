@@ -45,6 +45,40 @@
 			"telefone": "电话"
 		}
 	},
+	"status":{		
+		"titleaprovar":"批准租金",
+		"titlerecusar":"租金下降",
+		"titlestatus":"租赁状态",
+		"titleocorrencia":"查看发生",
+		"titlereporteproblema":"报告一个问题",
+		"titleavalialocatario":"评估房客",
+		"titleavaliaprodutolocador":"评估房东和租赁产品",
+		"titledevolverproduto":"退货",
+		"titleinserircheck":"插入清单",
+		"confirmarlocal":"确认交货地点和时间以及产品退货",
+		"informelocal":"通知交货和退货地点",
+		"validarentrega":"验证交货信息",
+		"validadevolucao":"验证退货信息",
+		"pagaraluguel":"支付租金",
+		"carregarMais":"装载更多",
+		"alugueis":"租金",
+		
+		"agendado":"预定的",
+		"andamento":"进行中",
+		"finalizadosemocorrencia":"结束但没有发生",
+		"finalizadocomocorrencia":"结束于发生",
+		"canceladolocador":"出租人取消",
+		"canceladolocatario":"被承租人取消",
+		"aguardandopagamento":"等待付款",
+		"cancelamentoautomatico":"自动取消",
+		"aguardandoaceitelocais":"等待接受的所有者位置",
+		"aguardandodevolucao":"等待返回",
+		"pagamentoconfirmado":"付款确认成功",
+		"aguardandoentrega":"等待交货",
+		"aguardandoaceite":"等待租金验收",
+		"okcheckentrega":"等待承租人交付清单",
+		"okcheckdevolucao":"等待承租人退还清单"
+	},
 	"categorias": {
 		"acessorios": "旅行配件",
 		"aparelhoCortarGrama": "园艺",
@@ -82,6 +116,21 @@
 			"ate": "至",
 			"infocontatolocador": "出租人联系方式",
 			"valorPago": "支付的金额："
+		},
+		"avaliacao-locador":{
+			"avalielocatario":"评价此租金的房客：",
+			"notaaluguel":"从0到5，对该房客的租房体验给出总体评价：",
+			"nota":"笔记：",
+			"escrevaObservacao":"写下有关该人的成绩的注释：",
+			"salvar":"保存评论"
+		},
+		"avaliacao-locatario":{
+			"avalielocador":"评价房东的租金：",
+			"avalieproduto":"评价此租借产品：",
+			"notalocador":"从0到5，请对该出租人的出租人的总体评价：",
+			"notaproduto":"在0到5之间，给出租借产品的总体得分：",
+			"escrevaObservacao":"写下有关产品等级的注释：",
+			"salvar":"保存评论"
 		},
 		"cliente-checklist":{
 			"confirmar":"确认",
