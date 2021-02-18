@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators, ValidationErrors} from '@angular/forms';
 import { Router } from '@angular/router';
 import { eCadAluguel } from 'src/app/entidades/eCadAluguel';
 import { eProduto } from 'src/app/entidades/eProduto';
@@ -19,12 +19,14 @@ import { eBack_urls } from 'src/app/entidades/eBack_urls';
 import { ePayerML } from 'src/app/entidades/ePayerML';
 import { ePayerIdentificationML } from 'src/app/entidades/ePayerIdentificationML';
 import { NotificacaoService } from 'src/app/Services/notificacaoService';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-realiza-aluguel',
   templateUrl: './realiza-aluguel.component.html',
   styleUrls: ['./realiza-aluguel.component.css']
 })
+
 export class RealizaAluguelComponent implements OnInit {
 
   public setView: View = 'Month';
@@ -40,7 +42,10 @@ export class RealizaAluguelComponent implements OnInit {
   public payerIdentification:ePayerIdentificationML = new ePayerIdentificationML();
   public novoAluguelCad: string = '';
   
-
+  dataMinimaAluguel: Date;
+  dataInicioReservado: Date;
+  dataFimReservado: Date;
+  datasIndisponiveis: number[] = [];
   idiomas: iIdioma[];
   currentBandeira: string;
   currentIdioma: string;
@@ -73,8 +78,14 @@ export class RealizaAluguelComponent implements OnInit {
     this.idProduto = localStorage.getItem('idProdutoAluguel');
     
   }
-
+  myFilter = (d: Date): boolean => {
+    const time=d.getTime();
+    console.log(this.datasIndisponiveis.length);
+    return (this.datasIndisponiveis.length>0) ? !this.datasIndisponiveis.find(x=>x==time):true;
+  }
   ngOnInit(): void {
+    this.dataMinimaAluguel = new Date(this.datepipe.transform(new Date, 'MM-dd-yyyy'));
+    this.dataMinimaAluguel.setDate(this.dataMinimaAluguel.getDate()+2);
     if (!this.auth.isAutenticado()){
       this.auth.encerraSessao();
     }
@@ -88,7 +99,6 @@ export class RealizaAluguelComponent implements OnInit {
       response => {
         this.currentProduto = response;
         this.idDono = this.currentProduto.id_usuario;
-
         let alugueis = [];
         this.currentProduto.dt_alugadas.forEach(item => {
           let dataFormatadaIni = this.datepipe.transform(item.dt_inicio, 'MM-dd-yyyy');
@@ -102,11 +112,14 @@ export class RealizaAluguelComponent implements OnInit {
             //ano, mes, dia, hora, minuto
             EndTime: dateFim,
             CategoryColor: "#357cd2"
-          }
+          };
           
           alugueis.push(evento);
+          //this.carregaFiltroData(dateIni,dateFim);
           
       });
+      
+      this.carregaFiltroData(this.currentProduto);
       this.eventObject = {
         dataSource: alugueis
       }
@@ -115,6 +128,19 @@ export class RealizaAluguelComponent implements OnInit {
       errorResponse => {
         console.log(errorResponse)
       });
+  }
+
+  carregaFiltroData(produto:eProduto){
+    let dtAlugadas = produto.dt_alugadas;
+    dtAlugadas.forEach(item =>{
+      let dataInicio = new Date(this.datepipe.transform(item.dt_inicio, 'MM-dd-yyyy'));//(new Date(item.dt_inicio);
+      let dataFim = this.transformaDataFim(item.dt_fim);
+      dataInicio.setDate(dataInicio.getDate()-2);
+      while(dataInicio.getDate() <= dataFim.getDate()+2){
+        this.datasIndisponiveis.push(dataInicio.getTime());
+        dataInicio.setDate(dataInicio.getDate() + 1);
+      }
+    })
   }
 
   loadInfosDono(){
@@ -143,11 +169,23 @@ export class RealizaAluguelComponent implements OnInit {
 
   createForm(){
     this.formularioAluguel = this.fb.group({
-      data_fim:['',[Validators.required]],
-      data_inicio:['',[Validators.required]],
+      data_fim:['',[Validators.required,this.validateInputDate]],
+      data_inicio:['',[Validators.required,this.validateInputDate]],
     })
   }
 
+  validateInputDate(): ValidationErrors | null{
+   return (control:AbstractControl)=>{
+       const time=control.value.getTime();
+       return this.datasIndisponiveis.find(x=>x==time)?{dataIndisponivel:true}:null
+   }
+  }
+  validateCurrentDate(): ValidationErrors | null{
+    return (control:AbstractControl)=>{
+      const time=control.value.getTime();
+      return (time < new Date().getTime())?{dataAnterior:true}:null
+  }
+ }
 
   qtdeDifDias: number = 0;
   qtdeMeses:number = 0;

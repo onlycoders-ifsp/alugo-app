@@ -369,6 +369,8 @@
 			"cuidado": "警告！",
 			"dataFinal": "最后日期",
 			"dataFinalVazia": "请输入结束日期。",
+			"dataIndisponivel": "无法租用日期",
+			"dataAnterior":"过去的日期不可出租",
 			"dataInicial": "初始日期",
 			"dataInicialVazia": "输入开始日期。",
 			"descricaoValor": "值说明",
