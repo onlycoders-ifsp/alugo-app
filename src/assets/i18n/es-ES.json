@@ -24,7 +24,7 @@
 			"emailPreenchimento": "¡Necesitas completar el correo electrónico!",
 			"emailValido": "¡El correo electrónico debe ser válido!",
 			"endereco": "Dirección",
-			"login": "Iniciar Sesión",
+			"login": "Nombre de usuario",
 			"loginNecessario": "Debe establecer un valor de inicio de sesión.",
 			"userExiste": "Nombre de usuario ya registrado.",
 			"nome": "Nombre",
@@ -44,6 +44,40 @@
 			"seulogin": "Este será tu nombre de usuario",
 			"telefone": "Teléfono"
 		}
+	},
+	"status":{
+		"titleaprovar":"Aprobar alquiler",
+		"titlerecusar":"Rechazar alquiler",
+		"titlestatus":"Status do Aluguel",
+		"titleocorrencia":"Estado de alquiler",
+		"titlereporteproblema":"Informar de un problema",
+		"titleavalialocatario":"Evaluar al inquilino",
+		"titleavaliaprodutolocador":"Evaluar al arrendador y al producto alquilado",
+		"titledevolverproduto":"Devolver producto",
+		"titleinserircheck":"Insertar lista de verificación",
+		"confirmarlocal":"Confirmar ubicación y hora de entrega y devolución del producto",
+		"informelocal":"Informar a los lugares de entrega y devolución",
+		"validarentrega":"Validar la información de entrega",
+		"validadevolucao":"Validar la información de devolución",
+		"pagaraluguel":"Paga la renta",
+		"carregarMais":"Carga más",
+		"alugueis":"alquila",
+		
+		"agendado":"Programado",
+		"andamento":"En proceso",
+		"finalizadosemocorrencia":"Terminó sin ocurrencia",
+		"finalizadocomocorrencia":"Terminó con la ocurrencia",
+		"canceladolocador":"Cancelado por el arrendador",
+		"canceladolocatario":"Cancelado por el arrendatario",
+		"aguardandopagamento":"En espera de pago",
+		"cancelamentoautomatico":"Cancelación automática",
+		"aguardandoaceitelocais":"Esperando ubicaciones de propietario aceptadas",
+		"aguardandodevolucao":"Esperando regreso",
+		"pagamentoconfirmado":"Pago confirmado",
+		"aguardandoentrega":"A la espera de la entrega",
+		"aguardandoaceite":"Esperando la aceptación del alquiler",
+		"okcheckentrega":"Esperando la lista de verificación de entrega del inquilino ok",
+		"okcheckdevolucao":"Esperando la lista de verificación de devolución aceptada por el arrendatario"
 	},
 	"categorias": {
 		"acessorios": "Accesorios de Viaje",
@@ -82,6 +116,37 @@
 			"ate": "a",
 			"infocontatolocador": "Información de contacto del arrendador",
 			"valorPago": "Cantidad Pagada:"
+		},
+		"aluguel-local-data-entrega":{
+			"locaishorarios":"Lugares y horarios de entrega y devolución de productos:",
+			"infoentrega":"Información de entrega:",
+			"descricaolocal":"Descripcion del lugar",
+			"placeholderlocal":"Centro comercial principal, patio de comidas.",
+			"horario":"Hora",
+			"placeholderdatahorario":"Elija la fecha y la hora",
+			"infodevolucao":"Información de devolución:",
+			"salvar":"Guardar ubicaciones y horarios"
+		},
+		"aluguel-visualizacao-local-data-entrega":{
+			"confirmalocaishorarios":"Tiempos de confirmación y entrega local y devoluciones de productos:",
+			"observacao":"Nota para rechazar la dirección, fecha y hora de entrega y devolución",
+			"confirmar":"Confirmar ubicaciones y horarios",
+			"recusar":"Rechazar ubicaciones y horarios"
+		},
+		"avaliacao-locador":{
+			"avalielocatario":"Califique al arrendatario para este alquiler:",
+			"notaaluguel":"De 0 a 5, otorgue una calificación general de la experiencia con el inquilino de este alquiler:",
+			"nota":"Nota:",
+			"escrevaObservacao":"Escriba una nota sobre la calificación otorgada a esa persona:",
+			"salvar":"Guardar reseña"
+		},
+		"avaliacao-locatario":{
+			"avalielocador":"Califique al propietario de este alquiler:",
+			"avalieproduto":"Valora el producto de este alquiler:",
+			"notalocador":"De 0 a 5, otorgue una calificación general por la experiencia con el arrendador de este alquiler:",
+			"notaproduto":"De 0 a 5, otorgue una puntuación general al producto alquilado:",
+			"escrevaObservacao":"Escriba una nota sobre la calificación otorgada al producto:",
+			"salvar":"Guardar reseñas"
 		},
 		"cliente-checklist":{
 			"confirmar":"Confirmar",
@@ -392,7 +457,7 @@
 			"deixeseucarrobrilhando": "¡Consulta nuestro catálogo!",
 			"disponibilize": "¡Haga que un producto esté disponible hoy!",
 			"filtros": "Filtros",
-			"locarproduto": "Alquilar un Producto",
+			"locarproduto": "Hacer un producto disponible",
 			"nenhumProduto": "No se encontraron productos con el filtro",
 			"procuraartigos": "¿Busca herramientas para videos y fotos?",
 			"produtosdisponiveis": "Productos disponibles para alquiler:",

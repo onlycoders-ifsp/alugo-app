@@ -1,9 +1,8 @@
 <section class="col-lg-12 pt-lg-8 pb-4 mb-3">
     <div class="pt-2 px-4 pl-lg-0 pr-xl-5">
       <div class="d-sm-flex flex-wrap justify-content-between align-items-center border-bottom">
-        <h2 class="h3 py-2 mr-2 text-center text-sm-left">{{ 'cliente.aluguel-locatario.alugueisRealizados' | translate }}
-        </h2>
-        <div class="py-2">
+        <h2 class="h3 py-2 mr-2 text-center text-sm-left">{{ 'cliente.aluguel-locatario.alugueisRealizados' | translate }}</h2>
+        <!-- <div class="py-2">
           <div class="form-inline flex-nowrap pb-3">
             <label class="text-nowrap mr-2" for="sorting">Ordernar Por:</label>
             <select class="custom-select custom-select-sm mr-2" id="sorting">
@@ -12,10 +11,9 @@
             </select>
             <button class="btn btn-outline-secondary btn-sm px-2" type="button"><i class="czi-arrow-up"></i></button>
           </div>
-        </div>
+        </div> -->
       </div>
       
-  
       <div *ngFor="let item of alugueisLocatario" class="media d-block d-sm-flex align-items-center py-4 border-bottom">
         <a class="d-block mb-3 mb-sm-0 mr-sm-4 mx-auto" style="width: 12.5rem;">
           <img class="rounded-lg" src="data:image/jpg;base64,{{item.produto.capa_foto}}" alt="Product">
@@ -37,105 +35,105 @@
 
                 <!---->
                 <div *ngSwitchCase="1">
-                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
-                    data-original-title="Status do Aluguel">Agendado##</button>
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
+                    data-original-title="Status do Aluguel">{{ 'status.agendado' | translate }}</button>
                 </div>
               
                 <div *ngSwitchCase="2">
-                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-success btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
-                    data-original-title="Status do Aluguel">Em Andamento##</button>
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-success btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
+                    data-original-title="Status do Aluguel">{{ 'status.andamento' | translate }}</button>
                     <button class="btn bg-faded-warning btn-icon mr-2" type="button" data-toggle="tooltip"
-                    title="Reportar um problema"><i class="fa fa-exclamation-triangle text-warning"></i></button>
+                    title="{{ 'status.titlereporteproblema' | translate }}"><i class="fa fa-exclamation-triangle text-warning"></i></button>
                 </div>
               
                 <div *ngSwitchCase="3">
-                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-info btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
-                    data-original-title="Status do Aluguel">Finalizado sem Ocorrência##</button>
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-info btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
+                    data-original-title="Status do Aluguel">{{ 'status.finalizadosemocorrencia' | translate }}</button>
                     <button class="btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip" (click)="avaliacao(item)"
-                    title="Avaliar o locador e o produto alugado."><i class="fa fa-star text-info"></i></button>
+                    title="{{ 'status.titleavaliaprodutolocador' | translate }}"><i class="fa fa-star text-info"></i></button>
                 </div>
               
                 <div *ngSwitchCase="4">
-                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-danger btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
-                    data-original-title="Status do Aluguel">Finalizado com Ocorrência##</button>
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-danger btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
+                    data-original-title="Status do Aluguel">{{ 'status.finalizadocomocorrencia' | translate }}</button>
                     <button class="btn bg-faded-danger btn-icon mr-2 text-lg-right" type="button"
-                          data-toggle="tooltip" title="Ver ocorrência"><i
+                          data-toggle="tooltip" title="{{ 'status.titleocorrencia' | translate }}"><i
                             class="fa fa-info text-danger"></i></button>
                 </div>
               
                 <div *ngSwitchCase="5">
-                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-warning btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
-                    data-original-title="Status do Aluguel">Cancelado pelo Locador##</button>
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-warning btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
+                    data-original-title="Status do Aluguel">{{ 'status.canceladolocador' | translate }}</button>
                     <button class="btn bg-faded-warning btn-icon mr-2 text-lg-right" type="button"
-                          data-toggle="tooltip" title="Ver ocorrência"><i
+                          data-toggle="tooltip" title="{{ 'status.titleocorrencia' | translate }}"><i
                             class="fa fa-info text-warning"></i></button>
                 </div>
               
                 <div *ngSwitchCase="6">
-                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-warning btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
-                    data-original-title="Status do Aluguel">Cancelado pelo Locatário##</button>
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-warning btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
+                    data-original-title="Status do Aluguel">{{ 'status.canceladolocatario' | translate }}</button>
                     <button class="btn bg-faded-warning btn-icon mr-2 text-lg-right" type="button"
-                          data-toggle="tooltip" title="Ver ocorrência"><i
+                          data-toggle="tooltip" title="{{ 'status.titleocorrencia' | translate }}"><i
                             class="fa fa-info text-warning"></i></button>
                 </div>
               
                 <div *ngSwitchCase="7">
-                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
-                    data-original-title="Status do Aluguel">Aguardando pagamento##</button>
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
+                    data-original-title="Status do Aluguel">{{ 'status.aguardandopagamento' | translate }}</button>
                     <!-- <button (click)="openDialogPagamento(item)" class="btn bg-faded-success btn-icon mr-2" type="button" data-toggle="tooltip" title="Pagar o Aluguel"><i
                       class="fa fa-money-check-alt text-success"></i></button> -->
-                      <a href="{{item.url_pagamento}}" target="_blank" class="btn bg-faded-success btn-icon mr-2" data-toggle="tooltip" title="Pagar o Aluguel"><i
+                      <a href="{{item.url_pagamento}}" target="_blank" class="btn bg-faded-success btn-icon mr-2" data-toggle="tooltip" title="{{ 'status.pagaraluguel' | translate }}"><i
                         class="fa fa-money-check-alt text-success"></i></a>
 
                 </div>
               
                 <div *ngSwitchCase="8">
-                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-faded-danger btn-icon mr-2" type="button" data-toggle="tooltip" title=""
-                    data-original-title="Status do Aluguel">Cancelamento Automático##</button>
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-faded-danger btn-icon mr-2" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
+                    data-original-title="Status do Aluguel">{{ 'status.cancelamentoautomatico' | translate }}</button>
                 </div>
               
                 <div *ngSwitchCase="9">
-                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-info btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
-                    data-original-title="Status do Aluguel">Aguardando aceite Locais dono##</button>
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-info btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
+                    data-original-title="Status do Aluguel">{{ 'status.aguardandoaceitelocais' | translate }}</button>
                 </div>
               
                 <div *ngSwitchCase="10">
-                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
-                    data-original-title="Status do Aluguel">Aguardando devolução##</button>
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
+                    data-original-title="Status do Aluguel">{{ 'status.aguardandodevolucao' | translate }}</button>
                 </div>
               
                 <div *ngSwitchCase="11">
-                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-success btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
-                    data-original-title="Status do Aluguel">Pagamento Confirmado##</button>
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-success btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
+                    data-original-title="Status do Aluguel">{{ 'status.pagamentoconfirmado' | translate }}</button>
                     <button class="justify-right btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip"
-                    (click)="verLocaisDesteAluguel(item)" title="Informar locais de entrega e devolução"><i
+                    (click)="verLocaisDesteAluguel(item)" title="{{ 'status.informelocal' | translate }}"><i
                       class="fa fa-map-marker text-info"></i></button>
                 </div>
               
                 <div *ngSwitchCase="12">
-                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-info btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
-                    data-original-title="Status do Aluguel">Aguardando entrega##</button>
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-info btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
+                    data-original-title="Status do Aluguel">{{ 'status.aguardandoentrega' | translate }}</button>
                   
                 </div>
   
                 <div *ngSwitchCase="13">
-                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
-                    data-original-title="Status do Aluguel">Aguardando Aceite do Aluguel##</button>
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
+                    data-original-title="Status do Aluguel">{{ 'status.aguardandoaceite' | translate }}</button>
                 </div>
   
                 <div *ngSwitchCase="14">
-                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
-                    data-original-title="Status do Aluguel">Aguardando checklist entrega pelo locatário##</button>
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
+                    data-original-title="Status do Aluguel">{{ 'status.okcheckentrega' | translate }}</button>
                     <button class="justify-right btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip"
-                    title="Validar informações de entrega" (click)="confirmarChecklists(item.id_aluguel,'entrega')"><i
+                    title="{{ 'status.validarentrega' | translate }}" (click)="confirmarChecklists(item.id_aluguel,'entrega')"><i
                       class="fa fa-check text-info"></i></button>
                 </div>
   
                 <div *ngSwitchCase="15">
-                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title=""
-                    data-original-title="Status do Aluguel">Aguardando checklist devolução pelo locatário##</button>
+                  <button (click)="openDialogDetalhesStatus(item)" class="btn bg-accent btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
+                    data-original-title="Status do Aluguel">{{ 'status.okcheckdevolucao' | translate }}</button>
                     <button class="justify-right btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip"
-                    title="Validar informações de devolução" (click)="confirmarChecklists(item.id_aluguel,'devolucao')"><i
+                    title="{{ 'status.validadevolucao' | translate }}" (click)="confirmarChecklists(item.id_aluguel,'devolucao')"><i
                       class="fa fa-check text-info"></i></button>
                 </div>
               
@@ -188,14 +186,13 @@
       
       <nav class="d-md-flex justify-content-between align-items-center text-center text-md-left mt-4"
       aria-label="Page navigation">
-      <div class="d-md-flex align-items-center w-100"><span class="font-size-sm text-muted mr-md-3">Mostrando {{alugueisLocatario.length}} de {{total}}
-          aluguéis</span>
+      <div class="d-md-flex align-items-center w-100"><span class="font-size-sm text-muted mr-md-3">{{alugueisLocatario.length}} / {{total}} {{ 'status.alugueis' | translate }}</span>
         <!-- <div class="progress w-100 my-3 mx-auto mx-md-0" style="max-width: 10rem; height: 4px;">
           <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="56" aria-valuemin="0"
             aria-valuemax="100"></div>
         </div> -->
       </div>
-      <button *ngIf="total>0" (click)="setPage(page+1,$event)" class="btn btn-outline-primary btn-sm" type="button">Carregar mais##</button>
+      <button *ngIf="total>0" (click)="setPage(page+1,$event)" class="btn btn-outline-primary btn-sm" type="button">{{ 'status.carregarMais' | translate }}</button>
     </nav>
     <!-- <div *ngIf="total>0" class="d-flex"><a class="nav-link-style mr-3" *ngIf=!firstPage href=""
         (click)="setPage(page-1,$event)"><i class="fa fa-arrow-left"></i></a><span class="font-size-md">{{page+1}} /

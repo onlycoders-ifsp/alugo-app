@@ -24,7 +24,7 @@
 			"emailPreenchimento": "You need to fill in the email!",
 			"emailValido": "The email must be valid!",
 			"endereco": "Address",
-			"login": "Login",
+			"login": "User name",
 			"userExiste": "Username already registered.",
 			"loginNecessario": "You need to set a login value.",
 			"nome": "Name",
@@ -44,6 +44,40 @@
 			"seulogin": "This will be your login",
 			"telefone": "Phone"
 		}
+	},
+	"status":{		
+		"titleaprovar":"Approve rent",
+		"titlerecusar":"Decline rent",
+		"titlestatus":"Rental Status",
+		"titleocorrencia":"View occurrence",
+		"titlereporteproblema":"Report a problem",
+		"titleavalialocatario":"Evaluate the tenant",
+		"titleavaliaprodutolocador":"Evaluate the landlord and the rented product",
+		"titledevolverproduto":"Return product",
+		"titleinserircheck":"Insert checklist",
+		"confirmarlocal":"Confirm location and time of delivery and product return",
+		"informelocal":"Inform delivery and return locations",
+		"validarentrega":"Validate delivery information",
+		"validadevolucao":"Validate return information",
+		"pagaraluguel":"Pay the rent",
+		"carregarMais":"Load More",
+		"alugueis":"rents",
+		
+		"agendado":"Scheduled",
+		"andamento":"In progress",
+		"finalizadosemocorrencia":"Ended without occurrence",
+		"finalizadocomocorrencia":"Ended with Occurrence",
+		"canceladolocador":"Canceled by Lessor",
+		"canceladolocatario":"Canceled by Renter",
+		"aguardandopagamento":"Awaiting payment",
+		"cancelamentoautomatico":"Automatic Cancellation",
+		"aguardandoaceitelocais":"Awaiting accepted Owner locations",
+		"aguardandodevolucao":"Awaiting return",
+		"pagamentoconfirmado":"Payment confirmed",
+		"aguardandoentrega":"Awaiting delivery",
+		"aguardandoaceite":"Waiting for Rental Acceptance",
+		"okcheckentrega":"Waiting for the tenant's delivery checklist ok",
+		"okcheckdevolucao":"Waiting for the return checklist ok by the lessee"
 	},
 	"categorias": {
 		"acessorios": "Travel Accessories",
@@ -82,6 +116,37 @@
 			"ate": "to",
 			"infocontatolocador": "Renter contact information",
 			"valorPago": "Amount Paid:"
+		},
+		"aluguel-local-data-entrega":{
+			"locaishorarios":"Places and times of delivery and product returns:",
+			"infoentrega":"Delivery information:",
+			"descricaolocal":"Description of the place",
+			"placeholderlocal":"Main shopping mall, food court.",
+			"horario":"Times",
+			"placeholderdatahorario":"Choose the date and time",
+			"infodevolucao":"Return information:",
+			"salvar":"Save locations and times"
+		},
+		"aluguel-visualizacao-local-data-entrega":{
+			"confirmalocaishorarios":"Local confirmation and delivery times and product returns:",
+			"observacao":"Note for refusing the address, date and time of delivery and return",
+			"confirmar":"Confirm locations and times",
+			"recusar":"Decline locations and times"
+		},
+		"avaliacao-locador":{
+			"avalielocatario":"Rate the renter for this rental:",
+			"notaaluguel":"From 0 to 5, give a general rating for the experience with the tenant of this rental:",
+			"nota":"Rate:",
+			"escrevaObservacao":"Write a note about the grade given to that person:",
+			"salvar":"Save review"
+		},
+		"avaliacao-locatario":{
+			"avalielocador":"Rate the locator for this rental:",
+			"avalieproduto":"Rate the product of this rental:",
+			"notalocador":"From 0 to 5, give a general rating for the experience with the lessor of this rental:",
+			"notaproduto":"From 0 to 5, give a general rating for the rented product:",
+			"escrevaObservacao":"Write a note about the grade given to the product:",
+			"salvar":"Save reviews"
 		},
 		"cliente-checklist":{
 			"confirmar":"Confirm",
@@ -392,7 +457,7 @@
 			"deixeseucarrobrilhando": "Check out our catalog!",
 			"disponibilize": "Make a product available today!",
 			"filtros": "Filters",
-			"locarproduto": "Rent a Product",
+			"locarproduto": "Make a product available",
 			"nenhumProduto": "No products found with the filter",
 			"procuraartigos": "Looking for tools for video and photos?",
 			"produtosdisponiveis": "Products available for rent:",
