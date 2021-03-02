@@ -80,7 +80,6 @@ export class RealizaAluguelComponent implements OnInit {
   }
   myFilter = (d: Date): boolean => {
     const time=d.getTime();
-    console.log(this.datasIndisponiveis.length);
     return (this.datasIndisponiveis.length>0) ? !this.datasIndisponiveis.find(x=>x==time):true;
   }
   ngOnInit(): void {
@@ -136,7 +135,8 @@ export class RealizaAluguelComponent implements OnInit {
       let dataInicio = new Date(this.datepipe.transform(item.dt_inicio, 'MM-dd-yyyy'));//(new Date(item.dt_inicio);
       let dataFim = this.transformaDataFim(item.dt_fim);
       dataInicio.setDate(dataInicio.getDate()-2);
-      while(dataInicio.getDate() <= dataFim.getDate()+2){
+      dataFim.setDate(dataFim.getDate()+2)
+      while(dataInicio.getTime() <= new Date(dataFim).getTime()){
         this.datasIndisponiveis.push(dataInicio.getTime());
         dataInicio.setDate(dataInicio.getDate() + 1);
       }
