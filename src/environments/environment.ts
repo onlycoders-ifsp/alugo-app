@@ -50,7 +50,6 @@ export const environment = {
   postCadAluguel: "/aluguel/aluguel-efetua",
   postCadEntregaDevolucao: "/aluguel/entrega-devolucao",
   getEntregaDevolucao:"/aluguel/encontro",
-  putEntregaDevolucao:"/aluguel/banana",
   putConfirmacaoEntregaDevolucao:"/aluguel/confirma-encontro",
   postCadAvaliacaoLocatario: "/aluguel/avaliacao/grava/locatario",
   postCadAvaliacaoLocador: "/aluguel/avaliacao/grava/locador",
@@ -70,6 +69,7 @@ export const environment = {
   //ENDPOINTS PAGAMENTO
   putUrlpagamentoAluguel:'/pagamento/url-pagamento',
   putEfetuaPagamento:'/pagamento/efetua',
+  webHookPagamento: '/pagamento/retorno-pagamento', 
 
   //ENDPOINTS ADMIN
   getListaUsuarios: "/admin/lista-usuario",

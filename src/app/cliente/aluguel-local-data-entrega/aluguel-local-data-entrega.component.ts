@@ -139,12 +139,7 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
     this.entregaDevolucaoAlterado.observacao_recusa = "";
     this.entregaDevolucaoAlterado.aceite_locador = false;
 
-    if (this.edicao) {
-      this.updateEntregaDevolucao();
-    } else {
-      this.cadEntregaDevolucao();
-    }
-    
+    this.cadEntregaDevolucao();
   }
 
   cadEntregaDevolucao() {
@@ -163,27 +158,27 @@ export class AluguelLocalDataEntregaComponent implements OnInit {
     });
   }  
   
-  updateEntregaDevolucao() {
-    this.entregaDevolucaoAlterado.id_aluguel = this.idCurrentAluguel;
-    this.aluguelService.putEntregaDevolucao(this.entregaDevolucaoAlterado).subscribe(response => {
-      if(response){
-        console.log(response)
-        this.mensagemSucesso = "AtualizadoSucesso";
-        this.mensagemErro = null;
-      localStorage.removeItem("idAluguel");
-      this.router.navigate(["cliente/perfil/alugueis-locatario"])
-      }else{
-        this.mensagemErro = "AtualizadoErro";
-      }
-    }, errorResponse => {
-      this.mensagemSucesso = null,
-        this.mensagemErro = "AtualizadoErro";
-    });
-  }
+  // updateEntregaDevolucao() {
+  //   this.entregaDevolucaoAlterado.id_aluguel = this.idCurrentAluguel;
+  //   this.aluguelService.putEntregaDevolucao(this.entregaDevolucaoAlterado).subscribe(response => {
+  //     if(response){
+  //       console.log(response)
+  //       this.mensagemSucesso = "AtualizadoSucesso";
+  //       this.mensagemErro = null;
+  //     localStorage.removeItem("idAluguel");
+  //     this.router.navigate(["cliente/perfil/alugueis-locatario"])
+  //     }else{
+  //       this.mensagemErro = "AtualizadoErro";
+  //     }
+  //   }, errorResponse => {
+  //     this.mensagemSucesso = null,
+  //       this.mensagemErro = "AtualizadoErro";
+  //   });
+  // }
 
   loadCurrentEntregaDevolucao() {
     this.aluguelService.getEntregaDevolucao(this.idCurrentAluguel).subscribe(resposta => {
-      this.currententregaDevolucao = resposta;
+      console.log(this.currententregaDevolucao)
       let dataFormatadaEntrega = this.datepipe.transform(this.currententregaDevolucao.data_entrega, 'yyyy-MM-dd hh:mm:ss.000000');
       let dateEntrega: Date = new Date(dataFormatadaEntrega);
       

@@ -52,11 +52,17 @@
                     <div class="form-group">
                       <mat-form-field class="full-width">
                         <mat-label>{{ 'portal-alugo.realiza-aluguel.dataInicial' | translate }}</mat-label>
-                        <input (dateChange)="recalculaValorAluguel()" formControlName="data_inicio" matInput [matDatepicker]="picker">
+                        <input (dateChange)="recalculaValorAluguel()" formControlName="data_inicio" matInput [min]="dataMinimaAluguel" [matDatepickerFilter]="myFilter" [matDatepicker]="picker">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                         <mat-error *ngIf="formularioAluguel.controls.data_inicio.errors && formularioAluguel.controls.data_inicio.errors.required">
                           {{ 'portal-alugo.realiza-aluguel.dataInicialVazia' | translate }}
+                        </mat-error>
+                        <mat-error *ngIf="formularioAluguel.controls.data_inicio.errors && formularioAluguel.controls.data_inicio.errors.dataIndisponivel">
+                          {{ 'portal-alugo.realiza-aluguel.dataIndisponivel' | translate }}
+                        </mat-error>
+                        <mat-error *ngIf="formularioAluguel.controls.data_inicio.errors && formularioAluguel.controls.data_inicio.errors.dataAnterior">
+                          {{ 'portal-alugo.realiza-aluguel.dataAnterior' | translate }}
                         </mat-error>
                       </mat-form-field>
                     </div>
@@ -65,11 +71,17 @@
                     <div class="form-group">
                       <mat-form-field class="full-width">
                         <mat-label>{{ 'portal-alugo.realiza-aluguel.dataFinal' | translate }}</mat-label>
-                        <input (dateChange)="recalculaValorAluguel()" formControlName="data_fim" matInput [matDatepicker]="picker2">
+                        <input (dateChange)="recalculaValorAluguel()" formControlName="data_fim" matInput [min]="dataMinimaAluguel" [matDatepickerFilter]="myFilter" [matDatepicker]="picker2">
                         <mat-datepicker-toggle  matSuffix [for]="picker2"></mat-datepicker-toggle>
                         <mat-datepicker #picker2></mat-datepicker>
                         <mat-error *ngIf="formularioAluguel.controls.data_fim.errors && formularioAluguel.controls.data_fim.errors.required">
                           {{ 'portal-alugo.realiza-aluguel.dataFinalVazia' | translate }}
+                        </mat-error>
+                        <mat-error *ngIf="formularioAluguel.controls.data_fim.errors && formularioAluguel.controls.data_fim.errors.dataIndisponivel">
+                          {{ 'portal-alugo.realiza-aluguel.dataIndisponivel' | translate }}
+                        </mat-error>
+                        <mat-error *ngIf="formularioAluguel.controls.data_fim.errors && formularioAluguel.controls.data_fim.errors.dataAnterior">
+                          {{ 'portal-alugo.realiza-aluguel.dataAnterior' | translate }}
                         </mat-error>
                       </mat-form-field>
                     </div>
@@ -95,7 +107,7 @@
               </div>
             </div>
             <hr>
-            <button class="btn btn-success btn-shadow btn-block mt-4" type="submit" ><i class="fa fa-shopping-cart font-size-lg mr-2"></i>{{ 'portal-alugo.realiza-aluguel.alugar' | translate }}</button>
+            <button [disabled]="formularioAluguel.invalid||errorDataMenorHoje||errorData||errorCad||errorDonoProduto||errorAluguelExistente" class="btn btn-success btn-shadow btn-block mt-4" type="submit" ><i class="fa fa-shopping-cart font-size-lg mr-2"></i>{{ 'portal-alugo.realiza-aluguel.alugar' | translate }}</button>
             <div class="bg-secondary rounded p-3 mt-4 mb-2"><a class="media align-items-center" href="#">
               
               <img *ngIf="currentDono.capa_foto" class="rounded-circle" width="50" src="data:image/jpg;base64,{{currentDono.capa_foto}}" alt="{{ 'portal-alugo.realiza-aluguel.nomeDono' | translate }}" />

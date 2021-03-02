@@ -133,9 +133,9 @@ export class AluguelService {
     return this.http.get<boolean>(environment.apiBaseUrl + environment.aceiteRecusadoAluguel,{params});
   }
   
-  putEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<boolean> {
-    return this.http.put<boolean>(environment.apiBaseUrl + environment.putEntregaDevolucao,EntregaDevolucao);
-  }
+  // putEntregaDevolucao(EntregaDevolucao: eEntregaDevolucao) : Observable<boolean> {
+  //   return this.http.put<boolean>(environment.apiBaseUrl + environment.putEntregaDevolucao,EntregaDevolucao);
+  // }
   
   putConfirmacaoEntregaDevolucao(id_aluguel: string, motivoRecusa: string, OK:string) : Observable<boolean> {
     let params = new HttpParams();

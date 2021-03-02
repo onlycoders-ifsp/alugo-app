@@ -90,7 +90,7 @@
                 <button (click)="openDialogDetalhesStatus(item)" class="btn bg-info btn-icon mr-2 text-light" type="button" data-toggle="tooltip" title="{{ 'status.titlestatus' | translate }}"
                   data-original-title="Status do Aluguel">{{ 'status.aguardandoaceitelocais' | translate }}</button>
                   <button class="justify-right btn bg-faded-info btn-icon mr-2" type="button" data-toggle="tooltip"
-                  (click)="confirmarLocaisDesteAluguel(item)" title="{{ 'status.confirmarlocal' | translate }}"><i
+                  (click)="confirmarLocaisDesteAluguel(item.id_aluguel)" title="{{ 'status.confirmarlocal' | translate }}"><i
                     class="fa fa-map-marker text-info"></i></button>
               </div>
             

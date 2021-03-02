@@ -52,6 +52,16 @@ export class Validacoes {
     return { cpfInvalido: true };
   }
 
+  //  static validateInputDate(control: AbstractControl,datasIndisponiveis:number[]){
+  //      const time=control.value.getTime();
+  //      return datasIndisponiveis.find(x=>x==time)?{dataIndisponivel:true}:null
+  //  }
+   
+  //  static validateCurrentDate(control: AbstractControl){
+  //      const time=control.value.getTime();
+  //      return (time < new Date().getTime())?{dataAnterior:true}:null
+  //  }
+
 //   static MaiorQue18Anos(controle: AbstractControl) {
 //     const nascimento = controle.value;
 //     const [ano, mes, dia] = nascimento.split('-');

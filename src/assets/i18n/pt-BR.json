@@ -434,6 +434,8 @@
 			"cuidado": "Cuidado!",
 			"dataFinal": "Data Final",
 			"dataFinalVazia": "Insira uma data final.",
+			"dataIndisponivel": "Data indisponível para aluguel",
+			"dataAnterior":"Data passada indisponível para aluguel",
 			"dataInicial": "Data Inicial",
 			"dataInicialVazia": "Insira uma data inicial.",
 			"descricaoValor": "Descrição do Valor",

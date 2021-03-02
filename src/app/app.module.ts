@@ -42,6 +42,7 @@ import { errorRequestService } from './Services/errorRequestService';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotificacaoComponent } from './notificacao/notificacao.component';
 import { NotificacaoService } from './Services/notificacaoService';
+import { ValidaCadastroComponent } from './valida-cadastro/valida-cadastro.component';
 
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
@@ -53,6 +54,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     LoadingComponent,
     ErrorRequestComponent,
     NotificacaoComponent,
+    ValidaCadastroComponent
   ],
   imports: [
     ModalModule,
