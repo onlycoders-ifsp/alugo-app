@@ -27,6 +27,15 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { AluguelLocadorComponent } from './aluguel-locador/aluguel-locador.component';
 import { AluguelLocatarioComponent } from './aluguel-locatario/aluguel-locatario.component';
+import { ClienteProdutoAluguelComponent } from './cliente-produto-aluguel/cliente-produto-aluguel.component';
+import { ClienteChecklistComponent } from './cliente-checklist/cliente-checklist.component';
+import { AluguelLocalDataEntregaComponent } from './aluguel-local-data-entrega/aluguel-local-data-entrega.component';
+import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { AluguelVisualizacaoLocalDataEntregaComponent } from './aluguel-visualizacao-local-data-entrega/aluguel-visualizacao-local-data-entrega.component';
+import { AvaliacaoLocatarioComponent } from './avaliacao-locatario/avaliacao-locatario.component';
+import { AvaliacaoLocadorComponent } from './avaliacao-locador/avaliacao-locador.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ClienteChecklistCadastroComponent } from './cliente-checklist-cadastro/cliente-checklist-cadastro.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -38,7 +47,14 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     ListaProdutosComponent,
     ClienteCredenciaisComponent,
     AluguelLocadorComponent,
-    AluguelLocatarioComponent
+    AluguelLocatarioComponent,
+    ClienteProdutoAluguelComponent,
+    ClienteChecklistComponent,
+    AluguelLocalDataEntregaComponent,
+    AluguelVisualizacaoLocalDataEntregaComponent,
+    AvaliacaoLocatarioComponent,
+    AvaliacaoLocadorComponent,
+    ClienteChecklistCadastroComponent,
   ],
   imports: [
     CommonModule,
@@ -53,11 +69,15 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     AppRoutingModule,
     MatToolbarModule,
     MatInputModule,
+    NgxMatTimepickerModule,
     MatCardModule,
     MatButtonModule,
+    NgxMatDatetimePickerModule,
+    NgxMatNativeDateModule,
     MatIconModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
     BrowserAnimationsModule,
     ClienteRoutingModule,
     HttpClientModule,

@@ -17,7 +17,11 @@ export class ListaUsuariosComponent implements OnInit {
   success: boolean;
   error: boolean;
 
-  
+  ativadoSucesso: Boolean = false;
+  inativadoSucesso: Boolean = false;
+  erroAtivaInativa: Boolean = false;
+  nomeUsuarioAlterado: string;
+
   idiomas: iIdioma[];
   currentBandeira: string;
   currentIdioma: string;
@@ -26,23 +30,25 @@ export class ListaUsuariosComponent implements OnInit {
     private adminService: AdminService,
     private router : Router,
     private idiService: idiomaService,
-    ) { 
+    ) {
       this.currentBandeira = idiService.setDefaultLanguage(),
       this.idiomas = idiService.getListIdiomas()
     }
 
   ngOnInit(): void {
     this.adminService.getUsuarios().subscribe(resposta => {
-      this.listaUsuarios = resposta;
+      this.listaUsuarios = resposta['content'];
+      console.log(this.listaUsuarios)},
+      
       errorResponse => {
-        console.log(errorResponse)
+        console.log(errorResponse);
       });
   }
 
   clickMudaIdioma() {
     this.currentBandeira = this.idiService.setNewIdioma(this.currentIdioma)
   }
-  
+
   novoUsuario(){
     this.router.navigate(['/usuarios/cad']);
   }
@@ -53,6 +59,33 @@ export class ListaUsuariosComponent implements OnInit {
 
   confirmDelete(user : eUsuario){
     this.usuarioSelecionado = user;
+  }
+
+  inativaAtivaUser(userId: string){
+    let estadoAntigo;
+    this.listaUsuarios.forEach(user => {
+      if(user.id_usuario == userId){
+        estadoAntigo = user.ativo;
+        this.nomeUsuarioAlterado = user.nome;
+      }
+    });
+    this.adminService.inativaOrAtivaUser(userId).subscribe(resposta => {
+      if(estadoAntigo){
+        this.inativadoSucesso = true;
+        this.ativadoSucesso = false;
+        this.erroAtivaInativa = false;
+      }else{
+        this.ativadoSucesso = true;
+        this.inativadoSucesso = false;
+        this.erroAtivaInativa = false;
+      }
+      this.ngOnInit();
+    },errorResponse =>{
+      console.log(errorResponse);
+      this.ativadoSucesso = false;
+      this.inativadoSucesso = false;
+      this.erroAtivaInativa = true;
+    });
   }
 
   // deleteUsuario(userDelete: eUsuario){
@@ -67,5 +100,4 @@ export class ListaUsuariosComponent implements OnInit {
   //       this.error = true;
   //     });
   // }
-
 }

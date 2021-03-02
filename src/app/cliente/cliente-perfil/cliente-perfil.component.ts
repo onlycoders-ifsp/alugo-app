@@ -6,6 +6,13 @@ import { AuthService } from 'src/app/Services/auth.service';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { DatePipe } from '@angular/common'
 import { Router } from '@angular/router';
+import { CepService } from 'src/app/Services/CepService';
+import { eCep } from 'src/app/entidades/eCep';
+import { Validacoes } from 'src/app/Classes/Validacoes';
+import { AsyncValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import { Observable } from "rxjs/Observable";
+import 'rxjs/add/operator/map';
+import { loadingService } from 'src/app/Services/loadingService';
 
 @Component({
   selector: 'app-cliente-perfil',
@@ -21,15 +28,19 @@ currentIdioma: string;
 formularioCliente: FormGroup;
 mensagemErro: string;
 mensagemSucesso: string;
+nomeUsuario: string;
+cepPesquisado: eCep = new eCep();
 currentUsuarioLogado: eUsuario = new eUsuario();
 userAlterado: eUsuario = new eUsuario();
 novaFoto: string;
+userName: String;
 
   constructor(private idiService: idiomaService,
     private fb: FormBuilder,
     private auth: AuthService,
     public datepipe: DatePipe,
-    private router: Router
+    private loaderService: loadingService,
+    private cepSearch: CepService
     ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
@@ -37,6 +48,9 @@ novaFoto: string;
    }
 
   ngOnInit(): void {
+    if (!this.auth.isAutenticado()){
+      this.auth.encerraSessao();
+    }
     this.loadCurrentUser();
   }
 
@@ -45,6 +59,7 @@ novaFoto: string;
       this.currentUsuarioLogado = resposta;
       let dataFormatada = this.datepipe.transform(this.currentUsuarioLogado.data_nascimento, 'MM-dd-yyyy');
       let date: Date = new Date(dataFormatada);
+      //this.userName = this.currentUsuarioLogado.login;
       this.formularioCliente.patchValue({
         nome: this.currentUsuarioLogado.nome,
         email: this.currentUsuarioLogado.email,
@@ -67,20 +82,28 @@ novaFoto: string;
 
   createForm(){
     this.formularioCliente = this.fb.group({
-      nome:['',[Validators.required]],
-      cpf:['',[Validators.required,Validators.maxLength(11), Validators.minLength(11)]],
-      email:['',[Validators.required, Validators.email]],
-      login: ['', [Validators.required]],
-      celular:[''],
+      nome:['',
+        [Validators.required]
+      ],
+      cpf:['',
+        [Validators.required,
+         Validators.maxLength(11), 
+         Validators.minLength(11), 
+         Validacoes.ValidaCpf],
+        [this.VerificaCpf(this.auth)]
+      ],
+      email:['',[Validators.required, Validators.email],[this.VerificaEmail(this.auth)]],
+      login: ['', [Validators.required],[this.VerificaUser(this.auth)]],
+      celular:['',[]],
       dataNascimento:['',[]],
-      bairro:[''],
-      cep:[''],
-      endereco:[''],
-      numero:[''],
-      complemento:[''],
-    })
+      bairro:['',[]],
+      cep:['',[]],
+      endereco:['',[]],
+      numero:['',[]],
+      complemento:['',[]],
+    },{updateOn: 'blur'})
+    
   }
-
   
   updateUsuario(){
     const formCadValues = this.formularioCliente.value;
@@ -96,9 +119,9 @@ novaFoto: string;
     }
     this.userAlterado.cep = formCadValues.cep;
     this.userAlterado.login = formCadValues.login;
-    if(!formCadValues.endereco){
-      formCadValues.endereco = "";
-    }
+    //if(!formCadValues.endereco){
+    //  formCadValues.endereco = "";
+    //}
     this.userAlterado.endereco = formCadValues.endereco;
     if(!formCadValues.numero){
       formCadValues.numero = "";
@@ -111,9 +134,9 @@ novaFoto: string;
       latest_date = "";
     }
     this.userAlterado.data_nascimento = latest_date;
-    if(!formCadValues.bairro){
-      formCadValues.bairro = "";
-    }
+    // if(!formCadValues.bairro){
+    //   formCadValues.bairro = "";
+    // }
     this.userAlterado.bairro = formCadValues.bairro;
     if(!formCadValues.complemento){
       formCadValues.complemento = "";
@@ -126,15 +149,21 @@ novaFoto: string;
 
     if(this.formularioCliente.valid){
       this.auth.updateUsuario(this.userAlterado).subscribe(response =>{
-        this.mensagemSucesso = "Usuário " + formCadValues.nome + " atualizado com sucesso!##",
+        this.mensagemSucesso = "Sucesso"
+        this.nomeUsuario = formCadValues.nome;
           this.mensagemErro = null;
           this.uploadFotoUser();
+          this.loaderService.hide();
+          if(this.currentUsuarioLogado.login != this.userAlterado.login){
+              this.auth.encerraSessaoTLogin();
+          }
       }, errorResponse => {
         this.mensagemSucesso = null,
-          this.mensagemErro = "##Erro ao realizar a atualização de " + formCadValues.nome;
+          this.mensagemErro = "Erro" + formCadValues.nome;
+          this.nomeUsuario = formCadValues.nome;
       });
     }else{
-      this.mensagemErro = "O formulário ainda não está valido##"
+      this.mensagemErro = "Invalido"
       this.mensagemSucesso = null;
     }
   }
@@ -169,6 +198,48 @@ novaFoto: string;
         this.fileAtual = null;
         this.ngOnInit()
       });
+    }
+  }
+  
+  preencheCep(){
+    this.cepSearch.getCep(this.formularioCliente.value.cep).subscribe(response => {
+      this.cepPesquisado = response;
+      this.formularioCliente.patchValue({
+        bairro: this.cepPesquisado.bairro,
+        endereco: this.cepPesquisado.logradouro,
+      })
+      
+    });
+  }
+
+  VerificaEmail(authService:AuthService) : AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      return authService
+              .getVerificaEmailUpdate(control.value)
+              .map(response => {
+                    return response ? {emailExiste: true} : null
+                  })
+    };
+  }
+
+  
+  VerificaUser(authService:AuthService) : AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      return authService
+              .getVerificaUserNameUpdate(control.value)
+              .map(response =>{
+                    return response ? {userExiste: true} : null
+              });
+      }
+  }
+
+  VerificaCpf(authService:AuthService) : AsyncValidatorFn  {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      return authService
+              .getVerificaCpfUpdate(control.value)
+              .map(response =>{
+                return response ? {cpfExiste: true} : null
+              })
     }
   }
 }

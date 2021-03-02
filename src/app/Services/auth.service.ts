@@ -6,7 +6,6 @@ import { eUserLogin } from '../entidades/eUserLogin';
 import { eUsuario } from '../entidades/eUsuario';
 import { JwtHelperService } from '@auth0/angular-jwt'
 import { Router } from '@angular/router';
-import { eObjetoUsuario } from '../entidades/eObjetoUsuario';
 import { eUsuarioConstructor } from '../entidades/eUsuarioConstrutor';
 import { eSenha } from '../entidades/eSenha';
 
@@ -42,6 +41,9 @@ export class AuthService {
     localStorage.removeItem("access_token");
     this.router.navigate(['']);
   }
+  removeToken(){
+    localStorage.removeItem("access_token");
+  }
 
   getUsuarioAutenticado(){
     const token = this.obterToken();
@@ -49,6 +51,17 @@ export class AuthService {
     if(token){
       const user = this.jwtHelper.decodeToken(token).user_name;
       return user;
+    }else{
+      return null;
+    }
+  }
+
+  getRolesUsuarioLogado(){
+    const token = this.obterToken();
+
+    if(token){
+      const roleUser = this.jwtHelper.decodeToken(token).authorities;
+      return roleUser;
     }else{
       return null;
     }
@@ -68,6 +81,11 @@ export class AuthService {
     this.router.navigate(['']);
   }
 
+  encerraSessaoTLogin(){
+    localStorage.removeItem('access_token');
+    this.router.navigate(['/login']);
+  }
+
   tentarLogin(username: string, password: string) : Observable<any> {
     const params = new HttpParams()
                                 .set('username', username)
@@ -84,8 +102,10 @@ export class AuthService {
     return this.http.post<any>(environment.apiBaseUrl + environment.login, usuario);
   }
 
-  cadastrarNovoUsuario(usuario: eUsuarioConstructor) : Observable<eUsuarioConstructor>{
-    return this.http.post<eUsuarioConstructor>(environment.apiBaseUrl + environment.postCadUsuario,usuario );
+  cadastrarNovoUsuario(usuario: eUsuarioConstructor, url:string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('url' , url);
+    return this.http.post<boolean>(environment.apiBaseUrl + environment.postCadUsuario,usuario, {params});
 
   }
 
@@ -113,5 +133,53 @@ export class AuthService {
   uploadFotoUsuario(formData: FormData) : Observable<any>{
     return this.http.put(environment.apiBaseUrl + environment.putFotoUsuario, formData)
 
+  }
+
+  public getVerificaCpf(cpf:string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('cpf' , cpf);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.getVerificaCpf, {params} );
+  }
+  public getVerificaCpfUpdate(cpf:string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('cpf' , cpf);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.getVerificaCpfUpdate, {params} );
+  }
+
+  /*
+  public getVerificaEmail(email:string) : Observable<any>{
+    let params = new HttpParams();
+    params = params.append('email' , email);
+    console.log(email);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.getVerificaEmail, 
+      {params}).pipe(
+        map((exist)=>{
+          return exist ? {emailExiste: true} : null
+        })
+        );
+  }
+*/
+  public getVerificaEmail(email:string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('email' , email);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.getVerificaEmail,{params})
+  }
+
+  public getVerificaEmailUpdate(email:string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('email' , email);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.getVerificaEmailUpdate,{params})
+  }
+
+  public getVerificaUserName(user:string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('user' , user);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.getVerificaUserName, {params} );
+  }
+
+  public getVerificaUserNameUpdate(user:string) : Observable<boolean>{
+    let params = new HttpParams();
+    params = params.append('user' , user);
+    return this.http.get<boolean>(environment.apiBaseUrl + environment.getVerificaUserNameUpdate, {params} );
   }
 }

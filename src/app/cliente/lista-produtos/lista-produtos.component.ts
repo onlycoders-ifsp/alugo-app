@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
+import { AuthService } from 'src/app/Services/auth.service';
 import { PortalService } from 'src/app/Services/PortalService';
 
 @Component({
@@ -18,34 +19,57 @@ export class ListaProdutosComponent implements OnInit {
   currentBandeira: string;
   currentIdioma: string;
   mensagemSucessoProduto: string = null;
+  nomeProduto: string;
+  public page: number = 0;
+  public size: number = 5;
+  public pages:number;
+  public firstPage: boolean;
+  public lastPage: boolean;
+  public total: number = 0;
 
   constructor(
     private router: Router,
     private idiService: idiomaService,
+    private auth: AuthService,
     private portalService: PortalService
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
    }
 
+   setPage(i,event:any){
+    event.preventDefault();
+    this.page = i;
+    this.ngOnInit();
+
+  }
   ngOnInit(): void {
+    if (!this.auth.isAutenticado()){
+      this.auth.removeToken();
+    }
     this.getListaProdutosUsuario()
     if(localStorage.getItem("produtoInputadoSucesso")){
       this.mensagemSucessoProduto = localStorage.getItem("produtoInputadoSucesso");
+      this.nomeProduto = localStorage.getItem("produtoNome");
       localStorage.removeItem("produtoInputadoSucesso");
+      localStorage.removeItem("produtoNome");
     }
 
 
   }
 
   getListaProdutosUsuario(){
-    this.portalService.getProdutosUsuarioLogado().subscribe(resposta => {
-      this.Produtos = resposta;
+    this.portalService.getProdutosUsuarioLogado(this.page,this.size).subscribe(resposta => {
+      this.Produtos = resposta['content'];
+      this.pages = resposta['totalPages'];
+      this.firstPage = resposta['first'];
+      this.lastPage = resposta['last'];
+      this.total = resposta['totalElements'];
       errorResponse => {
         console.log(errorResponse)
       }
     });
-    this.portalService.getProdutosUsuarioLogado()
+    this.portalService.getProdutosUsuarioLogado(this.page,this.size)
   }
 
   clickMudaIdioma() {
@@ -69,6 +93,10 @@ export class ListaProdutosComponent implements OnInit {
   novoProduto(){
     localStorage.removeItem("idProdutoMudanca")
     this.router.navigate(['cliente/perfil/produto']);
+  }  
+  verAlugueisDesteProduto(idProduto: string){
+    localStorage.setItem("idProduto", idProduto)
+    this.router.navigate(['cliente/perfil/produto-aluguel']);
   }
   voltaHome(){
     this.router.navigate(['']);

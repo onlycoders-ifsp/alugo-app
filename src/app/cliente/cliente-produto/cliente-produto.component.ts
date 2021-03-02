@@ -2,11 +2,13 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { eCategorias } from 'src/app/entidades/eCategorias';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { PortalService } from 'src/app/Services/PortalService';
 import { produtoService } from 'src/app/Services/produtoService';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-cliente-produto',
@@ -16,6 +18,7 @@ import { produtoService } from 'src/app/Services/produtoService';
 export class ClienteProdutoComponent implements OnInit {
 
   idiomas: iIdioma[];
+  categorias: eCategorias[] = [];
   currentBandeira: string;
   currentIdioma: string;
   formularioProduto: FormGroup;
@@ -24,6 +27,9 @@ export class ClienteProdutoComponent implements OnInit {
   idCurrentProduto: string;
   mensagemSucesso: string;
   mensagemErro: string;
+  nomeProduto: string;
+  percSugeridoDiaria: number = 0.02;
+  percSugeridoMensal: number = 0.25;
   erroDescricao: boolean = false;
   erroDescricaoCurta: boolean = false;
 
@@ -33,6 +39,7 @@ export class ClienteProdutoComponent implements OnInit {
     private fb: FormBuilder,
     private portalService: PortalService,
     public datepipe: DatePipe,
+    private auth: AuthService,
     private produtoService: produtoService
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
@@ -40,6 +47,10 @@ export class ClienteProdutoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (!this.auth.isAutenticado()){
+      this.auth.encerraSessao();
+    }
+    this.getListaCategorias();
     this.createForm();
     if (localStorage.getItem("idProdutoMudanca")) {
       this.idCurrentProduto = localStorage.getItem("idProdutoMudanca");
@@ -55,6 +66,7 @@ export class ClienteProdutoComponent implements OnInit {
     this.formularioProduto = this.fb.group({
       nome: ['', [Validators.required]],
       descricao_curta: ['', [Validators.required]],
+      categorias: ['', [Validators.required]],
       ativo: [''],
       descricao: ['', [Validators.required]],
       valor_base_diaria: ['', [Validators.required]],
@@ -69,12 +81,13 @@ export class ClienteProdutoComponent implements OnInit {
     })
   }
 
-  loadFormToCadOrUpdate() {
-
-    
+  loadFormToCadOrUpdate() {    
     const formCadValues = this.formularioProduto.value;
     this.produtoAlterado.nome = formCadValues.nome;
     this.produtoAlterado.descricao_curta = formCadValues.descricao_curta;
+    this.produtoAlterado.categorias = this.categorias.filter(categoria => categoria.id_categoria == formCadValues.categorias).map(function(item) {
+      return { id_categoria: item.id_categoria, nome_categoria: item.descricao };
+    });
     this.produtoAlterado.ativo = formCadValues.ativo;
     this.produtoAlterado.descricao = formCadValues.descricao;
     this.produtoAlterado.valor_base_diaria = Number(formCadValues.valor_base_diaria);
@@ -85,20 +98,20 @@ export class ClienteProdutoComponent implements OnInit {
     }
     this.produtoAlterado.capa_foto = formCadValues.capa_foto;
 
-    if(!formCadValues.qtd_alugueis){
-      formCadValues.qtd_alugueis = 0;
-    }
-    this.produtoAlterado.qtd_alugueis = Number(formCadValues.qtd_alugueis);
+    // if(!formCadValues.qtd_alugueis){
+    //   formCadValues.qtd_alugueis = 0;
+    // }
+    // this.produtoAlterado.qtd_alugueis = Number(formCadValues.qtd_alugueis);
 
-    if(!formCadValues.total_ganhos){
-      formCadValues.total_ganhos = 0;
-    }
-    this.produtoAlterado.total_ganhos = Number(formCadValues.total_ganhos);
+    // if(!formCadValues.total_ganhos){
+    //   formCadValues.total_ganhos = 0;
+    // }
+    // this.produtoAlterado.total_ganhos = Number(formCadValues.total_ganhos);
 
-    if(!formCadValues.media_avaliacao){
-      formCadValues.media_avaliacao = 0;
-    }
-    this.produtoAlterado.media_avaliacao = Number(formCadValues.media_avaliacao);
+    // if(!formCadValues.media_avaliacao){
+    //   formCadValues.media_avaliacao = 0;
+    // }
+    // this.produtoAlterado.media_avaliacao = Number(formCadValues.media_avaliacao);
 
     let date: Date = formCadValues.data_compra;
     let latest_date = this.datepipe.transform(date, 'yyyy-MM-dd');
@@ -109,6 +122,15 @@ export class ClienteProdutoComponent implements OnInit {
     } else {
       this.cadProduto();
     }
+  }
+
+  getListaCategorias(){
+    this.produtoService.getCategorias().subscribe(resposta => {
+      this.categorias = resposta;
+      errorResponse => {
+        console.log(errorResponse);
+      }
+    });
   }
 
   inputaProduto() {
@@ -129,26 +151,29 @@ export class ClienteProdutoComponent implements OnInit {
       }else{
         this.erroDescricaoCurta = false;
       }
-      this.mensagemErro = "O formulário ainda não está valido"
+      this.mensagemErro = "formInvalido"
     }
   }
 
   updateProduto() {
     this.produtoAlterado.id_produto = this.idCurrentProduto;
-    console.log(this.idCurrentProduto)
     this.produtoService.updateProduto(this.produtoAlterado).subscribe(response => {
       if(response){
-        this.mensagemSucesso = "Produto " + this.produtoAlterado.nome + " atualizado com sucesso!";
+        this.nomeProduto = this.produtoAlterado.nome;
+        this.mensagemSucesso = "AtualizadoSucesso";
         this.mensagemErro = null;
         localStorage.setItem("produtoInputadoSucesso", this.mensagemSucesso);
+        localStorage.setItem("produtoNome", this.nomeProduto);
       localStorage.removeItem("idProdutoMudanca");
       this.uploadFotoDeCapa();
       }else{
-        this.mensagemErro = "Erro ao realizar a atualização do produto " + this.produtoAlterado.nome;
+        this.nomeProduto = this.produtoAlterado.nome;
+        this.mensagemErro = "AtualizadoErro";
       }
     }, errorResponse => {
       this.mensagemSucesso = null,
-        this.mensagemErro = "Erro ao realizar a atualização do produto " + this.produtoAlterado.nome;
+        this.nomeProduto = this.produtoAlterado.nome;
+        this.mensagemErro = "AtualizadoErro";
     });
   }
 
@@ -156,13 +181,16 @@ export class ClienteProdutoComponent implements OnInit {
     this.produtoAlterado.ativo = false;
     this.produtoService.cadProduto(this.produtoAlterado).subscribe(response => {
       this.currentProduto = response;
-      this.mensagemSucesso = "Produto " + this.currentProduto.nome + " cadastrado com sucesso!##",
+      this.nomeProduto = this.produtoAlterado.nome;
+      this.mensagemSucesso = "CadastroSucesso",
         this.mensagemErro = null;
         localStorage.setItem("produtoInputadoSucesso", this.mensagemSucesso);
+        localStorage.setItem("produtoNome", this.nomeProduto);
         this.uploadFotoDeCapa();
     }, errorResponse => {
       this.mensagemSucesso = null,
-        this.mensagemErro = "##Erro ao realizar o cadastro do produto " + this.produtoAlterado.nome;
+      this.nomeProduto = this.produtoAlterado.nome;
+        this.mensagemErro = "CadastroErro";
     });
   }
 
@@ -176,6 +204,7 @@ export class ClienteProdutoComponent implements OnInit {
         nome: this.currentProduto.nome,
         descricao_curta: this.currentProduto.descricao_curta,
         ativo: this.currentProduto.ativo,
+        categorias: this.currentProduto.categorias[0].id_categoria,
         descricao: this.currentProduto.descricao,
         valor_base_diaria: this.currentProduto.valor_base_diaria,
         valor_base_mensal: this.currentProduto.valor_base_mensal,
@@ -236,7 +265,6 @@ export class ClienteProdutoComponent implements OnInit {
 
 
   uploadFotoDeCapa(){
-    console.log("chama muda foto")
     const files = this.fileAtual;
     if(files){
       const foto = files[0];
@@ -244,15 +272,23 @@ export class ClienteProdutoComponent implements OnInit {
       formData.append("capa_foto", foto);
       formData.append("id_produto", this.currentProduto.id_produto);
         this.produtoService.uploadFotoCapa(formData).subscribe(response => {
-          console.log(response);
           this.router.navigate(["cliente/perfil/meusprodutos"])
         }, errorResponse => {
           console.log(errorResponse)
-            this.mensagemErro = "##Erro ao realizar o cadastro do produto " + this.produtoAlterado.nome;
+          this.nomeProduto = this.produtoAlterado.nome;
+            this.mensagemErro = "CadastroErro";
         })
     }else{
       this.router.navigate(["cliente/perfil/meusprodutos"])
     }
+
+  }
+
+  preencheValorSugerido(){
+    this.formularioProduto.patchValue({
+      valor_base_diaria: this.formularioProduto.value.valor_produto*this.percSugeridoDiaria,
+      valor_base_mensal: this.formularioProduto.value.valor_produto*this.percSugeridoMensal
+    })
 
   }
 

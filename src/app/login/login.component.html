@@ -31,7 +31,6 @@
 
 <img class="wave" src="../../assets/imagens/wave.png">
 <div class="container">
-    
     <!-- Outer Row -->
     <div class="row justify-content-center">
         <div class="col-xl-5 col-lg-12 col-md-9">
@@ -55,8 +54,10 @@
                     <div *ngIf="loginErro" class="alert alert-warning alert-dismissible fade show" role="alert">
                         {{ 'portal-alugo.login.usuarioSenhaIncorreto' | translate }}<!--  {{ loginErro }}-->
                       </div>
-                    <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ 'portal-alugo.login.usuarioCadastrado' | translate }}
+                   <!--<div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ 'portal-alugo.login.usuarioCadastrado' | translate }}-->
+                        <div *ngIf="mensagemSucesso">
+                            {{openModal('custom-modal-1')}}
                       </div>
                       <div *ngIf="mensagemErroCad" class="alert alert-danger alert-dismissible fade show" role="alert">
                         {{ 'portal-alugo.login.alertaCadastro' | translate }}
@@ -92,6 +93,7 @@
                                         <mat-form-field class="full-width">
                                             <mat-label>{{ 'portal-alugo.login.usuario' | translate }}</mat-label>
                                             <input formControlName="username" matInput placeholder="{{ 'portal-alugo.login.exUsuario' | translate }}">
+                                            <mat-hint align="end">{{ 'portal-alugo.login.dicaUsuario' | translate }}</mat-hint>
                                             <mat-icon matSuffix>person_pin</mat-icon>
                                         </mat-form-field>
                                     </div>
@@ -133,6 +135,9 @@
                                               <mat-error *ngIf="formularioCadastro.controls.email.errors && formularioCadastro.controls.email.errors.email">
                                                 {{ 'portal-alugo.login.emailValido' | translate }}
                                               </mat-error>
+                                              <mat-error *ngIf="formularioCadastro.controls.email.errors && formularioCadastro.controls.email.errors.emailExiste">
+                                                {{ 'portal-alugo.login.emailExiste' | translate }}
+                                              </mat-error>
                                             <mat-icon matSuffix>email</mat-icon>
                                         </mat-form-field>
                                     </div>
@@ -152,7 +157,11 @@
                                                 <mat-form-field class="full-width">
                                                     <mat-label>{{ 'portal-alugo.login.cpf' | translate }}</mat-label>
                                                     <input matInput formControlName="cpf" mask="000.000.000-00" placeholder="{{ 'portal-alugo.login.exCpf' | translate }}">
-                                                    <mat-error *ngIf="formularioCadastro.controls.cpf.errors && formularioCadastro.controls.cpf.errors.required">
+                                                      <mat-error *ngIf="formularioCadastro.controls.cpf.errors && formularioCadastro.controls.cpf.errors.cpfInvalido && 
+                                                      !formularioCadastro.controls.cpf.errors.required && !formularioCadastro.controls.cpf.errors.minlength && !formularioCadastro.controls.cpf.errors.maxlength">
+                                                        {{ 'campos.label.cpfInvalido' | translate }}
+                                                      </mat-error>
+                                                      <mat-error *ngIf="formularioCadastro.controls.cpf.errors && formularioCadastro.controls.cpf.errors.required">
                                                         {{ 'portal-alugo.login.cpfPreenchimento' | translate }}
                                                       </mat-error>
                                                       <mat-error *ngIf="formularioCadastro.controls.cpf.errors && formularioCadastro.controls.cpf.errors.minlength">
@@ -161,6 +170,9 @@
                                                       <mat-error *ngIf="formularioCadastro.controls.cpf.errors && formularioCadastro.controls.cpf.errors.maxlength">
                                                         {{ 'portal-alugo.login.cpfMuitosDigitos' | translate }}
                                                       </mat-error>
+                                                        <mat-error *ngIf="formularioCadastro.controls.cpf.errors && formularioCadastro.controls.cpf.errors.cpfExiste">
+                                                        {{ 'portal-alugo.login.cpfExiste' | translate }}
+                                                        </mat-error>
                                                     <mat-icon matSuffix>local_library</mat-icon>
                                                 </mat-form-field>
                                             </div>
@@ -214,7 +226,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" mat-flat-button class="btn btn-success btn-user btn-block">{{ 'portal-alugo.login.registrar' | translate }}</button>
+                                    <button type="submit" [disabled]="formularioCadastro.invalid" mat-flat-button class="btn btn-success btn-user btn-block">{{ 'portal-alugo.login.registrar' | translate }}</button>
                                 </form>
                                 <hr>
                                 <div class="text-center">
@@ -252,3 +264,9 @@
         </div>
     </div>
 </div>
+
+<jw-modal id="custom-modal-1">
+    <h1>Cadastro</h1>
+    <p>Confirme o cadastro através do link enviado ao seu email</p>
+    <button (click)="closeModal('custom-modal-1');">Fechar</button>
+</jw-modal>

@@ -5,12 +5,43 @@
     height:100%;
     top:0;
     left:0;
-    background-color:rgba(74,74,74,.8);
+    /* background-color:#ff9800; */
+    background-color: rgb(255, 152, 0);
     z-index:99999;
   }
-  .spinner {
+
+  .center1 {
+    display: block;
+    margin: 0 auto;
+    width: 15%;
+    margin-top:100px;
+  }
+
+  .center {
+    display: block;
+    margin: 0 auto;
+    width: 15%;
+    margin-top:20px;
+  }
+
+  @media (max-width: 700px) { 
+    .center1 {
+      display: block;
+      margin: 0 auto;
+      width: 25%;
+      margin-top:100px;
+    }
+  
+    .center {
+      display: block;
+      margin: 0 auto;
+      width: 25%;
+      margin-top:50px;
+    }
+   }
+  /* .spinner {
     position:absolute;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
-  }
+  } */

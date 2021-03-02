@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { eProduto } from 'src/app/entidades/eProduto';
+import { eAvaliacaoRetorno } from 'src/app/entidades/eAvaliacaoRetorno';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { PortalService } from 'src/app/Services/PortalService';
+import { AluguelService } from 'src/app/Services/AluguelService';
 
 @Component({
   selector: 'app-detalhe-produto',
@@ -17,12 +19,18 @@ export class DetalheProdutoComponent implements OnInit {
   currentBandeira: string;
   currentIdioma: string;
   produtoI: eProduto;
-  
 
+  quantidadeAvaliacao: number;
+  mediaAvaliacao: number;
+
+  AvaliacoesProduto: eAvaliacaoRetorno[] = [];
+  
+//getListAvaliacoesProduto
   responseProduto: eProduto;
   
   constructor(
     private portalService : PortalService,
+    private aluguelService : AluguelService,
     private idiService: idiomaService,
     private router: Router
   ) {
@@ -39,6 +47,19 @@ export class DetalheProdutoComponent implements OnInit {
       errorResponse => {
         console.log(errorResponse)
       });
+
+    console.log(this.id_produto)
+    this.aluguelService.getListAvaliacoesProduto(this.id_produto)
+    .subscribe(
+      response => {
+        this.AvaliacoesProduto = response
+        this.quantidadeAvaliacao = this.AvaliacoesProduto.length;
+        this.mediaAvaliacao = this.AvaliacoesProduto.reduce((total, next) => total + +next.nota, 0)/this.quantidadeAvaliacao;
+        this.mediaAvaliacao = +this.mediaAvaliacao.toFixed(2);
+      },errorResponse =>{
+        console.log(errorResponse)
+      });
+
     
    }
 

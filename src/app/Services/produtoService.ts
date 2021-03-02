@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment'
+import { environment } from '../../environments/environment';
+import { eCategorias } from '../entidades/eCategorias';
 import { eProduto } from '../entidades/eProduto';
 import { RepositionScrollStrategy } from '@angular/cdk/overlay';
 
@@ -32,9 +33,15 @@ export class produtoService {
     return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getOnlyUserProducts);
   }
 
-  getProdutosByPesquisa(txtPesquisa: string) : Observable<eProduto[]>{
+  getCategorias() : Observable<eCategorias[]>{
+    return this.http.get<eCategorias[]>(environment.apiBaseUrl + environment.getCategorias);
+  }
+
+  getProdutosByPesquisa(txtPesquisa: string,page:number,size:number) : Observable<eProduto[]>{
     let params = new HttpParams();
     params = params.append('produto', txtPesquisa);
+    params = params.append('page',String(page));
+    params = params.append('size',String(size));
     return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getProdutosByPesquisa, {params});
   }
 

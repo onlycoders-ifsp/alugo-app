@@ -16,8 +16,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-
-
+import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWeek, MonthService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
+import { RedirectComponent } from './redirect/redirect.component';
+import { ValidaCadastroComponent } from '../valida-cadastro/valida-cadastro.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
     PaginaNaoExisteComponent,
     DetalheProdutoComponent,
     RealizaAluguelComponent,
+    RedirectComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +41,7 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
     PortalAlugoRoutingModule,
     BrowserModule,
     MatSelectModule,
+    NgbModule,
     HttpClientModule,
         TranslateModule.forRoot({
             loader: {
@@ -45,15 +49,18 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
             }
-        })
+        }),
+        ScheduleModule, RecurrenceEditorModule
     
-  ], exports: [
+  ],
+  providers: [DayService, WeekService, MonthService, MonthAgendaService],
+  exports: [
     HomeComponent,
     PortalLayoutComponent,
     TodosProdutosComponent,
     PaginaNaoExisteComponent,
     DetalheProdutoComponent,
-    RealizaAluguelComponent
+    RealizaAluguelComponent,
   ]
 })
 export class PortalAlugoModule { }

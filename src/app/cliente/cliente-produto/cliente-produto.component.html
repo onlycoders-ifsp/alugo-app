@@ -1,6 +1,15 @@
-<div *ngIf="mensagemErro" class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Ops! </strong>{{ mensagemErro }}
+<div *ngIf="mensagemErro === 'AtualizadoErro'" class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ 'cliente.cliente-produto.atualizaErro' | translate }} {{ nomeProduto }}
 </div>
+
+<div *ngIf="mensagemErro === 'CadastroErro'" class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ 'cliente.cliente-produto.cadastroErro' | translate }} {{ nomeProduto }}
+</div>
+
+<div *ngIf="mensagemErro === 'formInvalido'" class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ 'cliente.cliente-produto.formInvalido' | translate }}
+</div>
+
 <div class="bg-light box-shadow-lg rounded-lg overflow-hidden">
   <section class="col-lg-12 pt-lg-8 pb-4 mb-3">
     <div class="pt-2 px-4 pl-lg-0 pr-xl-5">
@@ -40,7 +49,14 @@
             </span>
           </div>
         </div>
-        
+        <div class="form-group py-2">
+          <label class="font-weight-medium">{{ 'cliente.cliente-produto.categoriaProduto' | translate }}</label>
+          <select formControlName="categorias" class="form-control" >
+            <option *ngFor="let categoria of categorias" [value]="categoria.id_categoria">
+              {{categoria.descricao}}
+            </option>
+          </select>
+        </div>
         <div class="form-group py-2">
           <label class="font-weight-medium">{{ 'cliente.cliente-produto.Descricao' | translate }}</label>
           <textarea formControlName="descricao" [ngClass]="{'is-invalid': erroDescricao}" class="form-control" rows="6"></textarea>
@@ -63,8 +79,8 @@
             <div class="form-group">
               <mat-form-field  class="full-width">
                 <mat-label>{{ 'cliente.cliente-produto.valorProduto' | translate }}</mat-label>
-                <input  formControlName="valor_produto" matInput placeholder="1000.00">
-                <mat-hint>Para centavos, utilize pontos##</mat-hint>
+                <input  formControlName="valor_produto" (change)="preencheValorSugerido()" matInput placeholder="1000.00">
+                <mat-hint>{{ 'cliente.cliente-produto.alertaCentavos' | translate }}</mat-hint>
                 <mat-error *ngIf="formularioProduto.controls.valor_produto.errors && formularioProduto.controls.valor_produto.errors.required">
                   {{ 'cliente.cliente-produto.alertaValorProduto' | translate }}
                 </mat-error>
@@ -78,11 +94,11 @@
               <mat-form-field  class="full-width">
                 <mat-label>{{ 'cliente.cliente-produto.valorBaseMensal' | translate }}</mat-label>
                 <input  formControlName="valor_base_mensal" matInput placeholder="100.00">
-                <mat-hint>Para centavos, utilize pontos##</mat-hint>
+                <mat-hint>{{ 'cliente.cliente-produto.alertaCentavos' | translate }}</mat-hint>
                 <mat-error *ngIf="formularioProduto.controls.valor_base_mensal.errors && formularioProduto.controls.valor_base_mensal.errors.required">
                   {{ 'cliente.cliente-produto.alertaValorBaseMensal' | translate }}
                 </mat-error>
-              <mat-hint align="end">{{ 'cliente.cliente-produto.dicaValorBase' | translate }}</mat-hint>
+              <mat-hint align="end">{{ 'cliente.cliente-produto.dicaValorBase' | translate }} {{percSugeridoMensal*100}}% {{ 'cliente.cliente-produto.dicaValorBase2' | translate }} </mat-hint>
                 <mat-icon class="text-primary" matSuffix >lock</mat-icon>
               </mat-form-field>
             </div>
@@ -92,11 +108,11 @@
               <mat-form-field  class="full-width">
                 <mat-label>{{ 'cliente.cliente-produto.valorBaseDiaria' | translate }}</mat-label>
                 <input  formControlName="valor_base_diaria" matInput placeholder="10.00">
-                <mat-hint>Para centavos, utilize pontos##</mat-hint>
+                <mat-hint>{{ 'cliente.cliente-produto.alertaCentavos' | translate }}</mat-hint>
                 <mat-error *ngIf="formularioProduto.controls.valor_base_diaria.errors && formularioProduto.controls.valor_base_diaria.errors.required">
                   {{ 'cliente.cliente-produto.alertaValorBaseDiaria' | translate }}
                 </mat-error>
-              <mat-hint align="end">{{ 'cliente.cliente-produto.dicaValorBase' | translate }}</mat-hint>
+              <mat-hint align="end">{{ 'cliente.cliente-produto.dicaValorBase' | translate }} {{percSugeridoDiaria*100}}% {{ 'cliente.cliente-produto.dicaValorBase2' | translate }} </mat-hint>
                 <mat-icon class="text-primary" matSuffix >lock</mat-icon>
               </mat-form-field>
             </div>

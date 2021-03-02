@@ -38,14 +38,29 @@ export class Validacoes {
       resto = (soma * 10) % 11;
 
       if (resto == 10 || resto == 11) resto = 0;
-      if (resto != parseInt(cpf.substring(10, 11))) valido = false;
-      valido = true;
+      if (resto != parseInt(cpf.substring(10, 11))) {
+        valido = false;
+      }
+      else{
+        valido = true;
+      }
+      
     }
 
     if (valido) return null;
 
     return { cpfInvalido: true };
   }
+
+  //  static validateInputDate(control: AbstractControl,datasIndisponiveis:number[]){
+  //      const time=control.value.getTime();
+  //      return datasIndisponiveis.find(x=>x==time)?{dataIndisponivel:true}:null
+  //  }
+   
+  //  static validateCurrentDate(control: AbstractControl){
+  //      const time=control.value.getTime();
+  //      return (time < new Date().getTime())?{dataAnterior:true}:null
+  //  }
 
 //   static MaiorQue18Anos(controle: AbstractControl) {
 //     const nascimento = controle.value;

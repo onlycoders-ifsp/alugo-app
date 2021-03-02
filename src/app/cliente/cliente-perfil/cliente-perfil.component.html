@@ -20,11 +20,14 @@
   <div class="row">
 
   </div>
-  <div *ngIf="mensagemErro" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <div *ngIf="mensagemErro === 'Invalido'" class="alert alert-warning alert-dismissible fade show" role="alert">
     <strong>{{ 'cliente.cliente-perfil.aviso' | translate }}</strong>{{ 'cliente.cliente-perfil.camposIncorretos' | translate }}
   </div>
-  <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>{{ 'cliente.cliente-perfil.cadastroFeito' | translate }}</strong>{{mensagemSucesso}}
+  <div *ngIf="mensagemErro === 'Erro'" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{ 'cliente.cliente-perfil.aviso' | translate }}</strong>{{ 'cliente.cliente-perfil.erroAtualizacao' | translate }} {{nomeUsuario}}
+  </div>
+  <div *ngIf="mensagemSucesso === 'Sucesso'" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{ 'cliente.cliente-perfil.cadastroFeito' | translate }}</strong> {{ 'cliente.cliente-perfil.usuario' | translate }} {{nomeUsuario}} {{ 'cliente.cliente-perfil.atualizadoSucesso' | translate }}
   </div>
   <div class="row">
     <div class="col-sm-6">
@@ -43,7 +46,23 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.cpf' | translate }}</mat-label>
-          <input  formControlName="cpf" mask="000.000.000-00" matInput placeholder="{{ 'campos.label.placeholdercpf' | translate }}">
+          <input formControlName="cpf" mask="000.000.000-00" matInput placeholder="{{ 'campos.label.placeholdercpf' | translate }}" readonly>
+          <mat-error *ngIf="formularioCliente.controls.cpf.errors && formularioCliente.controls.cpf.errors.cpfInvalido && 
+          !formularioCliente.controls.cpf.errors.required && !formularioCliente.controls.cpf.errors.minlength && !formularioCliente.controls.cpf.errors.maxlength">
+            {{ 'campos.label.cpfInvalido' | translate }}
+          </mat-error>
+          <mat-error *ngIf="formularioCliente.controls.cpf.errors && formularioCliente.controls.cpf.errors.required">
+            {{ 'portal-alugo.login.cpfPreenchimento' | translate }}
+          </mat-error>
+          <mat-error *ngIf="formularioCliente.controls.cpf.errors && formularioCliente.controls.cpf.errors.minlength">
+            {{ 'portal-alugo.login.cpfMenosDigitos' | translate }}
+          </mat-error>
+          <mat-error *ngIf="formularioCliente.controls.cpf.errors && formularioCliente.controls.cpf.errors.maxlength">
+            {{ 'portal-alugo.login.cpfMuitosDigitos' | translate }}
+          </mat-error>
+          <mat-error *ngIf="formularioCliente.controls.cpf.errors && formularioCliente.controls.cpf.errors.cpfExiste">
+            {{ 'portal-alugo.login.cpfExiste' | translate }}
+          </mat-error>
         <mat-hint align="end">{{ 'campos.label.cpfPreenchimento' | translate }}</mat-hint>
           <mat-icon class="text-primary" matSuffix >lock</mat-icon>
         </mat-form-field>
@@ -60,6 +79,9 @@
           <mat-error *ngIf="formularioCliente.controls.email.errors && formularioCliente.controls.email.errors.email">
             {{ 'campos.label.emailValido' | translate }}
           </mat-error>
+          <mat-error *ngIf="formularioCliente.controls.email.errors && formularioCliente.controls.email.errors.emailExiste">
+            {{ 'portal-alugo.login.emailExiste' | translate }}
+          </mat-error>
           <mat-icon class="text-primary"  matSuffix>email</mat-icon>
         </mat-form-field>
       </div>
@@ -72,6 +94,9 @@
           <mat-error *ngIf="formularioCliente.controls.login.errors && formularioCliente.controls.login.errors.required">
             {{ 'campos.label.loginNecessario' | translate }}
           </mat-error>
+          <mat-error *ngIf="formularioCliente.controls.login.errors && formularioCliente.controls.login.errors.userExiste">
+            {{ 'campos.label.userExiste' | translate }}
+          </mat-error>
           <mat-icon class="text-primary"  matSuffix>local_library</mat-icon>
         </mat-form-field>
       </div>
@@ -80,7 +105,7 @@
       <div class="form-group">
         <mat-form-field class="full-width">
           <mat-label>{{ 'campos.label.selecaoData' | translate }}</mat-label>
-          <input matInput [matDatepicker]="picker" disabled formControlName="dataNascimento">
+          <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker disabled="false"></mat-datepicker>
         </mat-form-field>
@@ -90,7 +115,7 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.telefone' | translate }}</mat-label>
-          <input  formControlName="celular" mask="(00) 0 0000-0000" matInput placeholder="{{ 'campos.label.placeholdertelefone' | translate }}">
+          <input matInput formControlName="celular" mask="(00) 0 0000-0000"  placeholder="{{ 'campos.label.placeholdertelefone' | translate }}">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
@@ -99,7 +124,7 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.cep' | translate }}</mat-label>
-          <input  formControlName="cep" mask="00000-000" matInput placeholder="{{ 'campos.label.placeholdercep' | translate }}">
+          <input  formControlName="cep" (blur)="preencheCep()" mask="00000-000" matInput placeholder="{{ 'campos.label.placeholdercep' | translate }}">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
         </mat-form-field>
       </div>
@@ -108,7 +133,7 @@
       <div class="form-group">
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.endereco' | translate }}</mat-label>
-          <input  formControlName="endereco" matInput placeholder="{{ 'campos.label.placeholderendereco' | translate }}">
+          <input matInput formControlName="endereco" placeholder="{{ 'campos.label.placeholderendereco' | translate }}">
           <mat-icon class="text-primary"  matSuffix>streetview</mat-icon>
         </mat-form-field>
       </div>
@@ -133,7 +158,7 @@
     </div>
     <div class="col-sm-6">
       <div class="form-group">
-        <mat-form-field  class="full-width">
+        <mat-form-field class="full-width">
           <mat-label>{{ 'campos.label.bairro' | translate }}</mat-label>
           <input  formControlName="bairro" matInput placeholder="{{ 'campos.label.placeholderbairro' | translate }}">
           <mat-icon class="text-primary"  matSuffix>lock</mat-icon>
@@ -144,7 +169,7 @@
     <div class="col-12">
       <hr class="mt-2 mb-3">
       <div class="d-flex flex-wrap justify-content-between align-items-center">
-        <button class="btn btn-primary mt-3 mt-sm-0" type="submit">{{ 'cliente.cliente-perfil.atualizarperfil' | translate }}</button>
+        <button class="btn btn-primary mt-3 mt-sm-0" type="submit" [disabled]="formularioCliente.invalid">{{ 'cliente.cliente-perfil.atualizarperfil' | translate }}</button>
       </div>
     </div>
   </div>

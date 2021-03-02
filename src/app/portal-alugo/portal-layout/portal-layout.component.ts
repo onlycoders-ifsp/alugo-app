@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import * as $ from 'jquery';
 import { eCurrentUsuario } from 'src/app/entidades/eCurrentUsuario';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { AuthService } from 'src/app/Services/auth.service';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { produtoService } from 'src/app/Services/produtoService';
 import { TodosProdutosComponent } from '../todos-produtos/todos-produtos.component';
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-portal-layout',
@@ -15,14 +15,14 @@ import { TodosProdutosComponent } from '../todos-produtos/todos-produtos.compone
 })
 export class PortalLayoutComponent implements OnInit {
 
-
+  location = Location;
   currentUser: eCurrentUsuario;
   idiomas: iIdioma[];
   currentBandeira: string;
   currentIdioma: string;
   txtPesquisa: string = "";
   @ViewChild('TodosProdutosComponent') childComponent: TodosProdutosComponent
-  
+
 
   constructor(
     private router: Router,
@@ -31,14 +31,20 @@ export class PortalLayoutComponent implements OnInit {
     private produtoService: produtoService
   ) {
     this.currentUser = new eCurrentUsuario();
-    this.currentBandeira = idiService.setDefaultLanguage(),
+    this.currentBandeira = idiService.setDefaultLanguage();
     this.idiomas = idiService.getListIdiomas();
-    
+
    }
 
   ngOnInit(): void {
+    if (!this.auth.isAutenticado()){
+    this.auth.removeToken();
+  }
     this.currentUser.isLogado = this.auth.isAutenticado();
     this.currentUser.nome = this.auth.getUsuarioAutenticado();
+    if (environment.production && location.protocol === 'http:'){
+      window.location.href = location.href.replace('http', 'https');
+    }
   }
 
   clickMudaIdioma() {
@@ -48,11 +54,12 @@ export class PortalLayoutComponent implements OnInit {
   pesquisaProduto(){
 
     localStorage.setItem("txtPesquisaProduto", this.txtPesquisa)
+    
+    this.router.navigate(["/redirect"])
     //this.refreshChild();
-    this.router.navigate(["/list-all"])
   }
 
-  refreshChild() { 
-    this.childComponent.ngOnInit(); 
+  refreshChild() {
+    this.childComponent.ngOnInit();
   }
 }

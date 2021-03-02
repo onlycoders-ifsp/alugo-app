@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { eCategorias } from 'src/app/entidades/eCategorias';
 import { eProduto } from 'src/app/entidades/eProduto';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
 import { idiomaService } from 'src/app/Services/idiomaService';
 import { PortalService } from 'src/app/Services/PortalService';
 import { produtoService } from 'src/app/Services/produtoService';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-todos-produtos',
@@ -12,34 +14,82 @@ import { produtoService } from 'src/app/Services/produtoService';
   styleUrls: ['./todos-produtos.component.css']
 })
 export class TodosProdutosComponent implements OnInit {
+  @Input() someInput: string;
+
 
   produtos: eProduto[] = [];
+  categorias: eCategorias[] = [];
   currentProduto: eProduto;
+  idCategoriaSelected: string;
 
   idiomas: iIdioma[];
   currentBandeira: string;
   currentIdioma: string;
   txtPesquisaproduto: string;
   semProduto: boolean = false;
+  public page: number = 0;
+  public size: number = 20;
+  public pages:number;
+  public firstPage: boolean;
+  public lastPage: boolean;
+  public total: number = 0;
   
   constructor(
     private router: Router,
     private portalService: PortalService,
+    private produtoService: produtoService,
     private idiService: idiomaService,
-    private produtoS: produtoService
+    private produtoS: produtoService,
+    private auth: AuthService
   ) {
     this.currentBandeira = idiService.setDefaultLanguage(),
     this.idiomas = idiService.getListIdiomas()
   }
 
+  setPage(i,event:any){
+    event.preventDefault();
+    this.page = i;
+    this.ngOnInit();
+
+  }
+
   ngOnInit(): void {
+    if (!this.auth.isAutenticado()){
+      this.auth.removeToken();
+    }
+
+    this.idCategoriaSelected = localStorage.getItem("IdCategoriaBuscada");
+    this.getListaCategorias();
     this.currentProduto = new eProduto();
-    
-    if (localStorage.getItem("txtPesquisaProduto")) {
+
+    if (localStorage.getItem("IdCategoriaBuscada")){
+      this.txtPesquisaproduto = localStorage.getItem("CategoriaBuscada");
+      this.portalService.getProdutosByCategoria(Number(localStorage.getItem("IdCategoriaBuscada")),this.page,this.size).subscribe(resposta => {
+        this.produtos = resposta['content'];
+        this.pages = resposta['totalPages'];
+        this.firstPage = resposta['first'];
+        this.lastPage = resposta['last'];
+        this.total = resposta['totalElements'];
+        if(this.total == 0){
+          this.semProduto = true;
+        }else{
+          this.semProduto = false;
+        }
+        localStorage.removeItem("IdCategoriaBuscada");
+      },
+        errorResponse => {
+          console.log(errorResponse)
+        });
+    }    
+    else if (localStorage.getItem("txtPesquisaProduto")) {
       this.txtPesquisaproduto = localStorage.getItem("txtPesquisaProduto");
-      this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto")).subscribe(response => {
-        this.produtos = response;
-        if(this.produtos.length == 0){
+      this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto"),this.page,this.size).subscribe(response => {
+        this.produtos = response['content'];
+        this.pages = response['totalPages'];
+        this.firstPage = response['first'];
+        this.lastPage = response['last'];
+        this.total = response['totalElements'];
+        if(this.total == 0){
           this.semProduto = true;
         }else{
           this.semProduto = false;
@@ -49,9 +99,66 @@ export class TodosProdutosComponent implements OnInit {
         console.log(errorResponse);
       })
     } else {
-      this.portalService.getProdutos().subscribe(resposta => {
-        this.produtos = resposta;
-        console.log(this.produtos)
+      this.portalService.getProdutos(this.page,this.size).subscribe(resposta => {
+        this.produtos = resposta['content'];
+        this.pages = resposta['totalPages'];
+        this.firstPage = resposta['first'];
+        this.lastPage = resposta['last'];
+        this.total = resposta['totalElements'];
+      },
+        errorResponse => {
+          console.log(errorResponse)
+        });
+    }
+  }
+
+  getListaCategorias(){
+    this.produtoService.getCategorias().subscribe(resposta => {
+      this.categorias = resposta;
+      errorResponse => {
+        console.log(errorResponse);
+      }
+    });
+  }
+
+  buscaCategoria(Categoria:eCategorias){
+    if(Categoria){      
+      localStorage.setItem("IdCategoriaBuscada", Categoria.id_categoria);  
+      localStorage.setItem("CategoriaBuscada", Categoria.descricao);
+    } 
+    else{
+      localStorage.removeItem("IdCategoriaBuscada");
+      localStorage.removeItem("CategoriaBuscada");
+    }
+    this.router.navigate(["/redirect"])
+  }
+
+  ngOnChanges(){
+    this.currentProduto = new eProduto();
+    if (localStorage.getItem("txtPesquisaProduto")) {
+      this.txtPesquisaproduto = localStorage.getItem("txtPesquisaProduto");
+      this.produtoS.getProdutosByPesquisa(localStorage.getItem("txtPesquisaProduto"),this.page,this.size).subscribe(response => {
+        this.produtos = response['content'];
+        this.pages = response['totalPages'];
+        this.firstPage = response['first'];
+        this.lastPage = response['last'];
+        this.total = response['totalElements'];
+        if(this.total == 0){
+          this.semProduto = true;
+        }else{
+          this.semProduto = false;
+        }
+        localStorage.removeItem("txtPesquisaProduto");
+      }, errorResponse => {
+        console.log(errorResponse);
+      })
+    } else {
+      this.portalService.getProdutos(this.page,this.size).subscribe(resposta => {
+        this.produtos = resposta['content'];
+        this.pages = resposta['totalPages'];
+        this.firstPage = resposta['first'];
+        this.lastPage = resposta['last'];
+        this.total = resposta['totalElements'];
       },
         errorResponse => {
           console.log(errorResponse)
