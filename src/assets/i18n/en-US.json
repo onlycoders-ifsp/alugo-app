@@ -266,7 +266,9 @@
 			"valorBaseDiaria": "Base Daily Rate",
 			"valorBaseMensal": "Monthly Base Value",
 			"valorProduto": "Product Value",
-			"valoraluguel": "Rent Value"
+			"valoraluguel": "Rent Value",
+			"valorMaximo": "Max value 10000",
+			"valorMinimo": "Minimum value 0"
 		},
 		"cliente-produto-aluguel": {
 			"datainicio":"Start date:",

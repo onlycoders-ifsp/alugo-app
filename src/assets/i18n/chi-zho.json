@@ -266,7 +266,9 @@
 			"valorBaseDiaria": "基本每日费率",
 			"valorBaseMensal": "每月基本价值",
 			"valorProduto": "产品价值",
-			"valoraluguel": "租金价值"
+			"valoraluguel": "租金价值",
+			"valorMaximo": "最大值10000",
+			"valorMinimo": "最小值0"
 		},
 		"cliente-produto-aluguel": {
 			"datainicio":"开始日期：",

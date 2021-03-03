@@ -266,7 +266,9 @@
 			"valorBaseDiaria": "Valor Base da Diária",
 			"valorBaseMensal": "Valor Base Mensal",
 			"valorProduto": "Valor do Produto",
-			"valoraluguel": "Valor do Aluguel"
+			"valoraluguel": "Valor do Aluguel",
+			"valorMaximo": "Valor máximo 10000",
+			"valorMinimo": "Valor mínimo 0"
 		},
 		"cliente-produto-aluguel": {
 			"datainicio":"Data início:",
