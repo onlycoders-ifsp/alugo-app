@@ -98,8 +98,10 @@
           <div class="position-relative mx-auto mr-lg-n5 py-5 px-4 mb-lg-5 order-lg-1" style="max-width: 42rem; z-index: 10;">
             <div class="pb-lg-5 mb-lg-5 text-center text-lg-left text-lg-nowrap">
               <h2 class="text-light font-weight-light pb-1 from-left">{{ 'portal-alugo.home.tituloDestaque' | translate }}</h2>
-              <h1 class="text-light display-4 from-left delay-1">aluGO</h1>
-              <p class="font-size-lg text-light pb-3 from-left delay-2">{{ 'portal-alugo.home.subTituloDestaque' | translate }}</p><a class="btn btn-primary scale-up delay-4" routerLink="/list-all">{{ 'portal-alugo.home.botaoComece' | translate }}<i class="fa fa-arrow-right ml-2 mr-n1"></i></a>
+              <h1 class="text-light display-4 from-left delay-1">{{ 'portal-alugo.home.titulo' | translate }}</h1>
+              <p class="font-size-lg text-light from-left delay-2">{{ 'portal-alugo.home.subTituloDestaque' | translate }}</p>
+              <p class="font-size-lg text-light pb-3 from-left delay-2">{{ 'portal-alugo.home.subTituloDestaque2' | translate }}</p>
+              <a class="btn btn-primary scale-up delay-4" routerLink="/list-all">{{ 'portal-alugo.home.botaoComece' | translate }}<i class="fa fa-arrow-right ml-2 mr-n1"></i></a>
             </div>
           </div>
         </div>
@@ -133,7 +135,7 @@
           <div class="py-4 my-2 my-md-0 py-md-5 px-4 ml-md-3 text-center text-sm-left">
             <h4 class="font-size-lg font-weight-light mb-2">{{ 'portal-alugo.todos-produtos.procuraartigos' | translate }}</h4>
             <h3 class="mb-4">{{ 'portal-alugo.todos-produtos.deixeseucarrobrilhando' | translate }}</h3><a class="btn btn-primary btn-shadow btn-sm" routerLink="/list-all">{{ 'portal-alugo.todos-produtos.alugaragora' | translate }}</a>
-          </div><img class="d-block ml-auto" src="../../assets/imagens/shop/catalog/camera2.jpg" alt="Shop Converse">
+          </div><img class="d-block ml-auto" src="../../assets/imagens/shop/catalog/piggy_bank.jpg" alt="Shop Converse">
         </div>
       </div>
       <div class="col-md-4 mb-4">
@@ -152,19 +154,13 @@
     <div class="row pt-4 mx-n2">
       <div *ngFor="let item of produtos | slice:0:4; index as i" class="col-lg-3 col-md-4 col-sm-6 px-2 mb-4">
         <div class="card product-card">
-          <button class="btn-wishlist btn-sm" type="button" data-toggle="tooltip" data-placement="left" title="#"><i class="fa fa-heart"></i></button><a class="card-img-top d-block overflow-hidden" (click)="verProdutoDeslogado(item)">
+          <a class="card-img-top d-block overflow-hidden" (click)="verProdutoDeslogado(item)">
             <img style="height:271px; max-height: 336px; max-width:336px; width: 263px;" src="data:image/jpg;base64,{{item.capa_foto}}" alt="Product"></a>
           <div class="card-body py-2"><a class="product-meta d-block font-size-xs pb-1" href="#">{{item.descricao_curta}}</a>
             <h3 class="product-title font-size-sm"><a routerLink="detalhe-produto">{{item.nome}}</a></h3>
             <div class="d-flex justify-content-between">
               <div class="product-price"><span class="text-accent">R$ {{item.valor_base_diaria}}<small></small></span></div>
-              <div class="star-rating">
-                <i class="fa fa-star text-primary"></i>
-                <i class="fa fa-star text-primary"></i>
-                <i class="fa fa-star text-primary"></i>
-                <i class="fa fa-star text-primary"></i>
-                <i class="fa fa-star"></i>
-              </div>
+              <ngb-rating [max]="5" [rate]=item.media_avaliacao [readonly]="true" ></ngb-rating>
             </div>
           </div>
           <div class="card-body card-body-hidden">

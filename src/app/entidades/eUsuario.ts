@@ -12,6 +12,8 @@ export class eUsuario {
     numero: string;
     bairro:string;
     data_nascimento: string;
+    locador_avaliacao: number;
+    locatario_avaliacao: number;
     ativo: boolean;
     celular: string;
     capa_foto: string;

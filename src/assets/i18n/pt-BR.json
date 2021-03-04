@@ -215,6 +215,7 @@
 		"cliente-perfil": {
 			"altNovaFoto": "Nova Foto",
 			"altUsuarioLogado": "Usuário Logado",
+			"alteracaoUsuario": "Em caso de mudança, usuário será deslogado.",
 			"atualizadoSucesso": "atualizado com sucesso!",
 			"atualizarperfil": "Atualizar Perfil",
 			"aviso": "Aviso !!",
@@ -240,7 +241,7 @@
 			"atualizaErro": "Erro ao realizar a atualização do produto",
 			"atualizaSucesso": "atualizado com sucesso!",
 			"cadastroErro": "Erro ao realizar o cadastro do produto",
-			"cadastroSucesso": "cadastrado com sucesso! Enviado para aprovação da publicação.",
+			"cadastroSucesso": "Cadastrado com sucesso!",
 			"categoriaProduto":"Categoria do produto:",
 			"dataCompra": "Data de Compra",
 			"descricaoCurta": "Descrição Curta do Produto",
@@ -266,7 +267,9 @@
 			"valorBaseDiaria": "Valor Base da Diária",
 			"valorBaseMensal": "Valor Base Mensal",
 			"valorProduto": "Valor do Produto",
-			"valoraluguel": "Valor do Aluguel"
+			"valoraluguel": "Valor do Aluguel",
+			"valorMaximo": "Valor máximo 10000",
+			"valorMinimo": "Valor mínimo 0"
 		},
 		"cliente-produto-aluguel": {
 			"datainicio":"Data início:",
@@ -365,7 +368,9 @@
 				"numeroIdentificacao": "Número de Identificação"
 			},
 			"produtosEmAlta": "Produtos em Alta",
-			"subTituloDestaque": "Alugando você sempre ganha dinheiro. Economizando ou Lucrando.",
+			"titulo":"Junte-se ao aluGO",
+			"subTituloDestaque": "Plataforma online para aluguel de itens diversos.",
+			"subTituloDestaque2": "Venha economizar e lucrar conosco. Você sempre sairá ganhando.",
 			"tituloDestaque": "Você precisa de dinheiro extra?"
 		},
 		"login": {
@@ -459,7 +464,7 @@
 			"filtros": "Filtros",
 			"locarproduto": "Disponibilizar um produto",
 			"nenhumProduto": "Nenhum produto encontrado com o filtro",
-			"procuraartigos": "Procura ferramentas para vídeo e fotos?",
+			"procuraartigos": "Economize alugando um produto!",
 			"produtosdisponiveis": "Produtos disponíveis para aluguel:",
 			"proximo": "Próximo",
 			"selecaocategoria":"Selecione a categoria:",

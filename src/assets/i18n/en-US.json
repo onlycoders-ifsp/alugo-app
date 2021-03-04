@@ -215,6 +215,7 @@
 		"cliente-perfil": {
 			"altNovaFoto": "New Photo",
 			"altUsuarioLogado": "User Logged In",
+			"alteracaoUsuario": "In the event of a change, the user will be logged out.",
 			"atualizadoSucesso": "updated successfully!",
 			"atualizarperfil": "Update Profile",
 			"aviso": "Warning !!",
@@ -240,7 +241,7 @@
 			"atualizaErro": "Error performing product update",
 			"atualizaSucesso": "updated successfully!",
 			"cadastroErro": "Error when performing product registration",
-			"cadastroSucesso": "registered successfully!Submitted for publication approval.",
+			"cadastroSucesso": "Registered successfully!",
 			"categoriaProduto":"Product Category:",
 			"dataCompra": "Purchase Date",
 			"descricaoCurta": "Short Product Description",
@@ -266,7 +267,9 @@
 			"valorBaseDiaria": "Base Daily Rate",
 			"valorBaseMensal": "Monthly Base Value",
 			"valorProduto": "Product Value",
-			"valoraluguel": "Rent Value"
+			"valoraluguel": "Rent Value",
+			"valorMaximo": "Max value 10000",
+			"valorMinimo": "Minimum value 0"
 		},
 		"cliente-produto-aluguel": {
 			"datainicio":"Start date:",
@@ -365,7 +368,9 @@
 				"numeroIdentificacao": "Identification Number"
 			},
 			"produtosEmAlta": "Trending Products",
+			"titulo":"Join aluGO",
 			"subTituloDestaque": "By renting you always make money. Saving or Profiting.",
+			"subTituloDestaque2": "Come save and profit with us. You will always win.",
 			"tituloDestaque": "Do you need extra money?"
 		},
 		"login": {
@@ -459,7 +464,7 @@
 			"filtros": "Filters",
 			"locarproduto": "Make a product available",
 			"nenhumProduto": "No products found with the filter",
-			"procuraartigos": "Looking for tools for video and photos?",
+			"procuraartigos": "Save renting a product!",
 			"produtosdisponiveis": "Products available for rent:",
 			"proximo": "Next",
 			"selecaocategoria":"Select category:",

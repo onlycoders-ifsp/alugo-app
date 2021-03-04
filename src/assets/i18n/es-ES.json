@@ -215,6 +215,7 @@
 		"cliente-perfil": {
 			"altNovaFoto": "Nueva Foto",
 			"altUsuarioLogado": "Usuário Conectado",
+			"alteracaoUsuario": "En caso de un cambio, se cerrará la sesión del usuario.",
 			"atualizadoSucesso": "actualizado con éxito!",
 			"atualizarperfil": "Actualización del Perfil",
 			"aviso": "Advertencia !!",
@@ -240,7 +241,7 @@
 			"atualizaErro": "Error al realizar la actualización del producto",
 			"atualizaSucesso": "actualizado con éxito!",
 			"cadastroErro": "Error al realizar el registro del producto",
-			"cadastroSucesso": "¡Registrado correctamente! Enviado para aprobación de publicación.",
+			"cadastroSucesso": "¡Registrado correctamente!",
 			"categoriaProduto":"Categoria de producto:",
 			"dataCompra": "Fecha de Compra",
 			"descricaoCurta": "Descripción Breve del Producto",
@@ -266,7 +267,9 @@
 			"valorBaseDiaria": "Custo base da Diaria",
 			"valorBaseMensal": "Valor Base Mensual",
 			"valorProduto": "Valor del Producto",
-			"valoraluguel": "Valor de Alquiler"
+			"valoraluguel": "Valor de Alquiler",
+			"valorMaximo": "Valor máximo 10000",
+			"valorMinimo": "Valor mínimo 0"
 		},
 		"cliente-produto-aluguel": {
 			"datainicio":"Fecha de inicio:",
@@ -365,7 +368,9 @@
 				"numeroIdentificacao": "Número de Identificación"
 			},
 			"produtosEmAlta": "Productos de Tendencia",
+			"titulo":"Únete a aluGO",
 			"subTituloDestaque": "Al alquilar siempre ganas dinero. Ahorro o Beneficio.",
+			"subTituloDestaque2": "Ven a ahorrar y benefíciate con nosotros. Siempre ganarás.",
 			"tituloDestaque": "¿Necesitas dinero extra?"
 		},
 		"login": {
@@ -459,7 +464,7 @@
 			"filtros": "Filtros",
 			"locarproduto": "Hacer un producto disponible",
 			"nenhumProduto": "No se encontraron productos con el filtro",
-			"procuraartigos": "¿Busca herramientas para videos y fotos?",
+			"procuraartigos": "¡Ahorre alquilando un producto!",
 			"produtosdisponiveis": "Productos disponibles para alquiler:",
 			"proximo": "Próximo",
 			"selecaocategoria":"Selecciona una categoría:",

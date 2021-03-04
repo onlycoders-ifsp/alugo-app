@@ -112,11 +112,11 @@ export class AvaliacaoLocatarioComponent implements OnInit {
 
   createForm(){
     this.formularioAvaliacaoLocador = this.fb.group({
-      avaliacao:['',[]],
+      avaliacao:['',[Validators.required]],
       observacao:['',[]],
     });  
     this.formularioAvaliacaoProduto = this.fb.group({
-      avaliacao:['',[]],
+      avaliacao:['',[Validators.required]],
       observacao:['',[]],
     });  
   }

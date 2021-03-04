@@ -79,10 +79,16 @@
             <div class="form-group">
               <mat-form-field  class="full-width">
                 <mat-label>{{ 'cliente.cliente-produto.valorProduto' | translate }}</mat-label>
-                <input  formControlName="valor_produto" (change)="preencheValorSugerido()" matInput placeholder="1000.00">
+                <input  formControlName="valor_produto" (change)="preencheValorSugerido()" matInput placeholder="1000.00" type="number">
                 <mat-hint>{{ 'cliente.cliente-produto.alertaCentavos' | translate }}</mat-hint>
                 <mat-error *ngIf="formularioProduto.controls.valor_produto.errors && formularioProduto.controls.valor_produto.errors.required">
                   {{ 'cliente.cliente-produto.alertaValorProduto' | translate }}
+                </mat-error>
+                <mat-error *ngIf="formularioProduto.controls.valor_produto.errors && formularioProduto.controls.valor_produto.errors.max">
+                  {{ 'cliente.cliente-produto.valorMaximo' | translate }}
+                </mat-error>
+                <mat-error *ngIf="formularioProduto.controls.valor_produto.errors && formularioProduto.controls.valor_produto.errors.min">
+                  {{ 'cliente.cliente-produto.valorMinimo' | translate }}
                 </mat-error>
               <mat-hint align="end">{{ 'cliente.cliente-produto.dicaValorProduto' | translate }}</mat-hint>
                 <mat-icon class="text-primary" matSuffix >lock</mat-icon>
@@ -93,10 +99,16 @@
             <div class="form-group">
               <mat-form-field  class="full-width">
                 <mat-label>{{ 'cliente.cliente-produto.valorBaseMensal' | translate }}</mat-label>
-                <input  formControlName="valor_base_mensal" matInput placeholder="100.00">
+                <input  formControlName="valor_base_mensal" matInput placeholder="100.00" type="number">
                 <mat-hint>{{ 'cliente.cliente-produto.alertaCentavos' | translate }}</mat-hint>
                 <mat-error *ngIf="formularioProduto.controls.valor_base_mensal.errors && formularioProduto.controls.valor_base_mensal.errors.required">
                   {{ 'cliente.cliente-produto.alertaValorBaseMensal' | translate }}
+                </mat-error>
+                <mat-error *ngIf="formularioProduto.controls.valor_base_mensal.errors && formularioProduto.controls.valor_base_mensal.errors.max">
+                  {{ 'cliente.cliente-produto.valorMaximo' | translate }}
+                </mat-error>
+                <mat-error *ngIf="formularioProduto.controls.valor_base_mensal.errors && formularioProduto.controls.valor_base_mensal.errors.min">
+                  {{ 'cliente.cliente-produto.valorMinimo' | translate }}
                 </mat-error>
               <mat-hint align="end">{{ 'cliente.cliente-produto.dicaValorBase' | translate }} {{percSugeridoMensal*100}}% {{ 'cliente.cliente-produto.dicaValorBase2' | translate }} </mat-hint>
                 <mat-icon class="text-primary" matSuffix >lock</mat-icon>
@@ -107,10 +119,16 @@
             <div class="form-group">
               <mat-form-field  class="full-width">
                 <mat-label>{{ 'cliente.cliente-produto.valorBaseDiaria' | translate }}</mat-label>
-                <input  formControlName="valor_base_diaria" matInput placeholder="10.00">
+                <input  formControlName="valor_base_diaria" matInput placeholder="10.00" type="number">
                 <mat-hint>{{ 'cliente.cliente-produto.alertaCentavos' | translate }}</mat-hint>
                 <mat-error *ngIf="formularioProduto.controls.valor_base_diaria.errors && formularioProduto.controls.valor_base_diaria.errors.required">
                   {{ 'cliente.cliente-produto.alertaValorBaseDiaria' | translate }}
+                </mat-error>
+                <mat-error *ngIf="formularioProduto.controls.valor_base_diaria.errors && formularioProduto.controls.valor_base_diaria.errors.max">
+                  {{ 'cliente.cliente-produto.valorMaximo' | translate }}
+                </mat-error>
+                <mat-error *ngIf="formularioProduto.controls.valor_base_diaria.errors && formularioProduto.controls.valor_base_diaria.errors.min">
+                  {{ 'cliente.cliente-produto.valorMinimo' | translate }}
                 </mat-error>
               <mat-hint align="end">{{ 'cliente.cliente-produto.dicaValorBase' | translate }} {{percSugeridoDiaria*100}}% {{ 'cliente.cliente-produto.dicaValorBase2' | translate }} </mat-hint>
                 <mat-icon class="text-primary" matSuffix >lock</mat-icon>
@@ -121,7 +139,7 @@
             <div class="form-group">
               <mat-form-field>
                 <mat-label>{{ 'cliente.cliente-produto.dataCompra' | translate }}</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="data_compra">
+                <input matInput [matDatepicker]="picker" formControlName="data_compra" [max]="dataMaxCompra">
                 <mat-error *ngIf="formularioProduto.controls.data_compra.errors && formularioProduto.controls.data_compra.errors.required">
                   {{ 'cliente.cliente-produto.alertaDataCompra' | translate }}
                 </mat-error>
