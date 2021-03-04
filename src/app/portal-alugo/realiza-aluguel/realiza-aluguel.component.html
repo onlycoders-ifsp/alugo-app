@@ -122,11 +122,8 @@
                 class="d-inline-block h6 mb-0 mr-1">715</span><span class="font-size-sm">{{ 'portal-alugo.realiza-aluguel.alugueisRealizados' | translate }}</span>
               </div> -->
             <div class="bg-secondary rounded p-3 mb-4">
-              <div class="star-rating"><i class="sr-star fa fa-star active"></i><i
-                  class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i
-                  class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star"></i>
-              </div><span class="font-size-ms ml-2"> 4.8</span>
               <div class="font-size-ms text-muted">{{ 'portal-alugo.realiza-aluguel.avaliacaoUsuario' | translate }}</div>
+              <ngb-rating [max]="5" [rate]=currentDono.locador_avaliacao [readonly]="true" ></ngb-rating>
             </div>
             <ul class="list-unstyled font-size-sm">
               <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span

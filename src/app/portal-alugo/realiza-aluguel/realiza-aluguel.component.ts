@@ -327,7 +327,7 @@ export class RealizaAluguelComponent implements OnInit {
     this.aluguelService.updateAluguelUrl(this.novoAluguelCad,url).subscribe(response => {
       this.errorCad = false;
       this.errorAluguelExistente = null;
-      this.notificacaoService.showSuccess("Aluguel efetuado com sucesso!")
+      this.notificacaoService.showSuccess("Aluguel efetuado com sucesso! O locador terá que aprovar o aluguel")
       this.router.navigate(["cliente/perfil/alugueis-locatario"]);
     }, errorResponse => {
       console.log(errorResponse)

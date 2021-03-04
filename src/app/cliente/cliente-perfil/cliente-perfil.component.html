@@ -91,6 +91,7 @@
         <mat-form-field  class="full-width">
           <mat-label>{{ 'campos.label.login' | translate }}</mat-label>
           <input  formControlName="login" matInput placeholder="{{ 'campos.label.placeholdernome' | translate }}">
+          <mat-hint align="end">{{ 'cliente.cliente-perfil.alteracaoUsuario' | translate }}</mat-hint>
           <mat-error *ngIf="formularioCliente.controls.login.errors && formularioCliente.controls.login.errors.required">
             {{ 'campos.label.loginNecessario' | translate }}
           </mat-error>
