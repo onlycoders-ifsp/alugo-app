@@ -149,7 +149,7 @@
             </div>
           </div>
         </div>
-        <button class="btn btn-primary btn-block" type="submit"><i
+        <button [disabled]="formularioProduto.invalid" class="btn btn-primary btn-block" type="submit"><i
             class="fa fa-edit font-size-lg mr-2"></i>{{ 'cliente.cliente-produto.addeditprod' | translate }}</button>
       </form>
     </div>
