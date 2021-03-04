@@ -368,7 +368,9 @@
 				"numeroIdentificacao": "身份证号码"
 			},
 			"produtosEmAlta": "热门产品",
+			"titulo":"加入aluGO",
 			"subTituloDestaque": "通过租用，您总是可以赚钱。 节省或获利。",
+			"subTituloDestaque2": "来与我们一起保存并获利。 您将永远赢。",
 			"tituloDestaque": "您需要额外的钱吗？"
 		},
 		"login": {

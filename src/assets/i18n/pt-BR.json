@@ -368,7 +368,9 @@
 				"numeroIdentificacao": "Número de Identificação"
 			},
 			"produtosEmAlta": "Produtos em Alta",
-			"subTituloDestaque": "Alugando você sempre ganha dinheiro. Economizando ou Lucrando.",
+			"titulo":"Junte-se ao aluGO",
+			"subTituloDestaque": "Plataforma online para aluguel de itens diversos.",
+			"subTituloDestaque2": "Venha economizar e lucrar conosco. Você sempre sairá ganhando.",
 			"tituloDestaque": "Você precisa de dinheiro extra?"
 		},
 		"login": {
