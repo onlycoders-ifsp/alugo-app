@@ -8,6 +8,7 @@ import { JwtHelperService } from '@auth0/angular-jwt'
 import { Router } from '@angular/router';
 import { eUsuarioConstructor } from '../entidades/eUsuarioConstrutor';
 import { eSenha } from '../entidades/eSenha';
+import { eAvaliacao } from '../entidades/eAvaliacao';
 
 @Injectable({
   providedIn: 'root'
@@ -181,5 +182,18 @@ export class AuthService {
     let params = new HttpParams();
     params = params.append('user' , user);
     return this.http.get<boolean>(environment.apiBaseUrl + environment.getVerificaUserNameUpdate, {params} );
+  }
+
+
+  getAvaliacoesLocador(idUsuario: string) : Observable<eAvaliacao[]>{
+    let params = new HttpParams();
+    params = params.append('id_usuario', idUsuario);
+    return this.http.get<eAvaliacao[]>(environment.apiBaseUrl + environment.getAvaliacoesLocador, {params});
+  }
+
+  getAvaliacoesLocatario(idUsuario: string) : Observable<eAvaliacao[]>{
+    let params = new HttpParams();
+    params = params.append('id_usuario', idUsuario);
+    return this.http.get<eAvaliacao[]>(environment.apiBaseUrl + environment.getAvaliacoesLocatario, {params});
   }
 }

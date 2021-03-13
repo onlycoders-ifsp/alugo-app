@@ -20,6 +20,7 @@ import { ScheduleModule, RecurrenceEditorModule, DayService, WeekService, WorkWe
 import { RedirectComponent } from './redirect/redirect.component';
 import { ValidaCadastroComponent } from '../valida-cadastro/valida-cadastro.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DetalheProdutoComponent,
     RealizaAluguelComponent,
     RedirectComponent,
+    PerfilUsuarioComponent,
   ],
   imports: [
     CommonModule,
@@ -56,6 +58,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   providers: [DayService, WeekService, MonthService, MonthAgendaService],
   exports: [
     HomeComponent,
+    PerfilUsuarioComponent,
     PortalLayoutComponent,
     TodosProdutosComponent,
     PaginaNaoExisteComponent,

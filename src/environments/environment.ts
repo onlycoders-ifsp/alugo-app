@@ -26,6 +26,7 @@ export const environment = {
   getOnlyUserProducts: "/produtos/lista-produto-logado",
   putFotoCapa: "/produtos/upload-foto",
   getProdutosByPesquisa: "/produtos/produto-pesquisa",
+  getProdutosByUserId: "/produtos/produto-usuario",
 
 
   //ENDPOINTS DE USUARIO
@@ -56,6 +57,8 @@ export const environment = {
   postCadAvaliacaoProduto: "/aluguel/avaliacao/grava/produto",
   getAvaliacoesProduto: "/aluguel/avaliacao/retorna/produto",
   aceiteRecusadoAluguel: "/aluguel/confirma-aluguel",
+  getAvaliacoesLocador: "/aluguel/avaliacao/retorna/locador",
+  getAvaliacoesLocatario: "/aluguel/avaliacao/retorna/locatario",
   
   getChecklistEntrega: "/aluguel/checklist/retorna-entrega",
   getChecklistDevolucao: "/aluguel/checklist/retorna-devolucao",
