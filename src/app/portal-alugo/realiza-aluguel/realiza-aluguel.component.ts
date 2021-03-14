@@ -348,4 +348,13 @@ export class RealizaAluguelComponent implements OnInit {
     return dataFimFinal;
   }
 
+
+  viewProfileUser(idUsuario: string){
+    if(sessionStorage.getItem("idUsuarioPreview")){
+      sessionStorage.removeItem("idUsuarioPreview");
+    }
+    sessionStorage.setItem("idUsuarioPreview", idUsuario);
+    this.router.navigate(["/perfil"]);
+  }
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { element } from 'protractor';
 import { eAvaliacao } from 'src/app/entidades/eAvaliacao';
 import { eProduto } from 'src/app/entidades/eProduto';
@@ -34,10 +35,14 @@ export class PerfilUsuarioComponent implements OnInit {
   user: eUsuario = new eUsuario();
   avalLocador: eAvaliacao[] = [];
   avalLocatario: eAvaliacao[] = [];
+  idUser: string;
 
   constructor(
     private produtoService: produtoService,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private router: Router,) { 
+      this.idUser = sessionStorage.getItem("idUsuarioPreview");
+    }
 
   ngOnInit(): void {
     this.getInfosUser();
@@ -47,7 +52,7 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   getAvaliacaoLocador(){
-    this.authService.getAvaliacoesLocador("649aa1bb-6512-4aa3-9001-63c675c077e0").subscribe(
+    this.authService.getAvaliacoesLocador(this.idUser).subscribe(
       response => {
         this.avalLocador = response;
         if(this.avalLocador.length>0){
@@ -62,7 +67,7 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   getAvaliacaoLocatario(){
-    this.authService.getAvaliacoesLocatario("649aa1bb-6512-4aa3-9001-63c675c077e0").subscribe(
+    this.authService.getAvaliacoesLocatario(this.idUser).subscribe(
       response => {
         this.avalLocatario = response;
         if(this.avalLocatario.length>0){
@@ -78,7 +83,7 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   getInfosUser(){
-    this.authService.getUserById("649aa1bb-6512-4aa3-9001-63c675c077e0").subscribe(
+    this.authService.getUserById(this.idUser).subscribe(
       response => {
         this.user = response;
       },errorResponse =>{
@@ -87,7 +92,7 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   getProdutosUser(){
-    this.produtoService.getProdutosByIdUsuario("649aa1bb-6512-4aa3-9001-63c675c077e0")
+    this.produtoService.getProdutosByIdUsuario(this.idUser)
     .subscribe(
       response => {
         this.produtos = response['content'];
@@ -102,6 +107,15 @@ export class PerfilUsuarioComponent implements OnInit {
       },errorResponse =>{
         console.log(errorResponse)
       });
+  }
+
+  viewProduto(idProduto: string){
+    console.log(idProduto);
+    if(sessionStorage.getItem("idProduto")){
+      sessionStorage.removeItem("idProduto");
+    }
+    sessionStorage.setItem("idProduto", idProduto); 
+    this.router.navigate(["/detalhe-produto"])    
   }
 
 }

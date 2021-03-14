@@ -7,7 +7,7 @@
             <div class="media-body pl-3">
                 <h3 class="text-light font-size-lg mb-0">{{user.nome}}</h3><span
                     class="d-block text-light font-size-ms opacity-60 py-1">Membro desde 2019</span><span
-                    class="badge badge-success"><i class="czi-check mr-1"></i>Produtos disponiveis</span>
+                    class="badge badge-success"><i class="fa fa-check mr-1"></i>Produtos disponiveis</span>
             </div>
         </div>
         <div class="d-flex">
@@ -15,13 +15,21 @@
                 <div class="text-light font-size-base">Total Alugueis dos seus produtos</div>
                 <h3 class="text-light">{{totalAlugueis}}</h3>
             </div>
-            <div class="text-sm-right">
-                <div class="text-light font-size-base">Média Usuário:</div>
+            <div class="text-sm-right mr-5">
+                <div class="text-light font-size-base">Média Locador:</div>
                 <!-- <div class="star-rating"><i class="sr-star czi-star-filled active"></i><i
                         class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i
                         class="sr-star czi-star-filled active"></i><i class="sr-star czi-star"></i>
                 </div> -->
                 <div class="text-light opacity-60 font-size-xs">{{user.locador_avaliacao}}</div>
+            </div>
+            <div class="text-sm-right mr-5">
+                <div class="text-light font-size-base">Média Locatário:</div>
+                <!-- <div class="star-rating"><i class="sr-star czi-star-filled active"></i><i
+                        class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i
+                        class="sr-star czi-star-filled active"></i><i class="sr-star czi-star"></i>
+                </div> -->
+                <div class="text-light opacity-60 font-size-xs">{{user.locatario_avaliacao}}</div>
             </div>
         </div>
     </div>
@@ -70,32 +78,32 @@
                                 <div class="card product-card-alt">
                                     <div class="product-thumb">
                                         <div class="product-card-actions">
-                                            <a class="btn btn-light btn-icon btn-shadow font-size-base mx-2"
-                                                href="marketplace-single.html">
-                                                <i class="fa fa-eye"></i>
-                                            </a>
+                                            <button (click)="viewProduto(produto.id_produto)" 
+                                            class="btn btn-light btn-icon btn-shadow font-size-base mx-2" type="button">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
                                         </div><a class="product-thumb-overlay" href="marketplace-single.html"></a><img
                                             src="data:image/jpg;base64,{{produto.capa_foto}}" width="64px" height="64px"
-                                            alt="Product">
+                                            alt="{{produto.nome}}">
                                     </div>
                                     <div class="card-body">
                                         <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
-                                            <div class="text-muted font-size-xs mr-1">by <a
+                                            <div class="text-muted font-size-xs mr-1"><a
                                                     class="product-meta font-weight-medium" href="#">Média
-                                                    Avaliação:</a>in <a class="product-meta font-weight-medium"
-                                                    href="#">Graphics</a></div>
-                                            <div class="star-rating"><i class="sr-star czi-star-filled active"></i><i
-                                                    class="sr-star czi-star-filled active"></i><i
-                                                    class="sr-star czi-star-filled active"></i><i
-                                                    class="sr-star czi-star-filled active"></i><i
-                                                    class="sr-star czi-star-filled active"></i>
+                                                    Avaliação:</a></div>
+                                            <div class="star-rating">
+                                                <i class="fa fa-star active text-primary"></i>
+                                                <i class="fa fa-star active text-primary"></i>
+                                                <i class="fa fa-star active text-primary"></i>
+                                                <i class="fa fa-star active text-primary"></i>
+                                                <i class="far fa-star text-primary"></i>
                                             </div>
                                         </div>
                                         <h3 class="product-title font-size-sm mb-2"><a
                                                 href="marketplace-single.html">{{produto.nome}}</a></h3>
                                         <div class="d-flex flex-wrap justify-content-between align-items-center">
                                             <div class="font-size-sm mr-2"><i
-                                                    class="czi-download text-muted mr-1"></i>{{produto.qtd_alugueis}}<span
+                                                    class="fa fa-comment-dollar text-muted mr-1"></i>{{produto.qtd_alugueis}}<span
                                                     class="font-size-xs ml-1"> Alugueis</span></div>
                                             <div class="bg-faded-accent text-accent rounded-sm py-1 px-2">R$
                                                 {{produto.valor_base_diaria}}</div>
@@ -137,15 +145,15 @@
                                         </div>
                                     </div>
                                     <p class="font-size-md mb-2">{{aval.comentario}}</p>
-                                    <div class="text-nowrap">
+                                    <!-- <div class="text-nowrap">
                                         <button class="btn-like" type="button">15</button>
                                         <button class="btn-dislike" type="button">3</button>
-                                    </div>
+                                    </div> -->
                                 </div>
-                                <div class="text-center">
+                                <!-- <div class="text-center">
                                     <button class="btn btn-outline-accent" type="button"><i
                                             class="czi-reload mr-2"></i>Carregar mais</button>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
@@ -171,16 +179,16 @@
                                         </div>
                                     </div>
                                     <p class="font-size-md mb-2">{{aval.comentario}}</p>
-                                    <div class="text-nowrap">
+                                    <!-- <div class="text-nowrap">
                                         <button class="btn-like" type="button">15</button>
                                         <button class="btn-dislike" type="button">3</button>
-                                    </div>
+                                    </div> -->
                                 </div>
-                                <div class="text-center">
+                                <!-- <div class="text-center">
                                     <button class="btn btn-outline-accent" type="button"><i
                                             class="czi-reload mr-2"></i>Carregar
                                         mais</button>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
