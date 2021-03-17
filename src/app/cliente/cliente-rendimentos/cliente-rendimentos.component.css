@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik:300, 400, 500, 700&amp;display=swap");
-  :root {
+:root {
     --blue:  #007bff;
     --indigo:  #6610f2;
     --purple:  #6f42c1;
@@ -12713,24 +12713,6 @@ html:not([dir=rtl]) .cz-range-slider-ui.noUi-horizontal .noUi-handle {
 .product-badge.product-not-available::after {
     border-color: rgba(243, 245, 249, 0);
     border-bottom-color: #d8deeb;
-}
-
-.product-badge.product-not-available-cancel {
-    background-color: #f34770;
-    color: #FFF;
-}
-.product-badge.product-not-available-cancel::after {
-    border-color: rgba(243, 245, 249, 0);
-    border-bottom-color: #882139;
-}
-
-.product-badge.product-not-available-info {
-    background-color: #69b3fe;
-    color: #FFF;
-}
-.product-badge.product-not-available-info::after {
-    border-color: rgba(243, 245, 249, 0);
-    border-bottom-color: #4c7fb1;
 }
 @media (max-width: 991.98px) {
     .product-badge {

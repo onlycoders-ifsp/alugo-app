@@ -35,6 +35,14 @@
             <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" routerLink="/cliente/perfil/alugueis-locador"><i class="fa fa-user-check opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.locador' | translate }}<span class="font-size-sm text-muted ml-auto"></span></a></li>
             <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" routerLink="/cliente/perfil/alugueis-locatario"><i class="fa fa-user-check opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.locatario' | translate }}<span class="font-size-sm text-muted ml-auto"></span></a></li>
           </ul>
+
+          <div class="bg-secondary px-4 py-3">
+            <h3 class="font-size-sm mb-0 text-muted">Lucros e Rendimentos</h3>
+          </div>
+          <ul class="list-unstyled mb-0">
+            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" routerLink="/cliente/perfil/rendimentos"><i class="fa fa-wallet opacity-60 mr-2"></i>aluBank<span class="font-size-sm text-muted ml-auto"></span></a></li>
+          </ul>
+
           <div class="bg-secondary px-4 py-3">
             <h3 class="font-size-sm mb-0 text-muted">{{ 'cliente.cliente-layout.seusprodutos' | translate }}</h3>
           </div>
@@ -42,13 +50,19 @@
             <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" routerLink="/cliente/perfil/meusprodutos"><i class="fa fa-product-hunt opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.listagem' | translate }}<span class="font-size-sm text-muted ml-auto">{{total}}</span></a></li>
             <!-- <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" routerLink="/cliente/perfil/meusprodutos"><i class="fa fa-product-hunt opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.inativos' | translate }}<span class="font-size-sm text-muted ml-auto">1</span></a></li> -->
           </ul>
-          <!-- <div class="bg-secondary px-4 py-3">
-            <h3 class="font-size-sm mb-0 text-muted">{{ 'cliente.cliente-layout.pagamentos' | translate }}</h3>
+
+          <div class="bg-secondary px-4 py-3">
+            <h3 class="font-size-sm mb-0 text-muted">Ocorrências</h3>
           </div>
           <ul class="list-unstyled mb-0">
-            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href=""><i class="fa fa-money-bill-alt opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.vencimentos' | translate }}<span class="font-size-sm text-muted ml-auto">1</span></a></li>
-            <li class="mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" href=""><i class="fa fa-credit-card opacity-60 mr-2"></i>{{ 'cliente.cliente-layout.infospagamento' | translate }}</a></li>
-          </ul> -->
+            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" routerLink="/cliente/perfil/meusprodutos"><i class="fa fa-exclamation opacity-60 mr-2"></i>Problemas Reportados<span class="font-size-sm text-muted ml-auto">{{total}}</span></a></li>
+          </ul>
+          <div class="bg-secondary px-4 py-3">
+            <h3 class="font-size-sm mb-0 text-muted">Suporte</h3>
+          </div>
+          <ul class="list-unstyled mb-0">
+            <li class="border-bottom mb-0"><a class="nav-link-style d-flex align-items-center px-4 py-3" routerLink="/cliente/perfil/chat"><i class="fa fa-comments opacity-60 mr-2"></i>Chat<span class="font-size-sm text-muted ml-auto">{{total}}</span></a></li>
+          </ul>
           
         </div>
       </aside>

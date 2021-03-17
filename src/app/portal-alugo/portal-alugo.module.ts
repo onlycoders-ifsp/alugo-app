@@ -21,6 +21,8 @@ import { RedirectComponent } from './redirect/redirect.component';
 import { ValidaCadastroComponent } from '../valida-cadastro/valida-cadastro.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ClienteChatComponent } from '../cliente/cliente-chat/cliente-chat.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,
+    MatDialogModule,
     MatDatepickerModule,
     PortalAlugoRoutingModule,
     BrowserModule,

@@ -36,6 +36,9 @@ import { AvaliacaoLocatarioComponent } from './avaliacao-locatario/avaliacao-loc
 import { AvaliacaoLocadorComponent } from './avaliacao-locador/avaliacao-locador.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClienteChecklistCadastroComponent } from './cliente-checklist-cadastro/cliente-checklist-cadastro.component';
+import { ClienteRendimentosComponent } from './cliente-rendimentos/cliente-rendimentos.component';
+import { ClienteChatComponent } from './cliente-chat/cliente-chat.component';
+import { ClienteReporteProblemaComponent } from './cliente-reporte-problema/cliente-reporte-problema.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -55,6 +58,9 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     AvaliacaoLocatarioComponent,
     AvaliacaoLocadorComponent,
     ClienteChecklistCadastroComponent,
+    ClienteRendimentosComponent,
+    ClienteChatComponent,
+    ClienteReporteProblemaComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,51 @@
+<section class="col-lg-12">
+
+  <div class="row mx-n2 pt-2">
+    <div class="col-md-4 col-sm-6 px-2 mb-4">
+      <div class="bg-secondary h-100 rounded-lg p-4 text-center">
+        <h3 class="font-size-sm text-muted">Lucro Gerado</h3>
+        <p class="h2 mb-2">R$ {{extratoResumo.valor_a_receber - (extratoResumo.valor_a_receber % 1) }},<small>{{(extratoResumo.valor_a_receber % 1).toFixed(2).substring(2)}}</small></p>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6 px-2 mb-4">
+      <div class="bg-secondary h-100 rounded-lg p-4 text-center">
+        <h3 class="font-size-sm text-muted">Recebido</h3>
+        <p class="h2 mb-2">R$ {{extratoResumo.valor_sacado - (extratoResumo.valor_sacado % 1) }},<small>{{(extratoResumo.valor_sacado % 1).toFixed(2).substring(2)}}</small></p>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12 px-2 mb-4">
+      <div class="bg-secondary h-100 rounded-lg p-4 text-center">
+        <h3 class="font-size-sm text-muted">Ganhos totais (locador)</h3>
+        <p class="h2 mb-2">R$ {{extratoResumo.total - (extratoResumo.total % 1) }},<small>{{(extratoResumo.total % 1).toFixed(2).substring(2)}}</small></p>
+      </div>
+    </div>
+  </div>
+ 
+    <!-- Orders list-->
+    <div class="table-responsive font-size-md">
+      <table class="table table-hover mb-0">
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Detalhes Transação</th>
+            <th>Data Realizado</th>
+            <th>Status Pagamento</th>
+            <th>Valor Gerado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of extrato">
+            <td><a class="nav-link-style font-weight-medium font-size-sm" href="#" data-toggle="modal">{{item.descricao}}</a></td>
+            <td class="py-3"><a class="nav-link-style font-weight-medium font-size-sm" href="#" data-toggle="modal"><i class="fa fa-eye"> </i> Visualizar</a></td>
+            <td class="py-3">{{item.data_inclusao}}</td>
+            <td *ngIf="item.sacado"class="py-3"><span class="badge badge-success m-0">Sacado</span></td>
+            <td *ngIf="!item.sacado && item.sacado != null"class="py-3"><span class="badge badge-info m-0">A Receber</span></td>
+            <td *ngIf="item.sacado == null"class="py-3"><span class="badge badge-danger m-0">Estorno</span></td>
+            <td *ngIf="item.valor > 0" class="py-3 text-success">R$ {{item.valor}}</td>
+            <td *ngIf="item.valor < 0"class="py-3 text-danger">R$ {{item.valor}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="text-sm-right"><button class="btn btn-success"><i class="fa fa-money"></i> Sacar</button></div>
+  </section>
