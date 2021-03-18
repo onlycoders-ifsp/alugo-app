@@ -1,0 +1,93 @@
+<section class="col-lg-12 pt-lg-8 pb-4 mb-3">
+    <div class="pt-2 px-4 pl-lg-0 pr-xl-5">
+        <!-- Icon addon -->
+        <!-- Primary card -->
+        <blockquote class="blockquote">
+            <p class="mb-2">Por favor, siga alguns passos para que nossa equipe possa dar o suporte necessário
+                para seu problema.</p>
+            <footer class="blockquote-footer">
+                Suas informações serão avaliadas por nossa equipe e pela contraparte o mais rápido possível
+            </footer>
+        </blockquote>
+
+        <div class="mb-3 card text-danger border-danger">
+            <div class="card-header border-danger">Aluguel Reportado</div>
+            <div class="card-body">
+                <div class="media d-block d-sm-flex align-items-center py-4 border-bottom" *ngIf="htmlAluguel" [innerHTML]="htmlAluguel"></div>
+            </div>
+          </div>
+
+
+        
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="list-group" role="tablist">
+                    <a href="#listCategoria" id="listCategoria-list"
+                        class="list-group-item list-group-item-action active" data-toggle="list" role="tab"
+                        aria-controls="listCategoria">
+                        01-Categoria do Problema
+                    </a>
+                    <a href="#listFoto" id="listFoto-list"
+                        class="list-group-item list-group-item-action" data-toggle="list" role="tab"
+                        aria-controls="listFoto">
+                        02-Foto <cite>(se necessário)</cite>
+                    </a>
+                    <a href="#listDescricao" id="listDescricao-list"
+                        class="list-group-item list-group-item-action" data-toggle="list" role="tab"
+                        aria-controls="listDescricao">
+                        03-Descrição
+                    </a>
+                    <a href="#listRevise" id="listRevise-list"
+                        class="list-group-item list-group-item-action" data-toggle="list" role="tab"
+                        aria-controls="listRevise">
+                        04-Revise
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-8 pt-4 pt-md-0">
+                <div class="tab-content">
+                    <div id="listCategoria" class="tab-pane fade show active" role="tabpanel"
+                        aria-labelledby="listCategoria-list">
+                        <div class="input-group">
+                            <select class="form-control custom-select">
+                                <option value="-1">Selecione...</option>
+                                <option *ngFor="let problema of tiposProblema">{{problema.descricao}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="listFoto" class="tab-pane fade" role="tabpanel"
+                        aria-labelledby="listFoto-list">
+                        <div class="cz-file-drop-area form-group">
+                            <input class="cz-file-drop-input" type="file">
+                            <span class="cz-file-drop-message">
+                                <img src="">
+                            </span>
+                        </div>
+                    </div>
+                    <div id="listDescricao" class="tab-pane fade" role="tabpanel"
+                        aria-labelledby="listDescricao-list">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-comment-dots"></i>
+                                </span>
+                            </div>
+                            <textarea class="form-control" placeholder="Descreva seu problema aqui..."
+                                rows="6"></textarea>
+                        </div>
+                    </div>
+                    <div id="listRevise" class="tab-pane fade" role="tabpanel"
+                        aria-labelledby="listRevise-list">
+                        <button type="button" class="btn btn-warning btn-shadow text-right">Reportar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        
+
+    </div>
+</section>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { eCurrentUsuario } from 'src/app/entidades/eCurrentUsuario';
 import { iIdioma } from 'src/app/Interfaces/iIdioma';
@@ -7,6 +7,7 @@ import { idiomaService } from 'src/app/Services/idiomaService';
 import { produtoService } from 'src/app/Services/produtoService';
 import { TodosProdutosComponent } from '../todos-produtos/todos-produtos.component';
 import {environment} from "../../../environments/environment";
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-portal-layout',
@@ -28,7 +29,8 @@ export class PortalLayoutComponent implements OnInit {
     private router: Router,
     private idiService: idiomaService,
     private auth: AuthService,
-    private produtoService: produtoService
+    private produtoService: produtoService,
+    public dialog: MatDialog
   ) {
     this.currentUser = new eCurrentUsuario();
     this.currentBandeira = idiService.setDefaultLanguage();

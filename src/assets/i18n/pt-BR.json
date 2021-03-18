@@ -24,7 +24,7 @@
 			"emailPreenchimento": "Você precisa preencher o email!",
 			"emailValido": "O e-mail precisa ser válido!",
 			"endereco": "Endereço",
-			"login": "Entrar",
+			"login": "Nome de usuário",
 			"loginNecessario": "Você precisa definir um login.",
 			"userExiste": "Nome de usuário já cadastrado.",
 			"nome": "Nome",
@@ -44,6 +44,40 @@
 			"seulogin": "Esse será o seu login",
 			"telefone": "Telefone"
 		}
+	},
+	"status":{
+		"titleaprovar":"Aprovar aluguel",
+		"titlerecusar":"Recusar aluguel",
+		"titlestatus":"Status do Aluguel",
+		"titleocorrencia":"Ver ocorrência",
+		"titlereporteproblema":"Reportar um problema",
+		"titleavalialocatario":"Avaliar o locatário",
+		"titleavaliaprodutolocador":"Avaliar o locador e o produto alugado",
+		"titledevolverproduto":"Devolver produto",
+		"titleinserircheck":"Inserir checklist",
+		"confirmarlocal":"Confirmar local e horário de entrega e devolução do produto",
+		"informelocal":"Informar locais de entrega e devolução",
+		"validarentrega":"Validar informações de entrega",
+		"validadevolucao":"Validar informações de devolução",
+		"pagaraluguel":"Pagar o Aluguel",
+		"carregarMais":"Carregar mais",
+		"alugueis":"aluguéis",
+		
+		"agendado":"Agendado",
+		"andamento":"Em Andamento",
+		"finalizadosemocorrencia":"Finalizado sem Ocorrência",
+		"finalizadocomocorrencia":"Finalizado com Ocorrência",
+		"canceladolocador":"Cancelado pelo Locador",
+		"canceladolocatario":"Cancelado pelo Locatário",
+		"aguardandopagamento":"Aguardando pagamento",
+		"cancelamentoautomatico":"Cancelamento Automático",
+		"aguardandoaceitelocais":"Aguardando aceite Locais dono",
+		"aguardandodevolucao":"Aguardando devolução",
+		"pagamentoconfirmado":"Pagamento Confirmado",
+		"aguardandoentrega":"Aguardando entrega",
+		"aguardandoaceite":"Aguardando Aceite do Aluguel",
+		"okcheckentrega":"Aguardando ok do checklist de entrega pelo locatário",
+		"okcheckdevolucao":"Aguardando ok do checklist de devolução pelo locatário"
 	},
 	"categorias": {
 		"acessorios": "Acessórios de Viagem",
@@ -82,6 +116,37 @@
 			"ate": "até",
 			"infocontatolocador": "Informações para contato do locador",
 			"valorPago": "Valor Pago:"
+		},
+		"aluguel-local-data-entrega":{
+			"locaishorarios":"Locais e horários de entrega e devoluções dos produtos:",
+			"infoentrega":"Informações da entrega:",
+			"descricaolocal":"Descrição do local",
+			"placeholderlocal":"Shopping principal, praça de alimentação.",
+			"horario":"Horário",
+			"placeholderdatahorario":"Escolha a data e o horário",
+			"infodevolucao":"Informações da devolução:",
+			"salvar":"Salvar locais e horários"
+		},
+		"aluguel-visualizacao-local-data-entrega":{
+			"confirmalocaishorarios":"Confirmação locais e horários de entrega e devoluções dos produtos:",
+			"observacao":"Observação para recusa do endereço, data e hora de entrega e devolução",
+			"confirmar":"Confirmar locais e horários",
+			"recusar":"Recusar locais e horários"
+		},
+		"avaliacao-locador":{
+			"avalielocatario":"Avalie o locatário deste aluguel:",
+			"notaaluguel":"De 0 a 5, dê uma nota geral para a experiência com o locatário deste aluguel:",
+			"nota":"Nota:",
+			"escrevaObservacao":"Escreva uma observação sobre a nota atribuida a essa pessoa:",
+			"salvar":"Salvar avaliação"
+		},
+		"avaliacao-locatario":{
+			"avalielocador":"Avalie o locador deste aluguel:",
+			"avalieproduto":"Avalie o produto deste aluguel:",
+			"notalocador":"De 0 a 5, dê uma nota geral para a experiência com o locador deste aluguel:",
+			"notaproduto":"De 0 a 5, dê uma nota geral para o produto alugado:",
+			"escrevaObservacao":"Escreva uma observação sobre a nota atribuida ao produto:",
+			"salvar":"Salvar avaliações"
 		},
 		"cliente-checklist":{
 			"confirmar":"Confirmar",
@@ -150,6 +215,7 @@
 		"cliente-perfil": {
 			"altNovaFoto": "Nova Foto",
 			"altUsuarioLogado": "Usuário Logado",
+			"alteracaoUsuario": "Em caso de mudança, usuário será deslogado.",
 			"atualizadoSucesso": "atualizado com sucesso!",
 			"atualizarperfil": "Atualizar Perfil",
 			"aviso": "Aviso !!",
@@ -175,7 +241,7 @@
 			"atualizaErro": "Erro ao realizar a atualização do produto",
 			"atualizaSucesso": "atualizado com sucesso!",
 			"cadastroErro": "Erro ao realizar o cadastro do produto",
-			"cadastroSucesso": "cadastrado com sucesso! Enviado para aprovação da publicação.",
+			"cadastroSucesso": "Cadastrado com sucesso!",
 			"categoriaProduto":"Categoria do produto:",
 			"dataCompra": "Data de Compra",
 			"descricaoCurta": "Descrição Curta do Produto",
@@ -201,7 +267,9 @@
 			"valorBaseDiaria": "Valor Base da Diária",
 			"valorBaseMensal": "Valor Base Mensal",
 			"valorProduto": "Valor do Produto",
-			"valoraluguel": "Valor do Aluguel"
+			"valoraluguel": "Valor do Aluguel",
+			"valorMaximo": "Valor máximo 10000",
+			"valorMinimo": "Valor mínimo 0"
 		},
 		"cliente-produto-aluguel": {
 			"datainicio":"Data início:",
@@ -300,7 +368,9 @@
 				"numeroIdentificacao": "Número de Identificação"
 			},
 			"produtosEmAlta": "Produtos em Alta",
-			"subTituloDestaque": "Alugando você sempre ganha dinheiro. Economizando ou Lucrando.",
+			"titulo":"Junte-se ao aluGO",
+			"subTituloDestaque": "Plataforma online para aluguel de itens diversos.",
+			"subTituloDestaque2": "Venha economizar e lucrar conosco. Você sempre sairá ganhando.",
 			"tituloDestaque": "Você precisa de dinheiro extra?"
 		},
 		"login": {
@@ -392,9 +462,9 @@
 			"deixeseucarrobrilhando": "Confira nosso catálogo!",
 			"disponibilize": "Disponibilize um produto hoje mesmo!",
 			"filtros": "Filtros",
-			"locarproduto": "Locar um Produto",
+			"locarproduto": "Disponibilizar um produto",
 			"nenhumProduto": "Nenhum produto encontrado com o filtro",
-			"procuraartigos": "Procura ferramentas para vídeo e fotos?",
+			"procuraartigos": "Economize alugando um produto!",
 			"produtosdisponiveis": "Produtos disponíveis para aluguel:",
 			"proximo": "Próximo",
 			"selecaocategoria":"Selecione a categoria:",

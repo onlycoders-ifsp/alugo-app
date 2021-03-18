@@ -17,6 +17,8 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class ClienteProdutoComponent implements OnInit {
 
+  maxValor: number = 1;
+  dataMaxCompra: string;
   idiomas: iIdioma[];
   categorias: eCategorias[] = [];
   currentBandeira: string;
@@ -49,7 +51,8 @@ export class ClienteProdutoComponent implements OnInit {
   ngOnInit(): void {
     if (!this.auth.isAutenticado()){
       this.auth.encerraSessao();
-    }
+    }    
+    this.dataMaxCompra = new Date().toISOString().split("T")[0]
     this.getListaCategorias();
     this.createForm();
     if (localStorage.getItem("idProdutoMudanca")) {
@@ -69,9 +72,9 @@ export class ClienteProdutoComponent implements OnInit {
       categorias: ['', [Validators.required]],
       ativo: [''],
       descricao: ['', [Validators.required]],
-      valor_base_diaria: ['', [Validators.required]],
-      valor_base_mensal: ['', [Validators.required]],
-      valor_produto: ['', [Validators.required]],
+      valor_base_diaria: ['', [Validators.required,Validators.max(10000),Validators.min(0)]],
+      valor_base_mensal: ['', [Validators.required,Validators.max(10000),Validators.min(0)]],
+      valor_produto: ['', [Validators.required,Validators.max(10000),Validators.min(0)]],
       data_compra: ['', [Validators.required]],
       capa_foto: ['',],
       qtd_alugueis: ['',],

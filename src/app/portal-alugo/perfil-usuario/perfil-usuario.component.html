@@ -1,0 +1,199 @@
+<div class="page-title-overlap bg-accent pt-4">
+    <div
+        class="container d-flex flex-wrap flex-sm-nowrap justify-content-center justify-content-sm-between align-items-center pt-2">
+        <div class="media media-ie-fix align-items-center pb-3">
+            <div class="img-thumbnail rounded-circle position-relative" style="width: 6.375rem;"><img
+                    class="rounded-circle" src="data:image/jpg;base64,{{user.capa_foto}}" alt="Createx Studio"></div>
+            <div class="media-body pl-3">
+                <h3 class="text-light font-size-lg mb-0">{{user.nome}}</h3><span
+                    class="d-block text-light font-size-ms opacity-60 py-1">Membro desde 2019</span><span
+                    class="badge badge-success"><i class="fa fa-check mr-1"></i>Produtos disponiveis</span>
+            </div>
+        </div>
+        <div class="d-flex">
+            <div class="text-sm-right mr-5">
+                <div class="text-light font-size-base">Total Alugueis dos seus produtos</div>
+                <h3 class="text-light">{{totalAlugueis}}</h3>
+            </div>
+            <div class="text-sm-right mr-5">
+                <div class="text-light font-size-base">Média Locador:</div>
+                <!-- <div class="star-rating"><i class="sr-star czi-star-filled active"></i><i
+                        class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i
+                        class="sr-star czi-star-filled active"></i><i class="sr-star czi-star"></i>
+                </div> -->
+                <div class="text-light opacity-60 font-size-xs">{{user.locador_avaliacao}}</div>
+            </div>
+            <div class="text-sm-right mr-5">
+                <div class="text-light font-size-base">Média Locatário:</div>
+                <!-- <div class="star-rating"><i class="sr-star czi-star-filled active"></i><i
+                        class="sr-star czi-star-filled active"></i><i class="sr-star czi-star-filled active"></i><i
+                        class="sr-star czi-star-filled active"></i><i class="sr-star czi-star"></i>
+                </div> -->
+                <div class="text-light opacity-60 font-size-xs">{{user.locatario_avaliacao}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-5 pb-3">
+    <div class="bg-light box-shadow-lg rounded-lg overflow-hidden">
+        <div class="row">
+            <!-- Sidebar-->
+            <aside class="col-lg-4">
+                <div class="cz-sidebar-static h-100 border-right">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item"><a class="nav-link p-4 active" href="#general" data-toggle="tab" role="tab"
+                                aria-selected="false">Produtos</a></li>
+                        <li class="nav-item"><a class="nav-link p-4" href="#avaliacoes" data-toggle="tab" role="tab"
+                                aria-selected="true">Avaliações</a></li>
+                    </ul>
+                    <h6>Localização</h6>
+                    <ul class="list-unstyled font-size-sm">
+                        <li><a class="nav-link-style d-flex align-items-center" href=""><i
+                                    class="fa fa-map-marker-alt opacity-60 mr-2"></i>Cidade: São Paulo</a></li>
+                        <li><a class="nav-link-style d-flex align-items-center" href=""><i
+                                    class="fa fa-map-marker-alt opacity-60 mr-2"></i>Bairro: {{user.bairro}}</a></li>
+                    </ul>
+                    <hr class="my-4">
+                    <h6 class="pb-1">Send message</h6>
+                    <form class="needs-validation pb-2" method="post" novalidate>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="6" placeholder="Your message" required></textarea>
+                            <div class="invalid-feedback">Please wirte your message!</div>
+                        </div>
+                        <button class="btn btn-primary btn-sm btn-block" type="submit">Send</button>
+                    </form>
+                </div>
+            </aside>
+            <!-- Content-->
+            <div class="tab-content col-lg-8 pt-lg-4 pb-md-4">
+                <section class="tab-pane fade show active " id="general" role="tabpanel">
+                    <div class="pt-2 px-4 pl-lg-0 pr-xl-5">
+                        <h2 class="h3 pt-2 pb-4 mb-4 text-center text-sm-left border-bottom">Produtos disponibilizados<span
+                                class="badge badge-secondary font-size-sm text-body align-middle ml-2">{{produtos.length}}</span>
+                        </h2>
+                        <div class="row pt-2">
+                            <!-- Product-->
+                            <div *ngFor="let produto of produtos" class="col-sm-6 mb-grid-gutter">
+                                <div class="card product-card-alt">
+                                    <div class="product-thumb">
+                                        <div class="product-card-actions">
+                                            <button (click)="viewProduto(produto.id_produto)" 
+                                            class="btn btn-light btn-icon btn-shadow font-size-base mx-2" type="button">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                        </div><a class="product-thumb-overlay" href="marketplace-single.html"></a><img
+                                            src="data:image/jpg;base64,{{produto.capa_foto}}" width="64px" height="64px"
+                                            alt="{{produto.nome}}">
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="d-flex flex-wrap justify-content-between align-items-start pb-2">
+                                            <div class="text-muted font-size-xs mr-1"><a
+                                                    class="product-meta font-weight-medium" href="#">Média
+                                                    Avaliação:</a></div>
+                                            <div class="star-rating">
+                                                <i class="fa fa-star active text-primary"></i>
+                                                <i class="fa fa-star active text-primary"></i>
+                                                <i class="fa fa-star active text-primary"></i>
+                                                <i class="fa fa-star active text-primary"></i>
+                                                <i class="far fa-star text-primary"></i>
+                                            </div>
+                                        </div>
+                                        <h3 class="product-title font-size-sm mb-2"><a
+                                                href="marketplace-single.html">{{produto.nome}}</a></h3>
+                                        <div class="d-flex flex-wrap justify-content-between align-items-center">
+                                            <div class="font-size-sm mr-2"><i
+                                                    class="fa fa-comment-dollar text-muted mr-1"></i>{{produto.qtd_alugueis}}<span
+                                                    class="font-size-xs ml-1"> Alugueis</span></div>
+                                            <div class="bg-faded-accent text-accent rounded-sm py-1 px-2">R$
+                                                {{produto.valor_base_diaria}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                <div class="tab-pane fade mr-2" id="avaliacoes" role="tabpanel">
+                    <ul class="nav nav-tabs" role="tablist2">
+                        <li class="nav-item"><a class="nav-link p-4 active" href="#locatario" data-toggle="tab"
+                                role="tab" aria-selected="false">Como Locatário</a></li>
+                        <li class="nav-item"><a class="nav-link p-4" href="#locador" data-toggle="tab" role="tab"
+                                aria-selected="true">Como Locador</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active " id="locatario" role="tabpanel2">
+                            <div *ngIf="semReviewLocatario" class="row justify-content-center pt-lg-4 text-center">
+                                <div class="col-lg-5 col-md-7 col-sm-9">
+                                    <h1 class="display-404">: (</h1>
+                                    <h2 class="h3 mb-4">Sem avaliações de Locatário</h2>
+                                </div>
+                            </div>
+                            <div *ngIf="!semReviewLocatario">
+                                <!-- Review-->
+                                <div *ngFor="let aval of avalLocatario"
+                                    class="card pt-2 pr-2 pl-2 product-review pb-4 mb-4 border-bottom">
+                                    <div class="d-flex mb-3">
+                                        <div class="media media-ie-fix align-items-center mr-4 pr-2"><img
+                                                class="rounded-circle" width="50"
+                                                src="../../../assets/imagens/avatar.svg" alt="Rafael Marquez">
+                                            <div class="media-body pl-3">
+                                                <h6 class="font-size-sm mb-0">{{aval.nome_avaliador}}</h6><span
+                                                    class="font-size-ms text-muted">June 28, 2019</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="font-size-md mb-2">{{aval.comentario}}</p>
+                                    <!-- <div class="text-nowrap">
+                                        <button class="btn-like" type="button">15</button>
+                                        <button class="btn-dislike" type="button">3</button>
+                                    </div> -->
+                                </div>
+                                <!-- <div class="text-center">
+                                    <button class="btn btn-outline-accent" type="button"><i
+                                            class="czi-reload mr-2"></i>Carregar mais</button>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="locador" role="tabpanel2">
+                            <div *ngIf="semReviewLocador" class="row justify-content-center pt-lg-4 text-center">
+                                <div class="col-lg-5 col-md-7 col-sm-9">
+                                    <h1 class="display-404">: (</h1>
+                                    <h2 class="h3 mb-4">Sem avaliações de Locador</h2>
+                                </div>
+                            </div>
+                            <div *ngIf="!semReviewLocador">
+                                <!-- Review-->
+                                <div *ngFor="let aval of avalLocador"
+                                    class="card pt-2 pr-2 pl-2 product-review pb-4 mb-4 border-bottom">
+                                    <div class="d-flex mb-3">
+                                        <div class="media media-ie-fix align-items-center mr-4 pr-2"><img
+                                                class="rounded-circle" width="50" src="../../../assets/imagens/avatar.svg"
+                                                alt="Rafael Marquez">
+                                            <div class="media-body pl-3">
+                                                <h6 class="font-size-sm mb-0">{{aval.nome_avaliador}}</h6><span
+                                                    class="font-size-ms text-muted">June 28, 2019</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="font-size-md mb-2">{{aval.comentario}}</p>
+                                    <!-- <div class="text-nowrap">
+                                        <button class="btn-like" type="button">15</button>
+                                        <button class="btn-dislike" type="button">3</button>
+                                    </div> -->
+                                </div>
+                                <!-- <div class="text-center">
+                                    <button class="btn btn-outline-accent" type="button"><i
+                                            class="czi-reload mr-2"></i>Carregar
+                                        mais</button>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

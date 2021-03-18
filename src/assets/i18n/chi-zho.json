@@ -24,7 +24,7 @@
 			"emailPreenchimento": "您需要填写电子邮件！",
 			"emailValido": "该电子邮件必须有效！",
 			"endereco": "地址",
-			"login": "登录",
+			"login": "用户名",
 			"loginNecessario": "您需要设置一个登录值。",
 			"userExiste": "用户名已被注册。",
 			"nome": "名称",
@@ -44,6 +44,40 @@
 			"seulogin": "这将是您的登录名",
 			"telefone": "电话"
 		}
+	},
+	"status":{		
+		"titleaprovar":"批准租金",
+		"titlerecusar":"租金下降",
+		"titlestatus":"租赁状态",
+		"titleocorrencia":"查看发生",
+		"titlereporteproblema":"报告一个问题",
+		"titleavalialocatario":"评估房客",
+		"titleavaliaprodutolocador":"评估房东和租赁产品",
+		"titledevolverproduto":"退货",
+		"titleinserircheck":"插入清单",
+		"confirmarlocal":"确认交货地点和时间以及产品退货",
+		"informelocal":"通知交货和退货地点",
+		"validarentrega":"验证交货信息",
+		"validadevolucao":"验证退货信息",
+		"pagaraluguel":"支付租金",
+		"carregarMais":"装载更多",
+		"alugueis":"租金",
+		
+		"agendado":"预定的",
+		"andamento":"进行中",
+		"finalizadosemocorrencia":"结束但没有发生",
+		"finalizadocomocorrencia":"结束于发生",
+		"canceladolocador":"出租人取消",
+		"canceladolocatario":"被承租人取消",
+		"aguardandopagamento":"等待付款",
+		"cancelamentoautomatico":"自动取消",
+		"aguardandoaceitelocais":"等待接受的所有者位置",
+		"aguardandodevolucao":"等待返回",
+		"pagamentoconfirmado":"付款确认成功",
+		"aguardandoentrega":"等待交货",
+		"aguardandoaceite":"等待租金验收",
+		"okcheckentrega":"等待承租人交付清单",
+		"okcheckdevolucao":"等待承租人退还清单"
 	},
 	"categorias": {
 		"acessorios": "旅行配件",
@@ -82,6 +116,37 @@
 			"ate": "至",
 			"infocontatolocador": "出租人联系方式",
 			"valorPago": "支付的金额："
+		},
+		"aluguel-local-data-entrega":{
+			"locaishorarios":"交货地点和时间以及产品退货：",
+			"infoentrega":"配送信息：",
+			"descricaolocal":"地点说明",
+			"placeholderlocal":"主要购物商场，美食广场。",
+			"horario":"时间",
+			"placeholderdatahorario":"选择日期和时间",
+			"infodevolucao":"返回信息：",
+			"salvar":"保存位置和时间"
+		},
+		"aluguel-visualizacao-local-data-entrega":{
+			"confirmalocaishorarios":"当地确认和交货时间以及产品退货：",
+			"observacao":"拒绝收货地址，日期和时间的注意事项",
+			"confirmar":"确认地点和时间",
+			"recusar":"拒绝地点和时间"
+		},
+		"avaliacao-locador":{
+			"avalielocatario":"评价此租金的房客：",
+			"notaaluguel":"从0到5，对该房客的租房体验给出总体评价：",
+			"nota":"笔记：",
+			"escrevaObservacao":"写下有关该人的成绩的注释：",
+			"salvar":"保存评论"
+		},
+		"avaliacao-locatario":{
+			"avalielocador":"评价房东的租金：",
+			"avalieproduto":"评价此租借产品：",
+			"notalocador":"从0到5，请对该出租人的出租人的总体评价：",
+			"notaproduto":"在0到5之间，给出租借产品的总体得分：",
+			"escrevaObservacao":"写下有关产品等级的注释：",
+			"salvar":"保存评论"
 		},
 		"cliente-checklist":{
 			"confirmar":"确认",
@@ -150,6 +215,7 @@
 		"cliente-perfil": {
 			"altNovaFoto": "新照片",
 			"altUsuarioLogado": "用户登录",
+			"alteracaoUsuario": "发生更改时，用户将被注销。",
 			"atualizadoSucesso": "更新成功！",
 			"atualizarperfil": "更新个人信息",
 			"aviso": "警告",
@@ -175,7 +241,7 @@
 			"atualizaErro": "执行产品更新时出错",
 			"atualizaSucesso": "更新成功!",
 			"cadastroErro": "执行产品注册时出错",
-			"cadastroSucesso": "注册成功！提交出版批准。",
+			"cadastroSucesso": "注册成功",
 			"categoriaProduto":"产品分类：",
 			"dataCompra": "购买日期",
 			"descricaoCurta": "简短的产品说明",
@@ -201,7 +267,9 @@
 			"valorBaseDiaria": "基本每日费率",
 			"valorBaseMensal": "每月基本价值",
 			"valorProduto": "产品价值",
-			"valoraluguel": "租金价值"
+			"valoraluguel": "租金价值",
+			"valorMaximo": "最大值10000",
+			"valorMinimo": "最小值0"
 		},
 		"cliente-produto-aluguel": {
 			"datainicio":"开始日期：",
@@ -300,7 +368,9 @@
 				"numeroIdentificacao": "身份证号码"
 			},
 			"produtosEmAlta": "热门产品",
+			"titulo":"加入aluGO",
 			"subTituloDestaque": "通过租用，您总是可以赚钱。 节省或获利。",
+			"subTituloDestaque2": "来与我们一起保存并获利。 您将永远赢。",
 			"tituloDestaque": "您需要额外的钱吗？"
 		},
 		"login": {
@@ -392,9 +462,9 @@
 			"deixeseucarrobrilhando": "查看我们的目录！",
 			"disponibilize": "立即提供产品！",
 			"filtros": "筛选器",
-			"locarproduto": "租用产品",
+			"locarproduto": "使产品可用",
 			"nenhumProduto": "过滤器未找到产品",
-			"procuraartigos": "寻找视频和照片工具？",
+			"procuraartigos": "租借产品可省钱！",
 			"produtosdisponiveis": "可供出租的产品：",
 			"proximo": "下一个",
 			"selecaocategoria":"选择类别:",

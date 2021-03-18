@@ -80,7 +80,6 @@ export class RealizaAluguelComponent implements OnInit {
   }
   myFilter = (d: Date): boolean => {
     const time=d.getTime();
-    console.log(this.datasIndisponiveis.length);
     return (this.datasIndisponiveis.length>0) ? !this.datasIndisponiveis.find(x=>x==time):true;
   }
   ngOnInit(): void {
@@ -136,7 +135,8 @@ export class RealizaAluguelComponent implements OnInit {
       let dataInicio = new Date(this.datepipe.transform(item.dt_inicio, 'MM-dd-yyyy'));//(new Date(item.dt_inicio);
       let dataFim = this.transformaDataFim(item.dt_fim);
       dataInicio.setDate(dataInicio.getDate()-2);
-      while(dataInicio.getDate() <= dataFim.getDate()+2){
+      dataFim.setDate(dataFim.getDate()+2)
+      while(dataInicio.getTime() <= new Date(dataFim).getTime()){
         this.datasIndisponiveis.push(dataInicio.getTime());
         dataInicio.setDate(dataInicio.getDate() + 1);
       }
@@ -327,7 +327,7 @@ export class RealizaAluguelComponent implements OnInit {
     this.aluguelService.updateAluguelUrl(this.novoAluguelCad,url).subscribe(response => {
       this.errorCad = false;
       this.errorAluguelExistente = null;
-      this.notificacaoService.showSuccess("Aluguel efetuado com sucesso!")
+      this.notificacaoService.showSuccess("Aluguel efetuado com sucesso! O locador terá que aprovar o aluguel")
       this.router.navigate(["cliente/perfil/alugueis-locatario"]);
     }, errorResponse => {
       console.log(errorResponse)
@@ -346,6 +346,15 @@ export class RealizaAluguelComponent implements OnInit {
     let dateFim: Date = new Date(dateNoPadrao);
     let dataFimFinal: Date = new Date(dateFim.getFullYear(), dateFim.getMonth(), dateFim.getDate(), 23,59,0,0);
     return dataFimFinal;
+  }
+
+
+  viewProfileUser(idUsuario: string){
+    if(sessionStorage.getItem("idUsuarioPreview")){
+      sessionStorage.removeItem("idUsuarioPreview");
+    }
+    sessionStorage.setItem("idUsuarioPreview", idUsuario);
+    this.router.navigate(["/perfil"]);
   }
 
 }

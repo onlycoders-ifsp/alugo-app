@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment';
 import { eCategorias } from '../entidades/eCategorias';
 import { eProduto } from '../entidades/eProduto';
 import { RepositionScrollStrategy } from '@angular/cdk/overlay';
+import { eAvaliacao } from '../entidades/eAvaliacao';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,12 @@ export class produtoService {
 
   getProdutosUsuarioLogado() : Observable<eProduto[]>{
     return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getOnlyUserProducts);
+  }
+
+  getProdutosByIdUsuario(idUsuario: string) : Observable<eProduto[]>{
+    let params = new HttpParams();
+    params = params.append('id_usuario', idUsuario);
+    return this.http.get<eProduto[]>(environment.apiBaseUrl + environment.getProdutosByUserId, {params});
   }
 
   getCategorias() : Observable<eCategorias[]>{

@@ -102,13 +102,13 @@
                   <div class="custom-control custom-radio">
                     {{ 'portal-alugo.realiza-aluguel.valorBase' | translate }}
                   </div>
-                  <h5 class="mb-0 text-accent font-weight-normal">R$ {{valorAluguel}}<small></small></h5>
+                  <h5 class="mb-0 text-accent font-weight-normal">R$ {{valorAluguel.toFixed(2)}}<small></small></h5>
                 </div>
               </div>
             </div>
             <hr>
             <button [disabled]="formularioAluguel.invalid||errorDataMenorHoje||errorData||errorCad||errorDonoProduto||errorAluguelExistente" class="btn btn-success btn-shadow btn-block mt-4" type="submit" ><i class="fa fa-shopping-cart font-size-lg mr-2"></i>{{ 'portal-alugo.realiza-aluguel.alugar' | translate }}</button>
-            <div class="bg-secondary rounded p-3 mt-4 mb-2"><a class="media align-items-center" href="#">
+            <div class="bg-secondary rounded p-3 mt-4 mb-2"><a style="cursor: pointer;" class="media align-items-center" (click)="viewProfileUser(currentDono.id_usuario)">
               
               <img *ngIf="currentDono.capa_foto" class="rounded-circle" width="50" src="data:image/jpg;base64,{{currentDono.capa_foto}}" alt="{{ 'portal-alugo.realiza-aluguel.nomeDono' | translate }}" />
               <img *ngIf="!currentDono.capa_foto" class="rounded-circle" width="50" src="../../../assets/imagens/avatar.svg" alt="{{ 'portal-alugo.realiza-aluguel.nomeDono' | translate }}" />
@@ -122,11 +122,8 @@
                 class="d-inline-block h6 mb-0 mr-1">715</span><span class="font-size-sm">{{ 'portal-alugo.realiza-aluguel.alugueisRealizados' | translate }}</span>
               </div> -->
             <div class="bg-secondary rounded p-3 mb-4">
-              <div class="star-rating"><i class="sr-star fa fa-star active"></i><i
-                  class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star active"></i><i
-                  class="sr-star fa fa-star active"></i><i class="sr-star fa fa-star"></i>
-              </div><span class="font-size-ms ml-2"> 4.8</span>
               <div class="font-size-ms text-muted">{{ 'portal-alugo.realiza-aluguel.avaliacaoUsuario' | translate }}</div>
+              <ngb-rating [max]="5" [rate]=currentDono.locador_avaliacao [readonly]="true" ></ngb-rating>
             </div>
             <ul class="list-unstyled font-size-sm">
               <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span

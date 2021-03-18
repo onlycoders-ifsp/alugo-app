@@ -12,6 +12,9 @@ import { eAvaliacao } from '../entidades/eAvaliacao';
 import { eAvaliacaoRetorno } from '../entidades/eAvaliacaoRetorno';
 import { eChecklist } from '../entidades/eChecklist';
 import { eChecklistCad } from '../entidades/eChecklistCad';
+import { eResumoExtrato } from '../entidades/eResumoExtrato';
+import { eExtrato } from '../entidades/eExtratoLocador';
+import { eTipoProblema } from '../entidades/eTipoProblema';
 
 @Injectable({
   providedIn: 'root'
@@ -124,6 +127,19 @@ export class AluguelService {
     params = params.append('id_produto',idProduto);
     console.log(environment.apiBaseUrl + environment.getAvaliacoesProduto,{params})
     return this.http.get<eAvaliacaoRetorno[]>(environment.apiBaseUrl + environment.getAvaliacoesProduto,{params});
+  }
+
+  getExtrato() : Observable<eExtrato[]> {
+    return this.http.get<eExtrato[]>(environment.apiBaseUrl + environment.getExtratoLocador);
+  }
+
+  getResumoExtrato() : Observable<eResumoExtrato> {
+    
+    return this.http.get<eResumoExtrato>(environment.apiBaseUrl + environment.getResumoExtratoLocador);
+  }
+
+  getTipoProblemas() : Observable<eTipoProblema[]> {
+    return this.http.get<eTipoProblema[]>(environment.apiBaseUrl + environment.getTiposProblemas);
   }
 
   aceitaRecusaAluguel(idAluguel: string, aceite: boolean) : Observable<boolean> {
